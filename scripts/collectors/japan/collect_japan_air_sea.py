@@ -21,12 +21,17 @@ import pandas as pd
 sys.stdout.reconfigure(encoding='utf-8')
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
-MUNICIPALITIES_CSV = os.path.join(PROJECT_ROOT, 'data', 'master', 'municipalities.csv')
-OPERATORS_CSV = os.path.join(PROJECT_ROOT, 'data', 'master', 'operators.csv')
-ROUTES_CSV = os.path.join(PROJECT_ROOT, 'data', 'master', 'transport_routes.csv')
-NODES_CSV = os.path.join(PROJECT_ROOT, 'data', 'master', 'transport_nodes.csv')
+MASTER_DIR = os.path.join(PROJECT_ROOT, 'data', 'master')
+MUNICIPALITIES_CSV = os.path.join(MASTER_DIR, 'municipalities.csv')
+OPERATORS_CSV = os.path.join(MASTER_DIR, 'operators.csv')
+ROUTES_CSV = os.path.join(MASTER_DIR, 'transport_routes.csv')
+NODES_CSV = os.path.join(MASTER_DIR, 'transport_nodes.csv')
 
-USER_AGENT = 'AntigravityAirSeaCollector/2.0 (https://github.com/google/antigravity)'
+# IDマネージャーのインポート
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'scripts'))
+from common.id_manager import IdManager
+
+USER_AGENT = 'AntigravityAirSeaCollector/3.0 (https://github.com/google/antigravity; contact: user@example.com)'
 
 OPERATOR_COLUMNS = [
     "operator_id", "country_code", "日本語名", "公用語名", "種別", "状態",
@@ -387,10 +392,10 @@ def main():
     print("=== 日本の空・海データ（旅客定期便）収集開始 ===")
     wd_to_muni_id, name_to_muni_id = build_municipality_lookup()
 
-    # 1. 事業者追加 (operators.csv)
-    df_ops = pd.read_csv(OPERATORS_CSV, encoding='utf-8', keep_default_na=False, dtype=str)
-    existing_ops_count = len(df_ops)
-    existing_op_names = set(df_ops['日本語名'].tolist())
+    id_mgr = IdManager(MASTER_DIR)
+    id_mgr.load_table('operators')
+    id_mgr.load_table('transport_nodes')
+    id_mgr.load_table('transport_routes')
 
     airlines, ferries = get_airline_and_ferry_operators()
     all_new_ops = airlines + ferries
@@ -398,21 +403,23 @@ def main():
     op_wiki_map = resolve_articles(op_titles)
 
     op_records = []
-    op_counter = existing_ops_count + 1
     op_name_to_id = {}
 
     for name, disp, op_type in all_new_ops:
         full_name = f"{name}（{disp}）" if name != disp else name
-        if full_name in existing_op_names or name in existing_op_names:
-            continue
-        op_id = f"JP-OP-{op_counter:06d}"
-        op_counter += 1
-
         info = op_wiki_map.get(name, {})
         wiki_url = info.get('wiki_ja', '')
         en_url = info.get('wiki_en', '')
         en_title = info.get('en_title', '')
         wd_url = info.get('wd_url', '')
+
+        rec_for_id = {
+            'Wikidata': wd_url,
+            '種別': op_type,
+            '日本語名': full_name,
+            '公用語名': en_title
+        }
+        op_id, is_new = id_mgr.get_or_assign_id('operators', 'JP', rec_for_id)
 
         op_records.append({
             'operator_id': op_id,
@@ -429,29 +436,29 @@ def main():
         op_name_to_id[name] = op_id
         op_name_to_id[disp] = op_id
 
-    df_ops_new = pd.concat([df_ops, pd.DataFrame(op_records, columns=OPERATOR_COLUMNS)], ignore_index=True)
-    df_ops_new.to_csv(OPERATORS_CSV, index=False, encoding='utf-8')
-    print(f"事業者マスタ更新完了: {OPERATORS_CSV} (追加: {len(op_records)} 社, 計: {len(df_ops_new)} 社)")
+    df_jp_air_sea_ops = pd.DataFrame(op_records, columns=OPERATOR_COLUMNS)
+    air_sea_op_types = ['航空会社（大手）', '航空会社（地域・LCC）', '長距離フェリー', '中短距離フェリー・離島航路']
+    id_mgr.save_merged_master('operators', df_jp_air_sea_ops, 'JP', air_sea_op_types)
 
     # 2. 拠点（空港・港湾）追加 (transport_nodes.csv)
-    df_nodes = pd.read_csv(NODES_CSV, encoding='utf-8', keep_default_na=False, dtype=str)
-    existing_nodes_count = len(df_nodes)
-    existing_qids = set(df_nodes['Wikidata'].str.extract(r'(Q\d+)', expand=False).dropna().tolist())
-
     airports = fetch_airports(wd_to_muni_id, name_to_muni_id)
     ports = fetch_ports(wd_to_muni_id, name_to_muni_id)
 
     node_records = []
-    node_counter = existing_nodes_count + 1
+    seen_qids = set()
 
     for item in airports + ports:
         qid = item['qid']
-        if qid in existing_qids:
+        if qid in seen_qids:
             continue
-        existing_qids.add(qid)
+        seen_qids.add(qid)
 
-        node_id = f"JP-ND-{node_counter:06d}"
-        node_counter += 1
+        rec_for_id = {
+            'Wikidata': item['wikidata_url'],
+            '種別': item['type'],
+            '日本語名': item['name']
+        }
+        node_id, is_new = id_mgr.get_or_assign_id('transport_nodes', 'JP', rec_for_id)
 
         node_records.append({
             'node_id': node_id,
@@ -473,29 +480,31 @@ def main():
             'GoogleMap': ''
         })
 
-    df_nodes_new = pd.concat([df_nodes, pd.DataFrame(node_records, columns=NODE_COLUMNS)], ignore_index=True)
-    df_nodes_new.to_csv(NODES_CSV, index=False, encoding='utf-8')
-    print(f"交通拠点マスタ更新完了: {NODES_CSV} (追加: {len(node_records)} 拠点, 計: {len(df_nodes_new)} 拠点)")
+    df_jp_air_sea_nodes = pd.DataFrame(node_records, columns=NODE_COLUMNS)
+    id_mgr.save_merged_master('transport_nodes', df_jp_air_sea_nodes, 'JP', ['空港', '港'])
 
     # 3. 路線（主要航路・航空路）追加 (transport_routes.csv)
-    df_routes = pd.read_csv(ROUTES_CSV, encoding='utf-8', keep_default_na=False, dtype=str)
-    existing_routes_count = len(df_routes)
-
-    # 全事業者のマッピングを再取得
-    full_op_name_to_id = {}
-    for _, row in df_ops_new.iterrows():
-        full_op_name_to_id[row['日本語名']] = row['operator_id']
-        for k in ['JAL', 'ANA', '新日本海フェリー', '太平洋フェリー', '商船三井さんふらわあ', '阪九フェリー', '名門大洋フェリー', '東京九州フェリー', 'オーシャントランス', '津軽海峡フェリー', '青函フェリー', '佐渡汽船', '東海汽船', '小笠原海運', 'Peach', '日本トランスオーシャン航空']:
-            if k in row['日本語名']:
-                full_op_name_to_id[k] = row['operator_id']
+    # 全事業者のマッピング
+    full_op_name_to_id = dict(op_name_to_id)
+    for k in ['JAL', 'ANA', '新日本海フェリー', '太平洋フェリー', '商船三井さんふらわあ', '阪九フェリー', '名門大洋フェリー', '東京九州フェリー', 'オーシャントランス', '津軽海峡フェリー', '青函フェリー', '佐渡汽船', '東海汽船', '小笠原海運', 'Peach', '日本トランスオーシャン航空']:
+        if k in op_name_to_id:
+            full_op_name_to_id[k] = op_name_to_id[k]
 
     air_sea_routes = get_major_air_and_sea_routes(full_op_name_to_id)
     route_records = []
-    route_counter = existing_routes_count + 1
+    seen_routes = set()
 
     for r in air_sea_routes:
-        route_id = f"JP-RT-{route_counter:06d}"
-        route_counter += 1
+        if r['name'] in seen_routes:
+            continue
+        seen_routes.add(r['name'])
+
+        rec_for_id = {
+            'Wikidata': '',
+            '種別': r['type'],
+            '日本語名': r['name']
+        }
+        route_id, is_new = id_mgr.get_or_assign_id('transport_routes', 'JP', rec_for_id)
 
         route_records.append({
             'route_id': route_id,
@@ -520,9 +529,8 @@ def main():
             'GoogleMap': ''
         })
 
-    df_routes_new = pd.concat([df_routes, pd.DataFrame(route_records, columns=ROUTE_COLUMNS)], ignore_index=True)
-    df_routes_new.to_csv(ROUTES_CSV, index=False, encoding='utf-8')
-    print(f"交通路線マスタ更新完了: {ROUTES_CSV} (追加: {len(route_records)} 路線, 計: {len(df_routes_new)} 路線)")
+    df_jp_air_sea_routes = pd.DataFrame(route_records, columns=ROUTE_COLUMNS)
+    id_mgr.save_merged_master('transport_routes', df_jp_air_sea_routes, 'JP', ['定期航路（フェリー）', '主要航空路'])
 
     # 精度管理ベンチマーク突合
     print("\n=== 精度管理ベンチマーク突合 ===")

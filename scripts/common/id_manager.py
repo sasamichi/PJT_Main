@@ -70,23 +70,24 @@ class IdManager:
                 if key_cc not in self.max_seq or seq > self.max_seq[key_cc]:
                     self.max_seq[key_cc] = seq
 
-                # 照合キーを複数登録して頑健に照合
+                # 照合キーを複数登録して頑健に照合（必ず種別を含める）
+                kind = str(row.get('種別', '')).strip()
+
                 # 1. Wikidata URL (QID)
                 wiki_url = str(row.get('Wikidata', '')).strip()
                 if wiki_url:
                     qid_m = re.search(r"Q\d+", wiki_url)
                     if qid_m:
-                        self.key_to_id[(table_name, cc, f"wiki:{qid_m.group(0)}")] = current_id
+                        self.key_to_id[(table_name, cc, f"wiki:{kind}:{qid_m.group(0)}")] = current_id
 
                 # 2. 公的コード (自治体コード、拠点コード、路線番号)
                 code = str(row.get('自治体コード', row.get('拠点コード', row.get('路線番号_記号', '')))).strip()
                 if code:
-                    self.key_to_id[(table_name, cc, f"code:{code}")] = current_id
+                    self.key_to_id[(table_name, cc, f"code:{kind}:{code}")] = current_id
 
                 # 3. 日本語名 / 公用語名
                 name_ja = str(row.get('日本語名', '')).strip()
                 name_local = str(row.get('公用語名', '')).strip()
-                kind = str(row.get('種別', '')).strip()
                 if name_ja:
                     self.key_to_id[(table_name, cc, f"name_ja:{kind}:{name_ja}")] = current_id
                 if name_local:
@@ -101,25 +102,25 @@ class IdManager:
 
         prefix = self.PREFIX_MAP.get(table_name, 'REC')
         cc = country_code.strip()
+        kind = str(record_dict.get('種別', '')).strip()
 
-        # 1. 既存照合 (Wikidata QID優先)
+        # 1. 既存照合 (Wikidata QID優先、種別一致)
         wiki_url = str(record_dict.get('Wikidata', '')).strip()
         if wiki_url:
             qid_m = re.search(r"Q\d+", wiki_url)
             if qid_m:
-                k = (table_name, cc, f"wiki:{qid_m.group(0)}")
+                k = (table_name, cc, f"wiki:{kind}:{qid_m.group(0)}")
                 if k in self.key_to_id:
                     return self.key_to_id[k], False
 
-        # 2. 公的コードで照合
+        # 2. 公的コードで照合（種別一致）
         code = str(record_dict.get('自治体コード', record_dict.get('拠点コード', record_dict.get('路線番号_記号', '')))).strip()
         if code:
-            k = (table_name, cc, f"code:{code}")
+            k = (table_name, cc, f"code:{kind}:{code}")
             if k in self.key_to_id:
                 return self.key_to_id[k], False
 
         # 3. 種別＋名称で照合
-        kind = str(record_dict.get('種別', '')).strip()
         name_ja = str(record_dict.get('日本語名', '')).strip()
         name_local = str(record_dict.get('公用語名', '')).strip()
         if name_ja:
@@ -139,9 +140,9 @@ class IdManager:
 
         # 辞書に登録
         if wiki_url and qid_m:
-            self.key_to_id[(table_name, cc, f"wiki:{qid_m.group(0)}")] = new_id
+            self.key_to_id[(table_name, cc, f"wiki:{kind}:{qid_m.group(0)}")] = new_id
         if code:
-            self.key_to_id[(table_name, cc, f"code:{code}")] = new_id
+            self.key_to_id[(table_name, cc, f"code:{kind}:{code}")] = new_id
         if name_ja:
             self.key_to_id[(table_name, cc, f"name_ja:{kind}:{name_ja}")] = new_id
         if name_local:
@@ -176,3 +177,36 @@ class IdManager:
 
         df.to_csv(log_file, index=False, encoding='utf-8')
         print(f"探索ログのIDを6桁に修復しました: {log_file}")
+
+    def save_merged_master(self, table_name, df_new_records, country_code='JP', target_types=None):
+        """
+        他分野・他国のレコードを完全に保持したまま、今回の収集対象レコードのみを安全に差し替えて保存する。
+        """
+        csv_file = os.path.join(self.master_dir, f"{table_name}.csv")
+        id_col = self.ID_COL_MAP.get(table_name)
+
+        if os.path.exists(csv_file):
+            df_old = pd.read_csv(csv_file, encoding='utf-8', keep_default_na=False, dtype=str)
+            # 保持対象: (国コード != cc) または (種別が target_types に含まれない)
+            if 'country_code' in df_old.columns and '種別' in df_old.columns and target_types:
+                mask_keep = (df_old['country_code'] != country_code) | (~df_old['種別'].isin(target_types))
+                df_keep = df_old[mask_keep].copy()
+            elif 'country_code' in df_old.columns:
+                df_keep = df_old[df_old['country_code'] != country_code].copy()
+            else:
+                df_keep = pd.DataFrame()
+        else:
+            df_keep = pd.DataFrame()
+
+        df_final = pd.concat([df_keep, df_new_records], ignore_index=True)
+        # ID重複がないか安全確認（万が一重複があれば重複排除）
+        if id_col in df_final.columns:
+            dups = df_final[df_final.duplicated(id_col, keep=False)]
+            if len(dups) > 0:
+                print(f"[警告] {table_name}.csv 保存時に {len(dups)} 件のID重複を検知。重複を排除します。")
+                df_final = df_final.drop_duplicates(subset=[id_col], keep='last')
+
+        df_final.to_csv(csv_file, index=False, encoding='utf-8')
+        self.existing_records[table_name] = df_final
+        print(f"マスタ安全保存完了: {csv_file} (今回の対象: {len(df_new_records)} 件, 全体: {len(df_final)} 件)")
+        return df_final

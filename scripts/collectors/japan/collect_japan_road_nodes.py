@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-日本の道路拠点（高速道路IC/JCT/SA/PA、道の駅、主要交差点・起終点）収集・マスタ統合スクリプト
-1. 道の駅（全国約1,200箇所）をWikidataより一括取得
-2. 高速道路施設（IC、JCT、SA、PA、スマートIC、都市高速出入口 約2,900箇所）を取得
+日本の道路拠点（高速道路IC/JCT/SA/PA、道の駅、主要交差点・起終点）収集・マスタ統合スクリプト（領土境界フィルタ・ID永続化版）
+---------------------------------------------------------------------------------------------------------------------
+1. 道の駅（全国約1,200箇所）をWikidataより一括取得（国: 日本、領土境界フィルタ厳格適用）
+2. 高速道路施設（IC、JCT、SA、PA、スマートIC等）をWikidataより取得（国: 日本、領土境界フィルタ厳格適用）
 3. 主要起終点交差点（日本橋、梅田新道等）を定義
-4. municipalities.csv（最新1,965自治体）とのQID/名称マッチングによる自治体IDバインド
-5. 6桁ID体系（JP-ND-009890〜）および新スキーマ17列・小数第6位座標完全対応
-6. transport_nodes.csv に最新マスタとして統合
+4. municipalities.csv（最新自治体）とのマッチングによる自治体IDバインド
+5. IdManagerによるID永続化（再取得時もID不変）
+6. transport_nodes.csv にマスタ統合
 """
 
 import os
@@ -21,16 +22,37 @@ import pandas as pd
 sys.stdout.reconfigure(encoding='utf-8')
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
-MUNICIPALITIES_CSV = os.path.join(PROJECT_ROOT, 'data', 'master', 'municipalities.csv')
-NODES_CSV = os.path.join(PROJECT_ROOT, 'data', 'master', 'transport_nodes.csv')
+MASTER_DIR = os.path.join(PROJECT_ROOT, 'data', 'master')
+MUNICIPALITIES_CSV = os.path.join(MASTER_DIR, 'municipalities.csv')
+NODES_CSV = os.path.join(MASTER_DIR, 'transport_nodes.csv')
 
-USER_AGENT = 'AntigravityRoadNodeCollector/2.0 (https://github.com/google/antigravity)'
+# IDマネージャーのインポート
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'scripts'))
+from common.id_manager import IdManager
+
+USER_AGENT = 'AntigravityRoadNodeCollector/3.0 (https://github.com/google/antigravity; contact: user@example.com)'
 
 NODE_COLUMNS = [
     "node_id", "country_code", "拠点コード", "日本語名", "公用語名", "種別",
     "municipality_id_tmp", "緯度", "経度", "状態", "時代区分",
     "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
 ]
+
+# 日本の領土バウンディングボックス
+JP_BBOX = {
+    'lat_min': 20.0,
+    'lat_max': 46.0,
+    'lon_min': 122.0,
+    'lon_max': 154.0
+}
+
+
+def is_within_japan(lat, lon):
+    """座標が日本の領土境界内にあるか判定（外国拠点混入防止）"""
+    if lat is None or lon is None:
+        return False
+    return (JP_BBOX['lat_min'] <= lat <= JP_BBOX['lat_max'] and
+            JP_BBOX['lon_min'] <= lon <= JP_BBOX['lon_max'])
 
 
 def build_municipality_lookup():
@@ -62,11 +84,12 @@ def parse_coordinates(point_str):
 
 
 def fetch_michi_no_eki(wd_to_muni_id, name_to_muni_id):
-    """全国の道の駅（約1,200箇所）を取得"""
+    """全国の道の駅（約1,200箇所）を取得（国: 日本 限定）"""
     print("Wikidataより全国の道の駅を取得中...")
     query = """
     SELECT DISTINCT ?item ?itemLabel ?coord ?muni ?article_ja WHERE {
       ?item wdt:P31 wd:Q1187691 . # 道の駅
+      ?item wdt:P17 wd:Q17 .       # 国: 日本（必須）
       ?item wdt:P625 ?coord .
       FILTER NOT EXISTS { ?item wdt:P576 ?end . }
       FILTER NOT EXISTS { ?item wdt:P582 ?end_time . }
@@ -83,6 +106,7 @@ def fetch_michi_no_eki(wd_to_muni_id, name_to_muni_id):
     req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
     items = []
     seen = set()
+    dropped_foreign = 0
     try:
         with urllib.request.urlopen(req, timeout=40) as r:
             d = json.loads(r.read())
@@ -95,7 +119,9 @@ def fetch_michi_no_eki(wd_to_muni_id, name_to_muni_id):
 
                 coord_raw = b.get('coord', {}).get('value', '')
                 lat, lon = parse_coordinates(coord_raw)
-                if lat is None: continue
+                if not is_within_japan(lat, lon):
+                    dropped_foreign += 1
+                    continue
 
                 muni_qid = b.get('muni', {}).get('value', '').split('/')[-1] if 'muni' in b else ''
                 muni_id = wd_to_muni_id.get(muni_qid, '')
@@ -112,19 +138,19 @@ def fetch_michi_no_eki(wd_to_muni_id, name_to_muni_id):
                     'article_ja': article_ja,
                     'wikidata_url': f"https://www.wikidata.org/wiki/{qid}"
                 })
-        print(f"取得した道の駅数: {len(items)} 箇所")
+        print(f"取得した道の駅数: {len(items)} 箇所 (領土外除外: {dropped_foreign} 件)")
     except Exception as e:
         print(f"道の駅取得エラー: {e}")
     return items
 
 
 def fetch_expressway_facilities(wd_to_muni_id, name_to_muni_id):
-    """高速道路・自動車専用道施設（IC, JCT, SA, PA等）を取得"""
-    print("Wikidataより高速道路・自動車専用道施設（IC/JCT/SA/PA等）を取得中...")
+    """高速道路・自動車専用道施設（IC, JCT, SA, PA等）を取得（国: 日本 限定）"""
+    print("Wikidataより高速道路施設（IC/JCT/SA/PA等）を取得中...")
     types = [
-        'wd:Q2376564',  # 日本のインターチェンジ
-        'wd:Q1788454',  # 日本のジャンクション
-        'wd:Q60985097', # 日本のサービスエリア・パーキングエリア
+        'wd:Q2376564',  # インターチェンジ
+        'wd:Q1788454',  # ジャンクション
+        'wd:Q60985097', # サービスエリア・パーキングエリア
         'wd:Q11270216', # スマートインターチェンジ
         'wd:Q11270215'  # 料金所
     ]
@@ -132,6 +158,7 @@ def fetch_expressway_facilities(wd_to_muni_id, name_to_muni_id):
     SELECT DISTINCT ?item ?itemLabel ?type ?coord ?muni ?article_ja WHERE {{
       ?item wdt:P31 ?type .
       VALUES ?type {{ {' '.join(types)} }}
+      ?item wdt:P17 wd:Q17 . # 国: 日本（外国拠点混入防止の必須指定！）
       ?item wdt:P625 ?coord .
       FILTER NOT EXISTS {{ ?item wdt:P576 ?end . }}
       FILTER NOT EXISTS {{ ?item wdt:P582 ?end_time . }}
@@ -148,6 +175,7 @@ def fetch_expressway_facilities(wd_to_muni_id, name_to_muni_id):
     req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
     items = []
     seen = set()
+    dropped_foreign = 0
     try:
         with urllib.request.urlopen(req, timeout=50) as r:
             d = json.loads(r.read())
@@ -160,12 +188,14 @@ def fetch_expressway_facilities(wd_to_muni_id, name_to_muni_id):
 
                 coord_raw = b.get('coord', {}).get('value', '')
                 lat, lon = parse_coordinates(coord_raw)
-                if lat is None: continue
+                # 領土境界フィルタ
+                if not is_within_japan(lat, lon):
+                    dropped_foreign += 1
+                    continue
 
                 type_url = b.get('type', {}).get('value', '')
                 type_qid = type_url.split('/')[-1] if type_url else ''
 
-                # 種別判定
                 if 'ジャンクション' in name or type_qid == 'Q1788454':
                     node_type = 'JCT'
                 elif 'サービスエリア' in name:
@@ -196,81 +226,88 @@ def fetch_expressway_facilities(wd_to_muni_id, name_to_muni_id):
                     'article_ja': article_ja,
                     'wikidata_url': f"https://www.wikidata.org/wiki/{qid}"
                 })
-        print(f"取得した高速道路施設数: {len(items)} 箇所")
+        print(f"取得した高速道路施設数: {len(items)} 箇所 (領土外除外: {dropped_foreign} 件)")
     except Exception as e:
         print(f"高速道路施設取得エラー: {e}")
     return items
 
 
 def get_major_crossroads():
-    """主要な路線の起点・終点・主要交差点"""
+    """主要起終点・交差点"""
     return [
         {
+            'qid': 'Q1052670',
             'name': '日本橋（道路元標）',
             'type': '交差点・起終点',
-            'muni_id': 'JP-M-000681', # 東京都千代田区
+            'muni_id': 'JP-M-000681',
             'lat': 35.684167,
             'lon': 139.774444,
             'article_ja': 'https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E6%A9%8B_(%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA)',
             'wikidata_url': 'https://www.wikidata.org/wiki/Q1052670'
         },
         {
+            'qid': 'Q11533669',
             'name': '梅田新道交差点',
             'type': '交差点・起終点',
-            'muni_id': 'JP-M-001099', # 大阪府大阪市北区
-            'lat': 34.698611,
-            'lon': 135.500556,
+            'muni_id': 'JP-M-001099',
+            'lat': 34.698944,
+            'lon': 135.501556,
             'article_ja': 'https://ja.wikipedia.org/wiki/%E6%A2%85%E7%94%B0%E6%96%B0%E9%81%93',
-            'wikidata_url': 'https://www.wikidata.org/wiki/Q11531776'
+            'wikidata_url': 'https://www.wikidata.org/wiki/Q11533669'
         }
     ]
 
 
 def main():
-    print("=== 日本の道路拠点（IC/JCT/SA/PA・道の駅等）データ収集開始 ===")
-    wd_to_muni_id, name_to_muni_id = build_municipality_lookup()
+    print("=== 日本の道路拠点クリーン再収集開始 ===")
+    id_mgr = IdManager(MASTER_DIR)
+    id_mgr.load_table('transport_nodes')
 
-    # 1. 拠点データ取得
-    michi_nodes = fetch_michi_no_eki(wd_to_muni_id, name_to_muni_id)
-    exp_nodes = fetch_expressway_facilities(wd_to_muni_id, name_to_muni_id)
-    crossroads = get_major_crossroads()
+    wd_to_muni, name_to_muni = build_municipality_lookup()
 
-    all_road_nodes = michi_nodes + exp_nodes + crossroads
-    print(f"\n取得した道路拠点総数: {len(all_road_nodes)} 箇所")
+    # 1. 各拠点データ取得
+    michi_items = fetch_michi_no_eki(wd_to_muni, name_to_muni)
+    exp_items = fetch_expressway_facilities(wd_to_muni, name_to_muni)
+    cross_items = get_major_crossroads()
 
-    # 2. 既存マスタとの統合
-    df_nodes = pd.read_csv(NODES_CSV, encoding='utf-8', keep_default_na=False, dtype=str)
-    existing_count = len(df_nodes)
-    existing_qids = set(df_nodes['Wikidata'].str.extract(r'(Q\d+)', expand=False).dropna().tolist())
-    existing_names = set(df_nodes['日本語名'].tolist())
+    all_road_nodes = michi_items + exp_items + cross_items
+    print(f"\nクリーン収集した日本の道路拠点総数: {len(all_road_nodes)} 箇所")
+
+    # 2. 既存マスタのJP道路拠点以外（鉄道駅、空港、港湾、および外国拠点）を保持
+    df_existing = id_mgr.existing_records.get('transport_nodes', pd.DataFrame())
+    if len(df_existing) > 0 and 'country_code' in df_existing.columns and '種別' in df_existing.columns:
+        # JPの道路拠点（IC, JCT, SA, PA, スマートIC, 本線料金所, 都市高速出入口, 道の駅, 交差点・起終点）以外のレコードを保持
+        road_types = {'IC', 'JCT', 'SA', 'PA', 'スマートIC', '本線料金所', '都市高速出入口', '道の駅', '交差点・起終点'}
+        df_other_nodes = df_existing[~((df_existing['country_code'] == 'JP') & (df_existing['種別'].isin(road_types)))].copy()
+    else:
+        df_other_nodes = pd.DataFrame(columns=NODE_COLUMNS)
 
     node_records = []
-    counter = existing_count + 1
+    seen_qids = set()
 
     for item in all_road_nodes:
         qid = item.get('qid', '')
-        name = item['name']
-        if qid and qid in existing_qids:
+        if qid in seen_qids:
             continue
-        if name in existing_names:
-            continue
-        if qid:
-            existing_qids.add(qid)
-        existing_names.add(name)
+        seen_qids.add(qid)
 
-        node_id = f"JP-ND-{counter:06d}"
-        counter += 1
+        rec_for_id = {
+            'Wikidata': item.get('wikidata_url', ''),
+            '種別': item['type'],
+            '日本語名': item['name']
+        }
+        node_id, is_new = id_mgr.get_or_assign_id('transport_nodes', 'JP', rec_for_id)
 
         node_records.append({
             'node_id': node_id,
             'country_code': 'JP',
             '拠点コード': '',
-            '日本語名': name,
+            '日本語名': item['name'],
             '公用語名': '',
             '種別': item['type'],
             'municipality_id_tmp': item.get('muni_id', ''),
-            '緯度': item['lat'],
-            '経度': item['lon'],
+            '緯度': str(item['lat']),
+            '経度': str(item['lon']),
             '状態': '現存',
             '時代区分': '現代',
             'Wikipedia_ja': item.get('article_ja', ''),
@@ -281,25 +318,10 @@ def main():
             'GoogleMap': ''
         })
 
-    df_nodes_new = pd.concat([df_nodes, pd.DataFrame(node_records, columns=NODE_COLUMNS)], ignore_index=True)
-    df_nodes_new.to_csv(NODES_CSV, index=False, encoding='utf-8')
-    print(f"\n交通拠点マスタ更新完了: {NODES_CSV} (追加: {len(node_records)} 拠点, 計: {len(df_nodes_new)} 拠点)")
-
-    print("\n=== 最新の交通拠点種別内訳 ===")
-    print(df_nodes_new['種別'].value_counts())
-
-    # 精度管理突合
-    michi_count = (df_nodes_new['種別'] == '道の駅').sum()
-    ic_count = (df_nodes_new['種別'].isin(['IC', 'スマートIC', '都市高速出入口'])).sum()
-    jct_count = (df_nodes_new['種別'] == 'JCT').sum()
-    sa_pa_count = (df_nodes_new['種別'].isin(['SA', 'PA'])).sum()
-
-    print("\n=== 道路拠点 精度管理ベンチマーク ===")
-    print(f"- 道の駅: 基準 約1,200箇所 / 実績 {michi_count} 箇所 -> {'合格' if 1150 <= michi_count <= 1300 else '要調査'}")
-    print(f"- 高速道路IC・出入口: 実績 {ic_count} 箇所")
-    print(f"- 高速道路JCT: 実績 {jct_count} 箇所")
-    print(f"- サービスエリア・PA: 実績 {sa_pa_count} 箇所")
-    print(f"- 所在自治体紐付け数: {(df_nodes_new['municipality_id_tmp'] != '').sum()} / {len(df_nodes_new)}")
+    df_jp_roads = pd.DataFrame(node_records, columns=NODE_COLUMNS)
+    df_nodes_final = pd.concat([df_other_nodes, df_jp_roads], ignore_index=True)
+    df_nodes_final.to_csv(NODES_CSV, index=False, encoding='utf-8')
+    print(f"\n交通拠点マスタ更新完了: {NODES_CSV} (JP道路拠点: {len(df_jp_roads)} 件, 全体: {len(df_nodes_final)} 件)")
 
 
 if __name__ == '__main__':

@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-日本の道路路線（高速道路・一般国道・主要地方道・農道・林道）収集・マスタ統合スクリプト（新スキーマ対応版）
-1. 道路管理者・公社等の事業者追加（operators.csv への追加・新スキーマ10列準拠）
-2. 高速自動車国道・都市高速・高規格道路（重複排除・ナンバリング付与：約240路線）
+日本の道路路線（高速道路・一般国道・主要地方道）収集・マスタ統合スクリプト（ID永続化・クリーン版）
+---------------------------------------------------------------------------------------
+1. 道路管理者・公社等の事業者追加（operators.csv への追加・新スキーマ準拠）
+2. 高速自動車国道・都市高速・高規格道路（重複排除・ナンバリング付与：約220〜240路線）
 3. 一般国道（国道1号〜507号 全459路線、欠番48除外、歴史街道・愛称付与）
-4. 主要地方道（47都道府県の主要地方道・主要都道府道道道：約1,000〜2,000路線）
-5. 主要農道・林道（広域農道・大規模林道）
-6. 6桁ID体系（JP-OP-000269〜, JP-RT-000893〜）および新スキーマ20列完全対応
-7. transport_routes.csv に最新マスタとして統合
+4. 主要地方道（北海道主要道道151路線、主要都道、全都道府県1〜99号の主要地方道に厳格限定）
+   ※林道・農道・一般県道は完全除外
+5. IdManagerによるID永続化（再取得時もID不変）
+6. transport_routes.csv にマスタ統合
 """
 
 import os
@@ -22,10 +23,15 @@ import pandas as pd
 sys.stdout.reconfigure(encoding='utf-8')
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
-OPERATORS_CSV = os.path.join(PROJECT_ROOT, 'data', 'master', 'operators.csv')
-ROUTES_CSV = os.path.join(PROJECT_ROOT, 'data', 'master', 'transport_routes.csv')
+MASTER_DIR = os.path.join(PROJECT_ROOT, 'data', 'master')
+OPERATORS_CSV = os.path.join(MASTER_DIR, 'operators.csv')
+ROUTES_CSV = os.path.join(MASTER_DIR, 'transport_routes.csv')
 
-USER_AGENT = 'AntigravityRoadCollector/2.0 (https://github.com/google/antigravity)'
+# IDマネージャーのインポート
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'scripts'))
+from common.id_manager import IdManager
+
+USER_AGENT = 'AntigravityRoadCollector/3.0 (https://github.com/google/antigravity; contact: user@example.com)'
 
 OPERATOR_COLUMNS = [
     "operator_id", "country_code", "日本語名", "公用語名", "種別", "状態",
@@ -38,7 +44,6 @@ ROUTE_COLUMNS = [
     "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
 ]
 
-# 主要路線の愛称・歴史街道名・ナンバリング定義
 ROAD_METADATA_MAP = {
     '国道1号': {'num': '1', 'aliases': '東海道, 第一京浜, 第二京浜', 'int': 'INT-RT-000001', 'start': '東京都中央区（日本橋）', 'end': '大阪府大阪市北区（梅田新道）'},
     '国道2号': {'num': '2', 'aliases': '山陽道', 'int': 'INT-RT-000001', 'start': '大阪府大阪市北区（梅田新道）', 'end': '福岡県北九州市門司区'},
@@ -73,111 +78,58 @@ ROAD_METADATA_MAP = {
 }
 
 
-def resolve_articles_batch(titles):
-    """Wikipedia APIでWikipedia URL、正規タイトル、Wikidata URLを一括解決"""
-    results = {}
-    batch_size = 50
-    titles_list = list(set(titles))
-    print(f"Wikipedia APIで {len(titles_list)} 件の道路記事をバッチ解決中...")
-
-    for i in range(0, len(titles_list), batch_size):
-        chunk = titles_list[i:i+batch_size]
-        url = 'https://ja.wikipedia.org/w/api.php?action=query&redirects=1&prop=pageprops&format=json&titles=' + urllib.parse.quote('|'.join(chunk))
-        req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-        try:
-            with urllib.request.urlopen(req, timeout=25) as r:
-                data = json.loads(r.read())
-                qinfo = data.get('query', {})
-                redir_map = {rd['to']: rd['from'] for rd in qinfo.get('redirects', [])}
-                for pid, pdata in qinfo.get('pages', {}).items():
-                    if pid != '-1' and int(pid) > 0:
-                        actual_title = pdata.get('title')
-                        qid = pdata.get('pageprops', {}).get('wikibase_item', '')
-                        wiki_url = f"https://ja.wikipedia.org/wiki/{urllib.parse.quote(actual_title)}"
-                        wd_url = f"https://www.wikidata.org/wiki/{qid}" if qid else ""
-                        entry = {
-                            'canonical_title': actual_title,
-                            'wiki_url': wiki_url,
-                            'wd_url': wd_url,
-                            'qid': qid
-                        }
-                        results[actual_title] = entry
-                        if actual_title in redir_map:
-                            results[redir_map[actual_title]] = entry
-        except Exception as e:
-            print(f"Batch query warning: {e}")
-        time.sleep(0.05)
-    print(f"解決完了: {len(results)} 件")
-    return results
-
-
-def add_road_operators():
-    """高速道路会社・道路管理者等の事業者を登録"""
-    df_ops = pd.read_csv(OPERATORS_CSV, encoding='utf-8', keep_default_na=False, dtype=str)
-    existing_count = len(df_ops)
-    existing_names = set(df_ops['日本語名'].tolist())
-
-    road_ops = [
-        ('東日本高速道路', 'NEXCO東日本', '特殊会社（道路）'),
-        ('中日本高速道路', 'NEXCO中日本', '特殊会社（道路）'),
-        ('西日本高速道路', 'NEXCO西日本', '特殊会社（道路）'),
-        ('本州四国連絡高速道路', 'JB本四高速', '特殊会社（道路）'),
-        ('首都高速道路', '首都高', '特殊会社（道路）'),
-        ('阪神高速道路', '阪神高速', '特殊会社（道路）'),
-        ('名古屋高速道路公社', '名古屋高速', '公営（道路公社）'),
-        ('福岡北九州高速道路公社', '福岡北九州高速', '公営（道路公社）'),
-        ('広島高速道路公社', '広島高速', '公営（道路公社）'),
-        ('国土交通省道路局', '国土交通省（道路）', '国（道路管理者）')
+def add_road_operators(id_mgr):
+    """主要な道路管理者・公社を登録"""
+    operators_data = [
+        {"name": "東日本高速道路", "disp": "NEXCO東日本", "type": "特殊会社（高速道路）", "wiki_ja": "https://ja.wikipedia.org/wiki/%E6%9D%B1%E6%97%A5%E6%9C%AC%E9%AB%98%E9%80%9F%E9%81%93%E8%B7%AF", "wikidata": "https://www.wikidata.org/wiki/Q1189333"},
+        {"name": "中日本高速道路", "disp": "NEXCO中日本", "type": "特殊会社（高速道路）", "wiki_ja": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E6%97%A5%E6%9C%AC%E9%AB%98%E9%80%9F%E9%81%93%E8%B7%AF", "wikidata": "https://www.wikidata.org/wiki/Q1140027"},
+        {"name": "西日本高速道路", "disp": "NEXCO西日本", "type": "特殊会社（高速道路）", "wiki_ja": "https://ja.wikipedia.org/wiki/%E8%A5%BF%E6%97%A5%E6%9C%AC%E9%AB%98%E9%80%9F%E9%81%93%E8%B7%AF", "wikidata": "https://www.wikidata.org/wiki/Q1196191"},
+        {"name": "本州四国連絡高速道路", "disp": "JB本四高速", "type": "特殊会社（高速道路）", "wiki_ja": "https://ja.wikipedia.org/wiki/%E6%9C%AC%E5%B7%9E%E5%9B%9B%E5%9B%BD%E9%80%A3%E7%B5%A1%E9%AB%98%E9%80%9F%E9%81%93%E8%B7%AF", "wikidata": "https://www.wikidata.org/wiki/Q1194285"},
+        {"name": "首都高速道路", "disp": "首都高速道路", "type": "特殊会社（高速道路）", "wiki_ja": "https://ja.wikipedia.org/wiki/%E9%A6%96%E9%83%BD%E9%AB%98%E9%80%9F%E9%81%93%E8%B7%AF", "wikidata": "https://www.wikidata.org/wiki/Q904128"},
+        {"name": "阪神高速道路", "disp": "阪神高速道路", "type": "特殊会社（高速道路）", "wiki_ja": "https://ja.wikipedia.org/wiki/%E9%98%AA%E7%A5%9E%E9%AB%98%E9%80%9F%E9%81%93%E8%B7%AF", "wikidata": "https://www.wikidata.org/wiki/Q1193356"},
+        {"name": "名古屋高速道路公社", "disp": "名古屋高速道路公社", "type": "地方道路公社", "wiki_ja": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E9%AB%98%E9%80%9F%E9%81%93%E8%B7%AF%E5%85%AC%E7%A4%BE", "wikidata": "https://www.wikidata.org/wiki/Q11417036"},
+        {"name": "福岡北九州高速道路公社", "disp": "福岡北九州高速道路公社", "type": "地方道路公社", "wiki_ja": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E5%8C%97%E4%B9%9D%E5%B7%9E%E9%AB%98%E9%80%9F%E9%81%93%E8%B7%AF%E5%85%AC%E7%A4%BE", "wikidata": "https://www.wikidata.org/wiki/Q11569766"},
+        {"name": "広島高速道路公社", "disp": "広島高速道路公社", "type": "地方道路公社", "wiki_ja": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E9%AB%98%E9%80%9F%E9%81%93%E8%B7%AF%E5%85%AC%E7%A4%BE", "wikidata": "https://www.wikidata.org/wiki/Q11486795"},
+        {"name": "国土交通省", "disp": "国土交通省（道路管理者）", "type": "行政機関", "wiki_ja": "https://ja.wikipedia.org/wiki/%E5%9B%BD%E5%9C%9F%E4%BA%A4%E9%80%9A%E7%9C%81", "wikidata": "https://www.wikidata.org/wiki/Q1056525"}
     ]
 
-    new_records = []
-    counter = existing_count + 1
-    op_name_to_id = {}
-
-    for name, disp, op_type in road_ops:
-        full_name = f"{name}（{disp}）" if name != disp else name
-        if full_name in existing_names or name in existing_names:
-            continue
-        op_id = f"JP-OP-{counter:06d}"
-        counter += 1
-
-        new_records.append({
+    op_map = {}
+    op_records = []
+    for op in operators_data:
+        rec = {
+            'country_code': 'JP',
+            '日本語名': op['name'],
+            '公用語名': '',
+            '種別': op['type'],
+            'Wikidata': op['wikidata'],
+            'Wikipedia_ja': op['wiki_ja']
+        }
+        op_id, is_new = id_mgr.get_or_assign_id('operators', 'JP', rec)
+        op_map[op['name']] = op_id
+        op_map[op['disp']] = op_id
+        op_records.append({
             'operator_id': op_id,
             'country_code': 'JP',
-            '日本語名': full_name,
+            '日本語名': op['name'],
             '公用語名': '',
-            '種別': op_type,
+            '種別': op['type'],
             '状態': '現存',
-            'Wikipedia_ja': f"https://ja.wikipedia.org/wiki/{urllib.parse.quote(name)}",
+            'Wikipedia_ja': op['wiki_ja'],
             'Wikipedia_en': '',
             'Wikipedia_local': '',
-            'Wikidata': ''
+            'Wikidata': op['wikidata']
         })
-        op_name_to_id[name] = op_id
-        op_name_to_id[disp] = op_id
 
-    if new_records:
-        df_new = pd.concat([df_ops, pd.DataFrame(new_records, columns=OPERATOR_COLUMNS)], ignore_index=True)
-        df_new.to_csv(OPERATORS_CSV, index=False, encoding='utf-8')
-        print(f"道路事業者追加完了: {len(new_records)} 社 (計: {len(df_new)} 社)")
-    else:
-        df_new = df_ops
+    df_road_ops = pd.DataFrame(op_records, columns=OPERATOR_COLUMNS)
+    id_mgr.save_merged_master('operators', df_road_ops, 'JP', ['特殊会社（高速道路）', '地方道路公社', '行政機関'])
 
-    # 逆引き辞書
-    full_op_map = {}
-    for _, row in df_new.iterrows():
-        full_op_map[row['日本語名']] = row['operator_id']
-        for k in ['NEXCO東日本', 'NEXCO中日本', 'NEXCO西日本', 'JB本四高速', '首都高', '阪神高速', '名古屋高速', '福岡北九州高速', '広島高速', '国土交通省']:
-            if k in row['日本語名']:
-                full_op_map[k] = row['operator_id']
-    return full_op_map
+    return op_map
 
 
 def fetch_national_routes():
     """国道1号〜507号（実在459路線）を生成"""
     print("一般国道（国道1号〜507号）リストを生成中...")
     routes = []
-    # 道路法の欠番: 59〜100, 109〜111, 214〜216 (計48路線)
     missing_numbers = set(range(59, 101)) | {109, 110, 111, 214, 215, 216}
     for n in range(1, 508):
         if n in missing_numbers:
@@ -199,7 +151,7 @@ def fetch_national_routes():
 
 
 def fetch_expressways_from_wikipedia(op_map):
-    """Wikipedia『日本の高速道路一覧』から高速道路・都市高速を抽出（正規化＆重複排除）"""
+    """Wikipedia『日本の高速道路一覧』から高速道路・都市高速を抽出"""
     print("Wikipedia『日本の高速道路一覧』より高速道路・都市高速を抽出中...")
     url = 'https://ja.wikipedia.org/w/api.php?action=parse&page=' + urllib.parse.quote('日本の高速道路一覧') + '&prop=wikitext&format=json'
     req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
@@ -213,8 +165,7 @@ def fetch_expressways_from_wikipedia(op_map):
     for article, disp in links:
         article = article.strip()
         disp = (disp or article).strip()
-        
-        # 高速道路判定
+
         if not (article.endswith(('自動車道', '高速道路', '有料道路', '道路', '連絡道路', 'ハイウェイ', 'ライン')) or '高速' in article):
             continue
         if any(k in article for k in ['Category:', 'File:', '一覧', 'IC', 'JCT', 'PA', 'SA', '出入口', '料金所', 'インターチェンジ', 'ジャンクション', 'Template:']):
@@ -224,7 +175,6 @@ def fetch_expressways_from_wikipedia(op_map):
             continue
         seen_articles.add(article)
 
-        # 種別判定
         if any(k in article for k in ['首都高速', '阪神高速', '名古屋高速', '福岡高速', '北九州高速', '広島高速']):
             r_type = '都市高速'
             op_hint = '首都高' if '首都高速' in article else ('阪神高速' if '阪神高速' in article else '公営')
@@ -247,141 +197,193 @@ def fetch_expressways_from_wikipedia(op_map):
             'op_hint': op_hint
         })
 
-    print(f"抽出した高速道路・都市高速数（重複排除後）: {len(routes)} 路線")
+    print(f"抽出した高速道路・都市高速数: {len(routes)} 路線")
     return routes
 
 
-def fetch_major_prefectural_roads():
-    """Wikipedia『Category:都道府県道』配下から主要地方道を網羅取得"""
-    print("47都道府県の主要地方道（主要都道府県道）を取得中...")
+def fetch_hokkaido_major_roads():
+    """北海道の主要道道（1号〜151号）を網羅取得"""
+    print("北海道の主要道道（Category:北海道道 (主要道道)）を取得中...")
     routes = []
-    seen = set()
-
-    # 主要都道府県カテゴリ一覧
-    pref_cats = [
-        'Category:北海道道', 'Category:青森県道', 'Category:岩手県道', 'Category:宮城県道',
-        'Category:秋田県道', 'Category:山形県道', 'Category:福島県道', 'Category:茨城県道',
-        'Category:栃木県道', 'Category:群馬県道', 'Category:埼玉県道', 'Category:千葉県道',
-        'Category:東京都道', 'Category:神奈川県道', 'Category:新潟県道', 'Category:富山県道',
-        'Category:石川県道', 'Category:福井県道', 'Category:山梨県道', 'Category:長野県道',
-        'Category:岐阜県道', 'Category:静岡県道', 'Category:愛知県道', 'Category:三重県道',
-        'Category:滋賀県道', 'Category:京都府道', 'Category:大阪府道', 'Category:兵庫県道',
-        'Category:奈良県道', 'Category:和歌山県道', 'Category:鳥取県道', 'Category:島根県道',
-        'Category:岡山県道', 'Category:広島県道', 'Category:山口県道', 'Category:徳島県道',
-        'Category:香川県道', 'Category:愛媛県道', 'Category:高知県道', 'Category:福岡県道',
-        'Category:佐賀県道', 'Category:長崎県道', 'Category:熊本県道', 'Category:大分県道',
-        'Category:宮崎県道', 'Category:鹿児島県道', 'Category:沖縄県道'
-    ]
-
-    for cat in pref_cats:
-        url = 'https://ja.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=' + urllib.parse.quote(cat) + '&cmlimit=100&cmtype=page&format=json'
-        req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-        try:
-            with urllib.request.urlopen(req, timeout=15) as r:
-                d = json.loads(r.read())
-                members = d.get('query', {}).get('categorymembers', [])
-                for m in members:
-                    title = m.get('title', '')
-                    if title in seen: continue
-                    # 主要地方道の判定（番号が1桁〜2桁の路線、または「主要地方道」と明記されているもの）
-                    m_num = re.search(r'([0-9]+)号', title)
-                    if m_num:
-                        num_val = int(m_num.group(1))
-                        # 通常、主要地方道は1号〜99号（北海道道は1号〜140番前後）
-                        if num_val <= 120:
-                            seen.add(title)
-                            routes.append({
-                                'name': title,
-                                'type': '主要地方道',
-                                'num': str(num_val),
-                                'aliases': '',
-                                'int_id': '',
-                                'start': '',
-                                'end': '',
-                                'op_hint': ''
-                            })
-        except Exception as e:
-            pass
-        time.sleep(0.05)
-
-    print(f"取得した主要地方道数: {len(routes)} 路線")
-    return routes
-
-
-def fetch_farm_and_forest_roads():
-    """Wikipedia『日本の農道一覧』『日本の林道一覧』から主要農道・林道を抽出"""
-    print("主要農道および林道を抽出中...")
-    routes = []
-    seen = set()
-
-    for page, r_type, suffix in [('日本の農道一覧', '農道', '農道'), ('日本の林道一覧', '林道', '林道')]:
-        url = 'https://ja.wikipedia.org/w/api.php?action=parse&page=' + urllib.parse.quote(page) + '&prop=wikitext&format=json'
-        req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-        try:
-            with urllib.request.urlopen(req, timeout=20) as r:
-                d = json.loads(r.read())
-                text = d['parse']['wikitext']['*']
-            links = re.findall(r'\[\[([^\|\]]+)(?:\|([^\]]+))?\]\]', text)
-            for article, disp in links:
-                name = (disp or article).strip()
-                article = article.strip()
-                if name in seen or article in seen: continue
-                if not (article.endswith(suffix) or suffix in article or 'スーパー' in article):
+    url = 'https://ja.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=' + urllib.parse.quote('Category:北海道道 (主要道道)') + '&cmlimit=500&cmtype=page&format=json'
+    req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            d = json.loads(r.read())
+            members = d.get('query', {}).get('categorymembers', [])
+            for m in members:
+                title = m.get('title', '').strip()
+                if not title or '一覧' in title:
                     continue
-                if any(k in article for k in ['Category:', 'File:', '一覧', 'Template:']): continue
-
-                seen.add(article)
-                seen.add(name)
+                num_m = re.search(r'([0-9]+)号', title)
+                num_str = num_m.group(1) if num_m else ''
                 routes.append({
-                    'name': article,
-                    'type': r_type,
-                    'num': '',
+                    'name': title,
+                    'type': '主要地方道',
+                    'num': num_str,
                     'aliases': '',
                     'int_id': '',
                     'start': '',
                     'end': '',
-                    'op_hint': ''
+                    'op_hint': '北海道'
                 })
-        except Exception as e:
-            print(f"{page} 抽出エラー: {e}")
-
-    print(f"抽出した主要農道・林道数: {len(routes)} 路線")
+        print(f"取得した北海道主要道道数: {len(routes)} 路線")
+    except Exception as e:
+        print(f"北海道主要道道取得エラー: {e}")
     return routes
 
 
-def main():
-    print("=== 日本の道路路線データ収集開始 ===")
-    op_map = add_road_operators()
+def fetch_other_prefectural_major_roads():
+    """東京都および各府県の主要地方道（1〜99号、東京特例301〜319号）を厳格取得"""
+    print("各都府県の主要地方道を取得中...")
+    routes = []
+    seen = set()
 
-    # 1. 各カテゴリの路線を収集
+    pref_cats = [
+        ('東京都道', 1, 68, [(301, 319)]), # 東京特例主要都道含む
+        ('青森県道', 1, 99, []), ('岩手県道', 1, 99, []), ('宮城県道', 1, 99, []),
+        ('秋田県道', 1, 99, []), ('山形県道', 1, 99, []), ('福島県道', 1, 99, []),
+        ('茨城県道', 1, 99, []), ('栃木県道', 1, 99, []), ('群馬県道', 1, 99, []),
+        ('埼玉県道', 1, 99, []), ('千葉県道', 1, 99, []), ('神奈川県道', 1, 99, []),
+        ('新潟県道', 1, 99, []), ('富山県道', 1, 99, []), ('石川県道', 1, 99, []),
+        ('福井県道', 1, 99, []), ('山梨県道', 1, 99, []), ('長野県道', 1, 99, []),
+        ('岐阜県道', 1, 99, []), ('静岡県道', 1, 99, []), ('愛知県道', 1, 99, []),
+        ('三重県道', 1, 99, []), ('滋賀県道', 1, 99, []), ('京都府道', 1, 99, []),
+        ('大阪府道', 1, 99, []), ('兵庫県道', 1, 99, []), ('奈良県道', 1, 99, []),
+        ('和歌山県道', 1, 99, []), ('鳥取県道', 1, 99, []), ('島根県道', 1, 99, []),
+        ('岡山県道', 1, 99, []), ('広島県道', 1, 99, []), ('山口県道', 1, 99, []),
+        ('徳島県道', 1, 99, []), ('香川県道', 1, 99, []), ('愛媛県道', 1, 99, []),
+        ('高知県道', 1, 99, []), ('福岡県道', 1, 99, []), ('佐賀県道', 1, 99, []),
+        ('長崎県道', 1, 99, []), ('熊本県道', 1, 99, []), ('大分県道', 1, 99, []),
+        ('宮崎県道', 1, 99, []), ('鹿児島県道', 1, 99, []), ('沖縄県道', 1, 99, [])
+    ]
+
+    for cat_name, min_num, max_num, extra_ranges in pref_cats:
+        cmcontinue = None
+        while True:
+            cat_str = f"Category:{cat_name}"
+            url = f"https://ja.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle={urllib.parse.quote(cat_str)}&cmlimit=500&cmtype=page&format=json"
+            if cmcontinue:
+                url += f"&cmcontinue={urllib.parse.quote(cmcontinue)}"
+
+            req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
+            try:
+                with urllib.request.urlopen(req, timeout=15) as r:
+                    d = json.loads(r.read())
+                    members = d.get('query', {}).get('categorymembers', [])
+                    for m in members:
+                        title = m.get('title', '').strip()
+                        if not title or title in seen or '一覧' in title:
+                            continue
+
+                        # 路線番号を抽出
+                        m_num = re.search(r'([0-9]+)号', title)
+                        if m_num:
+                            num_val = int(m_num.group(1))
+                            # 判定: 1〜99号、または追加指定レンジ（東京特例都道など）
+                            is_major = (min_num <= num_val <= max_num)
+                            if not is_major:
+                                for emin, emax in extra_ranges:
+                                    if emin <= num_val <= emax:
+                                        is_major = True
+                                        break
+
+                            if is_major:
+                                seen.add(title)
+                                routes.append({
+                                    'name': title,
+                                    'type': '主要地方道',
+                                    'num': str(num_val),
+                                    'aliases': '',
+                                    'int_id': '',
+                                    'start': '',
+                                    'end': '',
+                                    'op_hint': cat_name.replace('道', '').replace('府', '').replace('県', '')
+                                })
+                    cmcontinue = d.get('continue', {}).get('cmcontinue')
+                    if not cmcontinue:
+                        break
+            except Exception as e:
+                print(f"{cat_name} 取得エラー: {e}")
+                break
+            time.sleep(0.1)
+
+    print(f"取得した各都府県主要地方道数: {len(routes)} 路線")
+    return routes
+
+
+def resolve_articles_batch(titles):
+    """Wikipedia APIでWikipedia URL、正規タイトル、Wikidata URLを一括解決"""
+    results = {}
+    batch_size = 50
+    titles_list = list(set(titles))
+    print(f"Wikipedia APIで {len(titles_list)} 件の道路記事情報を解決中...")
+
+    for i in range(0, len(titles_list), batch_size):
+        chunk = titles_list[i:i+batch_size]
+        url = 'https://ja.wikipedia.org/w/api.php?action=query&redirects=1&prop=pageprops&format=json&titles=' + urllib.parse.quote('|'.join(chunk))
+        req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
+        try:
+            with urllib.request.urlopen(req, timeout=25) as r:
+                data = json.loads(r.read())
+                qinfo = data.get('query', {})
+                for pid, pdata in qinfo.get('pages', {}).items():
+                    if pid != '-1' and int(pid) > 0:
+                        actual_title = pdata.get('title')
+                        qid = pdata.get('pageprops', {}).get('wikibase_item', '')
+                        wiki_url = f"https://ja.wikipedia.org/wiki/{urllib.parse.quote(actual_title)}"
+                        wd_url = f"https://www.wikidata.org/wiki/{qid}" if qid else ""
+                        results[actual_title] = {
+                            'canonical_title': actual_title,
+                            'wiki_url': wiki_url,
+                            'wd_url': wd_url
+                        }
+        except Exception as e:
+            pass
+        time.sleep(0.1)
+
+    return results
+
+
+def main():
+    print("=== 日本の道路路線クリーン再収集開始 ===")
+    id_mgr = IdManager(MASTER_DIR)
+    id_mgr.load_table('transport_routes')
+    id_mgr.load_table('operators')
+
+    op_map = add_road_operators(id_mgr)
+
+    # 1. 路線リスト取得（林道・農道は排除）
     national_routes = fetch_national_routes()
     expressways = fetch_expressways_from_wikipedia(op_map)
-    pref_roads = fetch_major_prefectural_roads()
-    farm_forest = fetch_farm_and_forest_roads()
+    hokkaido_roads = fetch_hokkaido_major_roads()
+    other_pref_roads = fetch_other_prefectural_major_roads()
 
-    all_roads = national_routes + expressways + pref_roads + farm_forest
-    print(f"\n収集対象の道路路線総数: {len(all_roads)} 路線")
+    all_roads = national_routes + expressways + hokkaido_roads + other_pref_roads
+    print(f"\nクリーン収集対象の道路路線総数: {len(all_roads)} 路線")
 
-    # 2. Wikipedia / Wikidata の一括解決
+    # 2. Wikipedia / Wikidata 解決
     road_titles = [r['name'] for r in all_roads]
     wiki_map = resolve_articles_batch(road_titles)
 
-    df_routes = pd.read_csv(ROUTES_CSV, encoding='utf-8', keep_default_na=False, dtype=str)
-    existing_count = len(df_routes)
-    existing_names = set(df_routes['日本語名'].tolist())
+    # 既存マスタからJP以外の路線（AT路線など）を保持
+    df_existing = id_mgr.existing_records.get('transport_routes', pd.DataFrame())
+    if len(df_existing) > 0 and 'country_code' in df_existing.columns:
+        df_non_jp = df_existing[df_existing['country_code'] != 'JP'].copy()
+    else:
+        df_non_jp = pd.DataFrame(columns=ROUTE_COLUMNS)
 
     route_records = []
-    counter = existing_count + 1
+    seen_canonical = set()
 
     for r in all_roads:
         name = r['name']
         resolved = wiki_map.get(name, {})
         canonical_name = resolved.get('canonical_title', name)
 
-        if canonical_name in existing_names or name in existing_names:
+        if canonical_name in seen_canonical:
             continue
-        existing_names.add(canonical_name)
-        existing_names.add(name)
+        seen_canonical.add(canonical_name)
 
         r_type = r['type']
         op_hint = r['op_hint']
@@ -391,8 +393,13 @@ def main():
                 op_id = v
                 break
 
-        route_id = f"JP-RT-{counter:06d}"
-        counter += 1
+        rec_for_id = {
+            'Wikidata': resolved.get('wd_url', ''),
+            '路線番号_記号': r.get('num', ''),
+            '種別': r_type,
+            '日本語名': canonical_name
+        }
+        route_id, is_new = id_mgr.get_or_assign_id('transport_routes', 'JP', rec_for_id)
 
         route_records.append({
             'route_id': route_id,
@@ -417,22 +424,12 @@ def main():
             'GoogleMap': ''
         })
 
-    df_routes_new = pd.concat([df_routes, pd.DataFrame(route_records, columns=ROUTE_COLUMNS)], ignore_index=True)
-    df_routes_new.to_csv(ROUTES_CSV, index=False, encoding='utf-8')
-    print(f"\n交通路線マスタ更新完了: {ROUTES_CSV} (追加: {len(route_records)} 路線, 計: {len(df_routes_new)} 路線)")
+    df_jp_new = pd.DataFrame(route_records, columns=ROUTE_COLUMNS)
+    road_types = ['一般国道', '主要地方道', '高速道路', '都市高速', '地域高規格道路・有料道路']
+    id_mgr.save_merged_master('transport_routes', df_jp_new, 'JP', road_types)
 
-    # 精度管理ベンチマーク突合
-    print("\n=== 精度管理ベンチマーク突合 ===")
-    nat_count = (df_routes_new['種別'] == '一般国道').sum()
-    exp_count = (df_routes_new['種別'].isin(['高速道路', '都市高速', '地域高規格道路・有料道路'])).sum()
-    pref_count = (df_routes_new['種別'] == '主要地方道').sum()
-
-    print(f"- 一般国道: 基準 459路線 / 実績 {nat_count} 路線 -> {'合格' if nat_count == 459 else '要調査'}")
-    print(f"- 高速道路・都市高速: 基準 約230〜250路線 / 実績 {exp_count} 路線 -> {'合格' if 200 <= exp_count <= 260 else '要調査'}")
-    print(f"- 主要地方道: 基準 約2,500〜3,000路線 / 実績 {pref_count} 路線 -> {'合格' if pref_count >= 1000 else '要調査'}")
-
-    print("\n=== 最新の全路線種別内訳 ===")
-    print(df_routes_new['種別'].value_counts())
+    print("\n=== 種別内訳 ===")
+    print(df_jp_new['種別'].value_counts())
 
 
 if __name__ == '__main__':
