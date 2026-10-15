@@ -88,10 +88,13 @@ class IdManager:
                 # 3. 日本語名 / 公用語名
                 name_ja = str(row.get('日本語名', '')).strip()
                 name_local = str(row.get('公用語名', '')).strip()
-                if name_ja:
-                    self.key_to_id[(table_name, cc, f"name_ja:{kind}:{name_ja}")] = current_id
-                if name_local:
-                    self.key_to_id[(table_name, cc, f"name_local:{kind}:{name_local}")] = current_id
+                # 4. route_nodes 用照合キー (route_id + node_id + 区間別称)
+                if table_name == 'route_nodes':
+                    r_id = str(row.get('route_id', '')).strip()
+                    n_id = str(row.get('node_id', '')).strip()
+                    sub_sec = str(row.get('区間別称', '')).strip()
+                    if r_id and n_id:
+                        self.key_to_id[(table_name, cc, f"link:{r_id}:{n_id}:{sub_sec}")] = current_id
 
     def get_or_assign_id(self, table_name, country_code, record_dict):
         """
@@ -102,10 +105,21 @@ class IdManager:
 
         prefix = self.PREFIX_MAP.get(table_name, 'REC')
         cc = country_code.strip()
+
+        # 0. route_nodes 特殊照合 (route_id + node_id + 区間別称)
+        if table_name == 'route_nodes':
+            r_id = str(record_dict.get('route_id', '')).strip()
+            n_id = str(record_dict.get('node_id', '')).strip()
+            sub_sec = str(record_dict.get('区間別称', '')).strip()
+            link_k = (table_name, cc, f"link:{r_id}:{n_id}:{sub_sec}")
+            if link_k in self.key_to_id:
+                return self.key_to_id[link_k], False
+
         kind = str(record_dict.get('種別', '')).strip()
 
         # 1. 既存照合 (Wikidata QID優先、種別一致)
         wiki_url = str(record_dict.get('Wikidata', '')).strip()
+        qid_m = None
         if wiki_url:
             qid_m = re.search(r"Q\d+", wiki_url)
             if qid_m:
@@ -139,6 +153,11 @@ class IdManager:
         new_id = f"{cc}-{prefix}-{next_seq:06d}"
 
         # 辞書に登録
+        if table_name == 'route_nodes':
+            r_id = str(record_dict.get('route_id', '')).strip()
+            n_id = str(record_dict.get('node_id', '')).strip()
+            sub_sec = str(record_dict.get('区間別称', '')).strip()
+            self.key_to_id[(table_name, cc, f"link:{r_id}:{n_id}:{sub_sec}")] = new_id
         if wiki_url and qid_m:
             self.key_to_id[(table_name, cc, f"wiki:{kind}:{qid_m.group(0)}")] = new_id
         if code:
@@ -178,17 +197,19 @@ class IdManager:
         df.to_csv(log_file, index=False, encoding='utf-8')
         print(f"探索ログのIDを6桁に修復しました: {log_file}")
 
-    def save_merged_master(self, table_name, df_new_records, country_code='JP', target_types=None):
+    def save_merged_master(self, table_name, df_new_records, country_code='JP', target_types=None, target_route_ids=None):
         """
-        他分野・他国のレコードを完全に保持したまま、今回の収集対象レコードのみを安全に差し替えて保存する。
+        他分野・他国・他路線のレコードを完全に保持したまま、今回の収集対象レコードのみを安全に差し替えて保存する。
         """
         csv_file = os.path.join(self.master_dir, f"{table_name}.csv")
         id_col = self.ID_COL_MAP.get(table_name)
 
         if os.path.exists(csv_file):
             df_old = pd.read_csv(csv_file, encoding='utf-8', keep_default_na=False, dtype=str)
-            # 保持対象: (国コード != cc) または (種別が target_types に含まれない)
-            if 'country_code' in df_old.columns and '種別' in df_old.columns and target_types:
+            if table_name == 'route_nodes' and target_route_ids:
+                # 対象路線以外のリンクデータを保持
+                df_keep = df_old[~df_old['route_id'].isin(target_route_ids)].copy()
+            elif 'country_code' in df_old.columns and '種別' in df_old.columns and target_types:
                 mask_keep = (df_old['country_code'] != country_code) | (~df_old['種別'].isin(target_types))
                 df_keep = df_old[mask_keep].copy()
             elif 'country_code' in df_old.columns:

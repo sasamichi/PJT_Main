@@ -212,6 +212,25 @@ def check_integrity(dfs):
         if len(bad_op) > 0:
             print(f"[警告] 路線の事業者ID参照先不明（迷子）: {len(bad_op)} 件")
 
+    # 繋がりマスタ (route_nodes) の外部キー
+    if len(dfs['route_nodes']) > 0:
+        rn = dfs['route_nodes']
+        r_ids = set(dfs['routes']['route_id']) if len(dfs['routes']) > 0 else set()
+        n_ids = set(dfs['nodes']['node_id']) if len(dfs['nodes']) > 0 else set()
+
+        bad_routes = rn[~rn['route_id'].isin(r_ids)]
+        bad_nodes = rn[~rn['node_id'].isin(n_ids)]
+
+        if len(bad_routes) > 0:
+            print(f"[警告] route_nodes の路線ID参照先不明: {len(bad_routes)} 件")
+        else:
+            print(f"[正常] route_nodes: 全 {len(rn)} 件の路線IDが正当です。")
+
+        if len(bad_nodes) > 0:
+            print(f"[警告] route_nodes の拠点ID参照先不明: {len(bad_nodes)} 件")
+        else:
+            print(f"[正常] route_nodes: 全 {len(rn)} 件の拠点IDが正当です。")
+
 
 def generate_sampling_report(dfs, country_code='JP', sample_size=20):
     """ユーザー確認用の抜き取りMarkdownレポートを生成"""
