@@ -1,0 +1,23 @@
+country_code,分野_種別,公的基準件数,許容誤差_最小,許容誤差_最大,判定ルール,出典名,出典URL,確認日,備考
+JP,都道府県,47,47,47,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-15,47都道府県
+JP,政令指定都市,20,20,20,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-15,20政令市
+JP,政令指定都市_行政区,171,171,171,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-15,浜松市3区再編反映後
+JP,特別区,23,23,23,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-15,東京23区
+JP,市,772,772,772,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-15,政令市・特別区を除く市
+JP,町,743,743,743,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-15,全国の町
+JP,村,189,183,189,許容範囲内,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-15,本土183村＋北方領土6村
+JP,一般国道,459,459,459,完全一致,道路法（国道1号〜507号・欠番48路線）,https://www.mlit.go.jp/road/,2026-10-15,実在する459路線
+JP,主要地方道,0,0,0,基準未確定,国土交通省・各都道府県主要地方道指定一覧,https://www.mlit.go.jp/road/,2026-10-15,都道府県別事前調査にて確定予定
+JP,高速道路・都市高速,220,210,240,許容範囲内,国土交通省道路局・高速道路各社,https://www.mlit.go.jp/road/,2026-10-15,路線単位
+JP,道の駅,1213,1200,1230,許容範囲内,国土交通省道路局「道の駅案内」,https://www.mlit.go.jp/road/Michi-no-Eki/list.html,2026-10-15,現行登録駅
+JP,旅客空港,97,90,100,許容範囲内,国土交通省「空港一覧」,https://www.mlit.go.jp/koku/koku_fr7_000003.html,2026-10-15,定期便・旅客扱い
+JP,鉄軌道事業者,0,0,0,基準未確定,国土交通省「鉄道関係事業者一覧」,https://www.mlit.go.jp/tetudo/,2026-10-15,旅客鉄道会社・公営地下鉄の公式リスト精査中
+JP,現行鉄道駅,8500,8200,9200,許容範囲内,国土交通省「国土数値情報 鉄道時系列」,https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2023.html,2026-10-15,JR・私鉄・地下鉄全旅客駅
+AT,連邦州,9,9,9,完全一致,オーストリア連邦憲法 (B-VG),https://www.ris.bka.gv.at/,2026-10-15,Burgenland〜Wien全9州
+AT,郡,79,79,79,完全一致,Statistik Austria (Politische Bezirke),https://www.statistik.at/,2026-10-15,79郡（旧郡除外）
+AT,憲章都市,15,15,15,完全一致,Statistik Austria (Statutarstädte),https://www.statistik.at/,2026-10-15,15憲章都市
+AT,基礎自治体,2093,2093,2093,完全一致,Statistik Austria (Gemeindeverzeichnis),https://www.statistik.at/,2026-10-15,現行2093自治体
+AT,主要旅客空港,6,6,6,完全一致,Austro Control,https://www.austrocontrol.at/,2026-10-15,"VIE, SZG, INN, GRZ, KLU, LNZ"
+AT,高速道路,18,18,19,許容範囲内,ASFINAG (Autobahnen),https://www.asfinag.at/,2026-10-15,現行供用路線
+AT,自動車専用道,14,14,17,許容範囲内,ASFINAG (Schnellstraßen),https://www.asfinag.at/,2026-10-15,現行供用路線
+AT,主要州道,271,260,285,許容範囲内,各州道路法 (Landesstraße B),https://www.ris.bka.gv.at/,2026-10-15,B1〜B320番台

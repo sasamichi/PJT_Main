@@ -1,0 +1,178 @@
+# -*- coding: utf-8 -*-
+"""
+ID永続化共通マネージャー (id_manager.py)
+----------------------------------------
+- 一度発行したID（国コード-種別-6桁連番）を永続化し、再収集時にも変更・再利用しない。
+- Wikidata ID、公的コード、または正規化名称キーにより既存レコードと突合。
+- 新規レコードのみ最大連番+1で採番。
+- ソースから消えたレコードは削除せず論理フラグ（廃止/要確認）を残す。
+"""
+
+import os
+import re
+import pandas as pd
+
+
+class IdManager:
+    # テーブル種別ごとのIDプレフィックス定義
+    PREFIX_MAP = {
+        'municipalities': 'M',
+        'operators': 'OP',
+        'transport_routes': 'RT',
+        'transport_nodes': 'ND',
+        'route_nodes': 'RN',
+        'exploration_logs': 'LOG'
+    }
+
+    ID_COL_MAP = {
+        'municipalities': 'municipality_id_tmp',  # 将来的に municipality_id に移行可能
+        'operators': 'operator_id',
+        'transport_routes': 'route_id',
+        'transport_nodes': 'node_id',
+        'route_nodes': 'link_id',
+        'exploration_logs': 'log_id'
+    }
+
+    def __init__(self, master_dir):
+        self.master_dir = master_dir
+        self.existing_records = {}  # {table_name: DataFrame}
+        self.max_seq = {}           # {(table_name, country_code): max_seq_int}
+        self.key_to_id = {}         # {(table_name, country_code, match_key): id_str}
+
+    def load_table(self, table_name):
+        """マスタテーブルを読み込み、既存IDと照合キーのマッピングを構築"""
+        csv_file = os.path.join(self.master_dir, f"{table_name}.csv")
+        prefix = self.PREFIX_MAP.get(table_name)
+        id_col = self.ID_COL_MAP.get(table_name)
+
+        if not os.path.exists(csv_file):
+            self.existing_records[table_name] = pd.DataFrame()
+            return
+
+        df = pd.read_csv(csv_file, encoding='utf-8', keep_default_na=False, dtype=str)
+        self.existing_records[table_name] = df
+
+        if id_col not in df.columns:
+            return
+
+        for _, row in df.iterrows():
+            current_id = str(row[id_col]).strip()
+            if not current_id:
+                continue
+
+            # ID形式: [CC]-[PREFIX]-[SEQ] (例: JP-ND-000001)
+            # 旧形式 5桁 (例: JP-ND-00001) にも対応
+            m = re.match(r"^([A-Z]+)-([A-Z]+)-(\d+)$", current_id)
+            if m:
+                cc = m.group(1)
+                seq = int(m.group(3))
+                key_cc = (table_name, cc)
+                if key_cc not in self.max_seq or seq > self.max_seq[key_cc]:
+                    self.max_seq[key_cc] = seq
+
+                # 照合キーを複数登録して頑健に照合
+                # 1. Wikidata URL (QID)
+                wiki_url = str(row.get('Wikidata', '')).strip()
+                if wiki_url:
+                    qid_m = re.search(r"Q\d+", wiki_url)
+                    if qid_m:
+                        self.key_to_id[(table_name, cc, f"wiki:{qid_m.group(0)}")] = current_id
+
+                # 2. 公的コード (自治体コード、拠点コード、路線番号)
+                code = str(row.get('自治体コード', row.get('拠点コード', row.get('路線番号_記号', '')))).strip()
+                if code:
+                    self.key_to_id[(table_name, cc, f"code:{code}")] = current_id
+
+                # 3. 日本語名 / 公用語名
+                name_ja = str(row.get('日本語名', '')).strip()
+                name_local = str(row.get('公用語名', '')).strip()
+                kind = str(row.get('種別', '')).strip()
+                if name_ja:
+                    self.key_to_id[(table_name, cc, f"name_ja:{kind}:{name_ja}")] = current_id
+                if name_local:
+                    self.key_to_id[(table_name, cc, f"name_local:{kind}:{name_local}")] = current_id
+
+    def get_or_assign_id(self, table_name, country_code, record_dict):
+        """
+        レコードに対して既存IDを照合・返却。存在しなければ新規6桁IDを発行。
+        """
+        if table_name not in self.existing_records:
+            self.load_table(table_name)
+
+        prefix = self.PREFIX_MAP.get(table_name, 'REC')
+        cc = country_code.strip()
+
+        # 1. 既存照合 (Wikidata QID優先)
+        wiki_url = str(record_dict.get('Wikidata', '')).strip()
+        if wiki_url:
+            qid_m = re.search(r"Q\d+", wiki_url)
+            if qid_m:
+                k = (table_name, cc, f"wiki:{qid_m.group(0)}")
+                if k in self.key_to_id:
+                    return self.key_to_id[k], False
+
+        # 2. 公的コードで照合
+        code = str(record_dict.get('自治体コード', record_dict.get('拠点コード', record_dict.get('路線番号_記号', '')))).strip()
+        if code:
+            k = (table_name, cc, f"code:{code}")
+            if k in self.key_to_id:
+                return self.key_to_id[k], False
+
+        # 3. 種別＋名称で照合
+        kind = str(record_dict.get('種別', '')).strip()
+        name_ja = str(record_dict.get('日本語名', '')).strip()
+        name_local = str(record_dict.get('公用語名', '')).strip()
+        if name_ja:
+            k = (table_name, cc, f"name_ja:{kind}:{name_ja}")
+            if k in self.key_to_id:
+                return self.key_to_id[k], False
+        if name_local:
+            k = (table_name, cc, f"name_local:{kind}:{name_local}")
+            if k in self.key_to_id:
+                return self.key_to_id[k], False
+
+        # 新規採番
+        key_cc = (table_name, cc)
+        next_seq = self.max_seq.get(key_cc, 0) + 1
+        self.max_seq[key_cc] = next_seq
+        new_id = f"{cc}-{prefix}-{next_seq:06d}"
+
+        # 辞書に登録
+        if wiki_url and qid_m:
+            self.key_to_id[(table_name, cc, f"wiki:{qid_m.group(0)}")] = new_id
+        if code:
+            self.key_to_id[(table_name, cc, f"code:{code}")] = new_id
+        if name_ja:
+            self.key_to_id[(table_name, cc, f"name_ja:{kind}:{name_ja}")] = new_id
+        if name_local:
+            self.key_to_id[(table_name, cc, f"name_local:{kind}:{name_local}")] = new_id
+
+        return new_id, True
+
+    def fix_exploration_logs_ids(self):
+        """
+        過去の探索ログ (exploration_logs.csv) に残る5桁ID等を6桁IDに修復
+        """
+        log_file = os.path.join(self.master_dir, "exploration_logs.csv")
+        if not os.path.exists(log_file):
+            return
+
+        df = pd.read_csv(log_file, encoding='utf-8', keep_default_na=False, dtype=str)
+        if len(df) == 0:
+            return
+
+        def expand_id(val):
+            # 例: JP-RT-00001 -> JP-RT-000001, JP-ND-00001 -> JP-ND-000001
+            def repl(m):
+                cc = m.group(1)
+                kind = m.group(2)
+                num = int(m.group(3))
+                return f"{cc}-{kind}-{num:06d}"
+            return re.sub(r"([A-Z]+)-([A-Z]+)-(\d{1,5})\b", repl, str(val))
+
+        for col in ['log_id', '対象路線_ids', '対象拠点_ids', '対象自治体_ids']:
+            if col in df.columns:
+                df[col] = df[col].apply(expand_id)
+
+        df.to_csv(log_file, index=False, encoding='utf-8')
+        print(f"探索ログのIDを6桁に修復しました: {log_file}")
