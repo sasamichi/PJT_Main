@@ -54,10 +54,11 @@ def load_all_data():
     df_operators = read_csv_clean("operators.csv")
     df_routes = read_csv_clean("transport_routes.csv")
     df_nodes = read_csv_clean("transport_nodes.csv")
+    df_route_nodes = read_csv_clean("route_nodes.csv")
     df_logs = read_csv_clean("exploration_logs.csv")
-    return df_countries, df_municipalities, df_operators, df_routes, df_nodes, df_logs
+    return df_countries, df_municipalities, df_operators, df_routes, df_nodes, df_route_nodes, df_logs
 
-df_countries, df_municipalities, df_operators, df_routes, df_nodes, df_logs = load_all_data()
+df_countries, df_municipalities, df_operators, df_routes, df_nodes, df_route_nodes, df_logs = load_all_data()
 
 # 状態管理（ナビゲーション）
 if "app_mode" not in st.session_state:
@@ -233,19 +234,23 @@ if st.session_state["app_mode"] == "データベース閲覧":
             sub_basic = [
                 {"項目": "日本語名", "内容": m_row.get("日本語名", "-")},
                 {"項目": "公用語名", "内容": m_row.get("公用語名", "-") or "-"},
+                {"項目": "別称・愛称", "内容": m_row.get("別称_愛称", "-") or "-"},
                 {"項目": "種別", "内容": m_row.get("種別", "-") or "-"},
                 {"項目": "自治体コード", "内容": m_row.get("自治体コード", "-") or "-"},
                 {"項目": "ISO 3166-2 コード", "内容": m_row.get("iso_3166_2_code", "-") or "-"},
                 {"項目": "階層レベル", "内容": m_row.get("階層レベル", "-") or "-"},
-                {"項目": "支庁・振興局", "内容": m_row.get("支庁_振興局", "-") or "-"},
-                {"項目": "郡", "内容": m_row.get("郡", "-") or "-"},
+                {"項目": "区域大分類", "内容": m_row.get("区域大分類", "-") or "-"},
+                {"項目": "政庁所在地座標", "内容": f"({m_row.get('政庁_緯度', '-')}, {m_row.get('政庁_経度', '-')})" if m_row.get('政庁_緯度') else "-"},
                 {"項目": "状態", "内容": m_row.get("状態", "-") or "-"},
-                {"項目": "仮ID", "内容": m_row.get("municipality_id_tmp", "-")},
+                {"項目": "時代区分", "内容": m_row.get("時代区分", "-") or "-"},
+                {"項目": "自治体ID", "内容": m_row.get("municipality_id_tmp", "-")},
             ]
             st.table(pd.DataFrame(sub_basic))
             
-            st.subheader("外部リンク・地図")
+            st.subheader("外部リンク・公式サイト・地図")
             sub_links = []
+            if m_row.get("公式サイト"):
+                sub_links.append(f"- [自治体公式サイト]({m_row['公式サイト']})")
             if m_row.get("Wikipedia_ja"):
                 sub_links.append(f"- [Wikipedia (日本語版)]({m_row['Wikipedia_ja']})")
             if m_row.get("Wikidata"):
@@ -270,14 +275,8 @@ if st.session_state["app_mode"] == "データベース閲覧":
                     cid = c_row.get("municipality_id_tmp", "")
                     cname = c_row.get("日本語名", "")
                     ctype = c_row.get("種別", "")
-                    cbureau = c_row.get("支庁_振興局", "")
-                    cgun = c_row.get("郡", "")
-                    extra_info = []
-                    if cbureau:
-                        extra_info.append(cbureau)
-                    if cgun:
-                        extra_info.append(cgun)
-                    extra_str = f" [{', '.join(extra_info)}]" if extra_info else ""
+                    cregion = c_row.get("区域大分類", "")
+                    extra_str = f" [{cregion}]" if cregion else ""
                     
                     btn_txt = f"{cname} ({ctype}){extra_str}"
                     if st.button(btn_txt, key=f"btn_child_{cid}"):
@@ -335,17 +334,20 @@ if st.session_state["app_mode"] == "データベース閲覧":
             
             op_id = rt_row.get("operator_id", "")
             op_match = df_operators[df_operators["operator_id"] == op_id]
-            op_name = op_match["名称"].values[0] if len(op_match) > 0 else "-"
+            op_name = op_match["日本語名"].values[0] if len(op_match) > 0 and "日本語名" in op_match.columns else "-"
             
             st.subheader("基本情報")
             route_basic = [
-                {"項目": "路線名", "内容": rt_row.get("日本語名", "-")},
+                {"項目": "路線名 (日本語)", "内容": rt_row.get("日本語名", "-")},
+                {"項目": "公用語名", "内容": rt_row.get("公用語名", "-") or "-"},
+                {"項目": "路線番号・記号", "内容": rt_row.get("路線番号_記号", "-") or "-"},
+                {"項目": "別称・愛称", "内容": rt_row.get("別称_愛称", "-") or "-"},
                 {"項目": "種別", "内容": rt_row.get("種別", "-")},
-                {"項目": "運営・管理事業者", "内容": f"{op_name} ({op_id})"},
+                {"項目": "運営・管理事業者", "内容": f"{op_name} ({op_id})" if op_id else "-"},
                 {"項目": "状態", "内容": rt_row.get("状態", "-")},
                 {"項目": "時代区分", "内容": rt_row.get("時代区分", "-")},
-                {"項目": "起点", "内容": rt_row.get("起点", "-")},
-                {"項目": "終点", "内容": rt_row.get("終点", "-")},
+                {"項目": "起点", "内容": rt_row.get("起点", "-") or "-"},
+                {"項目": "終点", "内容": rt_row.get("終点", "-") or "-"},
                 {"項目": "路線ID", "内容": rt_row.get("route_id", "-")},
             ]
             st.table(pd.DataFrame(route_basic))
@@ -370,15 +372,52 @@ if st.session_state["app_mode"] == "データベース閲覧":
                 st.caption("登録されている外部リンクはありません。")
                 
             st.markdown("---")
-            st.subheader("経由する主要拠点")
-            if rt_id == "JP-RT-00001":
-                for _, nd_row in df_nodes.iterrows():
-                    nd_m_id = nd_row.get("municipality_id_tmp", "")
-                    m_match = df_municipalities[df_municipalities["municipality_id_tmp"] == nd_m_id]
-                    m_name = m_match["日本語名"].values[0] if len(m_match) > 0 else ""
-                    st.markdown(f"- **{nd_row.get('日本語名', '')}** ({nd_row.get('種別', '')}) - 所在地: {m_name} [緯度: {nd_row.get('緯度')}, 経度: {nd_row.get('経度')}]")
+            st.subheader("経由拠点・繋がり一覧（起点〜終点）")
+            route_links = df_route_nodes[df_route_nodes["route_id"] == rt_id]
+            if len(route_links) > 0:
+                # 順序でソート
+                route_links = route_links.copy()
+                route_links["順序_num"] = pd.to_numeric(route_links["順序"], errors="coerce").fillna(999)
+                route_links = route_links.sort_values(by=["区間別称", "順序_num"])
+                
+                # 区間別称ごとにグループ表示
+                for sub_sec, sub_df in route_links.groupby("区間別称", sort=False):
+                    st.markdown(f"#### 区間: {sub_sec} ({len(sub_df)} 拠点)")
+                    table_rows = []
+                    for _, r in sub_df.iterrows():
+                        n_id = r["node_id"]
+                        nd_match = df_nodes[df_nodes["node_id"] == n_id]
+                        if len(nd_match) > 0:
+                            nd = nd_match.iloc[0]
+                            n_name = nd["日本語名"] or nd["公用語名"]
+                            n_type = nd["種別"]
+                            lat = nd["緯度"]
+                            lon = nd["経度"]
+                            m_id = nd["municipality_id_tmp"]
+                            m_match = df_municipalities[df_municipalities["municipality_id_tmp"] == m_id]
+                            m_name = m_match["日本語名"].values[0] if len(m_match) > 0 else "-"
+                        else:
+                            n_name = n_id
+                            n_type = "-"
+                            lat, lon = "-", "-"
+                            m_name = "-"
+                        
+                        map_link = f"https://www.google.com/maps/search/?api=1&query={lat},{lon}" if lat != "-" else ""
+                        table_rows.append({
+                            "順序": int(r["順序_num"]) if r["順序_num"] < 999 else r["順序"],
+                            "路線内番号": r["路線内番号"],
+                            "役割": r["役割"],
+                            "拠点名": n_name,
+                            "種別": n_type,
+                            "所在自治体": m_name,
+                            "緯度": lat,
+                            "経度": lon,
+                            "地図": f"[Google Maps]({map_link})" if map_link else "-",
+                            "拠点ID": n_id
+                        })
+                    st.dataframe(pd.DataFrame(table_rows), hide_index=True)
             else:
-                st.caption("拠点は登録されていません。")
+                st.info("この路線の繋がりデータ（駅・IC順序一覧）はまだ整備されていません（段階4以降で順次構築）。")
 
 # ==========================================================
 # モード2: 交通網探索ツール（ステップ3）
@@ -429,12 +468,47 @@ else:
     enable_wikidata = st.sidebar.checkbox("Wikidata位置情報レイヤーを表示", value=True)
     wiki_radius_km = st.sidebar.slider("Wikidata取得範囲 (km)", min_value=1, max_value=30, value=15)
 
-    # 起点（着目拠点）の選択
-    node_names = df_nodes["日本語名"].tolist()
-    selected_base_node = st.sidebar.selectbox("探索起点・中心地点", node_names, index=0)
-    matched_base_nd = df_nodes[df_nodes["日本語名"] == selected_base_node].iloc[0]
-    default_lat = float(matched_base_nd.get("緯度", 41.7737))
-    default_lon = float(matched_base_nd.get("経度", 140.7264))
+    # 起点（着目拠点）の選択（国別フィルタ＋路線絞り込み）
+    explore_cc = st.sidebar.selectbox("探索対象国", ["JP (日本)", "AT (オーストリア)"], index=0)
+    cc_target = "JP" if "JP" in explore_cc else "AT"
+    cc_nodes = df_nodes[(df_nodes["country_code"] == cc_target) & ((df_nodes["日本語名"] != "") | (df_nodes["公用語名"] != ""))]
+    
+    # 路線による絞り込み（オプション）
+    route_opts = ["全拠点から選択"] + [f"{r['日本語名'] or r['公用語名']} ({r['route_id']})" for _, r in df_routes[df_routes['country_code'] == cc_target].iterrows()]
+    selected_rt_filter = st.sidebar.selectbox("路線で拠点を絞り込む（推奨）", route_opts, index=0)
+    
+    if selected_rt_filter != "全拠点から選択":
+        filtered_rt_id = selected_rt_filter.split("(")[-1].replace(")", "").strip()
+        linked_node_ids = set(df_route_nodes[df_route_nodes["route_id"] == filtered_rt_id]["node_id"])
+        if linked_node_ids:
+            cc_nodes = cc_nodes[cc_nodes["node_id"].isin(linked_node_ids)]
+    
+    node_display_dict = {
+        f"{row['日本語名'] or row['公用語名']} ({row['種別']} / {row['node_id']})": row['node_id']
+        for _, row in cc_nodes.iterrows()
+    }
+    node_labels = list(node_display_dict.keys())
+    
+    # デフォルトで「函館駅」または先頭
+    def_node_idx = 0
+    for idx, l in enumerate(node_labels):
+        if "函館駅" in l:
+            def_node_idx = idx
+            break
+            
+    if not node_labels:
+        st.sidebar.warning("対象となる拠点が見つかりません。")
+        default_lat, default_lon = 41.7737, 140.7264
+        matched_base_nd = {"node_id": "JP-ND-001394", "日本語名": "函館駅"}
+    else:
+        selected_node_label = st.sidebar.selectbox("探索起点・中心地点", node_labels, index=min(def_node_idx, len(node_labels)-1))
+        selected_node_id = node_display_dict[selected_node_label]
+        matched_base_nd = df_nodes[df_nodes["node_id"] == selected_node_id].iloc[0]
+        try:
+            default_lat = float(matched_base_nd.get("緯度", 41.7737))
+            default_lon = float(matched_base_nd.get("経度", 140.7264))
+        except ValueError:
+            default_lat, default_lon = 41.7737, 140.7264
 
     # --- Wikidata取得関数（キャッシュ付き & エラーハンドリング強化） ---
     @st.cache_data(ttl=3600, show_spinner=False)
@@ -454,7 +528,7 @@ else:
             "https://query.wikidata.org/bigdata/namespace/wdq/sparql"
         ]
         headers = {
-            "User-Agent": "AntigravityWorldTransport/2.0 (contact: user@project.local)",
+            "User-Agent": "AntigravityWorldTransport/3.0 (contact: user@project.local)",
             "Accept": "application/sparql-results+json"
         }
         for ep in endpoints:
@@ -489,18 +563,25 @@ else:
     tile1_info = tile_providers[c_tile1]
     tile2_info = tile_providers[c_tile2]
 
-    # ノード追加補助関数
+    # ノード追加補助関数（周辺35kmに絞り込んで高速表示）
     def add_common_layers(target_map):
-        # 登録済み交通拠点
-        fg_nodes = folium.FeatureGroup(name="登録済み交通拠点 (スナップ対象)")
-        for _, nd in df_nodes.iterrows():
+        fg_nodes = folium.FeatureGroup(name="登録済み交通拠点 (周辺)")
+        delta = 0.35  # 約35km範囲
+        lats = pd.to_numeric(df_nodes["緯度"], errors="coerce")
+        lons = pd.to_numeric(df_nodes["経度"], errors="coerce")
+        near_nodes = df_nodes[
+            lats.between(default_lat - delta, default_lat + delta) &
+            lons.between(default_lon - delta, default_lon + delta)
+        ]
+        for _, nd in near_nodes.iterrows():
             try:
                 n_lat = float(nd["緯度"])
                 n_lon = float(nd["経度"])
+                disp_name = nd["日本語名"] or nd["公用語名"]
                 folium.Marker(
                     location=[n_lat, n_lon],
-                    popup=f"{nd['日本語名']} ({nd['種別']})",
-                    tooltip=f"拠点: {nd['日本語名']}"
+                    popup=f"{disp_name} ({nd['種別']}) [{nd['node_id']}]",
+                    tooltip=f"{disp_name} ({nd['種別']})"
                 ).add_to(fg_nodes)
             except:
                 pass
@@ -630,15 +711,18 @@ else:
         
         f_col1, f_col2 = st.columns(2)
         with f_col1:
-            route_choices = {f"{r['日本語名']} ({r['route_id']})": r['route_id'] for _, r in df_routes.iterrows()}
-            selected_routes = st.multiselect("対象路線（複数選択可）", list(route_choices.keys()), default=[list(route_choices.keys())[0]] if route_choices else [])
+            country_routes = df_routes[df_routes['country_code'] == cc_target]
+            route_choices = {f"{r['日本語名'] or r['公用語名']} ({r['route_id']})": r['route_id'] for _, r in country_routes.iterrows()}
+            def_rt_sel = [list(route_choices.keys())[0]] if (route_choices and selected_rt_filter == "全拠点から選択") else ([k for k in route_choices.keys() if filtered_rt_id in k] if selected_rt_filter != "全拠点から選択" else [])
+            selected_routes = st.multiselect("対象路線（複数選択可）", list(route_choices.keys()), default=def_rt_sel)
             
-            node_choices = {f"{n['日本語名']} ({n['node_id']})": n['node_id'] for _, n in df_nodes.iterrows()}
-            def_nodes_sel = [k for k, v in node_choices.items() if matched_base_nd["node_id"] == v]
+            node_choices = {f"{n['日本語名'] or n['公用語名']} ({n['node_id']})": n['node_id'] for _, n in cc_nodes.iterrows()}
+            def_nodes_sel = [k for k, v in node_choices.items() if matched_base_nd.get("node_id") == v]
             selected_nodes = st.multiselect("対象拠点（複数選択可）", list(node_choices.keys()), default=def_nodes_sel)
 
         with f_col2:
-            muns_options = {f"{m['日本語名']} ({m['municipality_id_tmp']})": m['municipality_id_tmp'] for _, m in df_municipalities[df_municipalities['country_code']=='JP'].head(50).iterrows()}
+            country_muns = df_municipalities[df_municipalities['country_code'] == cc_target]
+            muns_options = {f"{m['日本語名'] or m['公用語名']} ({m['municipality_id_tmp']})": m['municipality_id_tmp'] for _, m in country_muns.iterrows()}
             selected_muns = st.multiselect("対象自治体（複数選択可）", list(muns_options.keys()))
             
             coord_input = st.text_input("代表座標 (緯度, 経度)", value=clicked_coord, placeholder="地図上をクリックすると自動入力")
@@ -658,7 +742,7 @@ else:
                 st.error("タイトルを入力してください。")
             else:
                 new_idx = len(df_logs) + 1
-                new_log_id = f"JP-LOG-{new_idx:05d}"
+                new_log_id = f"{cc_target}-LOG-{new_idx:06d}"
                 
                 c_lat_str = coord_input.split(",")[0].strip() if "," in coord_input else ""
                 c_lon_str = coord_input.split(",")[1].strip() if "," in coord_input else ""
