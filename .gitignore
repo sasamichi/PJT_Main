@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Backups & Cache
+data/cache/
+data/backup_*
+data/master/*.bak
+*.bak
+
+# Virtual Environment & Editor settings
+.venv/
+venv/
+.idea/
+.vscode/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
