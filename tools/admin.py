@@ -8,6 +8,7 @@ apply_common_styles()
 
 st.title("📊 世界交通網・地域データ基盤 - データ管理 & 品質保証")
 st.caption("収集進捗管理（国レベル）、公的基準突合、抜き取り検査、不整合データ検知、マスタ台帳")
+st.markdown("[🗺️ 机上探索 Web GIS (フルスクリーン・暗転なし) を開く (http://localhost:8080)](http://localhost:8080)")
 
 (
     df_countries,
