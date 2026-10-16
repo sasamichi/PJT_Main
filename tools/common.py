@@ -9,17 +9,35 @@ EXPLORER_URL = "http://localhost:8080"
 BASE_CSS = """
 <style>
 div[data-testid="InputInstructions"] { display: none; }
-.block-container { padding-top: 1.2rem; padding-bottom: 2rem; }
-.brand-bar { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: #2563eb; }
+/* Streamlit標準上部ヘッダー（高さ約3.5-3.8rem）の下からコンテンツを開始させ、はみ出し・隠れを完全に防止 */
+.block-container {
+  padding-top: 4.8rem !important;
+  padding-bottom: 2rem;
+  max-width: 98% !important;
+}
+/* ヘッダーブランドバー */
+.brand-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2563eb;
+  padding-top: 4px;
+}
 .brand-bar .badge { background: #2563eb; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
 .brand-bar .sub { font-size: 13px; font-weight: 500; color: #64748b; }
+/* トグルとリンクボタンの縦位置合わせ */
+div[data-testid="stToggle"] {
+  padding-top: 4px;
+}
 </style>
 """
 
 # 机上探索 Web GIS のダークテーマ配色に合わせる
 DARK_CSS = """
 <style>
-.stApp, [data-testid="stHeader"] { background: #0f172a; color: #f8fafc; }
+.stApp, [data-testid="stHeader"] { background: #0f172a !important; color: #f8fafc; }
 [data-testid="stSidebar"] { background: #1e293b; }
 .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5,
 [data-testid="stMarkdownContainer"] *, [data-testid="stWidgetLabel"] *,
@@ -46,7 +64,7 @@ def render_header(subtitle):
 
     st.markdown(BASE_CSS + (DARK_CSS if theme == "dark" else ""), unsafe_allow_html=True)
 
-    col_brand, col_theme, col_link = st.columns([6, 1.6, 2])
+    col_brand, col_theme, col_link = st.columns([5.5, 2.0, 2.5])
     with col_brand:
         st.markdown(
             f'<div class="brand-bar">🌐 机上探索 <span class="badge">MAP v2</span>'
@@ -55,6 +73,8 @@ def render_header(subtitle):
         is_dark = st.toggle("🌙 黒背景", value=(theme == "dark"), key="theme_toggle")
     with col_link:
         st.link_button("🗺️ 机上探索 Web GIS へ", f"{EXPLORER_URL}/?theme={theme}")
+
+    st.markdown("<hr style='margin: 8px 0 16px 0; border: none; border-top: 1px solid rgba(128,128,128,0.2);'>", unsafe_allow_html=True)
 
     new_theme = "dark" if is_dark else "light"
     if new_theme != theme:
