@@ -42,10 +42,10 @@ function initTheme() {
 // --- 地図ペイン初期化（最大4ペイン作成） ---
 function initMapPanes() {
   const configs = [
-    { id: "pane-1", mapId: "map-1", defaultTile: "osm-std", name: "Pane 1" },
+    { id: "pane-1", mapId: "map-1", defaultTile: "gsi-std", name: "Pane 1" },
     { id: "pane-2", mapId: "map-2", defaultTile: "gsi-photo", name: "Pane 2" },
-    { id: "pane-3", mapId: "map-3", defaultTile: "gsi-std", name: "Pane 3" },
-    { id: "pane-4", mapId: "map-4", defaultTile: "google-roads", name: "Pane 4" }
+    { id: "pane-3", mapId: "map-3", defaultTile: "gsi-pale", name: "Pane 3" },
+    { id: "pane-4", mapId: "map-4", defaultTile: "osm-std", name: "Pane 4" }
   ];
 
   configs.forEach((cfg, idx) => {
@@ -56,7 +56,7 @@ function initMapPanes() {
     });
 
     // ズームコントロールを右下に
-    L.control.zoom({ position: "bottomright" }).add_to(map);
+    L.control.zoom({ position: "bottomright" }).addTo(map);
 
     // タイル設定
     const tileLayer = createTileLayer(cfg.defaultTile);
@@ -85,6 +85,10 @@ function initMapPanes() {
   // 初回レイアウトは「2画面（左右）」
   setSplitLayout("split-h");
   loadNodesToMaps();
+
+  setTimeout(() => {
+    mapPanes.forEach(p => p.map.invalidateSize());
+  }, 300);
 }
 
 function setupMapEvents(paneObj) {
