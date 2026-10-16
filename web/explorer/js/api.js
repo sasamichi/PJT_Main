@@ -1,64 +1,48 @@
 /**
- * バックエンドREST API通信モジュール (api.js)
+ * 共通ヘルパー ＆ バックエンドREST API通信 (api.js)
  */
 
-const API_BASE = "";
+const $ = (id) => document.getElementById(id);
 
-async function apiFetchNodes(countryCode = "JP", lat = null, lon = null, radiusKm = 35) {
-  let url = `${API_BASE}/api/nodes?country_code=${countryCode}`;
-  if (lat !== null && lon !== null) {
-    url += `&lat=${lat}&lon=${lon}&radius_km=${radiusKm}`;
-  }
-  const res = await fetch(url);
-  if (!res.ok) throw new Error("Failed to fetch nodes");
-  return await res.json();
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => (
+  { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+));
+
+let toastTimer = null;
+function showToast(message) {
+  const toast = $("toast");
+  toast.innerText = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 3000);
 }
 
-async function apiFetchRoutes(countryCode = "JP") {
-  const res = await fetch(`${API_BASE}/api/routes?country_code=${countryCode}`);
-  if (!res.ok) throw new Error("Failed to fetch routes");
-  return await res.json();
+async function apiJson(path, options) {
+  const res = await fetch(path, options);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+  return data;
 }
 
-async function apiFetchMunicipalities(countryCode = "JP") {
-  const res = await fetch(`${API_BASE}/api/municipalities?country_code=${countryCode}`);
-  if (!res.ok) throw new Error("Failed to fetch municipalities");
-  return await res.json();
-}
+const jsonRequest = (method, body) => ({
+  method,
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(body)
+});
 
-async function apiFetchRouteNodes(routeId = "") {
-  const res = await fetch(`${API_BASE}/api/route_nodes?route_id=${routeId}`);
-  if (!res.ok) throw new Error("Failed to fetch route nodes");
-  return await res.json();
-}
+// --- マスタ ---
+const apiFetchNodes = (lat, lon, radiusKm = 35) =>
+  apiJson(`/api/nodes?lat=${lat}&lon=${lon}&radius_km=${radiusKm}`);
+const apiFetchRoutes = (cc) => apiJson(`/api/routes?country_code=${cc}`);
+const apiFetchMunicipalities = (cc) => apiJson(`/api/municipalities?country_code=${cc}`);
 
-async function apiFetchLogs() {
-  const res = await fetch(`${API_BASE}/api/logs`);
-  if (!res.ok) throw new Error("Failed to fetch logs");
-  return await res.json();
-}
+// --- 探索ログ（ポイント／ルート） ---
+const apiFetchLogs = () => apiJson("/api/logs");
+const apiSaveLog = (log) => apiJson("/api/logs", jsonRequest("POST", log));
+const apiUpdateLog = (logId, fields) => apiJson("/api/logs", jsonRequest("PUT", { log_id: logId, ...fields }));
+const apiDeleteLog = (logId) => apiJson(`/api/logs?log_id=${encodeURIComponent(logId)}`, { method: "DELETE" });
 
-async function apiSaveLog(logData) {
-  const res = await fetch(`${API_BASE}/api/logs`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(logData)
-  });
-  if (!res.ok) throw new Error("Failed to save log");
-  return await res.json();
-}
-
-async function apiSearchLocation(query) {
-  if (!query) return [];
-  const res = await fetch(`${API_BASE}/api/search?q=${encodeURIComponent(query)}`);
-  if (!res.ok) return [];
-  return await res.json();
-}
-
-async function apiFetchWikidata(lat, lon, radiusKm = 10) {
-  const res = await fetch(`${API_BASE}/api/wikidata?lat=${lat}&lon=${lon}&radius_km=${radiusKm}`);
-  if (!res.ok) return { items: [] };
-  return await res.json();
-}
+// --- 外部サービス（サーバー経由） ---
+const apiSearchLocation = (q) => apiJson(`/api/search?q=${encodeURIComponent(q)}`);
+const apiFetchWikidata = (lat, lon, radiusKm = 15) =>
+  apiJson(`/api/wikidata?lat=${lat}&lon=${lon}&radius_km=${radiusKm}`);

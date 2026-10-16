@@ -4,25 +4,64 @@ import streamlit as st
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MASTER_DATA_DIR = os.path.join(BASE_DIR, "data", "master")
+EXPLORER_URL = "http://localhost:8080"
 
-def apply_common_styles():
-    st.markdown("""
-    <style>
-    div[data-testid="InputInstructions"] {
-        display: none;
-    }
-    div.stButton > button {
-        text-align: left;
-        width: 100%;
-        padding: 0.25rem 0.5rem;
-        margin: 0;
-    }
-    .block-container {
-        padding-top: 1.5rem;
-        padding-bottom: 2rem;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+BASE_CSS = """
+<style>
+div[data-testid="InputInstructions"] { display: none; }
+.block-container { padding-top: 1.2rem; padding-bottom: 2rem; }
+.brand-bar { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: #2563eb; }
+.brand-bar .badge { background: #2563eb; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+.brand-bar .sub { font-size: 13px; font-weight: 500; color: #64748b; }
+</style>
+"""
+
+# 机上探索 Web GIS のダークテーマ配色に合わせる
+DARK_CSS = """
+<style>
+.stApp, [data-testid="stHeader"] { background: #0f172a; color: #f8fafc; }
+[data-testid="stSidebar"] { background: #1e293b; }
+.stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5,
+[data-testid="stMarkdownContainer"] *, [data-testid="stWidgetLabel"] *,
+[data-testid="stCaptionContainer"] *, [data-testid="stMetric"] *,
+button[data-baseweb="tab"] { color: #f8fafc; }
+.brand-bar .sub { color: #94a3b8; }
+[data-baseweb="select"] > div, [data-baseweb="input"] > div, textarea, input {
+  background: #1e293b !important; color: #f8fafc !important; border-color: #334155 !important;
+}
+[data-baseweb="popover"] ul { background: #1e293b; }
+[data-testid="stForm"], [data-testid="stAlert"] { background: #1e293b; border-color: #334155; }
+[data-testid="stAlert"] * { color: #f8fafc; }
+[data-testid="stDataFrame"] { filter: invert(0.92) hue-rotate(180deg); }
+</style>
+"""
+
+
+def render_header(subtitle):
+    """机上探索 Web GIS と共通のヘッダー（ブランド・黒/白テーマ切替・GISへのリンク）を描画する。
+    テーマは ?theme=dark|light のURLパラメータで探索ツールから引き継ぐ。"""
+    if "theme" not in st.session_state:
+        st.session_state["theme"] = "dark" if st.query_params.get("theme") == "dark" else "light"
+    theme = st.session_state["theme"]
+
+    st.markdown(BASE_CSS + (DARK_CSS if theme == "dark" else ""), unsafe_allow_html=True)
+
+    col_brand, col_theme, col_link = st.columns([6, 1.6, 2])
+    with col_brand:
+        st.markdown(
+            f'<div class="brand-bar">🌐 机上探索 <span class="badge">MAP v2</span>'
+            f'<span class="sub">{subtitle}</span></div>', unsafe_allow_html=True)
+    with col_theme:
+        is_dark = st.toggle("🌙 黒背景", value=(theme == "dark"), key="theme_toggle")
+    with col_link:
+        st.link_button("🗺️ 机上探索 Web GIS へ", f"{EXPLORER_URL}/?theme={theme}")
+
+    new_theme = "dark" if is_dark else "light"
+    if new_theme != theme:
+        st.session_state["theme"] = new_theme
+        st.query_params["theme"] = new_theme
+        st.rerun()
+
 
 def read_csv_clean(filename):
     path = os.path.join(MASTER_DATA_DIR, filename)
@@ -33,26 +72,19 @@ def read_csv_clean(filename):
         df[col] = df[col].astype(str).str.strip()
     return df
 
+
 def save_csv_clean(df, filename):
     path = os.path.join(MASTER_DATA_DIR, filename)
     df.to_csv(path, index=False, encoding="utf-8")
 
+
 def load_all_data():
-    df_countries = read_csv_clean("countries.csv")
-    df_municipalities = read_csv_clean("municipalities.csv")
-    df_operators = read_csv_clean("operators.csv")
-    df_routes = read_csv_clean("transport_routes.csv")
-    df_nodes = read_csv_clean("transport_nodes.csv")
-    df_route_nodes = read_csv_clean("route_nodes.csv")
-    df_logs = read_csv_clean("exploration_logs.csv")
-    df_country_prog = read_csv_clean("country_progress.csv")
     return (
-        df_countries,
-        df_municipalities,
-        df_operators,
-        df_routes,
-        df_nodes,
-        df_route_nodes,
-        df_logs,
-        df_country_prog
+        read_csv_clean("countries.csv"),
+        read_csv_clean("municipalities.csv"),
+        read_csv_clean("operators.csv"),
+        read_csv_clean("transport_routes.csv"),
+        read_csv_clean("transport_nodes.csv"),
+        read_csv_clean("route_nodes.csv"),
+        read_csv_clean("country_progress.csv"),
     )

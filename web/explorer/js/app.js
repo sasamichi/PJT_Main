@@ -1,399 +1,406 @@
 /**
  * 机上探索 Web GIS メインアプリケーション (app.js)
- * 高速・軽量・連動同期・周辺ノード限定描画
+ * 地図ペイン（1/2/4画面）・連動同期・ツール・登録拠点／追加データ／Wikidataの重畳表示
  */
 
-let mapPanes = [];
-let isSyncing = false;
-let currentTool = "view"; // "view", "point", "coord"
-let activeMarker = null;
-let lastLoadedCenter = null;
-let isNodeLoading = false;
-
-// デフォルト中心位置（函館駅付近）
-const DEFAULT_LAT = 41.7737;
-const DEFAULT_LON = 140.7264;
+// --- 定数 ---
+const COLORS = { node: "#2563eb", mine: "#f97316", route: "#ef4444", wiki: "#a855f7" };
+const COUNTRY_CENTERS = { JP: [41.7737, 140.7264], AT: [48.2082, 16.3738] };
 const DEFAULT_ZOOM = 13;
+const PANE_DEFAULT_TILES = ["gsi-std", "gsi-photo", "gsi-pale", "osm-std"];
+const LAYOUTS = {
+  "single":  { cls: "layout-single",  panes: 1 },
+  "split-h": { cls: "layout-split-h", panes: 2 },
+  "split-v": { cls: "layout-split-v", panes: 2 },
+  "quad":    { cls: "layout-quad",    panes: 4 }
+};
+const NODE_RELOAD_M = 10000;  // 拠点：10km以上動いたら再取得（取得半径35km）
+const WIKI_RELOAD_M = 5000;   // Wikidata：5km以上動いたら再取得（取得半径15km）
+
+// --- 状態 ---
+// draft: 入力中の記録（ポイントまたはルート）。editingId があれば既存ログの編集中
+const draft = { type: "point", point: null, route: [], editingId: null };
+
+let mapPanes = [];
+let currentTool = "view";
+let isSyncing = false;
+let nearNodes = [];
+let wikiItems = [];
+let lastNodeCenter = null;
+let lastWikiCenter = null;
+let nodeSeq = 0;
+let wikiSeq = 0;
+let viewTimer = null;
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initMapPanes();
   initSplitControls();
-  initSubToolbar();
+  initToolbar();
   initLayerToggles();
   initRecordPanel();
 });
 
-// --- テーマ（黒・白背景）初期化 ---
-function initTheme() {
-  const savedTheme = localStorage.getItem("explorer_theme") || "light";
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    document.getElementById("btn-toggle-theme").innerText = "☀️ 白背景";
-  } else {
-    document.getElementById("btn-toggle-theme").innerText = "🌙 黒背景";
-  }
-
-  document.getElementById("btn-toggle-theme").addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    const isDark = document.body.classList.contains("dark-mode");
-    localStorage.setItem("explorer_theme", isDark ? "dark" : "light");
-    document.getElementById("btn-toggle-theme").innerText = isDark ? "☀️ 白背景" : "🌙 黒背景";
-  });
+// ---------------------------------------------------------------
+// テーマ（黒・白）。?theme=dark|light でデータ管理画面から引き継ぎ可能
+// ---------------------------------------------------------------
+function applyTheme(theme) {
+  const dark = theme === "dark";
+  document.body.classList.toggle("dark-mode", dark);
+  localStorage.setItem("explorer_theme", theme);
+  $("btn-toggle-theme").innerText = dark ? "☀️ 白背景" : "🌙 黒背景";
+  $("link-admin").href = `http://localhost:8501/?theme=${theme}`;
 }
 
-// --- 地図ペイン初期化（最大4ペイン作成） ---
+function initTheme() {
+  const requested = new URLSearchParams(location.search).get("theme");
+  applyTheme(requested || localStorage.getItem("explorer_theme") || "light");
+  $("btn-toggle-theme").addEventListener("click", () =>
+    applyTheme(document.body.classList.contains("dark-mode") ? "light" : "dark"));
+}
+
+// ---------------------------------------------------------------
+// 地図ペイン
+// ---------------------------------------------------------------
+function createPaneElement(n) {
+  const pane = document.createElement("div");
+  pane.className = "map-pane";
+  pane.innerHTML = `
+    <div class="pane-floating-header">
+      <div class="pane-search-box">
+        <input type="text" id="input-search-${n}" placeholder="地名、住所、歴史スポットを検索">
+        <button id="btn-search-${n}">検索</button>
+      </div>
+      <select class="pane-tile-select" id="select-tile-${n}"></select>
+    </div>
+    <div class="map-container" id="map-${n}"></div>
+    <div class="pane-badge">Pane ${n}</div>`;
+  $("map-grid").appendChild(pane);
+  return pane;
+}
+
 function initMapPanes() {
-  const configs = [
-    { id: "pane-1", mapId: "map-1", defaultTile: "gsi-std", name: "Pane 1" },
-    { id: "pane-2", mapId: "map-2", defaultTile: "gsi-photo", name: "Pane 2" },
-    { id: "pane-3", mapId: "map-3", defaultTile: "gsi-pale", name: "Pane 3" },
-    { id: "pane-4", mapId: "map-4", defaultTile: "osm-std", name: "Pane 4" }
-  ];
-
-  configs.forEach((cfg, idx) => {
-    const map = L.map(cfg.mapId, {
-      center: [DEFAULT_LAT, DEFAULT_LON],
-      zoom: DEFAULT_ZOOM,
-      zoomControl: false
-    });
-
-    // ズームコントロールを右下に配置
+  PANE_DEFAULT_TILES.forEach((tileKey, idx) => {
+    const n = idx + 1;
+    const el = createPaneElement(n);
+    // 拠点が多い都市部でも軽快に動くよう、円マーカーはCanvas描画
+    const map = L.map(`map-${n}`, { center: COUNTRY_CENTERS.JP, zoom: DEFAULT_ZOOM, zoomControl: false, preferCanvas: true });
     L.control.zoom({ position: "bottomright" }).addTo(map);
 
-    // タイル設定
-    const tileLayer = createTileLayer(cfg.defaultTile);
-    tileLayer.addTo(map);
-
-    // レイヤーグループ
-    const nodeLayer = L.layerGroup().addTo(map);
-    const wikiLayer = L.layerGroup().addTo(map);
-
-    const paneObj = {
-      index: idx,
-      id: cfg.id,
-      map: map,
-      tileLayer: tileLayer,
-      nodeLayer: nodeLayer,
-      wikiLayer: wikiLayer,
-      currentTile: cfg.defaultTile
+    const pane = {
+      index: idx, el, map, currentTile: tileKey, visible: true,
+      tileLayer: createTileLayer(tileKey).addTo(map),
+      layers: { nodes: L.layerGroup().addTo(map), mine: L.layerGroup().addTo(map),
+                wiki: L.layerGroup().addTo(map), draft: L.layerGroup().addTo(map) }
     };
-    mapPanes.push(paneObj);
-
-    // 地図イベントリスナー
-    setupMapEvents(paneObj);
-    setupPaneControls(paneObj);
+    mapPanes.push(pane);
+    setupMapEvents(pane);
+    setupPaneControls(pane);
   });
 
-  // 初回レイアウトは「2画面（左右）」
-  setSplitLayout("split-h");
-
-  // 初回周辺ノード読み込み（函館周辺35km）
-  const initialCenter = L.latLng(DEFAULT_LAT, DEFAULT_LON);
-  lastLoadedCenter = initialCenter;
-  loadNodesToMaps(initialCenter);
-
-  // 初回サイズ確定
-  setTimeout(() => {
-    mapPanes.forEach(p => p.map.invalidateSize());
-  }, 250);
+  setLayout("split-h");
+  lastNodeCenter = lastWikiCenter = L.latLng(COUNTRY_CENTERS.JP);
+  loadNodes(lastNodeCenter);
+  loadWiki(lastWikiCenter);
 }
 
-// --- 地図イベント設定（連動同期・クリック・移動完了） ---
-function setupMapEvents(paneObj) {
-  const map = paneObj.map;
-  let syncFrame = null;
+function syncAll(center, zoom, exceptIndex = -1) {
+  isSyncing = true;
+  mapPanes.forEach((p) => { if (p.index !== exceptIndex) p.map.setView(center, zoom, { animate: false }); });
+  isSyncing = false;
+}
 
-  // 連動同期 (Pan & Zoom) を requestAnimationFrame でスロットル化して軽快動作
-  const syncHandler = () => {
+function setupMapEvents(pane) {
+  const map = pane.map;
+  let frame = null;
+
+  // 連動同期（描画フレームごとに間引き）
+  map.on("move", () => {
     if (isSyncing) return;
-    if (syncFrame) cancelAnimationFrame(syncFrame);
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => syncAll(map.getCenter(), map.getZoom(), pane.index));
+  });
 
-    syncFrame = requestAnimationFrame(() => {
-      isSyncing = true;
-      const center = map.getCenter();
-      const zoom = map.getZoom();
-
-      mapPanes.forEach(other => {
-        if (other.index !== paneObj.index) {
-          other.map.setView(center, zoom, { animate: false });
-        }
-      });
-      isSyncing = false;
-      syncFrame = null;
-    });
-  };
-
-  map.on("move", syncHandler);
-
-  // 移動完了時: 10km以上移動していれば周辺拠点を自動再読込
+  // 移動が落ち着いたら、距離に応じて拠点・Wikidataを再取得
   map.on("moveend", () => {
-    const center = map.getCenter();
-    if (!lastLoadedCenter || center.distanceTo(lastLoadedCenter) > 10000) {
-      lastLoadedCenter = center;
-      loadNodesToMaps(center);
-    }
+    clearTimeout(viewTimer);
+    viewTimer = setTimeout(() => {
+      const c = map.getCenter();
+      if (!lastNodeCenter || c.distanceTo(lastNodeCenter) > NODE_RELOAD_M) { lastNodeCenter = c; loadNodes(c); }
+      if (!lastWikiCenter || c.distanceTo(lastWikiCenter) > WIKI_RELOAD_M) { lastWikiCenter = c; loadWiki(c); }
+    }, 400);
   });
 
-  // 地図クリックイベント
-  map.on("click", (e) => {
-    const lat = e.latlng.lat;
-    const lon = e.latlng.lng;
+  map.on("click", (e) => handleMapClick(e.latlng));
+  map.on("dblclick", () => { if (currentTool === "route") finishRoute(); });
 
-    // 代表座標の入力反映
-    setClickedCoordinate(lat, lon);
-
-    // クリック地点にピン設置
-    if (activeMarker) {
-      activeMarker.remove();
-    }
-    activeMarker = L.marker([lat, lon], {
-      icon: L.divIcon({
-        className: 'custom-pin',
-        html: '<div style="background:#2563eb; width:14px; height:14px; border-radius:50%; border:2px solid #ffffff; box-shadow:0 0 6px rgba(0,0,0,0.6);"></div>',
-        iconSize: [14, 14],
-        iconAnchor: [7, 7]
-      })
-    }).addTo(map);
-
-    // 記録パネルを開く
-    const panel = document.getElementById("record-panel");
-    if (!panel.classList.contains("open")) {
-      panel.classList.add("open");
-      document.getElementById("btn-toggle-record").classList.add("active");
-    }
-  });
+  // ポップアップ内のボタン（編集・削除）はLeafletがクリック伝播を止めるため、開いた要素へ直接登録
+  map.on("popupopen", (e) => e.popup.getElement().addEventListener("click", handleLogAction));
 }
 
-// --- ペイン上部のコントロール設定 ---
-function setupPaneControls(paneObj) {
-  // タイル切り替え
-  const selTile = document.getElementById(`select-tile-${paneObj.index + 1}`);
-  if (selTile) {
-    selTile.innerHTML = "";
-    Object.keys(TILE_PROVIDERS).forEach(k => {
-      const p = TILE_PROVIDERS[k];
-      const opt = document.createElement("option");
-      opt.value = k;
-      opt.innerText = p.name;
-      if (k === paneObj.currentTile) opt.selected = true;
-      selTile.appendChild(opt);
-    });
+function setupPaneControls(pane) {
+  const n = pane.index + 1;
 
-    selTile.addEventListener("change", (e) => {
-      paneObj.map.removeLayer(paneObj.tileLayer);
-      paneObj.tileLayer = createTileLayer(e.target.value);
-      paneObj.tileLayer.addTo(paneObj.map);
-      paneObj.currentTile = e.target.value;
-    });
-  }
+  const select = $(`select-tile-${n}`);
+  Object.entries(TILE_PROVIDERS).forEach(([key, p]) => {
+    select.add(new Option(p.name, key, false, key === pane.currentTile));
+  });
+  select.addEventListener("change", (e) => {
+    pane.map.removeLayer(pane.tileLayer);
+    pane.tileLayer = createTileLayer(e.target.value).addTo(pane.map);
+    pane.tileLayer.bringToBack();
+    pane.currentTile = e.target.value;
+  });
 
-  // 地名検索
-  const searchBtn = document.getElementById(`btn-search-${paneObj.index + 1}`);
-  const searchInput = document.getElementById(`input-search-${paneObj.index + 1}`);
-  if (searchBtn && searchInput) {
-    const doSearch = async () => {
-      const q = searchInput.value.trim();
-      if (!q) return;
-      showToast(`検索中: ${q}...`);
+  const input = $(`input-search-${n}`);
+  const doSearch = async () => {
+    const q = input.value.trim();
+    if (!q) return;
+    showToast(`検索中: ${q}...`);
+    try {
       const results = await apiSearchLocation(q);
-      if (results && results.length > 0) {
-        const top = results[0];
-        const newCenter = L.latLng(top.lat, top.lon);
-        paneObj.map.setView(newCenter, 14);
-        lastLoadedCenter = newCenter;
-        loadNodesToMaps(newCenter);
-        showToast(`検索: ${top.title} へ移動しました`);
+      if (results.length) {
+        focusOn(results[0].lat, results[0].lon, 14);
+        showToast(`${results[0].title} へ移動しました`);
       } else {
-        showToast("該当する場所が見つかりませんでした。");
+        showToast("該当する場所が見つかりませんでした");
       }
-    };
-
-    searchBtn.addEventListener("click", doSearch);
-    searchInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") doSearch();
-    });
-  }
-}
-
-// --- 画面分割制御 ---
-function initSplitControls() {
-  const btns = document.querySelectorAll(".split-btn");
-  btns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      btns.forEach(b => b.classList.remove("active"));
-      const target = e.currentTarget;
-      target.classList.add("active");
-      const layout = target.getAttribute("data-layout");
-      setSplitLayout(layout);
-    });
-  });
-}
-
-function setSplitLayout(layout) {
-  const grid = document.getElementById("map-grid");
-  grid.className = ""; // リセット
-
-  const p1 = document.getElementById("pane-1");
-  const p2 = document.getElementById("pane-2");
-  const p3 = document.getElementById("pane-3");
-  const p4 = document.getElementById("pane-4");
-
-  if (layout === "single") {
-    grid.classList.add("layout-single");
-    p1.style.display = "block";
-    p2.style.display = "none";
-    p3.style.display = "none";
-    p4.style.display = "none";
-    document.getElementById("badge-screens").innerText = "1 地図画面";
-  } else if (layout === "split-h") {
-    grid.classList.add("layout-split-h");
-    p1.style.display = "block";
-    p2.style.display = "block";
-    p3.style.display = "none";
-    p4.style.display = "none";
-    document.getElementById("badge-screens").innerText = "2 地図画面";
-  } else if (layout === "split-v") {
-    grid.classList.add("layout-split-v");
-    p1.style.display = "block";
-    p2.style.display = "block";
-    p3.style.display = "none";
-    p4.style.display = "none";
-    document.getElementById("badge-screens").innerText = "2 地図画面";
-  } else if (layout === "triple") {
-    grid.classList.add("layout-triple");
-    p1.style.display = "block";
-    p2.style.display = "block";
-    p3.style.display = "block";
-    p4.style.display = "none";
-    document.getElementById("badge-screens").innerText = "3 地図画面";
-  } else if (layout === "quad") {
-    grid.classList.add("layout-quad");
-    p1.style.display = "block";
-    p2.style.display = "block";
-    p3.style.display = "block";
-    p4.style.display = "block";
-    document.getElementById("badge-screens").innerText = "4 地図画面";
-  }
-
-  // リサイズ再計算
-  setTimeout(() => {
-    mapPanes.forEach(p => p.map.invalidateSize());
-  }, 150);
-}
-
-// --- サブツールバー ---
-function initSubToolbar() {
-  const toolBtns = document.querySelectorAll(".tool-btn");
-  toolBtns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      toolBtns.forEach(b => b.classList.remove("active"));
-      const target = e.currentTarget;
-      target.classList.add("active");
-      currentTool = target.getAttribute("data-tool");
-      
-      if (currentTool === "other-map") {
-        const center = mapPanes[0].map.getCenter();
-        const url = `https://www.google.com/maps/@${center.lat},${center.lng},15z`;
-        window.open(url, "_blank");
-      }
-    });
-  });
-}
-
-// --- レイヤー表示制御 ---
-function initLayerToggles() {
-  const chkPoints = document.getElementById("toggle-layer-points");
-  const chkWiki = document.getElementById("toggle-layer-wiki");
-
-  chkPoints.addEventListener("change", (e) => {
-    mapPanes.forEach(p => {
-      if (e.target.checked) {
-        p.nodeLayer.addTo(p.map);
-      } else {
-        p.map.removeLayer(p.nodeLayer);
-      }
-    });
-  });
-
-  chkWiki.addEventListener("change", async (e) => {
-    if (e.target.checked) {
-      loadWikidataToMaps();
-    } else {
-      mapPanes.forEach(p => p.wikiLayer.clearLayers());
+    } catch (err) {
+      showToast("検索に失敗しました: " + err.message);
     }
+  };
+  $(`btn-search-${n}`).addEventListener("click", doSearch);
+  input.addEventListener("keydown", (e) => { if (e.key === "Enter") doSearch(); });
+}
+
+function focusOn(lat, lon, minZoom = DEFAULT_ZOOM) {
+  const map = mapPanes[0].map;
+  map.setView([lat, lon], Math.max(map.getZoom(), minZoom));
+}
+
+// ---------------------------------------------------------------
+// 画面分割（1 / 2左右 / 2上下 / 4）
+// ---------------------------------------------------------------
+function initSplitControls() {
+  document.querySelectorAll(".split-btn").forEach((btn) =>
+    btn.addEventListener("click", () => setLayout(btn.dataset.layout)));
+}
+
+function setLayout(name) {
+  const cfg = LAYOUTS[name];
+  $("map-grid").className = cfg.cls;
+  document.querySelectorAll(".split-btn").forEach((b) => b.classList.toggle("active", b.dataset.layout === name));
+  $("badge-screens").innerText = `${cfg.panes} 地図画面`;
+  mapPanes.forEach((p) => { p.visible = p.index < cfg.panes; p.el.style.display = p.visible ? "block" : "none"; });
+
+  // 表示サイズ確定後に再計算し、位置を揃えてから描画し直す
+  setTimeout(() => {
+    const ref = mapPanes[0].map;
+    mapPanes.forEach((p) => { if (p.visible) p.map.invalidateSize(); });
+    syncAll(ref.getCenter(), ref.getZoom(), 0);
+    renderAll();
+  }, 100);
+}
+
+// ---------------------------------------------------------------
+// ツール（閲覧／ポイント／ルート／座標）
+// ---------------------------------------------------------------
+function initToolbar() {
+  document.querySelectorAll(".tool-btn[data-tool]").forEach((btn) =>
+    btn.addEventListener("click", () => setTool(btn.dataset.tool)));
+
+  $("btn-other-map").addEventListener("click", () => {
+    const map = mapPanes[0].map, c = map.getCenter();
+    window.open(`https://www.google.com/maps/@${c.lat},${c.lng},${map.getZoom()}z`, "_blank");
   });
 }
 
-// --- 交通拠点を地図にロード（周辺35km限定・高速描画） ---
-async function loadNodesToMaps(center = null) {
-  if (isNodeLoading || mapPanes.length === 0) return;
-  isNodeLoading = true;
+function setTool(tool) {
+  // 既存ログの編集中は、そのログの種別と違う描画ツールへは切り替えない
+  if (draft.editingId && (tool === "point" || tool === "route") && tool !== draft.type) {
+    showToast("編集中は記録種別を変更できません");
+    return;
+  }
+  currentTool = tool;
+  document.querySelectorAll(".tool-btn[data-tool]").forEach((b) => b.classList.toggle("active", b.dataset.tool === tool));
+  $("map-grid").dataset.tool = tool;
+  // ルート確定のダブルクリックでズームしないようにする
+  mapPanes.forEach((p) => (tool === "route" ? p.map.doubleClickZoom.disable() : p.map.doubleClickZoom.enable()));
 
-  try {
-    const c = center || mapPanes[0].map.getCenter();
-    const data = await apiFetchNodes("JP", c.lat, c.lng, 35);
-    const nodes = data.nodes || [];
-
-    mapPanes.forEach(p => {
-      p.nodeLayer.clearLayers();
-      nodes.forEach(nd => {
-        try {
-          const lat = parseFloat(nd["緯度"]);
-          const lon = parseFloat(nd["経度"]);
-          const name = nd["日本語名"] || nd["公用語名"];
-          const marker = L.circleMarker([lat, lon], {
-            radius: 5,
-            color: "#1d4ed8",
-            fillColor: "#3b82f6",
-            fillOpacity: 0.85,
-            weight: 1.5
-          }).bindPopup(`<strong>${name}</strong><br>種別: ${nd["種別"]}<br>ID: ${nd["node_id"]}`);
-          p.nodeLayer.addLayer(marker);
-        } catch (e) {}
-      });
-    });
-
-    document.getElementById("badge-points").innerText = `${nodes.length} 拠点(周辺)`;
-  } catch (err) {
-    console.error("Failed to load nodes", err);
-  } finally {
-    isNodeLoading = false;
+  if (tool === "point" || tool === "route") {
+    draft.type = tool;
+    draftChanged();
   }
 }
 
-// --- Wikidata史跡を地図にロード ---
-async function loadWikidataToMaps() {
-  const center = mapPanes[0].map.getCenter();
-  showToast("周辺のWikidata史跡を取得中...");
+function handleMapClick(latlng) {
+  if (currentTool === "point") {
+    setDraftPoint(latlng.lat, latlng.lng);
+    openRecordPanel();
+  } else if (currentTool === "route") {
+    draft.route.push([latlng.lat, latlng.lng]);
+    draftChanged();
+    openRecordPanel();
+  } else if (currentTool === "coord") {
+    navigator.clipboard.writeText(`${latlng.lat.toFixed(6)}, ${latlng.lng.toFixed(6)}`);
+    showToast(`座標をコピー: ${latlng.lat.toFixed(6)}, ${latlng.lng.toFixed(6)}`);
+  }
+}
+
+function setDraftPoint(lat, lon) {
+  draft.type = "point";
+  draft.point = [lat, lon];
+  draftChanged();
+}
+
+// ダブルクリック＝2回目のクリックで余分に増えた頂点を除いて確定
+function finishRoute() {
+  draft.route.pop();
+  setTool("view");
+  draftChanged();
+}
+
+// ドラッグ終了イベント内で自分自身を描画し直さないよう、次のイベントループで反映
+function draftChanged() {
+  setTimeout(() => { renderOverlays(); onDraftChanged(); }, 0);
+}
+
+// ---------------------------------------------------------------
+// 描画：追加データ（オレンジ点・赤線）／入力中データ
+// ---------------------------------------------------------------
+const pinIcon = (isDraft) => L.divIcon({
+  className: "", html: `<div class="pin-dot${isDraft ? " draft" : ""}"></div>`, iconSize: [18, 18], iconAnchor: [9, 9]
+});
+const vertexIcon = L.divIcon({ className: "", html: '<div class="vertex-dot"></div>', iconSize: [12, 12], iconAnchor: [6, 6] });
+
+function drawSavedLog(pane, log) {
+  if (log["記録種別"] === "ルート") {
+    const pts = parseRoute(log["ルート座標"]);
+    if (pts.length < 2) return;
+    L.polyline(pts, { color: COLORS.route, weight: 4, opacity: 0.9 })
+      .bindPopup(logPopupHtml(log)).addTo(pane.layers.mine);
+  } else {
+    const loc = logLocation(log);
+    if (!loc) return;
+    L.marker(loc, { icon: pinIcon(false), draggable: true, title: log["タイトル"] })
+      .bindPopup(logPopupHtml(log))
+      .on("dragend", (e) => { const ll = e.target.getLatLng(); moveLog(log.log_id, ll.lat, ll.lng); })
+      .addTo(pane.layers.mine);
+  }
+}
+
+function drawDraft(pane) {
+  const layer = pane.layers.draft;
+  if (draft.type === "point" && draft.point) {
+    L.marker(draft.point, { icon: pinIcon(true), draggable: true })
+      .on("dragend", (e) => { const ll = e.target.getLatLng(); setDraftPoint(ll.lat, ll.lng); })
+      .addTo(layer);
+  }
+  if (draft.type === "route" && draft.route.length) {
+    L.polyline(draft.route, { color: COLORS.route, weight: 4, dashArray: "8 6" }).addTo(layer);
+    draft.route.forEach((pt, i) => {
+      L.marker(pt, { icon: vertexIcon, draggable: true, title: "ドラッグで移動 / 右クリックで削除" })
+        .on("dragend", (e) => { const ll = e.target.getLatLng(); draft.route[i] = [ll.lat, ll.lng]; draftChanged(); })
+        .on("contextmenu", () => { draft.route.splice(i, 1); draftChanged(); })
+        .addTo(layer);
+    });
+  }
+}
+
+function renderOverlays() {
+  mapPanes.forEach((p) => {
+    p.layers.mine.clearLayers();
+    p.layers.draft.clearLayers();
+    if (!p.visible) return;
+    appLogs.forEach((log) => { if (log.log_id !== draft.editingId) drawSavedLog(p, log); });
+    drawDraft(p);
+  });
+  const routes = appLogs.filter((l) => l["記録種別"] === "ルート").length;
+  $("badge-points").innerText = `${appLogs.length - routes} ポイント`;
+  $("badge-routes").innerText = `${routes} ルート`;
+}
+
+// ---------------------------------------------------------------
+// 描画：登録拠点（青）／Wikidata（紫）
+// ---------------------------------------------------------------
+function drawNodes() {
+  mapPanes.forEach((p) => {
+    p.layers.nodes.clearLayers();
+    if (!p.visible) return;
+    nearNodes.forEach((nd) => {
+      const lat = parseFloat(nd["緯度"]), lon = parseFloat(nd["経度"]);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+      const name = nd["日本語名"] || nd["公用語名"];
+      L.circleMarker([lat, lon], { radius: 5, color: "#1d4ed8", fillColor: COLORS.node, fillOpacity: 0.85, weight: 1.5 })
+        .bindPopup(`<strong>${esc(name)}</strong><br>種別: ${esc(nd["種別"])}<br>ID: ${esc(nd.node_id)}`)
+        .addTo(p.layers.nodes);
+    });
+  });
+  $("badge-nodes").innerText = `周辺拠点 ${nearNodes.length}`;
+}
+
+function drawWiki() {
+  mapPanes.forEach((p) => {
+    p.layers.wiki.clearLayers();
+    if (!p.visible) return;
+    wikiItems.forEach((w) => {
+      L.circleMarker([w.lat, w.lon], { radius: 5, color: "#7e22ce", fillColor: COLORS.wiki, fillOpacity: 0.85, weight: 1.5 })
+        .bindPopup(`<strong>${esc(w.name)}</strong><br><a href="${esc(w.url)}" target="_blank" rel="noopener">Wikidata</a>`)
+        .addTo(p.layers.wiki);
+    });
+  });
+}
+
+function renderAll() {
+  drawNodes();
+  drawWiki();
+  renderOverlays();
+}
+
+async function loadNodes(center) {
+  const seq = ++nodeSeq;
+  try {
+    const data = await apiFetchNodes(center.lat, center.lng, 35);
+    if (seq !== nodeSeq) return; // より新しい要求が走っていれば破棄
+    nearNodes = data.nodes;
+    drawNodes();
+    refreshNodeOptions(nearNodes);
+  } catch (err) {
+    showToast("拠点の取得に失敗しました: " + err.message);
+  }
+}
+
+async function loadWiki(center) {
+  if (!$("toggle-layer-wiki").checked) return;
+  const seq = ++wikiSeq;
+  $("badge-wiki").innerText = "Wikidata 取得中…";
   try {
     const data = await apiFetchWikidata(center.lat, center.lng, 15);
-    const items = data.items || [];
-    mapPanes.forEach(p => {
-      p.wikiLayer.clearLayers();
-      items.forEach(w => {
-        const marker = L.circleMarker([w.lat, w.lon], {
-          radius: 5,
-          color: "#9333ea",
-          fillColor: "#c084fc",
-          fillOpacity: 0.8,
-          weight: 1
-        }).bindPopup(`<strong>${w.name}</strong><br><a href="${w.url}" target="_blank">Wikidataリンク</a>`);
-        p.wikiLayer.addLayer(marker);
-      });
-    });
-    showToast(`Wikidataスポットを ${items.length} 件表示しました`);
+    if (seq !== wikiSeq) return;
+    wikiItems = data.items;
+    drawWiki();
+    $("badge-wiki").innerText = `Wikidata ${wikiItems.length}`;
   } catch (err) {
-    console.error(err);
+    if (seq !== wikiSeq) return;
+    $("badge-wiki").innerText = "Wikidata 取得失敗";
+    showToast("Wikidataの取得に失敗しました（地図移動で再試行されます）: " + err.message);
+    lastWikiCenter = null; // 次の移動で必ず再取得する
   }
 }
 
-// ログから地図移動
-window.jumpToCoord = function(lat, lon) {
-  const target = L.latLng(lat, lon);
-  mapPanes.forEach(p => p.map.setView(target, 15));
-  if (activeMarker) activeMarker.remove();
-  activeMarker = L.marker(target).addTo(mapPanes[0].map);
-  lastLoadedCenter = target;
-  loadNodesToMaps(target);
-};
+// ---------------------------------------------------------------
+// レイヤー表示切替
+// ---------------------------------------------------------------
+function initLayerToggles() {
+  const bind = (checkboxId, layerName, onEnable) => {
+    $(checkboxId).addEventListener("change", (e) => {
+      mapPanes.forEach((p) => {
+        if (e.target.checked) p.layers[layerName].addTo(p.map); else p.map.removeLayer(p.layers[layerName]);
+      });
+      if (e.target.checked && onEnable) onEnable();
+    });
+  };
+  bind("toggle-layer-nodes", "nodes");
+  bind("toggle-layer-mine", "mine");
+  bind("toggle-layer-wiki", "wiki", () => loadWiki(mapPanes[0].map.getCenter()));
+}

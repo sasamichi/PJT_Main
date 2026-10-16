@@ -2,13 +2,9 @@ import os
 import streamlit as st
 import pandas as pd
 from datetime import datetime
-from tools.common import BASE_DIR, MASTER_DATA_DIR, load_all_data, save_csv_clean, apply_common_styles
+from tools.common import BASE_DIR, load_all_data, save_csv_clean, render_header
 
-apply_common_styles()
-
-st.title("📊 世界交通網・地域データ基盤 - データ管理 & 品質保証")
-st.caption("収集進捗管理（国レベル）、公的基準突合、抜き取り検査、不整合データ検知、マスタ台帳")
-st.markdown("[🗺️ 机上探索 Web GIS (フルスクリーン・暗転なし) を開く (http://localhost:8080)](http://localhost:8080)")
+render_header("データ管理 & 品質保証 — 収集進捗（国レベル）・公的基準突合・抜き取り検査・不整合検知・マスタ台帳")
 
 (
     df_countries,
@@ -17,7 +13,6 @@ st.markdown("[🗺️ 机上探索 Web GIS (フルスクリーン・暗転なし
     df_routes,
     df_nodes,
     df_route_nodes,
-    df_logs,
     df_country_prog
 ) = load_all_data()
 

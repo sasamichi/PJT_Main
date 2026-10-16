@@ -69,6 +69,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .brand-section {
@@ -306,11 +308,6 @@ header {
   grid-template-rows: 1fr 1fr;
 }
 
-#map-grid.layout-triple {
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-}
-
 #map-grid.layout-quad {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -546,4 +543,227 @@ textarea.form-control {
 
 #toast.show {
   transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================
+   v2 追加スタイル
+   ========================================================== */
+
+/* hidden属性をdisplay指定より優先 */
+[hidden] { display: none !important; }
+
+/* 描画ツール使用中は十字カーソル */
+#map-grid[data-tool="point"] .leaflet-container,
+#map-grid[data-tool="route"] .leaflet-container,
+#map-grid[data-tool="coord"] .leaflet-container {
+  cursor: crosshair;
+}
+
+/* レイヤー凡例の色点 */
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* 追加データ（オレンジ）と入力中ポイント */
+.pin-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f97316;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.65);
+  cursor: grab;
+}
+
+.pin-dot.draft {
+  animation: pin-pulse 1.4s ease-out infinite;
+}
+
+@keyframes pin-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7), 0 0 6px rgba(0, 0, 0, 0.65); }
+  100% { box-shadow: 0 0 0 14px rgba(249, 115, 22, 0), 0 0 6px rgba(0, 0, 0, 0.65); }
+}
+
+/* ルート頂点（赤） */
+.vertex-dot {
+  width: 12px;
+  height: 12px;
+  background: #ef4444;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  cursor: grab;
+}
+
+/* 記録パネル部品 */
+.btn-close {
+  background: none;
+  border: none;
+  color: var(--text-sub);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-wide {
+  width: 100%;
+  justify-content: center;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.btn-small {
+  padding: 2px 8px;
+  font-size: 11px;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.inline-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--text-sub);
+}
+
+.edit-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid #f97316;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#exploration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 複数選択ピッカーのチップ */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.chips:empty {
+  display: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid var(--primary-color);
+  color: var(--text-main);
+  border-radius: 12px;
+  padding: 1px 4px 1px 8px;
+  font-size: 11px;
+}
+
+.chip button {
+  background: none;
+  border: none;
+  color: var(--text-sub);
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* ログカード・ポップアップのボタン列 */
+.log-card {
+  border: 1px solid var(--border-color);
+  background: var(--bg-toolbar);
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.log-card-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-size: 10px;
+  color: var(--text-sub);
+}
+
+.log-card-head strong {
+  color: var(--primary-color);
+  font-size: 12px;
+}
+
+.log-card-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.actions button {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  border-color: var(--primary-color);
+}
+
+.actions button.danger {
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+.log-popup .sub {
+  font-size: 10px;
+  color: #64748b;
+  margin: 2px 0 4px;
+}
+
+/* ダークモード時のLeafletポップアップ */
+.dark-mode .leaflet-popup-content-wrapper,
+.dark-mode .leaflet-popup-tip {
+  background: var(--bg-surface);
+  color: var(--text-main);
+}
+
+.dark-mode .leaflet-popup-content a {
+  color: var(--accent-color);
 }
