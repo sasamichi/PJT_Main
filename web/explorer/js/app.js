@@ -1,11 +1,14 @@
 /**
  * 机上探索 Web GIS メインアプリケーション (app.js)
+ * 高速・軽量・連動同期・周辺ノード限定描画
  */
 
 let mapPanes = [];
 let isSyncing = false;
 let currentTool = "view"; // "view", "point", "coord"
 let activeMarker = null;
+let lastLoadedCenter = null;
+let isNodeLoading = false;
 
 // デフォルト中心位置（函館駅付近）
 const DEFAULT_LAT = 41.7737;
@@ -52,10 +55,10 @@ function initMapPanes() {
     const map = L.map(cfg.mapId, {
       center: [DEFAULT_LAT, DEFAULT_LON],
       zoom: DEFAULT_ZOOM,
-      zoomControl: false // コントロールは独自配置
+      zoomControl: false
     });
 
-    // ズームコントロールを右下に
+    // ズームコントロールを右下に配置
     L.control.zoom({ position: "bottomright" }).addTo(map);
 
     // タイル設定
@@ -77,40 +80,60 @@ function initMapPanes() {
     };
     mapPanes.push(paneObj);
 
-    // 地図イベントリスナー（同期 ＆ クリック）
+    // 地図イベントリスナー
     setupMapEvents(paneObj);
     setupPaneControls(paneObj);
   });
 
   // 初回レイアウトは「2画面（左右）」
   setSplitLayout("split-h");
-  loadNodesToMaps();
 
+  // 初回周辺ノード読み込み（函館周辺35km）
+  const initialCenter = L.latLng(DEFAULT_LAT, DEFAULT_LON);
+  lastLoadedCenter = initialCenter;
+  loadNodesToMaps(initialCenter);
+
+  // 初回サイズ確定
   setTimeout(() => {
     mapPanes.forEach(p => p.map.invalidateSize());
-  }, 300);
+  }, 250);
 }
 
+// --- 地図イベント設定（連動同期・クリック・移動完了） ---
 function setupMapEvents(paneObj) {
   const map = paneObj.map;
+  let syncFrame = null;
 
-  // 連動同期 (Pan & Zoom)
+  // 連動同期 (Pan & Zoom) を requestAnimationFrame でスロットル化して軽快動作
   const syncHandler = () => {
     if (isSyncing) return;
-    isSyncing = true;
-    const center = map.getCenter();
-    const zoom = map.getZoom();
+    if (syncFrame) cancelAnimationFrame(syncFrame);
 
-    mapPanes.forEach(other => {
-      if (other.index !== paneObj.index) {
-        other.map.setView(center, zoom, { animate: false });
-      }
+    syncFrame = requestAnimationFrame(() => {
+      isSyncing = true;
+      const center = map.getCenter();
+      const zoom = map.getZoom();
+
+      mapPanes.forEach(other => {
+        if (other.index !== paneObj.index) {
+          other.map.setView(center, zoom, { animate: false });
+        }
+      });
+      isSyncing = false;
+      syncFrame = null;
     });
-    isSyncing = false;
   };
 
   map.on("move", syncHandler);
-  map.on("zoom", syncHandler);
+
+  // 移動完了時: 10km以上移動していれば周辺拠点を自動再読込
+  map.on("moveend", () => {
+    const center = map.getCenter();
+    if (!lastLoadedCenter || center.distanceTo(lastLoadedCenter) > 10000) {
+      lastLoadedCenter = center;
+      loadNodesToMaps(center);
+    }
+  });
 
   // 地図クリックイベント
   map.on("click", (e) => {
@@ -120,16 +143,16 @@ function setupMapEvents(paneObj) {
     // 代表座標の入力反映
     setClickedCoordinate(lat, lon);
 
-    // クリック地点にピン
+    // クリック地点にピン設置
     if (activeMarker) {
       activeMarker.remove();
     }
     activeMarker = L.marker([lat, lon], {
       icon: L.divIcon({
         className: 'custom-pin',
-        html: '<div style="background:#2563eb; width:12px; height:12px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 4px rgba(0,0,0,0.5);"></div>',
-        iconSize: [12, 12],
-        iconAnchor: [6, 6]
+        html: '<div style="background:#2563eb; width:14px; height:14px; border-radius:50%; border:2px solid #ffffff; box-shadow:0 0 6px rgba(0,0,0,0.6);"></div>',
+        iconSize: [14, 14],
+        iconAnchor: [7, 7]
       })
     }).addTo(map);
 
@@ -142,11 +165,11 @@ function setupMapEvents(paneObj) {
   });
 }
 
+// --- ペイン上部のコントロール設定 ---
 function setupPaneControls(paneObj) {
   // タイル切り替え
   const selTile = document.getElementById(`select-tile-${paneObj.index + 1}`);
   if (selTile) {
-    // 選択肢の追加
     selTile.innerHTML = "";
     Object.keys(TILE_PROVIDERS).forEach(k => {
       const p = TILE_PROVIDERS[k];
@@ -172,10 +195,14 @@ function setupPaneControls(paneObj) {
     const doSearch = async () => {
       const q = searchInput.value.trim();
       if (!q) return;
+      showToast(`検索中: ${q}...`);
       const results = await apiSearchLocation(q);
       if (results && results.length > 0) {
         const top = results[0];
-        paneObj.map.setView([top.lat, top.lon], 15);
+        const newCenter = L.latLng(top.lat, top.lon);
+        paneObj.map.setView(newCenter, 14);
+        lastLoadedCenter = newCenter;
+        loadNodesToMaps(newCenter);
         showToast(`検索: ${top.title} へ移動しました`);
       } else {
         showToast("該当する場所が見つかりませんでした。");
@@ -249,10 +276,10 @@ function setSplitLayout(layout) {
     document.getElementById("badge-screens").innerText = "4 地図画面";
   }
 
-  // Leafletのコンテナサイズ変更通知
+  // リサイズ再計算
   setTimeout(() => {
     mapPanes.forEach(p => p.map.invalidateSize());
-  }, 100);
+  }, 150);
 }
 
 // --- サブツールバー ---
@@ -267,7 +294,7 @@ function initSubToolbar() {
       
       if (currentTool === "other-map") {
         const center = mapPanes[0].map.getCenter();
-        const url = `https://www.google.com/maps/@${center.lat},${center.lon},15z`;
+        const url = `https://www.google.com/maps/@${center.lat},${center.lng},15z`;
         window.open(url, "_blank");
       }
     });
@@ -298,10 +325,14 @@ function initLayerToggles() {
   });
 }
 
-// --- 交通拠点を地図にロード ---
-async function loadNodesToMaps() {
+// --- 交通拠点を地図にロード（周辺35km限定・高速描画） ---
+async function loadNodesToMaps(center = null) {
+  if (isNodeLoading || mapPanes.length === 0) return;
+  isNodeLoading = true;
+
   try {
-    const data = await apiFetchNodes("JP");
+    const c = center || mapPanes[0].map.getCenter();
+    const data = await apiFetchNodes("JP", c.lat, c.lng, 35);
     const nodes = data.nodes || [];
 
     mapPanes.forEach(p => {
@@ -312,18 +343,22 @@ async function loadNodesToMaps() {
           const lon = parseFloat(nd["経度"]);
           const name = nd["日本語名"] || nd["公用語名"];
           const marker = L.circleMarker([lat, lon], {
-            radius: 4,
-            color: "#2563eb",
-            fillColor: "#60a5fa",
-            fillOpacity: 0.8,
-            weight: 1
+            radius: 5,
+            color: "#1d4ed8",
+            fillColor: "#3b82f6",
+            fillOpacity: 0.85,
+            weight: 1.5
           }).bindPopup(`<strong>${name}</strong><br>種別: ${nd["種別"]}<br>ID: ${nd["node_id"]}`);
           p.nodeLayer.addLayer(marker);
         } catch (e) {}
       });
     });
+
+    document.getElementById("badge-points").innerText = `${nodes.length} 拠点(周辺)`;
   } catch (err) {
     console.error("Failed to load nodes", err);
+  } finally {
+    isNodeLoading = false;
   }
 }
 
@@ -332,7 +367,7 @@ async function loadWikidataToMaps() {
   const center = mapPanes[0].map.getCenter();
   showToast("周辺のWikidata史跡を取得中...");
   try {
-    const data = await apiFetchWikidata(center.lat, center.lon, 15);
+    const data = await apiFetchWikidata(center.lat, center.lng, 15);
     const items = data.items || [];
     mapPanes.forEach(p => {
       p.wikiLayer.clearLayers();
@@ -355,7 +390,10 @@ async function loadWikidataToMaps() {
 
 // ログから地図移動
 window.jumpToCoord = function(lat, lon) {
-  mapPanes.forEach(p => p.map.setView([lat, lon], 15));
+  const target = L.latLng(lat, lon);
+  mapPanes.forEach(p => p.map.setView(target, 15));
   if (activeMarker) activeMarker.remove();
-  activeMarker = L.marker([lat, lon]).addTo(mapPanes[0].map);
+  activeMarker = L.marker(target).addTo(mapPanes[0].map);
+  lastLoadedCenter = target;
+  loadNodesToMaps(target);
 };

@@ -126,6 +126,11 @@ class ExplorerAPIHandler(SimpleHTTPRequestHandler):
                     res = filtered
                 except ValueError:
                     pass
+            else:
+                # 範囲指定がない場合は安全のため上位500件
+                limit = int(qs.get('limit', [500])[0])
+                res = res[:limit]
+
             self.send_json({"nodes": res, "total": len(res)})
             return
 

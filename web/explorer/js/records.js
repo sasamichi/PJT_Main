@@ -79,7 +79,7 @@ async function loadMasterOptions(countryCode) {
   try {
     const [rData, nData, mData, lData] = await Promise.all([
       apiFetchRoutes(countryCode),
-      apiFetchNodes(countryCode),
+      apiFetchNodes(countryCode, 41.7737, 140.7264, 50),
       apiFetchMunicipalities(countryCode),
       apiFetchLogs()
     ]);
@@ -89,27 +89,27 @@ async function loadMasterOptions(countryCode) {
     appLogs = lData.logs || [];
 
     // バッジ更新
-    document.getElementById("badge-points").innerText = `${appNodes.length} ポイント`;
+    document.getElementById("badge-points").innerText = `${appNodes.length} 拠点(周辺)`;
     document.getElementById("badge-routes").innerText = `${appRoutes.length} ルート`;
 
     // セレクトボックスへの流し込み
     const selRoute = document.getElementById("log-route");
     selRoute.innerHTML = '<option value="">(未選択)</option>';
-    appRoutes.forEach(r => {
+    appRoutes.slice(0, 300).forEach(r => {
       const name = r["日本語名"] || r["公用語名"];
       selRoute.innerHTML += `<option value="${r["route_id"]}">${name} (${r["route_id"]})</option>`;
     });
 
     const selNode = document.getElementById("log-node");
     selNode.innerHTML = '<option value="">(未選択)</option>';
-    appNodes.slice(0, 500).forEach(n => {
+    appNodes.forEach(n => {
       const name = n["日本語名"] || n["公用語名"];
       selNode.innerHTML += `<option value="${n["node_id"]}">${name} (${n["種別"]})</option>`;
     });
 
     const selMun = document.getElementById("log-municipality");
     selMun.innerHTML = '<option value="">(未選択)</option>';
-    appMunicipalities.slice(0, 300).forEach(m => {
+    appMunicipalities.slice(0, 200).forEach(m => {
       const name = m["日本語名"] || m["公用語名"];
       selMun.innerHTML += `<option value="${m["municipality_id_tmp"]}">${name}</option>`;
     });
