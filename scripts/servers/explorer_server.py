@@ -20,6 +20,7 @@ from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 STATIC_DIR = os.path.join(PROJECT_ROOT, 'web', 'explorer')
+PUBLIC_DIR = os.path.join(PROJECT_ROOT, 'web', 'public')
 MASTER_DIR = os.path.join(PROJECT_ROOT, 'data', 'master')
 LOG_CSV_PATH = os.path.join(MASTER_DIR, 'exploration_logs.csv')
 
@@ -201,6 +202,16 @@ def fetch_wikidata(lat, lon, radius_km):
 class ExplorerAPIHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=STATIC_DIR, **kwargs)
+
+    def translate_path(self, path):
+        # /public または /public/ で始まるアクセスを web/public/ ディレクトリへルーティング
+        clean_path = urllib.parse.urlparse(path).path
+        if clean_path in ('/public', '/public/'):
+            return os.path.join(PUBLIC_DIR, 'index.html')
+        elif clean_path.startswith('/public/'):
+            rel_path = clean_path[len('/public/'):].lstrip('/')
+            return os.path.join(PUBLIC_DIR, rel_path)
+        return super().translate_path(path)
 
     def end_headers(self):
         # 開発中に古いJS/CSSが残らないようキャッシュ無効化

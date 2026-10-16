@@ -64,15 +64,17 @@ def render_header(subtitle):
 
     st.markdown(BASE_CSS + (DARK_CSS if theme == "dark" else ""), unsafe_allow_html=True)
 
-    col_brand, col_theme, col_link = st.columns([5.5, 2.0, 2.5])
+    col_brand, col_theme, col_gis, col_pub = st.columns([4.3, 1.7, 2.0, 2.0])
     with col_brand:
         st.markdown(
             f'<div class="brand-bar">🌐 机上探索 <span class="badge">MAP v2</span>'
             f'<span class="sub">{subtitle}</span></div>', unsafe_allow_html=True)
     with col_theme:
         is_dark = st.toggle("🌙 黒背景", value=(theme == "dark"), key="theme_toggle")
-    with col_link:
-        st.link_button("🗺️ 机上探索 Web GIS へ", f"{EXPLORER_URL}/?theme={theme}")
+    with col_gis:
+        st.link_button("🗺️ 探索 Web GIS", f"{EXPLORER_URL}/?theme={theme}")
+    with col_pub:
+        st.link_button("🌐 公開 Web サイト", f"{EXPLORER_URL}/public/")
 
     st.markdown("<hr style='margin: 8px 0 16px 0; border: none; border-top: 1px solid rgba(128,128,128,0.2);'>", unsafe_allow_html=True)
 

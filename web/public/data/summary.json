@@ -1,0 +1,4215 @@
+{
+  "title": "世界交通網・地域データ基盤 (Global Transit & Territory Archive)",
+  "updated_at": "2026-10-16",
+  "total_stats": {
+    "registered_countries": 251,
+    "active_countries": 200,
+    "municipalities": 9170,
+    "operators": 259,
+    "routes": 4605,
+    "nodes": 16318,
+    "route_nodes": 85
+  },
+  "countries": [
+    {
+      "code": "AD",
+      "name": "アンドラ",
+      "flag": "🇦🇩",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 7,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アンドラ"
+      }
+    },
+    {
+      "code": "AE",
+      "name": "アラブ首長国連邦",
+      "flag": "🇦🇪",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 7,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アラブ首長国連邦"
+      }
+    },
+    {
+      "code": "AF",
+      "name": "アフガニスタン",
+      "flag": "🇦🇫",
+      "region": "南アジア",
+      "counts": {
+        "municipalities": 34,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アフガニスタン"
+      }
+    },
+    {
+      "code": "AG",
+      "name": "アンティグア・バーブーダ",
+      "flag": "🇦🇬",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 8,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アンティグア・バーブーダ"
+      }
+    },
+    {
+      "code": "AL",
+      "name": "アルバニア",
+      "flag": "🇦🇱",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 12,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アルバニア"
+      }
+    },
+    {
+      "code": "AM",
+      "name": "アルメニア",
+      "flag": "🇦🇲",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 11,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アルメニア"
+      }
+    },
+    {
+      "code": "AO",
+      "name": "アンゴラ",
+      "flag": "🇦🇴",
+      "region": "中部アフリカ",
+      "counts": {
+        "municipalities": 18,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アンゴラ"
+      }
+    },
+    {
+      "code": "AR",
+      "name": "アルゼンチン",
+      "flag": "🇦🇷",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 24,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アルゼンチン"
+      }
+    },
+    {
+      "code": "AT",
+      "name": "オーストリア",
+      "flag": "🇦🇹",
+      "region": "西ヨーロッパ",
+      "counts": {
+        "municipalities": 2216,
+        "operators": 33,
+        "routes": 497,
+        "nodes": 2734,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          47.5162,
+          14.5501
+        ],
+        "zoom": 7,
+        "name": "オーストリア"
+      }
+    },
+    {
+      "code": "AU",
+      "name": "オーストラリア",
+      "flag": "🇦🇺",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 8,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "オーストラリア"
+      }
+    },
+    {
+      "code": "AZ",
+      "name": "アゼルバイジャン",
+      "flag": "🇦🇿",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 78,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アゼルバイジャン"
+      }
+    },
+    {
+      "code": "BA",
+      "name": "ボスニア・ヘルツェゴビナ",
+      "flag": "🇧🇦",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 3,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ボスニア・ヘルツェゴビナ"
+      }
+    },
+    {
+      "code": "BB",
+      "name": "バルバドス",
+      "flag": "🇧🇧",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 11,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "バルバドス"
+      }
+    },
+    {
+      "code": "BD",
+      "name": "バングラデシュ",
+      "flag": "🇧🇩",
+      "region": "南アジア",
+      "counts": {
+        "municipalities": 72,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "バングラデシュ"
+      }
+    },
+    {
+      "code": "BE",
+      "name": "ベルギー",
+      "flag": "🇧🇪",
+      "region": "西ヨーロッパ",
+      "counts": {
+        "municipalities": 13,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ベルギー"
+      }
+    },
+    {
+      "code": "BF",
+      "name": "ブルキナファソ",
+      "flag": "🇧🇫",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 58,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ブルキナファソ"
+      }
+    },
+    {
+      "code": "BG",
+      "name": "ブルガリア",
+      "flag": "🇧🇬",
+      "region": "東ヨーロッパ",
+      "counts": {
+        "municipalities": 28,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ブルガリア"
+      }
+    },
+    {
+      "code": "BH",
+      "name": "バーレーン",
+      "flag": "🇧🇭",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 4,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "バーレーン"
+      }
+    },
+    {
+      "code": "BI",
+      "name": "ブルンジ",
+      "flag": "🇧🇮",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 18,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ブルンジ"
+      }
+    },
+    {
+      "code": "BJ",
+      "name": "ベナン",
+      "flag": "🇧🇯",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 12,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ベナン"
+      }
+    },
+    {
+      "code": "BN",
+      "name": "ブルネイ",
+      "flag": "🇧🇳",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 4,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ブルネイ"
+      }
+    },
+    {
+      "code": "BO",
+      "name": "ボリビア",
+      "flag": "🇧🇴",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 9,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ボリビア"
+      }
+    },
+    {
+      "code": "BQ",
+      "name": "ボネール、シント・ユースタティウス及びサバ",
+      "flag": "🇧🇶",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 3,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ボネール、シント・ユースタティウス及びサバ"
+      }
+    },
+    {
+      "code": "BR",
+      "name": "ブラジル",
+      "flag": "🇧🇷",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 27,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ブラジル"
+      }
+    },
+    {
+      "code": "BS",
+      "name": "バハマ",
+      "flag": "🇧🇸",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 32,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "バハマ"
+      }
+    },
+    {
+      "code": "BT",
+      "name": "ブータン",
+      "flag": "🇧🇹",
+      "region": "南アジア",
+      "counts": {
+        "municipalities": 20,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ブータン"
+      }
+    },
+    {
+      "code": "BW",
+      "name": "ボツワナ",
+      "flag": "🇧🇼",
+      "region": "南部アフリカ",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ボツワナ"
+      }
+    },
+    {
+      "code": "BY",
+      "name": "ベラルーシ",
+      "flag": "🇧🇾",
+      "region": "東ヨーロッパ",
+      "counts": {
+        "municipalities": 7,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ベラルーシ"
+      }
+    },
+    {
+      "code": "BZ",
+      "name": "ベリーズ",
+      "flag": "🇧🇿",
+      "region": "中央アメリカ",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ベリーズ"
+      }
+    },
+    {
+      "code": "CA",
+      "name": "カナダ",
+      "flag": "🇨🇦",
+      "region": "北部アメリカ",
+      "counts": {
+        "municipalities": 13,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "カナダ"
+      }
+    },
+    {
+      "code": "CD",
+      "name": "コンゴ民主共和国",
+      "flag": "🇨🇩",
+      "region": "中部アフリカ",
+      "counts": {
+        "municipalities": 26,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "コンゴ民主共和国"
+      }
+    },
+    {
+      "code": "CF",
+      "name": "中央アフリカ共和国",
+      "flag": "🇨🇫",
+      "region": "中部アフリカ",
+      "counts": {
+        "municipalities": 17,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "中央アフリカ共和国"
+      }
+    },
+    {
+      "code": "CG",
+      "name": "コンゴ",
+      "flag": "🇨🇬",
+      "region": "中部アフリカ",
+      "counts": {
+        "municipalities": 12,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "コンゴ"
+      }
+    },
+    {
+      "code": "CH",
+      "name": "スイス",
+      "flag": "🇨🇭",
+      "region": "西ヨーロッパ",
+      "counts": {
+        "municipalities": 26,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          46.8182,
+          8.2275
+        ],
+        "zoom": 8,
+        "name": "スイス"
+      }
+    },
+    {
+      "code": "CI",
+      "name": "コートジボワール",
+      "flag": "🇨🇮",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 14,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "コートジボワール"
+      }
+    },
+    {
+      "code": "CL",
+      "name": "チリ",
+      "flag": "🇨🇱",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "チリ"
+      }
+    },
+    {
+      "code": "CM",
+      "name": "カメルーン",
+      "flag": "🇨🇲",
+      "region": "中部アフリカ",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "カメルーン"
+      }
+    },
+    {
+      "code": "CN",
+      "name": "中国",
+      "flag": "🇨🇳",
+      "region": "東アジア",
+      "counts": {
+        "municipalities": 34,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "中国"
+      }
+    },
+    {
+      "code": "CO",
+      "name": "コロンビア",
+      "flag": "🇨🇴",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 33,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "コロンビア"
+      }
+    },
+    {
+      "code": "CR",
+      "name": "コスタリカ",
+      "flag": "🇨🇷",
+      "region": "中央アメリカ",
+      "counts": {
+        "municipalities": 7,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "コスタリカ"
+      }
+    },
+    {
+      "code": "CU",
+      "name": "キューバ",
+      "flag": "🇨🇺",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "キューバ"
+      }
+    },
+    {
+      "code": "CV",
+      "name": "カーボベルデ",
+      "flag": "🇨🇻",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 24,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "カーボベルデ"
+      }
+    },
+    {
+      "code": "CY",
+      "name": "キプロス",
+      "flag": "🇨🇾",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "キプロス"
+      }
+    },
+    {
+      "code": "CZ",
+      "name": "チェコ",
+      "flag": "🇨🇿",
+      "region": "東ヨーロッパ",
+      "counts": {
+        "municipalities": 90,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "チェコ"
+      }
+    },
+    {
+      "code": "DE",
+      "name": "ドイツ",
+      "flag": "🇩🇪",
+      "region": "西ヨーロッパ",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ドイツ"
+      }
+    },
+    {
+      "code": "DJ",
+      "name": "ジブチ",
+      "flag": "🇩🇯",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ジブチ"
+      }
+    },
+    {
+      "code": "DK",
+      "name": "デンマーク",
+      "flag": "🇩🇰",
+      "region": "北ヨーロッパ",
+      "counts": {
+        "municipalities": 5,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "デンマーク"
+      }
+    },
+    {
+      "code": "DM",
+      "name": "ドミニカ",
+      "flag": "🇩🇲",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ドミニカ"
+      }
+    },
+    {
+      "code": "DO",
+      "name": "ドミニカ共和国",
+      "flag": "🇩🇴",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 42,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ドミニカ共和国"
+      }
+    },
+    {
+      "code": "DZ",
+      "name": "アルジェリア",
+      "flag": "🇩🇿",
+      "region": "北アフリカ",
+      "counts": {
+        "municipalities": 58,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アルジェリア"
+      }
+    },
+    {
+      "code": "EC",
+      "name": "エクアドル",
+      "flag": "🇪🇨",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 24,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "エクアドル"
+      }
+    },
+    {
+      "code": "EE",
+      "name": "エストニア",
+      "flag": "🇪🇪",
+      "region": "北ヨーロッパ",
+      "counts": {
+        "municipalities": 94,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "エストニア"
+      }
+    },
+    {
+      "code": "EG",
+      "name": "エジプト",
+      "flag": "🇪🇬",
+      "region": "北アフリカ",
+      "counts": {
+        "municipalities": 27,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "エジプト"
+      }
+    },
+    {
+      "code": "ER",
+      "name": "エリトリア",
+      "flag": "🇪🇷",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "エリトリア"
+      }
+    },
+    {
+      "code": "ES",
+      "name": "スペイン",
+      "flag": "🇪🇸",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 69,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "スペイン"
+      }
+    },
+    {
+      "code": "ET",
+      "name": "エチオピア",
+      "flag": "🇪🇹",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 13,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "エチオピア"
+      }
+    },
+    {
+      "code": "FI",
+      "name": "フィンランド",
+      "flag": "🇫🇮",
+      "region": "北ヨーロッパ",
+      "counts": {
+        "municipalities": 19,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "フィンランド"
+      }
+    },
+    {
+      "code": "FJ",
+      "name": "フィジー",
+      "flag": "🇫🇯",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 19,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "フィジー"
+      }
+    },
+    {
+      "code": "FM",
+      "name": "ミクロネシア",
+      "flag": "🇫🇲",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 4,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ミクロネシア"
+      }
+    },
+    {
+      "code": "FR",
+      "name": "フランス",
+      "flag": "🇫🇷",
+      "region": "西ヨーロッパ",
+      "counts": {
+        "municipalities": 124,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "フランス"
+      }
+    },
+    {
+      "code": "GA",
+      "name": "ガボン",
+      "flag": "🇬🇦",
+      "region": "中部アフリカ",
+      "counts": {
+        "municipalities": 9,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ガボン"
+      }
+    },
+    {
+      "code": "GB",
+      "name": "イギリス",
+      "flag": "🇬🇧",
+      "region": "北ヨーロッパ",
+      "counts": {
+        "municipalities": 221,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "イギリス"
+      }
+    },
+    {
+      "code": "GD",
+      "name": "グレナダ",
+      "flag": "🇬🇩",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 7,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "グレナダ"
+      }
+    },
+    {
+      "code": "GE",
+      "name": "ジョージア",
+      "flag": "🇬🇪",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 12,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ジョージア"
+      }
+    },
+    {
+      "code": "GH",
+      "name": "ガーナ",
+      "flag": "🇬🇭",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ガーナ"
+      }
+    },
+    {
+      "code": "GL",
+      "name": "グリーンランド",
+      "flag": "🇬🇱",
+      "region": "北部アメリカ",
+      "counts": {
+        "municipalities": 5,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "グリーンランド"
+      }
+    },
+    {
+      "code": "GM",
+      "name": "ガンビア",
+      "flag": "🇬🇲",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ガンビア"
+      }
+    },
+    {
+      "code": "GN",
+      "name": "ギニア",
+      "flag": "🇬🇳",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 41,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ギニア"
+      }
+    },
+    {
+      "code": "GQ",
+      "name": "赤道ギニア",
+      "flag": "🇬🇶",
+      "region": "中部アフリカ",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "赤道ギニア"
+      }
+    },
+    {
+      "code": "GR",
+      "name": "ギリシャ",
+      "flag": "🇬🇷",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 14,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ギリシャ"
+      }
+    },
+    {
+      "code": "GT",
+      "name": "グアテマラ",
+      "flag": "🇬🇹",
+      "region": "中央アメリカ",
+      "counts": {
+        "municipalities": 22,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "グアテマラ"
+      }
+    },
+    {
+      "code": "GW",
+      "name": "ギニアビサウ",
+      "flag": "🇬🇼",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 12,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ギニアビサウ"
+      }
+    },
+    {
+      "code": "GY",
+      "name": "ガイアナ",
+      "flag": "🇬🇾",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ガイアナ"
+      }
+    },
+    {
+      "code": "HN",
+      "name": "ホンジュラス",
+      "flag": "🇭🇳",
+      "region": "中央アメリカ",
+      "counts": {
+        "municipalities": 18,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ホンジュラス"
+      }
+    },
+    {
+      "code": "HR",
+      "name": "クロアチア",
+      "flag": "🇭🇷",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 21,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "クロアチア"
+      }
+    },
+    {
+      "code": "HT",
+      "name": "ハイチ",
+      "flag": "🇭🇹",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ハイチ"
+      }
+    },
+    {
+      "code": "HU",
+      "name": "ハンガリー",
+      "flag": "🇭🇺",
+      "region": "東ヨーロッパ",
+      "counts": {
+        "municipalities": 43,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ハンガリー"
+      }
+    },
+    {
+      "code": "ID",
+      "name": "インドネシア",
+      "flag": "🇮🇩",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 45,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "インドネシア"
+      }
+    },
+    {
+      "code": "IE",
+      "name": "アイルランド",
+      "flag": "🇮🇪",
+      "region": "北ヨーロッパ",
+      "counts": {
+        "municipalities": 30,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アイルランド"
+      }
+    },
+    {
+      "code": "IL",
+      "name": "イスラエル",
+      "flag": "🇮🇱",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "イスラエル"
+      }
+    },
+    {
+      "code": "IN",
+      "name": "インド",
+      "flag": "🇮🇳",
+      "region": "南アジア",
+      "counts": {
+        "municipalities": 36,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "インド"
+      }
+    },
+    {
+      "code": "IQ",
+      "name": "イラク",
+      "flag": "🇮🇶",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 19,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "イラク"
+      }
+    },
+    {
+      "code": "IR",
+      "name": "イラン",
+      "flag": "🇮🇷",
+      "region": "南アジア",
+      "counts": {
+        "municipalities": 31,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "イラン"
+      }
+    },
+    {
+      "code": "IS",
+      "name": "アイスランド",
+      "flag": "🇮🇸",
+      "region": "北ヨーロッパ",
+      "counts": {
+        "municipalities": 72,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アイスランド"
+      }
+    },
+    {
+      "code": "IT",
+      "name": "イタリア",
+      "flag": "🇮🇹",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 126,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "イタリア"
+      }
+    },
+    {
+      "code": "JM",
+      "name": "ジャマイカ",
+      "flag": "🇯🇲",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 14,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ジャマイカ"
+      }
+    },
+    {
+      "code": "JO",
+      "name": "ヨルダン",
+      "flag": "🇯🇴",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 12,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ヨルダン"
+      }
+    },
+    {
+      "code": "JP",
+      "name": "日本",
+      "flag": "🇯🇵",
+      "region": "東アジア",
+      "counts": {
+        "municipalities": 1965,
+        "operators": 226,
+        "routes": 4108,
+        "nodes": 13584,
+        "sequenced_routes": 1
+      },
+      "map_meta": {
+        "center": [
+          36.2048,
+          138.2529
+        ],
+        "zoom": 6,
+        "name": "日本"
+      }
+    },
+    {
+      "code": "KE",
+      "name": "ケニア",
+      "flag": "🇰🇪",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 47,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ケニア"
+      }
+    },
+    {
+      "code": "KG",
+      "name": "キルギス",
+      "flag": "🇰🇬",
+      "region": "中央アジア",
+      "counts": {
+        "municipalities": 9,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "キルギス"
+      }
+    },
+    {
+      "code": "KH",
+      "name": "カンボジア",
+      "flag": "🇰🇭",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 25,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "カンボジア"
+      }
+    },
+    {
+      "code": "KI",
+      "name": "キリバス",
+      "flag": "🇰🇮",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 3,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "キリバス"
+      }
+    },
+    {
+      "code": "KM",
+      "name": "コモロ",
+      "flag": "🇰🇲",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 3,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "コモロ"
+      }
+    },
+    {
+      "code": "KN",
+      "name": "セントクリストファー・ネービス",
+      "flag": "🇰🇳",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "セントクリストファー・ネービス"
+      }
+    },
+    {
+      "code": "KP",
+      "name": "北朝鮮",
+      "flag": "🇰🇵",
+      "region": "東アジア",
+      "counts": {
+        "municipalities": 13,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "北朝鮮"
+      }
+    },
+    {
+      "code": "KR",
+      "name": "韓国",
+      "flag": "🇰🇷",
+      "region": "東アジア",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          35.9078,
+          127.7669
+        ],
+        "zoom": 7,
+        "name": "大韓民国"
+      }
+    },
+    {
+      "code": "KW",
+      "name": "クウェート",
+      "flag": "🇰🇼",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "クウェート"
+      }
+    },
+    {
+      "code": "KZ",
+      "name": "カザフスタン",
+      "flag": "🇰🇿",
+      "region": "中央アジア",
+      "counts": {
+        "municipalities": 20,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "カザフスタン"
+      }
+    },
+    {
+      "code": "LA",
+      "name": "ラオス",
+      "flag": "🇱🇦",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 18,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ラオス"
+      }
+    },
+    {
+      "code": "LB",
+      "name": "レバノン",
+      "flag": "🇱🇧",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 8,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "レバノン"
+      }
+    },
+    {
+      "code": "LC",
+      "name": "セントルシア",
+      "flag": "🇱🇨",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "セントルシア"
+      }
+    },
+    {
+      "code": "LI",
+      "name": "リヒテンシュタイン",
+      "flag": "🇱🇮",
+      "region": "西ヨーロッパ",
+      "counts": {
+        "municipalities": 11,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "リヒテンシュタイン"
+      }
+    },
+    {
+      "code": "LK",
+      "name": "スリランカ",
+      "flag": "🇱🇰",
+      "region": "南アジア",
+      "counts": {
+        "municipalities": 34,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "スリランカ"
+      }
+    },
+    {
+      "code": "LR",
+      "name": "リベリア",
+      "flag": "🇱🇷",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 15,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "リベリア"
+      }
+    },
+    {
+      "code": "LS",
+      "name": "レソト",
+      "flag": "🇱🇸",
+      "region": "南部アフリカ",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "レソト"
+      }
+    },
+    {
+      "code": "LT",
+      "name": "リトアニア",
+      "flag": "🇱🇹",
+      "region": "北ヨーロッパ",
+      "counts": {
+        "municipalities": 70,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "リトアニア"
+      }
+    },
+    {
+      "code": "LU",
+      "name": "ルクセンブルク",
+      "flag": "🇱🇺",
+      "region": "西ヨーロッパ",
+      "counts": {
+        "municipalities": 12,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ルクセンブルク"
+      }
+    },
+    {
+      "code": "LV",
+      "name": "ラトビア",
+      "flag": "🇱🇻",
+      "region": "北ヨーロッパ",
+      "counts": {
+        "municipalities": 43,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ラトビア"
+      }
+    },
+    {
+      "code": "LY",
+      "name": "リビア",
+      "flag": "🇱🇾",
+      "region": "北アフリカ",
+      "counts": {
+        "municipalities": 22,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "リビア"
+      }
+    },
+    {
+      "code": "MA",
+      "name": "モロッコ",
+      "flag": "🇲🇦",
+      "region": "北アフリカ",
+      "counts": {
+        "municipalities": 87,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "モロッコ"
+      }
+    },
+    {
+      "code": "MC",
+      "name": "モナコ",
+      "flag": "🇲🇨",
+      "region": "西ヨーロッパ",
+      "counts": {
+        "municipalities": 17,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "モナコ"
+      }
+    },
+    {
+      "code": "MD",
+      "name": "モルドバ",
+      "flag": "🇲🇩",
+      "region": "東ヨーロッパ",
+      "counts": {
+        "municipalities": 37,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "モルドバ"
+      }
+    },
+    {
+      "code": "ME",
+      "name": "モンテネグロ",
+      "flag": "🇲🇪",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 25,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "モンテネグロ"
+      }
+    },
+    {
+      "code": "MG",
+      "name": "マダガスカル",
+      "flag": "🇲🇬",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "マダガスカル"
+      }
+    },
+    {
+      "code": "MH",
+      "name": "マーシャル諸島",
+      "flag": "🇲🇭",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 26,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "マーシャル諸島"
+      }
+    },
+    {
+      "code": "MK",
+      "name": "北マケドニア",
+      "flag": "🇲🇰",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 80,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "北マケドニア"
+      }
+    },
+    {
+      "code": "ML",
+      "name": "マリ",
+      "flag": "🇲🇱",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 11,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "マリ"
+      }
+    },
+    {
+      "code": "MM",
+      "name": "ミャンマー",
+      "flag": "🇲🇲",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 15,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ミャンマー"
+      }
+    },
+    {
+      "code": "MN",
+      "name": "モンゴル",
+      "flag": "🇲🇳",
+      "region": "東アジア",
+      "counts": {
+        "municipalities": 22,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "モンゴル"
+      }
+    },
+    {
+      "code": "MR",
+      "name": "モーリタニア",
+      "flag": "🇲🇷",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 15,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "モーリタニア"
+      }
+    },
+    {
+      "code": "MT",
+      "name": "マルタ",
+      "flag": "🇲🇹",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 68,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "マルタ"
+      }
+    },
+    {
+      "code": "MU",
+      "name": "モーリシャス",
+      "flag": "🇲🇺",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 12,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "モーリシャス"
+      }
+    },
+    {
+      "code": "MV",
+      "name": "モルディブ",
+      "flag": "🇲🇻",
+      "region": "南アジア",
+      "counts": {
+        "municipalities": 21,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "モルディブ"
+      }
+    },
+    {
+      "code": "MW",
+      "name": "マラウイ",
+      "flag": "🇲🇼",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 31,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "マラウイ"
+      }
+    },
+    {
+      "code": "MX",
+      "name": "メキシコ",
+      "flag": "🇲🇽",
+      "region": "中央アメリカ",
+      "counts": {
+        "municipalities": 32,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "メキシコ"
+      }
+    },
+    {
+      "code": "MY",
+      "name": "マレーシア",
+      "flag": "🇲🇾",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "マレーシア"
+      }
+    },
+    {
+      "code": "MZ",
+      "name": "モザンビーク",
+      "flag": "🇲🇿",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 11,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "モザンビーク"
+      }
+    },
+    {
+      "code": "NA",
+      "name": "ナミビア",
+      "flag": "🇳🇦",
+      "region": "南部アフリカ",
+      "counts": {
+        "municipalities": 14,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ナミビア"
+      }
+    },
+    {
+      "code": "NE",
+      "name": "ニジェール",
+      "flag": "🇳🇪",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 8,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ニジェール"
+      }
+    },
+    {
+      "code": "NG",
+      "name": "ナイジェリア",
+      "flag": "🇳🇬",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 37,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ナイジェリア"
+      }
+    },
+    {
+      "code": "NI",
+      "name": "ニカラグア",
+      "flag": "🇳🇮",
+      "region": "中央アメリカ",
+      "counts": {
+        "municipalities": 17,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ニカラグア"
+      }
+    },
+    {
+      "code": "NL",
+      "name": "オランダ",
+      "flag": "🇳🇱",
+      "region": "西ヨーロッパ",
+      "counts": {
+        "municipalities": 18,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "オランダ"
+      }
+    },
+    {
+      "code": "NO",
+      "name": "ノルウェー",
+      "flag": "🇳🇴",
+      "region": "北ヨーロッパ",
+      "counts": {
+        "municipalities": 13,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ノルウェー"
+      }
+    },
+    {
+      "code": "NP",
+      "name": "ネパール",
+      "flag": "🇳🇵",
+      "region": "南アジア",
+      "counts": {
+        "municipalities": 7,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ネパール"
+      }
+    },
+    {
+      "code": "NR",
+      "name": "ナウル",
+      "flag": "🇳🇷",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 14,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ナウル"
+      }
+    },
+    {
+      "code": "NZ",
+      "name": "ニュージーランド",
+      "flag": "🇳🇿",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 17,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ニュージーランド"
+      }
+    },
+    {
+      "code": "OM",
+      "name": "オマーン",
+      "flag": "🇴🇲",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 11,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "オマーン"
+      }
+    },
+    {
+      "code": "PA",
+      "name": "パナマ",
+      "flag": "🇵🇦",
+      "region": "中央アメリカ",
+      "counts": {
+        "municipalities": 14,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "パナマ"
+      }
+    },
+    {
+      "code": "PE",
+      "name": "ペルー",
+      "flag": "🇵🇪",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 26,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ペルー"
+      }
+    },
+    {
+      "code": "PG",
+      "name": "パプアニューギニア",
+      "flag": "🇵🇬",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 22,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "パプアニューギニア"
+      }
+    },
+    {
+      "code": "PH",
+      "name": "フィリピン",
+      "flag": "🇵🇭",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 99,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "フィリピン"
+      }
+    },
+    {
+      "code": "PK",
+      "name": "パキスタン",
+      "flag": "🇵🇰",
+      "region": "南アジア",
+      "counts": {
+        "municipalities": 7,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "パキスタン"
+      }
+    },
+    {
+      "code": "PL",
+      "name": "ポーランド",
+      "flag": "🇵🇱",
+      "region": "東ヨーロッパ",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ポーランド"
+      }
+    },
+    {
+      "code": "PS",
+      "name": "パレスチナ",
+      "flag": "🇵🇸",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "パレスチナ"
+      }
+    },
+    {
+      "code": "PT",
+      "name": "ポルトガル",
+      "flag": "🇵🇹",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 20,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ポルトガル"
+      }
+    },
+    {
+      "code": "PW",
+      "name": "パラオ",
+      "flag": "🇵🇼",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 16,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "パラオ"
+      }
+    },
+    {
+      "code": "PY",
+      "name": "パラグアイ",
+      "flag": "🇵🇾",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 18,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "パラグアイ"
+      }
+    },
+    {
+      "code": "QA",
+      "name": "カタール",
+      "flag": "🇶🇦",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 8,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "カタール"
+      }
+    },
+    {
+      "code": "RO",
+      "name": "ルーマニア",
+      "flag": "🇷🇴",
+      "region": "東ヨーロッパ",
+      "counts": {
+        "municipalities": 42,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ルーマニア"
+      }
+    },
+    {
+      "code": "RS",
+      "name": "セルビア",
+      "flag": "🇷🇸",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 32,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "セルビア"
+      }
+    },
+    {
+      "code": "RU",
+      "name": "ロシア",
+      "flag": "🇷🇺",
+      "region": "北アジア,東ヨーロッパ",
+      "counts": {
+        "municipalities": 83,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ロシア"
+      }
+    },
+    {
+      "code": "RW",
+      "name": "ルワンダ",
+      "flag": "🇷🇼",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 5,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ルワンダ"
+      }
+    },
+    {
+      "code": "SA",
+      "name": "サウジアラビア",
+      "flag": "🇸🇦",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 13,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "サウジアラビア"
+      }
+    },
+    {
+      "code": "SB",
+      "name": "ソロモン諸島",
+      "flag": "🇸🇧",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ソロモン諸島"
+      }
+    },
+    {
+      "code": "SC",
+      "name": "セーシェル",
+      "flag": "🇸🇨",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 27,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "セーシェル"
+      }
+    },
+    {
+      "code": "SD",
+      "name": "スーダン",
+      "flag": "🇸🇩",
+      "region": "北アフリカ",
+      "counts": {
+        "municipalities": 18,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "スーダン"
+      }
+    },
+    {
+      "code": "SE",
+      "name": "スウェーデン",
+      "flag": "🇸🇪",
+      "region": "北ヨーロッパ",
+      "counts": {
+        "municipalities": 21,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "スウェーデン"
+      }
+    },
+    {
+      "code": "SG",
+      "name": "シンガポール",
+      "flag": "🇸🇬",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 5,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "シンガポール"
+      }
+    },
+    {
+      "code": "SH",
+      "name": "セントヘレナ・アセンションおよびトリスタンダクーニャ",
+      "flag": "🇸🇭",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 3,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "セントヘレナ・アセンションおよびトリスタンダクーニャ"
+      }
+    },
+    {
+      "code": "SI",
+      "name": "スロベニア",
+      "flag": "🇸🇮",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 212,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "スロベニア"
+      }
+    },
+    {
+      "code": "SK",
+      "name": "スロバキア",
+      "flag": "🇸🇰",
+      "region": "東ヨーロッパ",
+      "counts": {
+        "municipalities": 8,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "スロバキア"
+      }
+    },
+    {
+      "code": "SL",
+      "name": "シエラレオネ",
+      "flag": "🇸🇱",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 5,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "シエラレオネ"
+      }
+    },
+    {
+      "code": "SM",
+      "name": "サンマリノ",
+      "flag": "🇸🇲",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 9,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "サンマリノ"
+      }
+    },
+    {
+      "code": "SN",
+      "name": "セネガル",
+      "flag": "🇸🇳",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 14,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "セネガル"
+      }
+    },
+    {
+      "code": "SO",
+      "name": "ソマリア",
+      "flag": "🇸🇴",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 18,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ソマリア"
+      }
+    },
+    {
+      "code": "SR",
+      "name": "スリナム",
+      "flag": "🇸🇷",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "スリナム"
+      }
+    },
+    {
+      "code": "SS",
+      "name": "南スーダン",
+      "flag": "🇸🇸",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "南スーダン"
+      }
+    },
+    {
+      "code": "ST",
+      "name": "サントメ・プリンシペ",
+      "flag": "🇸🇹",
+      "region": "中部アフリカ",
+      "counts": {
+        "municipalities": 7,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "サントメ・プリンシペ"
+      }
+    },
+    {
+      "code": "SV",
+      "name": "エルサルバドル",
+      "flag": "🇸🇻",
+      "region": "中央アメリカ",
+      "counts": {
+        "municipalities": 14,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "エルサルバドル"
+      }
+    },
+    {
+      "code": "SY",
+      "name": "シリア",
+      "flag": "🇸🇾",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 14,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "シリア"
+      }
+    },
+    {
+      "code": "SZ",
+      "name": "エスワティニ",
+      "flag": "🇸🇿",
+      "region": "南部アフリカ",
+      "counts": {
+        "municipalities": 4,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "エスワティニ"
+      }
+    },
+    {
+      "code": "TD",
+      "name": "チャド",
+      "flag": "🇹🇩",
+      "region": "中部アフリカ",
+      "counts": {
+        "municipalities": 23,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "チャド"
+      }
+    },
+    {
+      "code": "TG",
+      "name": "トーゴ",
+      "flag": "🇹🇬",
+      "region": "西アフリカ",
+      "counts": {
+        "municipalities": 5,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "トーゴ"
+      }
+    },
+    {
+      "code": "TH",
+      "name": "タイ",
+      "flag": "🇹🇭",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 78,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "タイ"
+      }
+    },
+    {
+      "code": "TJ",
+      "name": "タジキスタン",
+      "flag": "🇹🇯",
+      "region": "中央アジア",
+      "counts": {
+        "municipalities": 5,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "タジキスタン"
+      }
+    },
+    {
+      "code": "TL",
+      "name": "東ティモール",
+      "flag": "🇹🇱",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 13,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "東ティモール"
+      }
+    },
+    {
+      "code": "TM",
+      "name": "トルクメニスタン",
+      "flag": "🇹🇲",
+      "region": "中央アジア",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "トルクメニスタン"
+      }
+    },
+    {
+      "code": "TN",
+      "name": "チュニジア",
+      "flag": "🇹🇳",
+      "region": "北アフリカ",
+      "counts": {
+        "municipalities": 24,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "チュニジア"
+      }
+    },
+    {
+      "code": "TO",
+      "name": "トンガ",
+      "flag": "🇹🇴",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 5,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "トンガ"
+      }
+    },
+    {
+      "code": "TR",
+      "name": "トルコ",
+      "flag": "🇹🇷",
+      "region": "西アジア",
+      "counts": {
+        "municipalities": 81,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "トルコ"
+      }
+    },
+    {
+      "code": "TT",
+      "name": "トリニダード・トバゴ",
+      "flag": "🇹🇹",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 15,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "トリニダード・トバゴ"
+      }
+    },
+    {
+      "code": "TV",
+      "name": "ツバル",
+      "flag": "🇹🇻",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 8,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ツバル"
+      }
+    },
+    {
+      "code": "TW",
+      "name": "台湾",
+      "flag": "🇹🇼",
+      "region": "東アジア",
+      "counts": {
+        "municipalities": 22,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          23.6978,
+          120.9605
+        ],
+        "zoom": 7,
+        "name": "台湾"
+      }
+    },
+    {
+      "code": "TZ",
+      "name": "タンザニア",
+      "flag": "🇹🇿",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 31,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "タンザニア"
+      }
+    },
+    {
+      "code": "UA",
+      "name": "ウクライナ",
+      "flag": "🇺🇦",
+      "region": "東ヨーロッパ",
+      "counts": {
+        "municipalities": 27,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ウクライナ"
+      }
+    },
+    {
+      "code": "UG",
+      "name": "ウガンダ",
+      "flag": "🇺🇬",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 139,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ウガンダ"
+      }
+    },
+    {
+      "code": "UM",
+      "name": "合衆国領有小離島",
+      "flag": "🇺🇲",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 9,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "合衆国領有小離島"
+      }
+    },
+    {
+      "code": "US",
+      "name": "アメリカ合衆国",
+      "flag": "🇺🇸",
+      "region": "北部アメリカ",
+      "counts": {
+        "municipalities": 57,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アメリカ合衆国"
+      }
+    },
+    {
+      "code": "UY",
+      "name": "ウルグアイ",
+      "flag": "🇺🇾",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 19,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ウルグアイ"
+      }
+    },
+    {
+      "code": "UZ",
+      "name": "ウズベキスタン",
+      "flag": "🇺🇿",
+      "region": "中央アジア",
+      "counts": {
+        "municipalities": 14,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ウズベキスタン"
+      }
+    },
+    {
+      "code": "VC",
+      "name": "セントビンセント・グレナディーン",
+      "flag": "🇻🇨",
+      "region": "カリブ海地域",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "セントビンセント・グレナディーン"
+      }
+    },
+    {
+      "code": "VE",
+      "name": "ベネズエラ",
+      "flag": "🇻🇪",
+      "region": "南アメリカ",
+      "counts": {
+        "municipalities": 25,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ベネズエラ"
+      }
+    },
+    {
+      "code": "VN",
+      "name": "ベトナム",
+      "flag": "🇻🇳",
+      "region": "東南アジア",
+      "counts": {
+        "municipalities": 63,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ベトナム"
+      }
+    },
+    {
+      "code": "VU",
+      "name": "バヌアツ",
+      "flag": "🇻🇺",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 6,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "バヌアツ"
+      }
+    },
+    {
+      "code": "WF",
+      "name": "ウォリス・フツナ",
+      "flag": "🇼🇫",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 3,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ウォリス・フツナ"
+      }
+    },
+    {
+      "code": "WS",
+      "name": "サモア",
+      "flag": "🇼🇸",
+      "region": "オセアニア",
+      "counts": {
+        "municipalities": 11,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "サモア"
+      }
+    },
+    {
+      "code": "YE",
+      "name": "イエメン",
+      "flag": "🇾🇪",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 22,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "イエメン"
+      }
+    },
+    {
+      "code": "ZA",
+      "name": "南アフリカ",
+      "flag": "🇿🇦",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 9,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "南アフリカ"
+      }
+    },
+    {
+      "code": "ZM",
+      "name": "ザンビア",
+      "flag": "🇿🇲",
+      "region": "東アフリカ",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ザンビア"
+      }
+    },
+    {
+      "code": "ZW",
+      "name": "ジンバブエ",
+      "flag": "🇿🇼",
+      "region": "南ヨーロッパ",
+      "counts": {
+        "municipalities": 10,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "sequenced_routes": 0
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ジンバブエ"
+      }
+    }
+  ]
+}

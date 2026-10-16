@@ -76,6 +76,7 @@ streamlit_cmd = [
 print("[2/2] データ管理ツール (Streamlit) を起動します (ポート 8501)...")
 print("-" * 60)
 print(" 探索Web GIS : http://localhost:8080 (メイン作業画面)")
+print(" 一般公開Web : http://localhost:8080/public/ (公開サイトプレビュー)")
 print(" データ管理  : http://localhost:8501 (進捗・精度管理画面)")
 print("-" * 60)
 print("※ 終了するときはこのウィンドウを閉じるか、Ctrl+C を押してください。")
