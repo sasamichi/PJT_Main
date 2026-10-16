@@ -2,7 +2,7 @@
   "title": "世界交通網・地域データ基盤 (Global Transit & Territory Archive)",
   "updated_at": "2026-10-16",
   "total_stats": {
-    "registered_countries": 251,
+    "registered_countries": 250,
     "active_countries": 200,
     "municipalities": 9170,
     "operators": 259,
@@ -16,12 +16,15 @@
       "name": "アンドラ",
       "flag": "🇦🇩",
       "region": "南ヨーロッパ",
+      "official_lang": "カタルーニャ語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 7,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -30,19 +33,24 @@
         ],
         "zoom": 5,
         "name": "アンドラ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%83%89%E3%83%A9",
+      "gmap": "https://maps.app.goo.gl/ddtyuNDgbV61MUdx5"
     },
     {
       "code": "AE",
       "name": "アラブ首長国連邦",
       "flag": "🇦🇪",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "UAEディルハム",
+      "drive_side": "右",
       "counts": {
         "municipalities": 7,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -51,19 +59,24 @@
         ],
         "zoom": 5,
         "name": "アラブ首長国連邦"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A9%E3%83%96%E9%A6%96%E9%95%B7%E5%9B%BD%E9%80%A3%E9%82%A6",
+      "gmap": "https://maps.app.goo.gl/gwv3Q5qyzM5Mf5Jz8"
     },
     {
       "code": "AF",
       "name": "アフガニスタン",
       "flag": "🇦🇫",
       "region": "南アジア",
+      "official_lang": "パシュトー語",
+      "currency": "アフガニ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 34,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -72,19 +85,24 @@
         ],
         "zoom": 5,
         "name": "アフガニスタン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%95%E3%82%AC%E3%83%8B%E3%82%B9%E3%82%BF%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/86TchWSuM4uZvv6h8"
     },
     {
       "code": "AG",
       "name": "アンティグア・バーブーダ",
       "flag": "🇦🇬",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "東カリブ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 8,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -93,19 +111,50 @@
         ],
         "zoom": 5,
         "name": "アンティグア・バーブーダ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%83%86%E3%82%A3%E3%82%B0%E3%82%A2%E3%83%BB%E3%83%90%E3%83%BC%E3%83%96%E3%83%BC%E3%83%80",
+      "gmap": "https://maps.app.goo.gl/ycmuTTe9s1Cw3m6f9"
+    },
+    {
+      "code": "AI",
+      "name": "アンギラ",
+      "flag": "🇦🇮",
+      "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "東カリブ・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アンギラ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%AE%E3%83%A9",
+      "gmap": "https://maps.app.goo.gl/qUsdm2vYa8dfJzAX9"
     },
     {
       "code": "AL",
       "name": "アルバニア",
       "flag": "🇦🇱",
       "region": "南ヨーロッパ",
+      "official_lang": "アルバニア語",
+      "currency": "レク",
+      "drive_side": "右",
       "counts": {
         "municipalities": 12,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -114,19 +163,24 @@
         ],
         "zoom": 5,
         "name": "アルバニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%90%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/pStB698TQ2PD1wQM6"
     },
     {
       "code": "AM",
       "name": "アルメニア",
       "flag": "🇦🇲",
       "region": "西アジア",
+      "official_lang": "アルメニア語",
+      "currency": "ドラム",
+      "drive_side": "右",
       "counts": {
         "municipalities": 11,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -135,19 +189,24 @@
         ],
         "zoom": 5,
         "name": "アルメニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%A1%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/DQFtNfRKPA5Ft8dK7"
     },
     {
       "code": "AO",
       "name": "アンゴラ",
       "flag": "🇦🇴",
       "region": "中部アフリカ",
+      "official_lang": "ポルトガル語",
+      "currency": "クワンザ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 18,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -156,19 +215,50 @@
         ],
         "zoom": 5,
         "name": "アンゴラ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%B4%E3%83%A9",
+      "gmap": "https://maps.app.goo.gl/z9AsMXxHNRbeJ8Ti7"
+    },
+    {
+      "code": "AQ",
+      "name": "南極",
+      "flag": "🇦🇶",
+      "region": "南極",
+      "official_lang": "",
+      "currency": "",
+      "drive_side": "",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "南極"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E5%8D%97%E6%A5%B5",
+      "gmap": "https://maps.app.goo.gl/W5TXsSwqNuNADYGS7"
     },
     {
       "code": "AR",
       "name": "アルゼンチン",
       "flag": "🇦🇷",
       "region": "南アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "アルゼンチン・ペソ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 24,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -177,19 +267,50 @@
         ],
         "zoom": 5,
         "name": "アルゼンチン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%82%BC%E3%83%B3%E3%83%81%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/eBbsJuphUxSrvzua6"
+    },
+    {
+      "code": "AS",
+      "name": "アメリカ領サモア",
+      "flag": "🇦🇸",
+      "region": "オセアニア",
+      "official_lang": "英語, サモア語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アメリカ領サモア"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E9%A0%98%E3%82%B5%E3%83%A2%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/ztLv1w3ADP9zuMcv5"
     },
     {
       "code": "AT",
       "name": "オーストリア",
       "flag": "🇦🇹",
       "region": "西ヨーロッパ",
+      "official_lang": "ドイツ語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 2216,
         "operators": 33,
         "routes": 497,
         "nodes": 2734,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -198,19 +319,24 @@
         ],
         "zoom": 7,
         "name": "オーストリア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%82%B9%E3%83%88%E3%83%AA%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/FnidqfS6icViMQmH7"
     },
     {
       "code": "AU",
       "name": "オーストラリア",
       "flag": "🇦🇺",
       "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "オーストラリア・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 8,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -219,19 +345,76 @@
         ],
         "zoom": 5,
         "name": "オーストラリア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%AA%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/bKfwNatTGweyDKJy6"
+    },
+    {
+      "code": "AW",
+      "name": "アルバ",
+      "flag": "🇦🇼",
+      "region": "カリブ海地域",
+      "official_lang": "オランダ語, パピアメント語",
+      "currency": "アルバ・フロリン",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アルバ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%90",
+      "gmap": "https://maps.app.goo.gl/B4KRzbKCAQAcJSXy9"
+    },
+    {
+      "code": "AX",
+      "name": "オーランド諸島",
+      "flag": "🇦🇽",
+      "region": "北ヨーロッパ",
+      "official_lang": "スウェーデン語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "オーランド諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/pyfVLk8KU3A17nkA8"
     },
     {
       "code": "AZ",
       "name": "アゼルバイジャン",
       "flag": "🇦🇿",
       "region": "西アジア",
+      "official_lang": "アゼルバイジャン語",
+      "currency": "アゼルバイジャン・マナト",
+      "drive_side": "右",
       "counts": {
         "municipalities": 78,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -240,19 +423,24 @@
         ],
         "zoom": 5,
         "name": "アゼルバイジャン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%BC%E3%83%AB%E3%83%90%E3%82%A4%E3%82%B8%E3%83%A3%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/xYAsoWaJiJWTEwdp7"
     },
     {
       "code": "BA",
       "name": "ボスニア・ヘルツェゴビナ",
       "flag": "🇧🇦",
       "region": "南ヨーロッパ",
+      "official_lang": "ボスニア語, セルビア語, クロアチア語",
+      "currency": "兌換マルク",
+      "drive_side": "右",
       "counts": {
         "municipalities": 3,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -261,19 +449,24 @@
         ],
         "zoom": 5,
         "name": "ボスニア・ヘルツェゴビナ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9C%E3%82%B9%E3%83%8B%E3%82%A2%E3%83%BB%E3%83%98%E3%83%AB%E3%83%84%E3%82%A7%E3%82%B4%E3%83%93%E3%83%8A",
+      "gmap": "https://maps.app.goo.gl/h14Lx74qvmQQSoCKA"
     },
     {
       "code": "BB",
       "name": "バルバドス",
       "flag": "🇧🇧",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "バルバドス・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 11,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -282,19 +475,24 @@
         ],
         "zoom": 5,
         "name": "バルバドス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%AB%E3%83%90%E3%83%89%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/JEBBV6ASQBE3s8SNA"
     },
     {
       "code": "BD",
       "name": "バングラデシュ",
       "flag": "🇧🇩",
       "region": "南アジア",
+      "official_lang": "ベンガル語",
+      "currency": "タカ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 72,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -303,19 +501,24 @@
         ],
         "zoom": 5,
         "name": "バングラデシュ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%B3%E3%82%B0%E3%83%A9%E3%83%87%E3%82%B7%E3%83%A5",
+      "gmap": "https://maps.app.goo.gl/oipcDdivRrXkB8Y4A"
     },
     {
       "code": "BE",
       "name": "ベルギー",
       "flag": "🇧🇪",
       "region": "西ヨーロッパ",
+      "official_lang": "オランダ語, フランス語, ドイツ語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 13,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -324,19 +527,24 @@
         ],
         "zoom": 5,
         "name": "ベルギー"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%AB%E3%82%AE%E3%83%BC",
+      "gmap": "https://maps.app.goo.gl/gYiXkqoXbTmmDWqF8"
     },
     {
       "code": "BF",
       "name": "ブルキナファソ",
       "flag": "🇧🇫",
       "region": "西アフリカ",
+      "official_lang": "フラニ語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 58,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -345,19 +553,24 @@
         ],
         "zoom": 5,
         "name": "ブルキナファソ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%82%AD%E3%83%8A%E3%83%95%E3%82%A1%E3%82%BD",
+      "gmap": "https://maps.app.goo.gl/XifKiZyC82MfdevY6"
     },
     {
       "code": "BG",
       "name": "ブルガリア",
       "flag": "🇧🇬",
       "region": "東ヨーロッパ",
+      "official_lang": "ブルガリア語",
+      "currency": "レフ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 28,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -366,19 +579,24 @@
         ],
         "zoom": 5,
         "name": "ブルガリア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%82%AC%E3%83%AA%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/XAJQrsV26Tynyo5fA"
     },
     {
       "code": "BH",
       "name": "バーレーン",
       "flag": "🇧🇭",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "バーレーン・ディナール",
+      "drive_side": "右",
       "counts": {
         "municipalities": 4,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -387,19 +605,24 @@
         ],
         "zoom": 5,
         "name": "バーレーン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%BC%E3%83%AC%E3%83%BC%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/4FqhozQMw39DCfdQ8"
     },
     {
       "code": "BI",
       "name": "ブルンジ",
       "flag": "🇧🇮",
       "region": "東アフリカ",
+      "official_lang": "ルンディ語, フランス語, 英語",
+      "currency": "ブルンジ・フラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 18,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -408,19 +631,24 @@
         ],
         "zoom": 5,
         "name": "ブルンジ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%B3%E3%82%B8",
+      "gmap": "https://maps.app.goo.gl/B6bAcgNqoqNfEor97"
     },
     {
       "code": "BJ",
       "name": "ベナン",
       "flag": "🇧🇯",
       "region": "西アフリカ",
+      "official_lang": "フランス語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 12,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -429,19 +657,76 @@
         ],
         "zoom": 5,
         "name": "ベナン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%8A%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/P3ZbGZvoy7aYmJFu8"
+    },
+    {
+      "code": "BL",
+      "name": "サン・バルテルミー",
+      "flag": "🇧🇱",
+      "region": "カリブ海地域",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "サン・バルテルミー"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%BB%E3%83%90%E3%83%AB%E3%83%86%E3%83%AB%E3%83%9F%E3%83%BC%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/L8carVnwHE4FgMh86"
+    },
+    {
+      "code": "BM",
+      "name": "バミューダ",
+      "flag": "🇧🇲",
+      "region": "北部アメリカ",
+      "official_lang": "英語, ポルトガル語",
+      "currency": "バミューダ・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "バミューダ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%9F%E3%83%A5%E3%83%BC%E3%83%80%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/PYCdwLhjjUHDne8RA"
     },
     {
       "code": "BN",
       "name": "ブルネイ",
       "flag": "🇧🇳",
       "region": "東南アジア",
+      "official_lang": "マレー語",
+      "currency": "ブルネイ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 4,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -450,19 +735,24 @@
         ],
         "zoom": 5,
         "name": "ブルネイ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%8D%E3%82%A4",
+      "gmap": "https://maps.app.goo.gl/f1ZnhfRXbgJ4RcZTA"
     },
     {
       "code": "BO",
       "name": "ボリビア",
       "flag": "🇧🇴",
       "region": "南アメリカ",
+      "official_lang": "スペイン語, ケチュア語, アイマラ語, グアラニー語",
+      "currency": "ボリビアーノ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 9,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -471,19 +761,24 @@
         ],
         "zoom": 5,
         "name": "ボリビア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%AA%E3%83%93%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/hCW5CRBUkCGAWMvf8"
     },
     {
       "code": "BQ",
       "name": "ボネール、シント・ユースタティウス及びサバ",
       "flag": "🇧🇶",
       "region": "カリブ海地域",
+      "official_lang": "オランダ語, 英語, パピアメント語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 3,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -492,19 +787,24 @@
         ],
         "zoom": 5,
         "name": "ボネール、シント・ユースタティウス及びサバ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/BES%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/9PAhoVbKpNjuN4YbA"
     },
     {
       "code": "BR",
       "name": "ブラジル",
       "flag": "🇧🇷",
       "region": "南アメリカ",
+      "official_lang": "ポルトガル語",
+      "currency": "レアル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 27,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -513,19 +813,24 @@
         ],
         "zoom": 5,
         "name": "ブラジル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%82%B8%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/XuvXQDoJZj9WV1Vn9"
     },
     {
       "code": "BS",
       "name": "バハマ",
       "flag": "🇧🇸",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "バハマ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 32,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -534,19 +839,24 @@
         ],
         "zoom": 5,
         "name": "バハマ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%8F%E3%83%9E",
+      "gmap": "https://maps.app.goo.gl/RGkktwhDsLbctZnJ7"
     },
     {
       "code": "BT",
       "name": "ブータン",
       "flag": "🇧🇹",
       "region": "南アジア",
+      "official_lang": "ゾンカ語",
+      "currency": "インド・ルピー, ヌルタム",
+      "drive_side": "左",
       "counts": {
         "municipalities": 20,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -555,19 +865,50 @@
         ],
         "zoom": 5,
         "name": "ブータン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%BC%E3%82%BF%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/pXMpC6QBeiqMJnbq9"
+    },
+    {
+      "code": "BV",
+      "name": "ブーベ島",
+      "flag": "🇧🇻",
+      "region": "南部アフリカ",
+      "official_lang": "",
+      "currency": "",
+      "drive_side": "",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ブーベ島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%BC%E3%83%99%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/poYN6LvTMpEhby5P6"
     },
     {
       "code": "BW",
       "name": "ボツワナ",
       "flag": "🇧🇼",
       "region": "南部アフリカ",
+      "official_lang": "ツワナ語, 英語",
+      "currency": "プラ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -576,19 +917,24 @@
         ],
         "zoom": 5,
         "name": "ボツワナ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%84%E3%83%AF%E3%83%8A",
+      "gmap": "https://maps.app.goo.gl/VFCzMhnoq2NKp4pv7"
     },
     {
       "code": "BY",
       "name": "ベラルーシ",
       "flag": "🇧🇾",
       "region": "東ヨーロッパ",
+      "official_lang": "ベラルーシ語, ロシア語",
+      "currency": "ベラルーシ・ルーブル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 7,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -597,19 +943,24 @@
         ],
         "zoom": 5,
         "name": "ベラルーシ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%A9%E3%83%AB%E3%83%BC%E3%82%B7",
+      "gmap": "https://maps.app.goo.gl/FWH38zMGPiNJ1qGg9"
     },
     {
       "code": "BZ",
       "name": "ベリーズ",
       "flag": "🇧🇿",
       "region": "中央アメリカ",
+      "official_lang": "英語",
+      "currency": "ベリーズ・ドル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -618,19 +969,24 @@
         ],
         "zoom": 5,
         "name": "ベリーズ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%AA%E3%83%BC%E3%82%BA",
+      "gmap": "https://maps.app.goo.gl/HQtCMXYwi3K3Mbqe6"
     },
     {
       "code": "CA",
       "name": "カナダ",
       "flag": "🇨🇦",
       "region": "北部アメリカ",
+      "official_lang": "英語, フランス語",
+      "currency": "カナダドル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 13,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -639,19 +995,50 @@
         ],
         "zoom": 5,
         "name": "カナダ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%8A%E3%83%80",
+      "gmap": "https://maps.app.goo.gl/mLJt1nQcXe7MZUSo9"
+    },
+    {
+      "code": "CC",
+      "name": "ココス（キーリング）諸島",
+      "flag": "🇨🇨",
+      "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "オーストラリア・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ココス（キーリング）諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%82%B3%E3%82%B9%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/rLadd2YY2epSQYKL6"
     },
     {
       "code": "CD",
       "name": "コンゴ民主共和国",
       "flag": "🇨🇩",
       "region": "中部アフリカ",
+      "official_lang": "フランス語",
+      "currency": "コンゴ・フラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 26,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -660,19 +1047,24 @@
         ],
         "zoom": 5,
         "name": "コンゴ民主共和国"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%B4%E6%B0%91%E4%B8%BB%E5%85%B1%E5%92%8C%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/JkjBj2hDd2PbYcP26"
     },
     {
       "code": "CF",
       "name": "中央アフリカ共和国",
       "flag": "🇨🇫",
       "region": "中部アフリカ",
+      "official_lang": "フランス語, サンゴ語",
+      "currency": "CFAフラン, ビットコイン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 17,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -681,19 +1073,24 @@
         ],
         "zoom": 5,
         "name": "中央アフリカ共和国"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E5%A4%AE%E3%82%A2%E3%83%95%E3%83%AA%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/WiN8SU7f5vQxbVrR9"
     },
     {
       "code": "CG",
       "name": "コンゴ",
       "flag": "🇨🇬",
       "region": "中部アフリカ",
+      "official_lang": "フランス語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 12,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -702,19 +1099,24 @@
         ],
         "zoom": 5,
         "name": "コンゴ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%B4%E5%85%B1%E5%92%8C%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/gX7eswEJTpkrmMJv5"
     },
     {
       "code": "CH",
       "name": "スイス",
       "flag": "🇨🇭",
       "region": "西ヨーロッパ",
+      "official_lang": "ドイツ語, フランス語, イタリア語, ロマンシュ語",
+      "currency": "スイス・フラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 26,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -723,19 +1125,24 @@
         ],
         "zoom": 8,
         "name": "スイス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%A4%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/QP9TrUHtwn6VJp7K8"
     },
     {
       "code": "CI",
       "name": "コートジボワール",
       "flag": "🇨🇮",
       "region": "西アフリカ",
+      "official_lang": "フランス語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 14,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -744,19 +1151,50 @@
         ],
         "zoom": 5,
         "name": "コートジボワール"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%83%88%E3%82%B8%E3%83%9C%E3%83%AF%E3%83%BC%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/Kxvs1Y2FwWg2a8YH6"
+    },
+    {
+      "code": "CK",
+      "name": "クック諸島",
+      "flag": "🇨🇰",
+      "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "ニュージーランド・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "クック諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%83%E3%82%AF%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/wiKbMi5BPgRDrGbMA"
     },
     {
       "code": "CL",
       "name": "チリ",
       "flag": "🇨🇱",
       "region": "南アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "チリ・ペソ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -765,19 +1203,24 @@
         ],
         "zoom": 5,
         "name": "チリ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%AA",
+      "gmap": "https://maps.app.goo.gl/J1pZXyFr6MLGdcX59"
     },
     {
       "code": "CM",
       "name": "カメルーン",
       "flag": "🇨🇲",
       "region": "中部アフリカ",
+      "official_lang": "フランス語, 英語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -786,19 +1229,24 @@
         ],
         "zoom": 5,
         "name": "カメルーン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%A1%E3%83%AB%E3%83%BC%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/T16xLaUhkbGMPYwMA"
     },
     {
       "code": "CN",
       "name": "中国",
       "flag": "🇨🇳",
       "region": "東アジア",
+      "official_lang": "中国語",
+      "currency": "人民元",
+      "drive_side": "右",
       "counts": {
         "municipalities": 34,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -807,19 +1255,24 @@
         ],
         "zoom": 5,
         "name": "中国"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/7htpHa5STs7E5Bb3A"
     },
     {
       "code": "CO",
       "name": "コロンビア",
       "flag": "🇨🇴",
       "region": "南アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "コロンビア・ペソ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 33,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -828,19 +1281,24 @@
         ],
         "zoom": 5,
         "name": "コロンビア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%AD%E3%83%B3%E3%83%93%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/Lw75XyEbKoTrRQ5q6"
     },
     {
       "code": "CR",
       "name": "コスタリカ",
       "flag": "🇨🇷",
       "region": "中央アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "コスタリカ・コロン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 7,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -849,19 +1307,24 @@
         ],
         "zoom": 5,
         "name": "コスタリカ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%82%B9%E3%82%BF%E3%83%AA%E3%82%AB",
+      "gmap": "https://maps.app.goo.gl/WVfTXUmq2WJiBgcw9"
     },
     {
       "code": "CU",
       "name": "キューバ",
       "flag": "🇨🇺",
       "region": "カリブ海地域",
+      "official_lang": "スペイン語",
+      "currency": "キューバ・ペソ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -870,19 +1333,24 @@
         ],
         "zoom": 5,
         "name": "キューバ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%90",
+      "gmap": "https://maps.app.goo.gl/uJPQfiMnSYFFXLoX6"
     },
     {
       "code": "CV",
       "name": "カーボベルデ",
       "flag": "🇨🇻",
       "region": "西アフリカ",
+      "official_lang": "ポルトガル語",
+      "currency": "カーボベルデ・エスクード",
+      "drive_side": "右",
       "counts": {
         "municipalities": 24,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -891,19 +1359,76 @@
         ],
         "zoom": 5,
         "name": "カーボベルデ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%BC%E3%83%9C%E3%83%99%E3%83%AB%E3%83%87",
+      "gmap": "https://maps.app.goo.gl/K86ycMEQf5FwFxLW7"
+    },
+    {
+      "code": "CW",
+      "name": "キュラソー",
+      "flag": "🇨🇼",
+      "region": "カリブ海地域",
+      "official_lang": "オランダ語, パピアメント語, 英語",
+      "currency": "カリブ・ギルダー",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "キュラソー"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A5%E3%83%A9%E3%82%BD%E3%83%BC%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/DD6G3XLm6q8R51YZ7"
+    },
+    {
+      "code": "CX",
+      "name": "クリスマス島",
+      "flag": "🇨🇽",
+      "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "オーストラリア・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "クリスマス島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%E5%B3%B6_(%E3%82%AA%E3%83%BC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%AA%E3%82%A2)",
+      "gmap": "https://maps.app.goo.gl/j54ZthqW89V52XMK8"
     },
     {
       "code": "CY",
       "name": "キプロス",
       "flag": "🇨🇾",
       "region": "西アジア",
+      "official_lang": "ギリシア語, トルコ語",
+      "currency": "ユーロ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -912,19 +1437,24 @@
         ],
         "zoom": 5,
         "name": "キプロス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%97%E3%83%AD%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/uoFz8EnH7WsHZGJ48"
     },
     {
       "code": "CZ",
       "name": "チェコ",
       "flag": "🇨🇿",
       "region": "東ヨーロッパ",
+      "official_lang": "チェコ語",
+      "currency": "チェコ・コルナ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 90,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -933,40 +1463,50 @@
         ],
         "zoom": 5,
         "name": "チェコ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%81%E3%82%A7%E3%82%B3",
+      "gmap": "https://maps.app.goo.gl/wEMeeHgqtsDRt6ENA"
     },
     {
       "code": "DE",
       "name": "ドイツ",
       "flag": "🇩🇪",
       "region": "西ヨーロッパ",
+      "official_lang": "ドイツ語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
-          0,
-          0
+          51.1657,
+          10.4515
         ],
-        "zoom": 5,
+        "zoom": 6,
         "name": "ドイツ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%89%E3%82%A4%E3%83%84",
+      "gmap": "https://maps.app.goo.gl/5ds1fmSYpzo86nSo7"
     },
     {
       "code": "DJ",
       "name": "ジブチ",
       "flag": "🇩🇯",
       "region": "東アフリカ",
+      "official_lang": "アラビア語, フランス語",
+      "currency": "ジブチ・フラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -975,19 +1515,24 @@
         ],
         "zoom": 5,
         "name": "ジブチ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%96%E3%83%81",
+      "gmap": "https://maps.app.goo.gl/EE9vHH4k7MmTN915A"
     },
     {
       "code": "DK",
       "name": "デンマーク",
       "flag": "🇩🇰",
       "region": "北ヨーロッパ",
+      "official_lang": "デンマーク語",
+      "currency": "デンマーク・クローネ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 5,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -996,19 +1541,24 @@
         ],
         "zoom": 5,
         "name": "デンマーク"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%B3%E3%83%9E%E3%83%BC%E3%82%AF",
+      "gmap": "https://maps.app.goo.gl/hryxpLES6JMbs6T69"
     },
     {
       "code": "DM",
       "name": "ドミニカ",
       "flag": "🇩🇲",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "東カリブ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1017,19 +1567,24 @@
         ],
         "zoom": 5,
         "name": "ドミニカ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%9F%E3%83%8B%E3%82%AB%E5%9B%BD",
+      "gmap": "https://www.google.com/maps/place/%E3%83%89%E3%83%9F%E3%83%8B%E3%82%AB/@15.4261301,-61.6871692,107457m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8c14d2faf2155a15:0x49b39109053afd3c!8m2!3d15.414999!4d-61.370976!16zL20vMDI3bmI?authuser=0&entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
     },
     {
       "code": "DO",
       "name": "ドミニカ共和国",
       "flag": "🇩🇴",
       "region": "カリブ海地域",
+      "official_lang": "スペイン語",
+      "currency": "ドミニカ・ペソ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 42,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1038,19 +1593,24 @@
         ],
         "zoom": 5,
         "name": "ドミニカ共和国"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%9F%E3%83%8B%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD",
+      "gmap": "https://www.google.com/maps/place/%E3%83%89%E3%83%9F%E3%83%8B%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD/@18.5956574,-75.427253,1690458m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8eaf8838def1b6f5:0xa6020f24060df7e0!8m2!3d18.735693!4d-70.162651!16zL20vMDI3cm4?authuser=0&entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
     },
     {
       "code": "DZ",
       "name": "アルジェリア",
       "flag": "🇩🇿",
       "region": "北アフリカ",
+      "official_lang": "アラビア語",
+      "currency": "アルジェリア・ディナール",
+      "drive_side": "右",
       "counts": {
         "municipalities": 58,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1059,19 +1619,24 @@
         ],
         "zoom": 5,
         "name": "アルジェリア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%82%B8%E3%82%A7%E3%83%AA%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/mWpapvtdZ7mN34yv9"
     },
     {
       "code": "EC",
       "name": "エクアドル",
       "flag": "🇪🇨",
       "region": "南アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 24,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1080,19 +1645,24 @@
         ],
         "zoom": 5,
         "name": "エクアドル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%AF%E3%82%A2%E3%83%89%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/MofJDb2JzPH78uTS7"
     },
     {
       "code": "EE",
       "name": "エストニア",
       "flag": "🇪🇪",
       "region": "北ヨーロッパ",
+      "official_lang": "エストニア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 94,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1101,19 +1671,24 @@
         ],
         "zoom": 5,
         "name": "エストニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%B9%E3%83%88%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/tdxZUp6XvBkg5LXc7"
     },
     {
       "code": "EG",
       "name": "エジプト",
       "flag": "🇪🇬",
       "region": "北アフリカ",
+      "official_lang": "アラビア語",
+      "currency": "エジプト・ポンド",
+      "drive_side": "右",
       "counts": {
         "municipalities": 27,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1122,19 +1697,50 @@
         ],
         "zoom": 5,
         "name": "エジプト"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%B8%E3%83%97%E3%83%88",
+      "gmap": "https://maps.app.goo.gl/VhqTB274P4hvKNFX8"
+    },
+    {
+      "code": "EH",
+      "name": "西サハラ",
+      "flag": "🇪🇭",
+      "region": "北アフリカ",
+      "official_lang": "アラビア語, スペイン語",
+      "currency": "サハラ・ペセタ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "西サハラ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E8%A5%BF%E3%82%B5%E3%83%8F%E3%83%A9",
+      "gmap": "https://maps.app.goo.gl/TeiWrw5GPFMghsRs9"
     },
     {
       "code": "ER",
       "name": "エリトリア",
       "flag": "🇪🇷",
       "region": "東アフリカ",
+      "official_lang": "アラビア語, 英語",
+      "currency": "ナクファ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1143,19 +1749,24 @@
         ],
         "zoom": 5,
         "name": "エリトリア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%AA%E3%83%88%E3%83%AA%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/fRUVvWqHudPCZiRV8"
     },
     {
       "code": "ES",
       "name": "スペイン",
       "flag": "🇪🇸",
       "region": "南ヨーロッパ",
+      "official_lang": "スペイン語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 69,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1164,19 +1775,24 @@
         ],
         "zoom": 5,
         "name": "スペイン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%9A%E3%82%A4%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/zQ8kFQ9BDWGHb2LQ6"
     },
     {
       "code": "ET",
       "name": "エチオピア",
       "flag": "🇪🇹",
       "region": "東アフリカ",
+      "official_lang": "アムハラ語, アファル語, オロモ語, ソマリ語, ティグリニャ語",
+      "currency": "ブル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 13,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1185,19 +1801,24 @@
         ],
         "zoom": 5,
         "name": "エチオピア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AA%E3%83%94%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/NMjzRuPt2jhEj9Yn7"
     },
     {
       "code": "FI",
       "name": "フィンランド",
       "flag": "🇫🇮",
       "region": "北ヨーロッパ",
+      "official_lang": "フィンランド語, スウェーデン語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 19,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1206,19 +1827,24 @@
         ],
         "zoom": 5,
         "name": "フィンランド"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%B3%E3%83%A9%E3%83%B3%E3%83%89",
+      "gmap": "https://maps.app.goo.gl/1mWk8o64XpAjhVBe7"
     },
     {
       "code": "FJ",
       "name": "フィジー",
       "flag": "🇫🇯",
       "region": "オセアニア",
+      "official_lang": "英語, ヒンディー語, ウルドゥー語",
+      "currency": "フィジー・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 19,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1227,19 +1853,50 @@
         ],
         "zoom": 5,
         "name": "フィジー"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%82%B8%E3%83%BC",
+      "gmap": "https://maps.app.goo.gl/xwCrpNcG83aGZJFV8"
+    },
+    {
+      "code": "FK",
+      "name": "フォークランド諸島",
+      "flag": "🇫🇰",
+      "region": "南アメリカ",
+      "official_lang": "英語",
+      "currency": "スターリング・ポンド, フォークランド諸島ポンド",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "フォークランド諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E3%83%A9%E3%83%B3%E3%83%89%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/1w8FAZXybvXnUeps7"
     },
     {
       "code": "FM",
       "name": "ミクロネシア",
       "flag": "🇫🇲",
       "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 4,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1248,19 +1905,24 @@
         ],
         "zoom": 5,
         "name": "ミクロネシア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9F%E3%82%AF%E3%83%AD%E3%83%8D%E3%82%B7%E3%82%A2%E9%80%A3%E9%82%A6",
+      "gmap": "https://maps.app.goo.gl/iqZnTQ2uaTqmW5go6"
     },
     {
-      "code": "FR",
-      "name": "フランス",
-      "flag": "🇫🇷",
-      "region": "西ヨーロッパ",
+      "code": "FO",
+      "name": "フェロー諸島",
+      "flag": "🇫🇴",
+      "region": "北ヨーロッパ",
+      "official_lang": "フェロー語, デンマーク語",
+      "currency": "フェロー・クローネ",
+      "drive_side": "右",
       "counts": {
-        "municipalities": 124,
+        "municipalities": 0,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": false
       },
       "map_meta": {
         "center": [
@@ -1268,20 +1930,51 @@
           0
         ],
         "zoom": 5,
+        "name": "フェロー諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A7%E3%83%AD%E3%83%BC%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/e4tE6TZJ9AxjAkYD9"
+    },
+    {
+      "code": "FR",
+      "name": "フランス",
+      "flag": "🇫🇷",
+      "region": "西ヨーロッパ",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 124,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": true
+      },
+      "map_meta": {
+        "center": [
+          46.2276,
+          2.2137
+        ],
+        "zoom": 6,
         "name": "フランス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/zUCK9NFkTZBbUc8p7"
     },
     {
       "code": "GA",
       "name": "ガボン",
       "flag": "🇬🇦",
       "region": "中部アフリカ",
+      "official_lang": "フランス語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 9,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1290,40 +1983,50 @@
         ],
         "zoom": 5,
         "name": "ガボン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%9C%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/uBitVX4yPoR4EbDh7"
     },
     {
       "code": "GB",
       "name": "イギリス",
       "flag": "🇬🇧",
       "region": "北ヨーロッパ",
+      "official_lang": "英語",
+      "currency": "スターリング・ポンド",
+      "drive_side": "左",
       "counts": {
         "municipalities": 221,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
-          0,
-          0
+          55.3781,
+          -3.436
         ],
-        "zoom": 5,
+        "zoom": 6,
         "name": "イギリス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/KDpysFPx7vDiSekJA"
     },
     {
       "code": "GD",
       "name": "グレナダ",
       "flag": "🇬🇩",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "東カリブ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 7,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1332,19 +2035,24 @@
         ],
         "zoom": 5,
         "name": "グレナダ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%AC%E3%83%8A%E3%83%80",
+      "gmap": "https://maps.app.goo.gl/LmG6Ps5gQjx7v5aD6"
     },
     {
       "code": "GE",
       "name": "ジョージア",
       "flag": "🇬🇪",
       "region": "西アジア",
+      "official_lang": "グルジア語",
+      "currency": "ラリ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 12,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1353,19 +2061,76 @@
         ],
         "zoom": 5,
         "name": "ジョージア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A7%E3%83%BC%E3%82%B8%E3%82%A2_(%E5%9B%BD)",
+      "gmap": "https://maps.app.goo.gl/RkvJaZoEa1cf2nRh7"
+    },
+    {
+      "code": "GF",
+      "name": "フランス領ギアナ",
+      "flag": "🇬🇫",
+      "region": "南アメリカ",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "フランス領ギアナ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%A0%98%E3%82%AE%E3%82%A2%E3%83%8A",
+      "gmap": "https://maps.app.goo.gl/j261zjNEh2nteLnT7"
+    },
+    {
+      "code": "GG",
+      "name": "ガーンジー",
+      "flag": "🇬🇬",
+      "region": "西ヨーロッパ",
+      "official_lang": "英語",
+      "currency": "ガーンジー・ポンド, スターリング・ポンド",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ガーンジー"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%BC%E3%83%B3%E3%82%B8%E3%83%BC",
+      "gmap": "https://maps.app.goo.gl/6igC72Zx7DqEGxJb6"
     },
     {
       "code": "GH",
       "name": "ガーナ",
       "flag": "🇬🇭",
       "region": "西アフリカ",
+      "official_lang": "英語",
+      "currency": "セディ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1374,19 +2139,50 @@
         ],
         "zoom": 5,
         "name": "ガーナ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%BC%E3%83%8A",
+      "gmap": "https://maps.app.goo.gl/rJaSH666HnVQNAVQ7"
+    },
+    {
+      "code": "GI",
+      "name": "ジブラルタル",
+      "flag": "🇬🇮",
+      "region": "南ヨーロッパ",
+      "official_lang": "英語",
+      "currency": "ジブラルタル・ポンド",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ジブラルタル"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%96%E3%83%A9%E3%83%AB%E3%82%BF%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/yHAsMNBHHnbkManR7"
     },
     {
       "code": "GL",
       "name": "グリーンランド",
       "flag": "🇬🇱",
       "region": "北部アメリカ",
+      "official_lang": "グリーンランド語",
+      "currency": "デンマーク・クローネ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 5,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1395,19 +2191,24 @@
         ],
         "zoom": 5,
         "name": "グリーンランド"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%A9%E3%83%B3%E3%83%89",
+      "gmap": "https://maps.app.goo.gl/hLxdCDfvkRbk68xw9"
     },
     {
       "code": "GM",
       "name": "ガンビア",
       "flag": "🇬🇲",
       "region": "西アフリカ",
+      "official_lang": "英語",
+      "currency": "ダラシ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1416,19 +2217,24 @@
         ],
         "zoom": 5,
         "name": "ガンビア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%B3%E3%83%93%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/xcmAunyJNfky3W43A"
     },
     {
       "code": "GN",
       "name": "ギニア",
       "flag": "🇬🇳",
       "region": "西アフリカ",
+      "official_lang": "フランス語",
+      "currency": "ギニア・フラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 41,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1437,19 +2243,50 @@
         ],
         "zoom": 5,
         "name": "ギニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/Qh1KEtbbsrPDB3yW7"
+    },
+    {
+      "code": "GP",
+      "name": "グアドループ",
+      "flag": "🇬🇵",
+      "region": "カリブ海地域",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "グアドループ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B0%E3%82%A2%E3%83%89%E3%83%AB%E3%83%BC%E3%83%97",
+      "gmap": "https://maps.app.goo.gl/2LGg9pqCtGVRVTRaA"
     },
     {
       "code": "GQ",
       "name": "赤道ギニア",
       "flag": "🇬🇶",
       "region": "中部アフリカ",
+      "official_lang": "スペイン語, フランス語, ポルトガル語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1458,19 +2295,24 @@
         ],
         "zoom": 5,
         "name": "赤道ギニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E8%B5%A4%E9%81%93%E3%82%AE%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/ERnaFAkhdq4Tv6E49"
     },
     {
       "code": "GR",
       "name": "ギリシャ",
       "flag": "🇬🇷",
       "region": "南ヨーロッパ",
+      "official_lang": "ギリシア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 14,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1479,19 +2321,50 @@
         ],
         "zoom": 5,
         "name": "ギリシャ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%AA%E3%82%B7%E3%83%A3",
+      "gmap": "https://maps.app.goo.gl/pwFxRzKDTo7cnHzh8"
+    },
+    {
+      "code": "GS",
+      "name": "サウスジョージア・サウスサンドウィッチ諸島",
+      "flag": "🇬🇸",
+      "region": "南アメリカ",
+      "official_lang": "英語",
+      "currency": "スターリング・ポンド",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "サウスジョージア・サウスサンドウィッチ諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%82%A6%E3%82%B9%E3%82%B8%E3%83%A7%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%BB%E3%82%B5%E3%82%A6%E3%82%B9%E3%82%B5%E3%83%B3%E3%83%89%E3%82%A6%E3%82%A3%E3%83%83%E3%83%81%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/W3sEZMHGT2xahaMD6"
     },
     {
       "code": "GT",
       "name": "グアテマラ",
       "flag": "🇬🇹",
       "region": "中央アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "ケツァル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 22,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1500,19 +2373,50 @@
         ],
         "zoom": 5,
         "name": "グアテマラ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B0%E3%82%A2%E3%83%86%E3%83%9E%E3%83%A9",
+      "gmap": "https://maps.app.goo.gl/CBeHyaMnYZQyZCfy6"
+    },
+    {
+      "code": "GU",
+      "name": "グアム",
+      "flag": "🇬🇺",
+      "region": "オセアニア",
+      "official_lang": "英語, チャモロ語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "グアム"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B0%E3%82%A2%E3%83%A0",
+      "gmap": "https://maps.app.goo.gl/32kkGFYQR2nLCeDw8"
     },
     {
       "code": "GW",
       "name": "ギニアビサウ",
       "flag": "🇬🇼",
       "region": "西アフリカ",
+      "official_lang": "ポルトガル語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 12,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1521,19 +2425,24 @@
         ],
         "zoom": 5,
         "name": "ギニアビサウ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%8B%E3%82%A2%E3%83%93%E3%82%B5%E3%82%A6",
+      "gmap": "https://maps.app.goo.gl/TnQ3T1UTcfB3Lr5EA"
     },
     {
       "code": "GY",
       "name": "ガイアナ",
       "flag": "🇬🇾",
       "region": "南アメリカ",
+      "official_lang": "英語",
+      "currency": "ガイアナ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1542,19 +2451,76 @@
         ],
         "zoom": 5,
         "name": "ガイアナ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AC%E3%82%A4%E3%82%A2%E3%83%8A",
+      "gmap": "https://maps.app.goo.gl/AMku4f4BE6uK5w4A6"
+    },
+    {
+      "code": "HK",
+      "name": "香港",
+      "flag": "🇭🇰",
+      "region": "東アジア",
+      "official_lang": "広東語, 中国語, 英語",
+      "currency": "香港ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "香港"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF",
+      "gmap": "https://maps.app.goo.gl/1RFDxoVTQpTfDEa4A"
+    },
+    {
+      "code": "HM",
+      "name": "ハード島とマクドナルド諸島",
+      "flag": "🇭🇲",
+      "region": "東アフリカ",
+      "official_lang": "",
+      "currency": "",
+      "drive_side": "",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ハード島とマクドナルド諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%BC%E3%83%89%E5%B3%B6%E3%81%A8%E3%83%9E%E3%82%AF%E3%83%89%E3%83%8A%E3%83%AB%E3%83%89%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/aJtMjuGy2R9tGQ1u6"
     },
     {
       "code": "HN",
       "name": "ホンジュラス",
       "flag": "🇭🇳",
       "region": "中央アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "レンピラ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 18,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1563,19 +2529,24 @@
         ],
         "zoom": 5,
         "name": "ホンジュラス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9B%E3%83%B3%E3%82%B8%E3%83%A5%E3%83%A9%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/9rnpCPxWVAP6Wm3p9"
     },
     {
       "code": "HR",
       "name": "クロアチア",
       "flag": "🇭🇷",
       "region": "南ヨーロッパ",
+      "official_lang": "クロアチア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 21,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1584,19 +2555,24 @@
         ],
         "zoom": 5,
         "name": "クロアチア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%A2%E3%83%81%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/5dskFipQp7yM9fuQ9"
     },
     {
       "code": "HT",
       "name": "ハイチ",
       "flag": "🇭🇹",
       "region": "カリブ海地域",
+      "official_lang": "ハイチ語, フランス語",
+      "currency": "ハイチ・グールド",
+      "drive_side": "右",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1605,19 +2581,24 @@
         ],
         "zoom": 5,
         "name": "ハイチ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8F%E3%82%A4%E3%83%81",
+      "gmap": "https://maps.app.goo.gl/BzPtF7dMW3tE3riZ9"
     },
     {
       "code": "HU",
       "name": "ハンガリー",
       "flag": "🇭🇺",
       "region": "東ヨーロッパ",
+      "official_lang": "ハンガリー語",
+      "currency": "フォリント",
+      "drive_side": "右",
       "counts": {
         "municipalities": 43,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1626,19 +2607,24 @@
         ],
         "zoom": 5,
         "name": "ハンガリー"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%B3%E3%82%AC%E3%83%AA%E3%83%BC",
+      "gmap": "https://maps.app.goo.gl/p6hkg1sGmt4tzzpr9"
     },
     {
       "code": "ID",
       "name": "インドネシア",
       "flag": "🇮🇩",
       "region": "東南アジア",
+      "official_lang": "インドネシア語",
+      "currency": "ルピア",
+      "drive_side": "左",
       "counts": {
         "municipalities": 45,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1647,19 +2633,24 @@
         ],
         "zoom": 5,
         "name": "インドネシア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%83%89%E3%83%8D%E3%82%B7%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/Wro13ah9GtytkC8p7"
     },
     {
       "code": "IE",
       "name": "アイルランド",
       "flag": "🇮🇪",
       "region": "北ヨーロッパ",
+      "official_lang": "アイルランド語, 英語",
+      "currency": "ユーロ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 30,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1668,19 +2659,24 @@
         ],
         "zoom": 5,
         "name": "アイルランド"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%A4%E3%83%AB%E3%83%A9%E3%83%B3%E3%83%89",
+      "gmap": "https://maps.app.goo.gl/DsNipYxgxFuDM1uF7"
     },
     {
       "code": "IL",
       "name": "イスラエル",
       "flag": "🇮🇱",
       "region": "西アジア",
+      "official_lang": "ヘブライ語",
+      "currency": "新シェケル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1689,19 +2685,50 @@
         ],
         "zoom": 5,
         "name": "イスラエル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%B9%E3%83%A9%E3%82%A8%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/ZrmQxDWiLPeict1C9"
+    },
+    {
+      "code": "IM",
+      "name": "マン島",
+      "flag": "🇮🇲",
+      "region": "北ヨーロッパ",
+      "official_lang": "英語, マン島語",
+      "currency": "ダグラス",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "マン島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%B3%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/Jb65UBm8cvQfujMf8"
     },
     {
       "code": "IN",
       "name": "インド",
       "flag": "🇮🇳",
       "region": "南アジア",
+      "official_lang": "ヒンディー語, 英語",
+      "currency": "インド・ルピー",
+      "drive_side": "左",
       "counts": {
         "municipalities": 36,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1710,19 +2737,50 @@
         ],
         "zoom": 5,
         "name": "インド"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%83%89",
+      "gmap": "https://maps.app.goo.gl/HUNV5NY97p1zm3Y98"
+    },
+    {
+      "code": "IO",
+      "name": "イギリス領インド洋地域",
+      "flag": "🇮🇴",
+      "region": "東アフリカ",
+      "official_lang": "英語",
+      "currency": "アメリカ合衆国ドル, スターリング・ポンド",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "イギリス領インド洋地域"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9%E9%A0%98%E3%82%A4%E3%83%B3%E3%83%89%E6%B4%8B%E5%9C%B0%E5%9F%9F",
+      "gmap": "https://maps.app.goo.gl/Qe1ar1cV7ihgxcFu9"
     },
     {
       "code": "IQ",
       "name": "イラク",
       "flag": "🇮🇶",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "イラク・ディナール",
+      "drive_side": "右",
       "counts": {
         "municipalities": 19,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1731,19 +2789,24 @@
         ],
         "zoom": 5,
         "name": "イラク"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%A9%E3%82%AF",
+      "gmap": "https://maps.app.goo.gl/Wz8k7dJwAooUSyBRA"
     },
     {
       "code": "IR",
       "name": "イラン",
       "flag": "🇮🇷",
       "region": "南アジア",
+      "official_lang": "ペルシア語",
+      "currency": "イラン・リヤル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 31,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1752,19 +2815,24 @@
         ],
         "zoom": 5,
         "name": "イラン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%A9%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/GvgPqwQUqwM9CxW8A"
     },
     {
       "code": "IS",
       "name": "アイスランド",
       "flag": "🇮🇸",
       "region": "北ヨーロッパ",
+      "official_lang": "アイスランド語",
+      "currency": "アイスランド・クローナ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 72,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1773,19 +2841,50 @@
         ],
         "zoom": 5,
         "name": "アイスランド"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%A4%E3%82%B9%E3%83%A9%E3%83%B3%E3%83%89",
+      "gmap": "https://maps.app.goo.gl/8T3PkUpCBFspKh5i9"
     },
     {
       "code": "IT",
       "name": "イタリア",
       "flag": "🇮🇹",
       "region": "南ヨーロッパ",
+      "official_lang": "イタリア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 126,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
+      },
+      "map_meta": {
+        "center": [
+          41.8719,
+          12.5674
+        ],
+        "zoom": 6,
+        "name": "イタリア"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%BF%E3%83%AA%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/yJHRdwoHifyWCKMv6"
+    },
+    {
+      "code": "JE",
+      "name": "ジャージー",
+      "flag": "🇯🇪",
+      "region": "西ヨーロッパ",
+      "official_lang": "英語, フランス語",
+      "currency": "ジャージー・ポンド, スターリング・ポンド",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
       },
       "map_meta": {
         "center": [
@@ -1793,20 +2892,25 @@
           0
         ],
         "zoom": 5,
-        "name": "イタリア"
-      }
+        "name": "ジャージー"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A3%E3%83%BC%E3%82%B8%E3%83%BC",
+      "gmap": "https://maps.app.goo.gl/Gwski3dqRodSfJnR9"
     },
     {
       "code": "JM",
       "name": "ジャマイカ",
       "flag": "🇯🇲",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "ジャマイカ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 14,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1815,19 +2919,24 @@
         ],
         "zoom": 5,
         "name": "ジャマイカ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A3%E3%83%9E%E3%82%A4%E3%82%AB",
+      "gmap": "https://maps.app.goo.gl/HQhbfWiwTq1tPYiC9"
     },
     {
       "code": "JO",
       "name": "ヨルダン",
       "flag": "🇯🇴",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "ヨルダン・ディナール",
+      "drive_side": "右",
       "counts": {
         "municipalities": 12,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1836,19 +2945,24 @@
         ],
         "zoom": 5,
         "name": "ヨルダン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A8%E3%83%AB%E3%83%80%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/HmFgJ64ZLFncNbes5"
     },
     {
       "code": "JP",
       "name": "日本",
       "flag": "🇯🇵",
       "region": "東アジア",
+      "official_lang": "日本語",
+      "currency": "円",
+      "drive_side": "左",
       "counts": {
         "municipalities": 1965,
         "operators": 226,
         "routes": 4108,
         "nodes": 13584,
-        "sequenced_routes": 1
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1857,19 +2971,24 @@
         ],
         "zoom": 6,
         "name": "日本"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC",
+      "gmap": "https://maps.app.goo.gl/VPhBVviYqTL38heo6"
     },
     {
       "code": "KE",
       "name": "ケニア",
       "flag": "🇰🇪",
       "region": "東アフリカ",
+      "official_lang": "スワヒリ語, 英語",
+      "currency": "ケニア・シリング",
+      "drive_side": "左",
       "counts": {
         "municipalities": 47,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1878,19 +2997,24 @@
         ],
         "zoom": 5,
         "name": "ケニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B1%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/GgMTQqNXDEgJB64EA"
     },
     {
       "code": "KG",
       "name": "キルギス",
       "flag": "🇰🇬",
       "region": "中央アジア",
+      "official_lang": "キルギス語, ロシア語",
+      "currency": "ソム",
+      "drive_side": "右",
       "counts": {
         "municipalities": 9,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1899,19 +3023,24 @@
         ],
         "zoom": 5,
         "name": "キルギス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%AB%E3%82%AE%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/49B6MdtdoryMtCJQ6"
     },
     {
       "code": "KH",
       "name": "カンボジア",
       "flag": "🇰🇭",
       "region": "東南アジア",
+      "official_lang": "クメール語",
+      "currency": "リエル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 25,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1920,19 +3049,24 @@
         ],
         "zoom": 5,
         "name": "カンボジア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%B3%E3%83%9C%E3%82%B8%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/8UPHhFrduA1kyUAV7"
     },
     {
       "code": "KI",
       "name": "キリバス",
       "flag": "🇰🇮",
       "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "オーストラリア・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 3,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1941,19 +3075,24 @@
         ],
         "zoom": 5,
         "name": "キリバス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%AA%E3%83%90%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/pPDcd1nepansD48j6"
     },
     {
       "code": "KM",
       "name": "コモロ",
       "flag": "🇰🇲",
       "region": "東アフリカ",
+      "official_lang": "フランス語, アラビア語",
+      "currency": "コモロ・フラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 3,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1962,19 +3101,24 @@
         ],
         "zoom": 5,
         "name": "コモロ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%A2%E3%83%AD",
+      "gmap": "https://maps.app.goo.gl/b61AqCz6UYSa6zD28"
     },
     {
       "code": "KN",
       "name": "セントクリストファー・ネービス",
       "flag": "🇰🇳",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "東カリブ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -1983,19 +3127,24 @@
         ],
         "zoom": 5,
         "name": "セントクリストファー・ネービス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%83%BC%E3%83%BB%E3%83%8D%E3%82%A4%E3%83%93%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/YPRSacp94TYQmg1GA"
     },
     {
       "code": "KP",
       "name": "北朝鮮",
       "flag": "🇰🇵",
       "region": "東アジア",
+      "official_lang": "韓国語・朝鮮語",
+      "currency": "北朝鮮ウォン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 13,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2004,19 +3153,24 @@
         ],
         "zoom": 5,
         "name": "北朝鮮"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E6%9C%9D%E9%AE%AE%E6%B0%91%E4%B8%BB%E4%B8%BB%E7%BE%A9%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/ebDNgF9JJwWaEs1e8"
     },
     {
       "code": "KR",
       "name": "韓国",
       "flag": "🇰🇷",
       "region": "東アジア",
+      "official_lang": "韓国語・朝鮮語",
+      "currency": "韓国ウォン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2025,19 +3179,24 @@
         ],
         "zoom": 7,
         "name": "大韓民国"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%9F%93%E6%B0%91%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/RwxjGYQZBAEesJAT6"
     },
     {
       "code": "KW",
       "name": "クウェート",
       "flag": "🇰🇼",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "クウェート・ディナール",
+      "drive_side": "右",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2046,19 +3205,50 @@
         ],
         "zoom": 5,
         "name": "クウェート"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AF%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%88",
+      "gmap": "https://maps.app.goo.gl/KZcnbtN2vJgr9fRu5"
+    },
+    {
+      "code": "KY",
+      "name": "ケイマン諸島",
+      "flag": "🇰🇾",
+      "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "ケイマン諸島・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ケイマン諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B1%E3%82%A4%E3%83%9E%E3%83%B3%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/N5kbpCsy395JMzZW9"
     },
     {
       "code": "KZ",
       "name": "カザフスタン",
       "flag": "🇰🇿",
       "region": "中央アジア",
+      "official_lang": "カザフ語, ロシア語",
+      "currency": "テンゲ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 20,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2067,19 +3257,24 @@
         ],
         "zoom": 5,
         "name": "カザフスタン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%B6%E3%83%95%E3%82%B9%E3%82%BF%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/4EQvzCHm3xMATBhV8"
     },
     {
       "code": "LA",
       "name": "ラオス",
       "flag": "🇱🇦",
       "region": "東南アジア",
+      "official_lang": "ラーオ語",
+      "currency": "キープ(キップ)",
+      "drive_side": "右",
       "counts": {
         "municipalities": 18,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2088,19 +3283,24 @@
         ],
         "zoom": 5,
         "name": "ラオス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A9%E3%82%AA%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/kd8m3SCn2SMzfnG89"
     },
     {
       "code": "LB",
       "name": "レバノン",
       "flag": "🇱🇧",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "レバノン・ポンド",
+      "drive_side": "右",
       "counts": {
         "municipalities": 8,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2109,19 +3309,24 @@
         ],
         "zoom": 5,
         "name": "レバノン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AC%E3%83%90%E3%83%8E%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/WJZqkxxXk2ovZBYC7"
     },
     {
       "code": "LC",
       "name": "セントルシア",
       "flag": "🇱🇨",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "東カリブ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2130,19 +3335,24 @@
         ],
         "zoom": 5,
         "name": "セントルシア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%83%AB%E3%82%B7%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/vXwVYcwvdwfwC2ag9"
     },
     {
       "code": "LI",
       "name": "リヒテンシュタイン",
       "flag": "🇱🇮",
       "region": "西ヨーロッパ",
+      "official_lang": "ドイツ語",
+      "currency": "スイス・フラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 11,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2151,19 +3361,24 @@
         ],
         "zoom": 5,
         "name": "リヒテンシュタイン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%92%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/rtL9pYFR8MQeESwJ8"
     },
     {
       "code": "LK",
       "name": "スリランカ",
       "flag": "🇱🇰",
       "region": "南アジア",
+      "official_lang": "シンハラ語, タミル語",
+      "currency": "スリランカ・ルピー",
+      "drive_side": "左",
       "counts": {
         "municipalities": 34,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2172,19 +3387,24 @@
         ],
         "zoom": 5,
         "name": "スリランカ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AA%E3%83%A9%E3%83%B3%E3%82%AB",
+      "gmap": "https://maps.app.goo.gl/zZSmPKiRJjXFzPQM6"
     },
     {
       "code": "LR",
       "name": "リベリア",
       "flag": "🇱🇷",
       "region": "西アフリカ",
+      "official_lang": "英語",
+      "currency": "リベリア・ドル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 15,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2193,19 +3413,24 @@
         ],
         "zoom": 5,
         "name": "リベリア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%99%E3%83%AA%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/Aj6iSQoZiWk5iZit5"
     },
     {
       "code": "LS",
       "name": "レソト",
       "flag": "🇱🇸",
       "region": "南部アフリカ",
+      "official_lang": "ソト語, 英語",
+      "currency": "ロチ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2214,19 +3439,24 @@
         ],
         "zoom": 5,
         "name": "レソト"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AC%E3%82%BD%E3%83%88",
+      "gmap": "https://maps.app.goo.gl/3Rqz1xSxZ3QKYszw7"
     },
     {
       "code": "LT",
       "name": "リトアニア",
       "flag": "🇱🇹",
       "region": "北ヨーロッパ",
+      "official_lang": "リトアニア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 70,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2235,19 +3465,24 @@
         ],
         "zoom": 5,
         "name": "リトアニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%88%E3%82%A2%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/Mr8fZfJLf3L2X696A"
     },
     {
       "code": "LU",
       "name": "ルクセンブルク",
       "flag": "🇱🇺",
       "region": "西ヨーロッパ",
+      "official_lang": "ルクセンブルク語, ドイツ語, フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 12,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2256,19 +3491,24 @@
         ],
         "zoom": 5,
         "name": "ルクセンブルク"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AB%E3%82%AF%E3%82%BB%E3%83%B3%E3%83%96%E3%83%AB%E3%82%AF",
+      "gmap": "https://maps.app.goo.gl/rJhKSyWscVmrz2EC6"
     },
     {
       "code": "LV",
       "name": "ラトビア",
       "flag": "🇱🇻",
       "region": "北ヨーロッパ",
+      "official_lang": "ラトビア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 43,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2277,19 +3517,24 @@
         ],
         "zoom": 5,
         "name": "ラトビア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A9%E3%83%88%E3%83%93%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/QGsC6g6Qwh4cwLH56"
     },
     {
       "code": "LY",
       "name": "リビア",
       "flag": "🇱🇾",
       "region": "北アフリカ",
+      "official_lang": "アラビア語",
+      "currency": "リビア・ディナール",
+      "drive_side": "右",
       "counts": {
         "municipalities": 22,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2298,19 +3543,24 @@
         ],
         "zoom": 5,
         "name": "リビア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%93%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/FfLwYgSbAA4KsWVp6"
     },
     {
       "code": "MA",
       "name": "モロッコ",
       "flag": "🇲🇦",
       "region": "北アフリカ",
+      "official_lang": "アラビア語",
+      "currency": "モロッコ・ディルハム",
+      "drive_side": "右",
       "counts": {
         "municipalities": 87,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2319,19 +3569,24 @@
         ],
         "zoom": 5,
         "name": "モロッコ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%AD%E3%83%83%E3%82%B3",
+      "gmap": "https://maps.app.goo.gl/jbPvGUJ4o5sccYFXA"
     },
     {
       "code": "MC",
       "name": "モナコ",
       "flag": "🇲🇨",
       "region": "西ヨーロッパ",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 17,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2340,19 +3595,24 @@
         ],
         "zoom": 5,
         "name": "モナコ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%8A%E3%82%B3",
+      "gmap": "https://maps.app.goo.gl/mo5hZodrRfRuWPF57"
     },
     {
       "code": "MD",
       "name": "モルドバ",
       "flag": "🇲🇩",
       "region": "東ヨーロッパ",
+      "official_lang": "ルーマニア語",
+      "currency": "モルドバ・レウ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 37,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2361,19 +3621,24 @@
         ],
         "zoom": 5,
         "name": "モルドバ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%AB%E3%83%89%E3%83%90",
+      "gmap": "https://maps.app.goo.gl/2MB7cNUCypiuGABW8"
     },
     {
       "code": "ME",
       "name": "モンテネグロ",
       "flag": "🇲🇪",
       "region": "南ヨーロッパ",
+      "official_lang": "アルバニア語, セルビア語, ボスニア語, クロアチア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 25,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2382,19 +3647,50 @@
         ],
         "zoom": 5,
         "name": "モンテネグロ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%86%E3%83%8D%E3%82%B0%E3%83%AD",
+      "gmap": "https://maps.app.goo.gl/pxVNbbeDzScv3g7j9"
+    },
+    {
+      "code": "MF",
+      "name": "サン・マルタン",
+      "flag": "🇲🇫",
+      "region": "カリブ海地域",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "サン・マルタン"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%BB%E3%83%9E%E3%83%AB%E3%82%BF%E3%83%B3_(%E8%A5%BF%E3%82%A4%E3%83%B3%E3%83%89%E8%AB%B8%E5%B3%B6)",
+      "gmap": "https://maps.app.goo.gl/jk9TLKL57BPV9QBd8"
     },
     {
       "code": "MG",
       "name": "マダガスカル",
       "flag": "🇲🇬",
       "region": "東アフリカ",
+      "official_lang": "マダガスカル語, フランス語",
+      "currency": "マダガスカル・アリアリ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2403,19 +3699,24 @@
         ],
         "zoom": 5,
         "name": "マダガスカル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%80%E3%82%AC%E3%82%B9%E3%82%AB%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/tkKrPQSpmuqX92Qg9"
     },
     {
       "code": "MH",
       "name": "マーシャル諸島",
       "flag": "🇲🇭",
       "region": "オセアニア",
+      "official_lang": "マーシャル語, 英語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 26,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2424,19 +3725,24 @@
         ],
         "zoom": 5,
         "name": "マーシャル諸島"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/1geKBS6WfuYQ8ddP8"
     },
     {
       "code": "MK",
       "name": "北マケドニア",
       "flag": "🇲🇰",
       "region": "南ヨーロッパ",
+      "official_lang": "マケドニア語, アルバニア語",
+      "currency": "マケドニア・デナール",
+      "drive_side": "右",
       "counts": {
         "municipalities": 80,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2445,19 +3751,24 @@
         ],
         "zoom": 5,
         "name": "北マケドニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E5%8C%97%E3%83%9E%E3%82%B1%E3%83%89%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/SSa8HnsJDcvLXoMw9"
     },
     {
       "code": "ML",
       "name": "マリ",
       "flag": "🇲🇱",
       "region": "西アフリカ",
+      "official_lang": "バンバラ語, フラニ語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 11,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2466,19 +3777,24 @@
         ],
         "zoom": 5,
         "name": "マリ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AA%E5%85%B1%E5%92%8C%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/mBPLU3VD8puvxa6LA"
     },
     {
       "code": "MM",
       "name": "ミャンマー",
       "flag": "🇲🇲",
       "region": "東南アジア",
+      "official_lang": "ビルマ語",
+      "currency": "チャット",
+      "drive_side": "右",
       "counts": {
         "municipalities": 15,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2487,19 +3803,24 @@
         ],
         "zoom": 5,
         "name": "ミャンマー"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9F%E3%83%A3%E3%83%B3%E3%83%9E%E3%83%BC",
+      "gmap": "https://maps.app.goo.gl/qLLafTsYS3SCWC549"
     },
     {
       "code": "MN",
       "name": "モンゴル",
       "flag": "🇲🇳",
       "region": "東アジア",
+      "official_lang": "モンゴル語",
+      "currency": "トゥグルグ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 22,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2508,19 +3829,102 @@
         ],
         "zoom": 5,
         "name": "モンゴル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%82%B4%E3%83%AB%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/wxo3iyiTfHXSKVNF9"
+    },
+    {
+      "code": "MO",
+      "name": "マカオ",
+      "flag": "🇲🇴",
+      "region": "東アジア",
+      "official_lang": "中国語, ポルトガル語",
+      "currency": "マカオ・パタカ",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "マカオ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%AB%E3%82%AA",
+      "gmap": "https://maps.app.goo.gl/832JQ1Ur7AT6xp978"
+    },
+    {
+      "code": "MP",
+      "name": "北マリアナ諸島",
+      "flag": "🇲🇵",
+      "region": "オセアニア",
+      "official_lang": "英語, チャモロ語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "北マリアナ諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E5%8C%97%E3%83%9E%E3%83%AA%E3%82%A2%E3%83%8A%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/9Xc7zcrAEYtrfRPr8"
+    },
+    {
+      "code": "MQ",
+      "name": "マルティニーク",
+      "flag": "🇲🇶",
+      "region": "カリブ海地域",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "マルティニーク"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%83%86%E3%82%A3%E3%83%8B%E3%83%BC%E3%82%AF",
+      "gmap": "https://maps.app.goo.gl/EHcPE9LfofN8S57H6"
     },
     {
       "code": "MR",
       "name": "モーリタニア",
       "flag": "🇲🇷",
       "region": "西アフリカ",
+      "official_lang": "アラビア語",
+      "currency": "ウギア",
+      "drive_side": "右",
       "counts": {
         "municipalities": 15,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2529,19 +3933,50 @@
         ],
         "zoom": 5,
         "name": "モーリタニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%BC%E3%83%AA%E3%82%BF%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/KPZZqh96rB4AaKdQ8"
+    },
+    {
+      "code": "MS",
+      "name": "モントセラト",
+      "flag": "🇲🇸",
+      "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "東カリブ・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "モントセラト"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%88%E3%82%BB%E3%83%A9%E3%83%88",
+      "gmap": "https://maps.app.goo.gl/ZRPqKvsAui38gcKM7"
     },
     {
       "code": "MT",
       "name": "マルタ",
       "flag": "🇲🇹",
       "region": "南ヨーロッパ",
+      "official_lang": "マルタ語, 英語",
+      "currency": "ユーロ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 68,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2550,19 +3985,24 @@
         ],
         "zoom": 5,
         "name": "マルタ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%82%BF",
+      "gmap": "https://maps.app.goo.gl/71hBc7k6GVs3xX4N9"
     },
     {
       "code": "MU",
       "name": "モーリシャス",
       "flag": "🇲🇺",
       "region": "東アフリカ",
+      "official_lang": "英語",
+      "currency": "モーリシャス・ルピー",
+      "drive_side": "左",
       "counts": {
         "municipalities": 12,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2571,19 +4011,24 @@
         ],
         "zoom": 5,
         "name": "モーリシャス"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%BC%E3%83%AA%E3%82%B7%E3%83%A3%E3%82%B9",
+      "gmap": "https://maps.app.goo.gl/dCUBoe9pDuGF3usEA"
     },
     {
       "code": "MV",
       "name": "モルディブ",
       "flag": "🇲🇻",
       "region": "南アジア",
+      "official_lang": "ディベヒ語",
+      "currency": "ルフィヤ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 21,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2592,19 +4037,24 @@
         ],
         "zoom": 5,
         "name": "モルディブ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%AB%E3%83%87%E3%82%A3%E3%83%96",
+      "gmap": "https://maps.app.goo.gl/V1JL74NG2xGTkN7X7"
     },
     {
       "code": "MW",
       "name": "マラウイ",
       "flag": "🇲🇼",
       "region": "東アフリカ",
+      "official_lang": "チェワ語, 英語",
+      "currency": "マラウイ・クワチャ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 31,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2613,19 +4063,24 @@
         ],
         "zoom": 5,
         "name": "マラウイ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%A9%E3%82%A6%E3%82%A4",
+      "gmap": "https://maps.app.goo.gl/rhFmAJJcKjGfVKnk8"
     },
     {
       "code": "MX",
       "name": "メキシコ",
       "flag": "🇲🇽",
       "region": "中央アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "メキシコ・ペソ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 32,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2634,19 +4089,24 @@
         ],
         "zoom": 5,
         "name": "メキシコ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%AD%E3%82%B7%E3%82%B3",
+      "gmap": "https://maps.app.goo.gl/hZv53JUQobJHjFRU7"
     },
     {
       "code": "MY",
       "name": "マレーシア",
       "flag": "🇲🇾",
       "region": "東南アジア",
+      "official_lang": "マレー語, 英語",
+      "currency": "リンギット",
+      "drive_side": "左",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2655,19 +4115,24 @@
         ],
         "zoom": 5,
         "name": "マレーシア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AC%E3%83%BC%E3%82%B7%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/8CXRXH1pNip84S3Q6"
     },
     {
       "code": "MZ",
       "name": "モザンビーク",
       "flag": "🇲🇿",
       "region": "東アフリカ",
+      "official_lang": "ポルトガル語",
+      "currency": "メティカル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 11,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2676,19 +4141,24 @@
         ],
         "zoom": 5,
         "name": "モザンビーク"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%82%B6%E3%83%B3%E3%83%93%E3%83%BC%E3%82%AF",
+      "gmap": "https://maps.app.goo.gl/BucD2frAKNCuSf6s9"
     },
     {
       "code": "NA",
       "name": "ナミビア",
       "flag": "🇳🇦",
       "region": "南部アフリカ",
+      "official_lang": "英語",
+      "currency": "ナミビア・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 14,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2697,19 +4167,50 @@
         ],
         "zoom": 5,
         "name": "ナミビア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8A%E3%83%9F%E3%83%93%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/5U8nUyh2F1Ba9Gzd6"
+    },
+    {
+      "code": "NC",
+      "name": "ニューカレドニア",
+      "flag": "🇳🇨",
+      "region": "オセアニア",
+      "official_lang": "フランス語",
+      "currency": "CFPフラン",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ニューカレドニア"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%AB%E3%83%AC%E3%83%89%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/FGdHYDNS4jp6N18m8"
     },
     {
       "code": "NE",
       "name": "ニジェール",
       "flag": "🇳🇪",
       "region": "西アフリカ",
+      "official_lang": "ハウサ語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 8,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2718,19 +4219,50 @@
         ],
         "zoom": 5,
         "name": "ニジェール"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B8%E3%82%A7%E3%83%BC%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/tZSrU3iaadKJGp6e8"
+    },
+    {
+      "code": "NF",
+      "name": "ノーフォーク島",
+      "flag": "🇳🇫",
+      "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "オーストラリア・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ノーフォーク島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/4TPrGLhH7fsDL7xX7"
     },
     {
       "code": "NG",
       "name": "ナイジェリア",
       "flag": "🇳🇬",
       "region": "西アフリカ",
+      "official_lang": "英語",
+      "currency": "ナイラ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 37,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2739,19 +4271,24 @@
         ],
         "zoom": 5,
         "name": "ナイジェリア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8A%E3%82%A4%E3%82%B8%E3%82%A7%E3%83%AA%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/YifUTEkghunDAeNt9"
     },
     {
       "code": "NI",
       "name": "ニカラグア",
       "flag": "🇳🇮",
       "region": "中央アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "コルドバ・オロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 17,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2760,19 +4297,24 @@
         ],
         "zoom": 5,
         "name": "ニカラグア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%AB%E3%83%A9%E3%82%B0%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/1nSdTN7nJzbjhh2z7"
     },
     {
       "code": "NL",
       "name": "オランダ",
       "flag": "🇳🇱",
       "region": "西ヨーロッパ",
+      "official_lang": "オランダ語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 18,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2781,19 +4323,24 @@
         ],
         "zoom": 5,
         "name": "オランダ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%A9%E3%83%B3%E3%83%80",
+      "gmap": "https://maps.app.goo.gl/6qipNAQv6zVhKVKv7"
     },
     {
       "code": "NO",
       "name": "ノルウェー",
       "flag": "🇳🇴",
       "region": "北ヨーロッパ",
+      "official_lang": "ノルウェー語, ノルウェー語 (ニーノシュク)",
+      "currency": "ノルウェー・クローネ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 13,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2802,19 +4349,24 @@
         ],
         "zoom": 5,
         "name": "ノルウェー"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%82%A6%E3%82%A7%E3%83%BC",
+      "gmap": "https://maps.app.goo.gl/Yfdps2LpZAiCADwRA"
     },
     {
       "code": "NP",
       "name": "ネパール",
       "flag": "🇳🇵",
       "region": "南アジア",
+      "official_lang": "ネパール語",
+      "currency": "ネパール・ルピー",
+      "drive_side": "左",
       "counts": {
         "municipalities": 7,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2823,19 +4375,24 @@
         ],
         "zoom": 5,
         "name": "ネパール"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8D%E3%83%91%E3%83%BC%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/dxGYEXPUsA1c9d7G8"
     },
     {
       "code": "NR",
       "name": "ナウル",
       "flag": "🇳🇷",
       "region": "オセアニア",
+      "official_lang": "ナウル語, 英語",
+      "currency": "オーストラリア・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 14,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2844,19 +4401,50 @@
         ],
         "zoom": 5,
         "name": "ナウル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8A%E3%82%A6%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/uTXfEGic9WbTbsPu9"
+    },
+    {
+      "code": "NU",
+      "name": "ニウエ",
+      "flag": "🇳🇺",
+      "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "ニュージーランド・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ニウエ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%A6%E3%82%A8",
+      "gmap": "https://maps.app.goo.gl/zuv1RiG6WWVJyctf6"
     },
     {
       "code": "NZ",
       "name": "ニュージーランド",
       "flag": "🇳🇿",
       "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "ニュージーランド・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 17,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2865,19 +4453,24 @@
         ],
         "zoom": 5,
         "name": "ニュージーランド"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89",
+      "gmap": "https://maps.app.goo.gl/ovwcXYfPe5UDG1GL6"
     },
     {
       "code": "OM",
       "name": "オマーン",
       "flag": "🇴🇲",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "オマーン・リアル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 11,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2886,19 +4479,24 @@
         ],
         "zoom": 5,
         "name": "オマーン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%9E%E3%83%BC%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/pEKLYHVinUsCEEBRA"
     },
     {
       "code": "PA",
       "name": "パナマ",
       "flag": "🇵🇦",
       "region": "中央アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "バルボア",
+      "drive_side": "右",
       "counts": {
         "municipalities": 14,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2907,19 +4505,24 @@
         ],
         "zoom": 5,
         "name": "パナマ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%8A%E3%83%9E",
+      "gmap": "https://maps.app.goo.gl/aHmpBxzyjqHssnHUA"
     },
     {
       "code": "PE",
       "name": "ペルー",
       "flag": "🇵🇪",
       "region": "南アメリカ",
+      "official_lang": "スペイン語, ケチュア語, アイマラ語",
+      "currency": "ヌエボ・ソル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 26,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2928,19 +4531,50 @@
         ],
         "zoom": 5,
         "name": "ペルー"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%AB%E3%83%BC",
+      "gmap": "https://maps.app.goo.gl/EACpbVkjM5QP6MwR9"
+    },
+    {
+      "code": "PF",
+      "name": "フランス領ポリネシア",
+      "flag": "🇵🇫",
+      "region": "オセアニア",
+      "official_lang": "フランス語, タヒチ語",
+      "currency": "CFPフラン",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "フランス領ポリネシア"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%A0%98%E3%83%9D%E3%83%AA%E3%83%8D%E3%82%B7%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/WoN4vC1drA4Sp8x86"
     },
     {
       "code": "PG",
       "name": "パプアニューギニア",
       "flag": "🇵🇬",
       "region": "オセアニア",
+      "official_lang": "英語, トク・ピシン, ヒリモツ語",
+      "currency": "キナ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 22,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2949,19 +4583,24 @@
         ],
         "zoom": 5,
         "name": "パプアニューギニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%97%E3%82%A2%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%AE%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/YucPQg1X9Q3tvuTF6"
     },
     {
       "code": "PH",
       "name": "フィリピン",
       "flag": "🇵🇭",
       "region": "東南アジア",
+      "official_lang": "英語",
+      "currency": "フィリピン・ペソ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 99,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2970,19 +4609,24 @@
         ],
         "zoom": 5,
         "name": "フィリピン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/sULMEZjq5RsGy9Zz8"
     },
     {
       "code": "PK",
       "name": "パキスタン",
       "flag": "🇵🇰",
       "region": "南アジア",
+      "official_lang": "ウルドゥー語, 英語",
+      "currency": "パキスタン・ルピー",
+      "drive_side": "左",
       "counts": {
         "municipalities": 7,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -2991,19 +4635,24 @@
         ],
         "zoom": 5,
         "name": "パキスタン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%91%E3%82%AD%E3%82%B9%E3%82%BF%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/amGPcGBpDiB24mCT7"
     },
     {
       "code": "PL",
       "name": "ポーランド",
       "flag": "🇵🇱",
       "region": "東ヨーロッパ",
+      "official_lang": "ポーランド語",
+      "currency": "ズウォティ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3012,19 +4661,102 @@
         ],
         "zoom": 5,
         "name": "ポーランド"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89",
+      "gmap": "https://maps.app.goo.gl/drCCocGcGhfeek898"
+    },
+    {
+      "code": "PM",
+      "name": "サンピエール島・ミクロン島",
+      "flag": "🇵🇲",
+      "region": "北部アメリカ",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "サンピエール島・ミクロン島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%94%E3%82%A8%E3%83%BC%E3%83%AB%E5%B3%B6%E3%83%BB%E3%83%9F%E3%82%AF%E3%83%AD%E3%83%B3%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/QgLtU7NVpNpGaxki6"
+    },
+    {
+      "code": "PN",
+      "name": "ピトケアン諸島",
+      "flag": "🇵🇳",
+      "region": "オセアニア",
+      "official_lang": "ピトケアン語, 英語",
+      "currency": "ニュージーランド・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "ピトケアン諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%94%E3%83%88%E3%82%B1%E3%82%A2%E3%83%B3%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/1Wq229iTQ2mDmhpi9"
+    },
+    {
+      "code": "PR",
+      "name": "プエルトリコ",
+      "flag": "🇵🇷",
+      "region": "カリブ海地域",
+      "official_lang": "スペイン語, 英語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "プエルトリコ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%97%E3%82%A8%E3%83%AB%E3%83%88%E3%83%AA%E3%82%B3",
+      "gmap": "https://maps.app.goo.gl/DnoMLnniab321prc7"
     },
     {
       "code": "PS",
       "name": "パレスチナ",
       "flag": "🇵🇸",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "新シェケル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3033,19 +4765,24 @@
         ],
         "zoom": 5,
         "name": "パレスチナ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%AC%E3%82%B9%E3%83%81%E3%83%8A%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/QYSbR1HeEqcDWe686"
     },
     {
       "code": "PT",
       "name": "ポルトガル",
       "flag": "🇵🇹",
       "region": "南ヨーロッパ",
+      "official_lang": "ポルトガル語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 20,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3054,19 +4791,24 @@
         ],
         "zoom": 5,
         "name": "ポルトガル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%AB%E3%83%88%E3%82%AC%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/LQvgB8o9zSVsruZE9"
     },
     {
       "code": "PW",
       "name": "パラオ",
       "flag": "🇵🇼",
       "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 16,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3075,19 +4817,24 @@
         ],
         "zoom": 5,
         "name": "パラオ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%A9%E3%82%AA",
+      "gmap": "https://maps.app.goo.gl/Q7VBRcpjwaCg98iPA"
     },
     {
       "code": "PY",
       "name": "パラグアイ",
       "flag": "🇵🇾",
       "region": "南アメリカ",
+      "official_lang": "スペイン語, グアラニー語",
+      "currency": "グアラニー",
+      "drive_side": "右",
       "counts": {
         "municipalities": 18,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3096,19 +4843,24 @@
         ],
         "zoom": 5,
         "name": "パラグアイ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%A9%E3%82%B0%E3%82%A2%E3%82%A4",
+      "gmap": "https://maps.app.goo.gl/Gk4vUdHED1sscDAv7"
     },
     {
       "code": "QA",
       "name": "カタール",
       "flag": "🇶🇦",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "カタール・リヤル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 8,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3117,19 +4869,50 @@
         ],
         "zoom": 5,
         "name": "カタール"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%BF%E3%83%BC%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/F9aCBfVn3Bwbm18a6"
+    },
+    {
+      "code": "RE",
+      "name": "レユニオン",
+      "flag": "🇷🇪",
+      "region": "東アフリカ",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "レユニオン"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AC%E3%83%A6%E3%83%8B%E3%82%AA%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/e7zruALTG73vEBPeA"
     },
     {
       "code": "RO",
       "name": "ルーマニア",
       "flag": "🇷🇴",
       "region": "東ヨーロッパ",
+      "official_lang": "ルーマニア語",
+      "currency": "ルーマニア・レウ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 42,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3138,19 +4921,24 @@
         ],
         "zoom": 5,
         "name": "ルーマニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%BC%E3%83%9E%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/c9PCtasFuNBGU1CdA"
     },
     {
       "code": "RS",
       "name": "セルビア",
       "flag": "🇷🇸",
       "region": "南ヨーロッパ",
+      "official_lang": "セルビア語",
+      "currency": "セルビア・ディナール",
+      "drive_side": "右",
       "counts": {
         "municipalities": 32,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3159,19 +4947,24 @@
         ],
         "zoom": 5,
         "name": "セルビア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%AB%E3%83%93%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/6nu4ZmWTw8zZXCWo9"
     },
     {
       "code": "RU",
       "name": "ロシア",
       "flag": "🇷🇺",
       "region": "北アジア,東ヨーロッパ",
+      "official_lang": "ロシア語",
+      "currency": "ロシア・ルーブル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 83,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3180,19 +4973,24 @@
         ],
         "zoom": 5,
         "name": "ロシア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AD%E3%82%B7%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/DomYEU1MDjVgyiSz5"
     },
     {
       "code": "RW",
       "name": "ルワンダ",
       "flag": "🇷🇼",
       "region": "東アフリカ",
+      "official_lang": "ルワンダ語, フランス語, 英語, スワヒリ語",
+      "currency": "ルワンダ・フラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 5,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3201,19 +4999,24 @@
         ],
         "zoom": 5,
         "name": "ルワンダ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%AF%E3%83%B3%E3%83%80",
+      "gmap": "https://maps.app.goo.gl/D1s4Ca9y4xdmo6fw5"
     },
     {
       "code": "SA",
       "name": "サウジアラビア",
       "flag": "🇸🇦",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "サウジアラビア・リヤル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 13,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3222,19 +5025,24 @@
         ],
         "zoom": 5,
         "name": "サウジアラビア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%82%A6%E3%82%B8%E3%82%A2%E3%83%A9%E3%83%93%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/GHTPk21V7cZ1Z1RU7"
     },
     {
       "code": "SB",
       "name": "ソロモン諸島",
       "flag": "🇸🇧",
       "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "ソロモン諸島ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3243,19 +5051,24 @@
         ],
         "zoom": 5,
         "name": "ソロモン諸島"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%AD%E3%83%A2%E3%83%B3%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/o5SBfbpsi3qsPvPK9"
     },
     {
       "code": "SC",
       "name": "セーシェル",
       "flag": "🇸🇨",
       "region": "東アフリカ",
+      "official_lang": "英語, フランス語",
+      "currency": "セーシェル・ルピー",
+      "drive_side": "左",
       "counts": {
         "municipalities": 27,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3264,19 +5077,24 @@
         ],
         "zoom": 5,
         "name": "セーシェル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%BC%E3%82%B7%E3%82%A7%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/esRugy3f7tWWYWvT7"
     },
     {
       "code": "SD",
       "name": "スーダン",
       "flag": "🇸🇩",
       "region": "北アフリカ",
+      "official_lang": "アラビア語, 英語",
+      "currency": "スーダン・ポンド",
+      "drive_side": "右",
       "counts": {
         "municipalities": 18,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3285,19 +5103,24 @@
         ],
         "zoom": 5,
         "name": "スーダン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%BC%E3%83%80%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/27ux93AvsZaVKK9v9"
     },
     {
       "code": "SE",
       "name": "スウェーデン",
       "flag": "🇸🇪",
       "region": "北ヨーロッパ",
+      "official_lang": "スウェーデン語",
+      "currency": "スウェーデン・クローナ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 21,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3306,19 +5129,24 @@
         ],
         "zoom": 5,
         "name": "スウェーデン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%87%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/dA7oce72PJXvit5cA"
     },
     {
       "code": "SG",
       "name": "シンガポール",
       "flag": "🇸🇬",
       "region": "東南アジア",
+      "official_lang": "英語, マレー語, 中国語, タミル語",
+      "currency": "シンガポール・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 5,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3327,19 +5155,24 @@
         ],
         "zoom": 5,
         "name": "シンガポール"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%B3%E3%82%AC%E3%83%9D%E3%83%BC%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/zWnJfGAsNvawiKF58"
     },
     {
       "code": "SH",
       "name": "セントヘレナ・アセンションおよびトリスタンダクーニャ",
       "flag": "🇸🇭",
       "region": "西アフリカ",
+      "official_lang": "英語",
+      "currency": "セントヘレナ・ポンド",
+      "drive_side": "左",
       "counts": {
         "municipalities": 3,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3348,19 +5181,24 @@
         ],
         "zoom": 5,
         "name": "セントヘレナ・アセンションおよびトリスタンダクーニャ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%83%98%E3%83%AC%E3%83%8A%E3%83%BB%E3%82%A2%E3%82%BB%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8A%E3%82%88%E3%81%B3%E3%83%88%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%80%E3%82%AF%E3%83%BC%E3%83%8B%E3%83%A3",
+      "gmap": "https://maps.app.goo.gl/6PyZmwEiKhtWWALW6"
     },
     {
       "code": "SI",
       "name": "スロベニア",
       "flag": "🇸🇮",
       "region": "南ヨーロッパ",
+      "official_lang": "スロベニア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 212,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3369,19 +5207,50 @@
         ],
         "zoom": 5,
         "name": "スロベニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AD%E3%83%99%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/d2X5ZTQ464BBQ6Yy7"
+    },
+    {
+      "code": "SJ",
+      "name": "スヴァールバル諸島およびヤンマイエン島",
+      "flag": "🇸🇯",
+      "region": "北ヨーロッパ",
+      "official_lang": "ノルウェー語",
+      "currency": "ノルウェー・クローネ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "スヴァールバル諸島およびヤンマイエン島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%B4%E3%82%A1%E3%83%BC%E3%83%AB%E3%83%90%E3%83%AB%E8%AB%B8%E5%B3%B6%E3%81%8A%E3%82%88%E3%81%B3%E3%83%A4%E3%83%B3%E3%83%9E%E3%82%A4%E3%82%A8%E3%83%B3%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/fQR9xUHXZHnn2ARz9"
     },
     {
       "code": "SK",
       "name": "スロバキア",
       "flag": "🇸🇰",
       "region": "東ヨーロッパ",
+      "official_lang": "スロバキア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 8,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3390,19 +5259,24 @@
         ],
         "zoom": 5,
         "name": "スロバキア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AD%E3%83%90%E3%82%AD%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/75QBQ7vG2uev8Ne18"
     },
     {
       "code": "SL",
       "name": "シエラレオネ",
       "flag": "🇸🇱",
       "region": "西アフリカ",
+      "official_lang": "英語",
+      "currency": "レオン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 5,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3411,19 +5285,24 @@
         ],
         "zoom": 5,
         "name": "シエラレオネ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%A8%E3%83%A9%E3%83%AC%E3%82%AA%E3%83%8D",
+      "gmap": "https://maps.app.goo.gl/3sUXnwKzZtaMgLDa6"
     },
     {
       "code": "SM",
       "name": "サンマリノ",
       "flag": "🇸🇲",
       "region": "南ヨーロッパ",
+      "official_lang": "イタリア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 9,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3432,19 +5311,24 @@
         ],
         "zoom": 5,
         "name": "サンマリノ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%9E%E3%83%AA%E3%83%8E",
+      "gmap": "https://maps.app.goo.gl/6nynEeugDNpop7Bb8"
     },
     {
       "code": "SN",
       "name": "セネガル",
       "flag": "🇸🇳",
       "region": "西アフリカ",
+      "official_lang": "フランス語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 14,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3453,19 +5337,24 @@
         ],
         "zoom": 5,
         "name": "セネガル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%8D%E3%82%AC%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/EjSKC9bff88Lg4xMA"
     },
     {
       "code": "SO",
       "name": "ソマリア",
       "flag": "🇸🇴",
       "region": "東アフリカ",
+      "official_lang": "ソマリ語",
+      "currency": "ソマリア・シリング",
+      "drive_side": "右",
       "counts": {
         "municipalities": 18,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3474,19 +5363,24 @@
         ],
         "zoom": 5,
         "name": "ソマリア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%9E%E3%83%AA%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/hBbjoAe7gbd5vHYKA"
     },
     {
       "code": "SR",
       "name": "スリナム",
       "flag": "🇸🇷",
       "region": "南アメリカ",
+      "official_lang": "オランダ語",
+      "currency": "スリナム・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3495,19 +5389,24 @@
         ],
         "zoom": 5,
         "name": "スリナム"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AA%E3%83%8A%E3%83%A0",
+      "gmap": "https://maps.app.goo.gl/GcmbUVQWHWvtKJC46"
     },
     {
       "code": "SS",
       "name": "南スーダン",
       "flag": "🇸🇸",
       "region": "東アフリカ",
+      "official_lang": "英語",
+      "currency": "南スーダン・ポンド",
+      "drive_side": "右",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3516,19 +5415,24 @@
         ],
         "zoom": 5,
         "name": "南スーダン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E5%8D%97%E3%82%B9%E3%83%BC%E3%83%80%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/QCJfj8LF7SkVcH4V6"
     },
     {
       "code": "ST",
       "name": "サントメ・プリンシペ",
       "flag": "🇸🇹",
       "region": "中部アフリカ",
+      "official_lang": "ポルトガル語",
+      "currency": "ドブラ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 7,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3537,19 +5441,24 @@
         ],
         "zoom": 5,
         "name": "サントメ・プリンシペ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%88%E3%83%A1%E3%83%BB%E3%83%97%E3%83%AA%E3%83%B3%E3%82%B7%E3%83%9A",
+      "gmap": "https://maps.app.goo.gl/Uvzqt9UbLBAtdPMC8"
     },
     {
       "code": "SV",
       "name": "エルサルバドル",
       "flag": "🇸🇻",
       "region": "中央アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "アメリカ合衆国ドル, ビットコイン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 14,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3558,19 +5467,50 @@
         ],
         "zoom": 5,
         "name": "エルサルバドル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%AB%E3%82%B5%E3%83%AB%E3%83%90%E3%83%89%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/FdYCdqPYwTmiZDoP7"
+    },
+    {
+      "code": "SX",
+      "name": "シント・マールテン",
+      "flag": "🇸🇽",
+      "region": "カリブ海地域",
+      "official_lang": "オランダ語, 英語",
+      "currency": "カリブ・ギルダー",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "シント・マールテン"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%B3%E3%83%88%E3%83%BB%E3%83%9E%E3%83%BC%E3%83%AB%E3%83%86%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/NNF766h9ADUqq66v7"
     },
     {
       "code": "SY",
       "name": "シリア",
       "flag": "🇸🇾",
       "region": "西アジア",
+      "official_lang": "アラビア語",
+      "currency": "シリア・ポンド",
+      "drive_side": "右",
       "counts": {
         "municipalities": 14,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3579,19 +5519,24 @@
         ],
         "zoom": 5,
         "name": "シリア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AA%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/ddwjYGpicYTDMHMa9"
     },
     {
       "code": "SZ",
       "name": "エスワティニ",
       "flag": "🇸🇿",
       "region": "南部アフリカ",
+      "official_lang": "スワジ語, 英語",
+      "currency": "リランゲニ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 4,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3600,19 +5545,50 @@
         ],
         "zoom": 5,
         "name": "エスワティニ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%B9%E3%83%AF%E3%83%86%E3%82%A3%E3%83%8B",
+      "gmap": "https://maps.app.goo.gl/T4fopVbN7Z29DQML8"
+    },
+    {
+      "code": "TC",
+      "name": "タークス・カイコス諸島",
+      "flag": "🇹🇨",
+      "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "タークス・カイコス諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%BC%E3%82%AF%E3%82%B9%E3%83%BB%E3%82%AB%E3%82%A4%E3%82%B3%E3%82%B9%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/5fLq6BXhUM9XRbaJ9"
     },
     {
       "code": "TD",
       "name": "チャド",
       "flag": "🇹🇩",
       "region": "中部アフリカ",
+      "official_lang": "フランス語, アラビア語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 23,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3621,19 +5597,50 @@
         ],
         "zoom": 5,
         "name": "チャド"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%A3%E3%83%89",
+      "gmap": "https://maps.app.goo.gl/AxiKHtZU7ZXNQhXb6"
+    },
+    {
+      "code": "TF",
+      "name": "フランス領南方・南極地域",
+      "flag": "🇹🇫",
+      "region": "東アフリカ",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "フランス領南方・南極地域"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%A0%98%E5%8D%97%E6%96%B9%E3%83%BB%E5%8D%97%E6%A5%B5%E5%9C%B0%E5%9F%9F",
+      "gmap": "https://maps.app.goo.gl/QmzCALS5Ahdth5Lr6"
     },
     {
       "code": "TG",
       "name": "トーゴ",
       "flag": "🇹🇬",
       "region": "西アフリカ",
+      "official_lang": "フランス語",
+      "currency": "CFAフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 5,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3642,19 +5649,24 @@
         ],
         "zoom": 5,
         "name": "トーゴ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%BC%E3%82%B4",
+      "gmap": "https://maps.app.goo.gl/MoVcPgDmWmiWzRGj9"
     },
     {
       "code": "TH",
       "name": "タイ",
       "flag": "🇹🇭",
       "region": "東南アジア",
+      "official_lang": "タイ語",
+      "currency": "バーツ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 78,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3663,19 +5675,24 @@
         ],
         "zoom": 5,
         "name": "タイ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%A4%E7%8E%8B%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/hjgjJGuAkukDHzJe9"
     },
     {
       "code": "TJ",
       "name": "タジキスタン",
       "flag": "🇹🇯",
       "region": "中央アジア",
+      "official_lang": "タジク語",
+      "currency": "ソモニ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 5,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3684,19 +5701,50 @@
         ],
         "zoom": 5,
         "name": "タジキスタン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%B8%E3%82%AD%E3%82%B9%E3%82%BF%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/PwHmsE3WnhAd6kQo7"
+    },
+    {
+      "code": "TK",
+      "name": "トケラウ",
+      "flag": "🇹🇰",
+      "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "ニュージーランド・ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "トケラウ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%82%B1%E3%83%A9%E3%82%A6",
+      "gmap": "https://maps.app.goo.gl/jdeTGJKYNrHV5Nz67"
     },
     {
       "code": "TL",
       "name": "東ティモール",
       "flag": "🇹🇱",
       "region": "東南アジア",
+      "official_lang": "ポルトガル語, テトゥン語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 13,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3705,19 +5753,24 @@
         ],
         "zoom": 5,
         "name": "東ティモール"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E6%9D%B1%E3%83%86%E3%82%A3%E3%83%A2%E3%83%BC%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/nh2yRaXHngJwToZN6"
     },
     {
       "code": "TM",
       "name": "トルクメニスタン",
       "flag": "🇹🇲",
       "region": "中央アジア",
+      "official_lang": "トルクメン語",
+      "currency": "トルクメニスタン・マナト",
+      "drive_side": "右",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3726,19 +5779,24 @@
         ],
         "zoom": 5,
         "name": "トルクメニスタン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AB%E3%82%AF%E3%83%A1%E3%83%8B%E3%82%B9%E3%82%BF%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/WGzCoonXRn5naaP27"
     },
     {
       "code": "TN",
       "name": "チュニジア",
       "flag": "🇹🇳",
       "region": "北アフリカ",
+      "official_lang": "アラビア語",
+      "currency": "チュニジア・ディナール",
+      "drive_side": "右",
       "counts": {
         "municipalities": 24,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3747,19 +5805,24 @@
         ],
         "zoom": 5,
         "name": "チュニジア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%A5%E3%83%8B%E3%82%B8%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/SauX9t6nh7gWEs1u8"
     },
     {
       "code": "TO",
       "name": "トンガ",
       "flag": "🇹🇴",
       "region": "オセアニア",
+      "official_lang": "トンガ語 (ポリネシア), 英語",
+      "currency": "パアンガ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 5,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3768,19 +5831,24 @@
         ],
         "zoom": 5,
         "name": "トンガ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%B3%E3%82%AC",
+      "gmap": "https://maps.app.goo.gl/TfqyN5GSCUYfuFYv5"
     },
     {
       "code": "TR",
       "name": "トルコ",
       "flag": "🇹🇷",
       "region": "西アジア",
+      "official_lang": "トルコ語",
+      "currency": "トルコリラ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 81,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3789,19 +5857,24 @@
         ],
         "zoom": 5,
         "name": "トルコ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AB%E3%82%B3",
+      "gmap": "https://maps.app.goo.gl/8RrSX7J2j2opFCfLA"
     },
     {
       "code": "TT",
       "name": "トリニダード・トバゴ",
       "flag": "🇹🇹",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "トリニダード・トバゴ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 15,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3810,19 +5883,24 @@
         ],
         "zoom": 5,
         "name": "トリニダード・トバゴ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AA%E3%83%8B%E3%83%80%E3%83%BC%E3%83%89%E3%83%BB%E3%83%88%E3%83%90%E3%82%B4",
+      "gmap": "https://maps.app.goo.gl/rRYLNVjvKMM4ym4o6"
     },
     {
       "code": "TV",
       "name": "ツバル",
       "flag": "🇹🇻",
       "region": "オセアニア",
+      "official_lang": "英語",
+      "currency": "オーストラリア・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 8,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3831,19 +5909,24 @@
         ],
         "zoom": 5,
         "name": "ツバル"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%84%E3%83%90%E3%83%AB",
+      "gmap": "https://maps.app.goo.gl/SH7EBf9kirPoXk7C6"
     },
     {
       "code": "TW",
       "name": "台湾",
       "flag": "🇹🇼",
       "region": "東アジア",
+      "official_lang": "中国語",
+      "currency": "新台湾ドル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 22,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3852,19 +5935,24 @@
         ],
         "zoom": 7,
         "name": "台湾"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/4NNvZbCFRkVDsz2D6"
     },
     {
       "code": "TZ",
       "name": "タンザニア",
       "flag": "🇹🇿",
       "region": "東アフリカ",
+      "official_lang": "スワヒリ語, 英語",
+      "currency": "タンザニア・シリング",
+      "drive_side": "左",
       "counts": {
         "municipalities": 31,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3873,19 +5961,24 @@
         ],
         "zoom": 5,
         "name": "タンザニア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%B3%E3%82%B6%E3%83%8B%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/idKPNXHjDL4ZjiV77"
     },
     {
       "code": "UA",
       "name": "ウクライナ",
       "flag": "🇺🇦",
       "region": "東ヨーロッパ",
+      "official_lang": "ウクライナ語",
+      "currency": "フリヴニャ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 27,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3894,19 +5987,24 @@
         ],
         "zoom": 5,
         "name": "ウクライナ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%AF%E3%83%A9%E3%82%A4%E3%83%8A",
+      "gmap": "https://maps.app.goo.gl/zB6gy9v6RANqnWpA8"
     },
     {
       "code": "UG",
       "name": "ウガンダ",
       "flag": "🇺🇬",
       "region": "東アフリカ",
+      "official_lang": "英語, スワヒリ語",
+      "currency": "ウガンダ・シリング",
+      "drive_side": "左",
       "counts": {
         "municipalities": 139,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3915,19 +6013,24 @@
         ],
         "zoom": 5,
         "name": "ウガンダ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%AC%E3%83%B3%E3%83%80",
+      "gmap": "https://maps.app.goo.gl/4J4Zyco1QsQy9q3eA"
     },
     {
       "code": "UM",
       "name": "合衆国領有小離島",
       "flag": "🇺🇲",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "",
       "counts": {
         "municipalities": 9,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3936,40 +6039,50 @@
         ],
         "zoom": 5,
         "name": "合衆国領有小離島"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E5%90%88%E8%A1%86%E5%9B%BD%E9%A0%98%E6%9C%89%E5%B0%8F%E9%9B%A2%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/yuBUWfmNCzkUisp26"
     },
     {
       "code": "US",
       "name": "アメリカ合衆国",
       "flag": "🇺🇸",
       "region": "北部アメリカ",
+      "official_lang": "英語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 57,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
-          0,
-          0
+          37.0902,
+          -95.7129
         ],
-        "zoom": 5,
+        "zoom": 4,
         "name": "アメリカ合衆国"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E5%90%88%E8%A1%86%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/eXu1tRTvEhKY7yi67"
     },
     {
       "code": "UY",
       "name": "ウルグアイ",
       "flag": "🇺🇾",
       "region": "南アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "ウルグアイ・ペソ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 19,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3978,19 +6091,24 @@
         ],
         "zoom": 5,
         "name": "ウルグアイ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A6%E3%83%AB%E3%82%B0%E3%82%A2%E3%82%A4",
+      "gmap": "https://maps.app.goo.gl/ajxfiDLQ4cz4eMez6"
     },
     {
       "code": "UZ",
       "name": "ウズベキスタン",
       "flag": "🇺🇿",
       "region": "中央アジア",
+      "official_lang": "ウズベク語",
+      "currency": "スム",
+      "drive_side": "右",
       "counts": {
         "municipalities": 14,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -3999,19 +6117,50 @@
         ],
         "zoom": 5,
         "name": "ウズベキスタン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%BA%E3%83%99%E3%82%AD%E3%82%B9%E3%82%BF%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/VtJRZvhWAjxSx2gQ8"
+    },
+    {
+      "code": "VA",
+      "name": "バチカン",
+      "flag": "🇻🇦",
+      "region": "南ヨーロッパ",
+      "official_lang": "ラテン語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "バチカン"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%81%E3%82%AB%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/nNEe6Jt8neAMdtEw5"
     },
     {
       "code": "VC",
       "name": "セントビンセント・グレナディーン",
       "flag": "🇻🇨",
       "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "東カリブ・ドル",
+      "drive_side": "左",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -4020,19 +6169,24 @@
         ],
         "zoom": 5,
         "name": "セントビンセント・グレナディーン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%83%93%E3%83%B3%E3%82%BB%E3%83%B3%E3%83%88%E3%83%BB%E3%82%B0%E3%83%AC%E3%83%8A%E3%83%87%E3%82%A3%E3%83%BC%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/TSsXAhdqAkuA5kuQ7"
     },
     {
       "code": "VE",
       "name": "ベネズエラ",
       "flag": "🇻🇪",
       "region": "南アメリカ",
+      "official_lang": "スペイン語",
+      "currency": "ボリバル・デジタル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 25,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -4041,19 +6195,76 @@
         ],
         "zoom": 5,
         "name": "ベネズエラ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%8D%E3%82%BA%E3%82%A8%E3%83%A9",
+      "gmap": "https://maps.app.goo.gl/wB53rpNM1ySiiHqz6"
+    },
+    {
+      "code": "VG",
+      "name": "イギリス領バージン諸島",
+      "flag": "🇻🇬",
+      "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "イギリス領バージン諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9%E9%A0%98%E3%83%B4%E3%82%A1%E3%83%BC%E3%82%B8%E3%83%B3%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/k1RS22nzjDBJiGwx9"
+    },
+    {
+      "code": "VI",
+      "name": "アメリカ領バージン諸島",
+      "flag": "🇻🇮",
+      "region": "カリブ海地域",
+      "official_lang": "英語",
+      "currency": "アメリカ合衆国ドル",
+      "drive_side": "左",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "アメリカ領バージン諸島"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E9%A0%98%E3%83%B4%E3%82%A1%E3%83%BC%E3%82%B8%E3%83%B3%E8%AB%B8%E5%B3%B6",
+      "gmap": "https://maps.app.goo.gl/BsLZNUBonLadTNuE6"
     },
     {
       "code": "VN",
       "name": "ベトナム",
       "flag": "🇻🇳",
       "region": "東南アジア",
+      "official_lang": "ベトナム語",
+      "currency": "ドン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 63,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -4062,19 +6273,24 @@
         ],
         "zoom": 5,
         "name": "ベトナム"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%88%E3%83%8A%E3%83%A0",
+      "gmap": "https://maps.app.goo.gl/WsLswqmBS6brE9zS6"
     },
     {
       "code": "VU",
       "name": "バヌアツ",
       "flag": "🇻🇺",
       "region": "オセアニア",
+      "official_lang": "ビスラマ語, 英語, フランス語",
+      "currency": "バツ",
+      "drive_side": "右",
       "counts": {
         "municipalities": 6,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -4083,19 +6299,24 @@
         ],
         "zoom": 5,
         "name": "バヌアツ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%8C%E3%82%A2%E3%83%84",
+      "gmap": "https://maps.app.goo.gl/KVwsDqPPBNX6bCFZ6"
     },
     {
       "code": "WF",
       "name": "ウォリス・フツナ",
       "flag": "🇼🇫",
       "region": "オセアニア",
+      "official_lang": "フランス語",
+      "currency": "CFPフラン",
+      "drive_side": "右",
       "counts": {
         "municipalities": 3,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -4104,19 +6325,24 @@
         ],
         "zoom": 5,
         "name": "ウォリス・フツナ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A9%E3%83%AA%E3%82%B9%E3%83%BB%E3%83%95%E3%83%84%E3%83%8A",
+      "gmap": "https://maps.app.goo.gl/pF1gRXMVjy4TRRKy7"
     },
     {
       "code": "WS",
       "name": "サモア",
       "flag": "🇼🇸",
       "region": "オセアニア",
+      "official_lang": "サモア語, 英語",
+      "currency": "タラ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 11,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -4125,19 +6351,50 @@
         ],
         "zoom": 5,
         "name": "サモア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%A2%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/5vwsWMyuEKYvreyF8"
+    },
+    {
+      "code": "XK",
+      "name": "コソボ",
+      "flag": "🇽🇰",
+      "region": "西アジア",
+      "official_lang": "アルバニア語, セルビア語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "コソボ"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%82%BD%E3%83%9C",
+      "gmap": "https://maps.app.goo.gl/WwfcQ2Jb8kLhS1t77"
     },
     {
       "code": "YE",
       "name": "イエメン",
       "flag": "🇾🇪",
       "region": "東アフリカ",
+      "official_lang": "アラビア語",
+      "currency": "イエメン・リアル",
+      "drive_side": "右",
       "counts": {
         "municipalities": 22,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -4146,19 +6403,50 @@
         ],
         "zoom": 5,
         "name": "イエメン"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%A8%E3%83%A1%E3%83%B3",
+      "gmap": "https://maps.app.goo.gl/7N3nMg98zGzujZ6c9"
+    },
+    {
+      "code": "YT",
+      "name": "マヨット",
+      "flag": "🇾🇹",
+      "region": "南部アフリカ",
+      "official_lang": "フランス語",
+      "currency": "ユーロ",
+      "drive_side": "右",
+      "counts": {
+        "municipalities": 0,
+        "operators": 0,
+        "routes": 0,
+        "nodes": 0,
+        "has_data": false
+      },
+      "map_meta": {
+        "center": [
+          0,
+          0
+        ],
+        "zoom": 5,
+        "name": "マヨット"
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%A8%E3%83%83%E3%83%88",
+      "gmap": "https://maps.app.goo.gl/Hr42LSHDgcCd3swp7"
     },
     {
       "code": "ZA",
       "name": "南アフリカ",
       "flag": "🇿🇦",
       "region": "東アフリカ",
+      "official_lang": "アフリカーンス語, コサ語, ズールー語, スワジ語, ソト語, 北ソト語, ツワナ語",
+      "currency": "ランド",
+      "drive_side": "左",
       "counts": {
         "municipalities": 9,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -4167,19 +6455,24 @@
         ],
         "zoom": 5,
         "name": "南アフリカ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E5%8D%97%E3%82%A2%E3%83%95%E3%83%AA%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD",
+      "gmap": "https://maps.app.goo.gl/y7UnNMAeZ2bkMxKV9"
     },
     {
       "code": "ZM",
       "name": "ザンビア",
       "flag": "🇿🇲",
       "region": "東アフリカ",
+      "official_lang": "英語",
+      "currency": "ザンビア・クワチャ",
+      "drive_side": "左",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -4188,19 +6481,24 @@
         ],
         "zoom": 5,
         "name": "ザンビア"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B6%E3%83%B3%E3%83%93%E3%82%A2",
+      "gmap": "https://maps.app.goo.gl/SHdBu4C25oSAnnUC6"
     },
     {
       "code": "ZW",
       "name": "ジンバブエ",
       "flag": "🇿🇼",
       "region": "南ヨーロッパ",
+      "official_lang": "英語, ツォンガ語, ショナ語, ソト語, ツワナ語, コサ語",
+      "currency": "アメリカ合衆国ドル, ジンバブエ・ゴールド",
+      "drive_side": "左",
       "counts": {
         "municipalities": 10,
         "operators": 0,
         "routes": 0,
         "nodes": 0,
-        "sequenced_routes": 0
+        "has_data": true
       },
       "map_meta": {
         "center": [
@@ -4209,7 +6507,9 @@
         ],
         "zoom": 5,
         "name": "ジンバブエ"
-      }
+      },
+      "wiki_ja": "https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%B3%E3%83%90%E3%83%96%E3%82%A8",
+      "gmap": "https://maps.app.goo.gl/JqfGheUVDGNtaQaaA"
     }
   ]
 }

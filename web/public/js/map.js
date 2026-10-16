@@ -114,6 +114,11 @@ const PublicMap = {
       `;
 
       marker.bindPopup(popupContent);
+      marker.on("click", () => {
+        if (window.App && window.App.openKnowledgeDrawer) {
+          window.App.openKnowledgeDrawer(node, "node");
+        }
+      });
       this.markerLayer.addLayer(marker);
       bounds.extend([node.lat, node.lon]);
       plotted++;
@@ -181,6 +186,11 @@ const PublicMap = {
       `;
 
       marker.bindPopup(popupContent);
+      marker.on("click", () => {
+        if (window.App && window.App.openKnowledgeDrawer) {
+          window.App.openKnowledgeDrawer(node, "node");
+        }
+      });
       this.markerLayer.addLayer(marker);
     });
 

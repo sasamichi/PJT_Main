@@ -18,16 +18,21 @@
     <div class="brand-area">
       <a href="index.html" class="brand-title">
         🌐 世界交通網・地域データ基盤
-        <span class="brand-badge">PUBLIC</span>
+        <span class="brand-badge">ARCHIVE</span>
       </a>
-      <span class="brand-subtitle">Global Transit & Territory Archive</span>
+      
+      <!-- 表示モード切替（地図ビュー vs 階層ビュー） -->
+      <div class="view-mode-switcher">
+        <button class="mode-btn active" id="btn-mode-map" title="連動地図を見ながら探索">🗺️ 地図ビュー</button>
+        <button class="mode-btn" id="btn-mode-tree" title="地図なしで国・ジャンル・名称を深く辿る">📖 階層ビュー (地図なし)</button>
+      </div>
     </div>
 
     <div class="header-controls">
       <span class="stats-summary-pill" id="stats-pill">データを読み込み中...</span>
       <button class="btn-icon" id="theme-toggle-btn" title="黒/白テーマ切替">🌙 黒背景</button>
       <a href="/?theme=light" class="btn-icon" title="管理者用: 机上探索 Web GIS へ" target="_blank" rel="noopener">
-        🗺️ 机上探索 GIS
+        🗺️ 探索 GIS
       </a>
       <a href="http://localhost:8501" class="btn-icon" title="管理者用: データ管理画面へ" target="_blank" rel="noopener">
         📊 データ管理
@@ -36,43 +41,64 @@
   </header>
 
   <!-- 国・地域セレクターバー -->
-  <nav class="country-bar" id="country-selector-container">
-    <!-- JSにより主要国ピルが動的描画されます -->
-    <div style="font-size: 13px; color: var(--text-muted);">国リストを読み込み中...</div>
+  <nav class="country-bar">
+    <!-- 全251カ国クイックセレクトボックス -->
+    <select id="country-quick-select" class="country-select-dropdown" title="全251カ国から選択">
+      <option value="">🔍 全251カ国から選ぶ...</option>
+    </select>
+    
+    <!-- 主要国ピル群（動的描画） -->
+    <div id="country-selector-container" style="display: inline-flex; gap: 8px;">
+      <div style="font-size: 12px; color: var(--text-muted);">国リストを読み込み中...</div>
+    </div>
   </nav>
 
-  <!-- メインコンテンツ（左右2カラム） -->
-  <main class="main-layout">
+  <!-- メインコンテンツ（左右2カラム / 階層ビュー時全幅） -->
+  <main class="main-layout" id="main-layout">
     
-    <!-- 左ペイン：データ & 検索 & シーケンス -->
-    <section class="data-panel">
+    <!-- 左ペイン：データ & 検索 & 階層 -->
+    <section class="data-panel" id="data-panel">
       
-      <!-- 検索バー -->
-      <div class="search-filter-box">
-        <div class="search-input-wrapper">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="search-input" class="search-input" placeholder="路線名・駅名・自治体名・事業者名を検索...">
-          <button id="search-clear-btn" class="search-clear-btn" title="クリア">✕</button>
+      <!-- 1. 地図モード時のヘッダー（検索バー ＋ 4大タブ） -->
+      <div id="map-mode-header">
+        <div class="search-filter-box">
+          <div class="search-input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" class="search-input" placeholder="国名・路線名・駅名・自治体名・事業者名を検索...">
+            <button id="search-clear-btn" class="search-clear-btn" title="クリア">✕</button>
+          </div>
+        </div>
+
+        <div class="tabs-bar">
+          <button class="tab-btn" data-tab="countries">
+            🌍 国・地域
+            <span class="tab-count-badge" id="tab-count-countries">251</span>
+          </button>
+          <button class="tab-btn active" data-tab="routes">
+            🚆 路線・交通
+            <span class="tab-count-badge" id="tab-count-routes">0</span>
+          </button>
+          <button class="tab-btn" data-tab="muni">
+            🏛️ 行政区画・自治体
+            <span class="tab-count-badge" id="tab-count-muni">0</span>
+          </button>
+          <button class="tab-btn" data-tab="nodes">
+            📍 交通拠点
+            <span class="tab-count-badge" id="tab-count-nodes">0</span>
+          </button>
         </div>
       </div>
 
-      <!-- 3大データタブバー -->
-      <div class="tabs-bar">
-        <button class="tab-btn active" data-tab="routes">
-          🚆 路線・交通
-          <span class="tab-count-badge" id="tab-count-routes">0</span>
-        </button>
-        <button class="tab-btn" data-tab="muni">
-          🏛️ 行政区画・自治体
-          <span class="tab-count-badge" id="tab-count-muni">0</span>
-        </button>
-        <button class="tab-btn" data-tab="nodes">
-          📍 交通拠点 (駅・IC等)
-          <span class="tab-count-badge" id="tab-count-nodes">0</span>
-        </button>
+      <!-- 2. 階層ディレクトリビュー時のパンくずリスト（初期非表示） -->
+      <div id="tree-mode-header" style="display: none; padding: 12px 16px 0 16px;">
+        <nav class="breadcrumb-nav" id="tree-breadcrumb">
+          <span class="breadcrumb-item" data-level="world">🌍 世界</span>
+          <span class="breadcrumb-separator">›</span>
+          <span class="breadcrumb-current" id="bc-country">国を選択</span>
+        </nav>
       </div>
 
-      <!-- タブコンテンツ一覧表示エリア -->
+      <!-- メインコンテンツ描画エリア -->
       <div class="tab-content-container" id="tab-content">
         <div class="loading-box">
           <div class="spinner"></div>
@@ -83,13 +109,24 @@
     </section>
 
     <!-- 右ペイン：連動地図 -->
-    <section class="map-panel">
+    <section class="map-panel" id="map-panel">
       <div id="map"></div>
       <div class="map-overlay-info">
         <span id="map-marker-count">拠点を読み込み中</span>
         <button class="map-reset-btn" id="map-reset-btn" title="国の全体表示に戻す">全体表示に戻す</button>
       </div>
     </section>
+
+    <!-- ナレッジパネル（詳細ドロワー / オーバーレイ） -->
+    <aside class="knowledge-drawer" id="knowledge-drawer">
+      <div class="knowledge-header">
+        <span style="font-size:12px; font-weight:700; color:var(--text-secondary);">📋 詳細ナレッジパネル</span>
+        <button class="knowledge-close-btn" id="kp-close-btn" title="閉じる">✕</button>
+      </div>
+      <div class="knowledge-body" id="knowledge-body">
+        <!-- ナレッジ詳細が動的に描画されます -->
+      </div>
+    </aside>
 
   </main>
 
