@@ -13,6 +13,8 @@ JP,道の駅,1213,1200,1230,許容範囲内,国土交通省道路局「道の駅
 JP,旅客空港,97,90,100,許容範囲内,国土交通省「空港一覧」,https://www.mlit.go.jp/koku/koku_fr7_000003.html,2026-10-15,定期便・旅客扱い
 JP,鉄軌道事業者,0,0,0,基準未確定,国土交通省「鉄道関係事業者一覧」,https://www.mlit.go.jp/tetudo/,2026-10-15,旅客鉄道会社・公営地下鉄の公式リスト精査中
 JP,現行鉄道駅,8500,8200,9200,許容範囲内,国土交通省「国土数値情報 鉄道時系列」,https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2023.html,2026-10-15,JR・私鉄・地下鉄全旅客駅
+JP,気象予報区_一次細分区域,142,142,142,完全一致,気象庁予報業務規則別表,https://www.jma.go.jp/,2026-10-22,全国一次細分区域数
+JP,気象庁アメダス観測所,1300,1280,1320,許容範囲内,気象庁「気象観測所一覧（アメダス）」,https://www.data.jma.go.jp/obd/stats/data/mdrr/chiten/sindex.html,2026-10-22,全国地上気象観測網
 AT,連邦州,9,9,9,完全一致,オーストリア連邦憲法 (B-VG),https://www.ris.bka.gv.at/,2026-10-15,Burgenland〜Wien全9州
 AT,郡,79,79,79,完全一致,Statistik Austria (Politische Bezirke),https://www.statistik.at/,2026-10-15,79郡（旧郡除外）
 AT,憲章都市,15,15,15,完全一致,Statistik Austria (Statutarstädte),https://www.statistik.at/,2026-10-15,15憲章都市
