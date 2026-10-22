@@ -1,0 +1,1 @@
+edge_id,route_id,区間順序,from_node_id,to_node_id,from_路線内番号,to_路線内番号,中間構造物_node_ids,区間種別,距離_km,線路数,電化方式,ライン座標_geojson,開始日,開始日_精度,終了日,終了日_精度,状態

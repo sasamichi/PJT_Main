@@ -246,7 +246,7 @@ with tab3:
         
         table_rows = []
         for _, r in s_df.iterrows():
-            item_id = r.get("node_id") or r.get("route_id") or r.get("municipality_id_tmp", "")
+            item_id = r.get("node_id") or r.get("route_id") or r.get("municipality_id") or r.get("municipality_id_tmp", "")
             name = r.get("日本語名") or r.get("公用語名", "")
             itype = r.get("種別", "")
             lat = r.get("緯度") or r.get("政庁_緯度", "")
@@ -271,17 +271,18 @@ with tab4:
     st.subheader("⚠️ 不整合・要修正データ検知")
     st.caption("外部キー未設定、座標の不整合など、優先して修正・補完すべきデータを抽出します。")
 
+    node_muni_col = "municipality_id" if "municipality_id" in df_nodes.columns else "municipality_id_tmp"
     err_type = st.radio(
         "検知対象を選択",
         [
-            f"所在自治体が未設定の交通拠点 ({len(df_nodes[df_nodes['municipality_id_tmp'] == ''])} 件)",
+            f"所在自治体が未設定の交通拠点 ({len(df_nodes[df_nodes[node_muni_col] == ''])} 件)",
             f"事業者が未設定の交通路線 ({len(df_routes[df_routes['operator_id'] == ''])} 件)",
             "領土外座標の疑いがあるデータ"
         ]
     )
 
     if "所在自治体が未設定" in err_type:
-        unlinked_nodes = df_nodes[df_nodes['municipality_id_tmp'] == ''][["node_id", "country_code", "日本語名", "公用語名", "種別", "緯度", "経度"]]
+        unlinked_nodes = df_nodes[df_nodes[node_muni_col] == ''][["node_id", "country_code", "日本語名", "公用語名", "種別", "緯度", "経度"]]
         st.dataframe(unlinked_nodes, hide_index=True)
         csv_data = unlinked_nodes.to_csv(index=False).encode('utf-8')
         st.download_button("未設定拠点リストをCSVダウンロード", csv_data, "unlinked_nodes.csv", "text/csv")
@@ -384,7 +385,8 @@ with tab5:
         if n_search:
             sub_nodes = sub_nodes[sub_nodes["日本語名"].str.contains(n_search) | sub_nodes["公用語名"].str.contains(n_search)]
         st.write(f"表示件数: {len(sub_nodes)} 件")
-        st.dataframe(sub_nodes[["node_id", "日本語名", "公用語名", "種別", "緯度", "経度", "municipality_id_tmp"]].head(200), hide_index=True)
+        n_muni_col = "municipality_id" if "municipality_id" in sub_nodes.columns else "municipality_id_tmp"
+        st.dataframe(sub_nodes[["node_id", "日本語名", "公用語名", "種別", "緯度", "経度", n_muni_col]].head(200), hide_index=True)
 
     elif view_type == "自治体 (municipalities)":
         cc_m = st.selectbox("対象国", ["JP", "AT"], key="tbl_m_cc")
@@ -393,7 +395,8 @@ with tab5:
         if m_search:
             sub_m = sub_m[sub_m["日本語名"].str.contains(m_search) | sub_m["公用語名"].str.contains(m_search)]
         st.write(f"表示件数: {len(sub_m)} 件")
-        st.dataframe(sub_m[["municipality_id_tmp", "日本語名", "公用語名", "種別", "階層レベル", "親自治体_id", "政庁_緯度", "政庁_経度"]].head(200), hide_index=True)
+        m_id_col = "municipality_id" if "municipality_id" in sub_m.columns else "municipality_id_tmp"
+        st.dataframe(sub_m[[m_id_col, "日本語名", "公用語名", "種別", "階層レベル", "親自治体_id", "政庁_緯度", "政庁_経度"]].head(200), hide_index=True)
 
     elif view_type == "事業者 (operators)":
         st.dataframe(df_operators[["operator_id", "country_code", "日本語名", "公用語名", "種別", "Wikipedia_ja"]], hide_index=True)

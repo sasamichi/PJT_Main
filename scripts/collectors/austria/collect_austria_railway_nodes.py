@@ -36,7 +36,7 @@ USER_AGENT = 'AntigravityAustriaStationCollector/3.0 (https://github.com/google/
 
 NODE_COLUMNS = [
     "node_id", "country_code", "拠点コード", "日本語名", "公用語名", "種別",
-    "municipality_id_tmp", "緯度", "経度", "状態", "時代区分",
+    "municipality_id", "緯度", "経度", "状態", "時代区分",
     "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
 ]
 
@@ -73,7 +73,7 @@ def build_municipality_lookup():
     name_to_id = {}
 
     for _, row in at_munis.iterrows():
-        m_id = row['municipality_id_tmp']
+        m_id = row['municipality_id']
         wd = str(row.get('Wikidata', '')).strip()
         name_ja = str(row.get('日本語名', '')).strip()
         name_de = str(row.get('公用語名', '')).strip()
@@ -235,7 +235,7 @@ def main():
             '日本語名': sanitized_ja,
             '公用語名': name_de,
             '種別': node_type,
-            'municipality_id_tmp': muni_id,
+            'municipality_id': muni_id,
             '緯度': str(lat),
             '経度': str(lon),
             '状態': '現存',
@@ -258,14 +258,14 @@ def main():
         hit = df_at_nodes[df_at_nodes['日本語名'].str.contains(test_name) | df_at_nodes['公用語名'].str.contains(test_name)]
         if not hit.empty:
             row = hit.iloc[0]
-            print(f"[確認] {test_name} -> ID: {row['node_id']}, 日本語: '{row['日本語名']}', 公用語: '{row['公用語名']}', 自治体: {row['municipality_id_tmp']}, 座標: ({row['緯度']}, {row['経度']}), UIC: {row['拠点コード']}")
+            print(f"[確認] {test_name} -> ID: {row['node_id']}, 日本語: '{row['日本語名']}', 公用語: '{row['公用語名']}', 自治体: {row['municipality_id']}, 座標: ({row['緯度']}, {row['経度']}), UIC: {row['拠点コード']}")
 
     # マスタ結合（鉄道駅系のみを更新し、道路や他国は保持）
     at_rail_types = ['駅', '地下鉄駅', '電停']
     id_mgr.save_merged_master('transport_nodes', df_at_nodes, 'AT', at_rail_types)
 
     print("\n=== オーストリア鉄道拠点品質指標 ===")
-    print(f"自治体ID紐付け率: {df_at_nodes['municipality_id_tmp'].str.len().gt(0).mean():.1%}")
+    print(f"自治体ID紐付け率: {df_at_nodes['municipality_id'].str.len().gt(0).mean():.1%}")
     print(f"UICコード付与率: {df_at_nodes['拠点コード'].str.len().gt(0).mean():.1%}")
     print(f"Wikidata付与率: 100.0%")
     print(f"日本語Wikipedia付与率: {df_at_nodes['Wikipedia_ja'].str.len().gt(0).mean():.1%}")

@@ -25,7 +25,7 @@ class IdManager:
     }
 
     ID_COL_MAP = {
-        'municipalities': 'municipality_id_tmp',  # 将来的に municipality_id に移行可能
+        'municipalities': 'municipality_id',
         'operators': 'operator_id',
         'transport_routes': 'route_id',
         'transport_nodes': 'node_id',

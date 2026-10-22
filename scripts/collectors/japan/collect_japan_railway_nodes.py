@@ -33,7 +33,7 @@ USER_AGENT = 'AntigravityStationCollector/3.0 (https://github.com/google/antigra
 
 NODE_COLUMNS = [
     "node_id", "country_code", "拠点コード", "日本語名", "公用語名", "種別",
-    "municipality_id_tmp", "緯度", "経度", "状態", "時代区分",
+    "municipality_id", "緯度", "経度", "状態", "時代区分",
     "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
 ]
 
@@ -62,7 +62,7 @@ def build_municipality_lookup():
     name_to_id = {}
 
     for _, row in jp_munis.iterrows():
-        m_id = row['municipality_id_tmp']
+        m_id = row['municipality_id']
         wd = str(row.get('Wikidata', '')).strip()
         name = str(row.get('日本語名', '')).strip()
 
@@ -201,7 +201,7 @@ def main():
             '日本語名': name,
             '公用語名': '',
             '種別': node_type,
-            'municipality_id_tmp': muni_id,
+            'municipality_id': muni_id,
             '緯度': str(lat),
             '経度': str(lon),
             '状態': '現存',

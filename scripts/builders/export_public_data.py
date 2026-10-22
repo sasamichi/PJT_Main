@@ -64,7 +64,7 @@ def export_public_data():
     df_rn = read_csv_clean("route_nodes.csv")
 
     # 自治体ID列名
-    muni_id_col = "municipality_id_tmp" if "municipality_id_tmp" in df_muni.columns else "municipality_id"
+    muni_id_col = "municipality_id" if "municipality_id" in df_muni.columns else "municipality_id_tmp"
 
     # 事業者名ルックアップ辞書
     op_lookup = {}
@@ -234,7 +234,7 @@ def export_public_data():
         node_list = []
         for _, row in c_nodes.iterrows():
             nid = row.get("node_id", "")
-            mid = row.get("municipality_id_tmp", "")
+            mid = row.get("municipality_id", "") or row.get("municipality_id_tmp", "")
             node_list.append({
                 "id": nid,
                 "name": row.get("日本語名", "") or row.get("公用語名", ""),

@@ -32,7 +32,7 @@ from common.id_manager import IdManager
 USER_AGENT = 'AntigravityAustriaCollector/3.0 (https://github.com/google/antigravity; contact: user@example.com)'
 
 MASTER_COLUMNS = [
-    "municipality_id_tmp", "country_code", "区域大分類", "自治体コード", "iso_3166_2_code",
+    "municipality_id", "country_code", "区域大分類", "自治体コード", "iso_3166_2_code",
     "国際_統計コード", "日本語名", "公用語名", "種別", "階層レベル", "親自治体_id",
     "中間行政区画", "関連区域_ids", "政庁_緯度", "政庁_経度", "公式サイト", "状態", "時代区分",
     "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
@@ -318,7 +318,7 @@ def main():
         qid_to_name[s['qid']] = s['name_de']
 
         records.append({
-            'municipality_id_tmp': m_id,
+            'municipality_id': m_id,
             'country_code': 'AT',
             '区域大分類': '行政区画',
             '自治体コード': '',
@@ -358,7 +358,7 @@ def main():
         qid_to_name[d['qid']] = d['name_de']
 
         records.append({
-            'municipality_id_tmp': m_id,
+            'municipality_id': m_id,
             'country_code': 'AT',
             '区域大分類': '行政区画',
             '自治体コード': '',
@@ -402,7 +402,7 @@ def main():
         qid_to_muni_id[m['qid']] = m_id
 
         records.append({
-            'municipality_id_tmp': m_id,
+            'municipality_id': m_id,
             'country_code': 'AT',
             '区域大分類': '行政区画',
             '自治体コード': m['code'],

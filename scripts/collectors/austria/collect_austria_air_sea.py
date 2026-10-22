@@ -42,7 +42,7 @@ ROUTE_COLUMNS = [
 
 NODE_COLUMNS = [
     "node_id", "country_code", "拠点コード", "日本語名", "公用語名", "種別",
-    "municipality_id_tmp", "緯度", "経度", "状態", "時代区分",
+    "municipality_id", "緯度", "経度", "状態", "時代区分",
     "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
 ]
 
@@ -54,7 +54,7 @@ def build_municipality_lookup():
     wd_to_id = {}
     name_to_id = {}
     for _, row in at_munis.iterrows():
-        m_id = row['municipality_id_tmp']
+        m_id = row['municipality_id']
         wd = str(row.get('Wikidata', '')).strip()
         name_ja = str(row.get('日本語名', '')).strip()
         name_de = str(row.get('公用語名', '')).strip()
@@ -270,7 +270,7 @@ def main():
             '日本語名': ja_name,
             '公用語名': de_name,
             '種別': '空港',
-            'municipality_id_tmp': muni_id,
+            'municipality_id': muni_id,
             '緯度': lat,
             '経度': lon,
             '状態': '現存',
@@ -316,7 +316,7 @@ def main():
             '日本語名': ja_name,
             '公用語名': de_name,
             '種別': '港湾',
-            'municipality_id_tmp': muni_id,
+            'municipality_id': muni_id,
             '緯度': lat,
             '経度': lon,
             '状態': '現存',

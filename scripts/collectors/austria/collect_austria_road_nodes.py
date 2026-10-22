@@ -34,7 +34,7 @@ USER_AGENT = 'AntigravityAustriaRoadNodeCollector/3.0 (https://github.com/google
 
 NODE_COLUMNS = [
     "node_id", "country_code", "拠点コード", "日本語名", "公用語名", "種別",
-    "municipality_id_tmp", "緯度", "経度", "状態", "時代区分",
+    "municipality_id", "緯度", "経度", "状態", "時代区分",
     "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
 ]
 
@@ -111,7 +111,7 @@ def build_municipality_lookup():
     id_to_coord = {}
 
     for _, row in at_munis.iterrows():
-        m_id = row['municipality_id_tmp']
+        m_id = row['municipality_id']
         wd = str(row.get('Wikidata', '')).strip()
         name_de = str(row.get('公用語名', '')).strip()
         lat_str = str(row.get('政庁_緯度', '')).strip()
@@ -307,7 +307,7 @@ def main():
             '日本語名': sanitize_japanese_name(w_ja), # 日本語がなければ空欄
             '公用語名': name_de,
             '種別': f_type,
-            'municipality_id_tmp': muni_id,
+            'municipality_id': muni_id,
             '緯度': str(lat),
             '経度': str(lon),
             '状態': '現存',

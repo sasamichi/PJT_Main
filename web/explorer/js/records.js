@@ -150,7 +150,10 @@ async function loadMasterOptions(cc) {
   try {
     const [r, m] = await Promise.all([apiFetchRoutes(cc), apiFetchMunicipalities(cc)]);
     pickers.route.setOptions(r.routes.map((x) => ({ id: x.route_id, label: `${x["日本語名"] || x["公用語名"]} (${x.route_id})` })));
-    pickers.municipality.setOptions(m.municipalities.map((x) => ({ id: x.municipality_id_tmp, label: `${x["日本語名"] || x["公用語名"]} (${x.municipality_id_tmp})` })));
+    pickers.municipality.setOptions(m.municipalities.map((x) => {
+      const mid = x.municipality_id || x.municipality_id_tmp;
+      return { id: mid, label: `${x["日本語名"] || x["公用語名"]} (${mid})` };
+    }));
   } catch (err) {
     showToast("マスタの読み込みに失敗しました: " + err.message);
   }

@@ -174,8 +174,9 @@ def check_integrity(dfs):
     print("=" * 60)
 
     # 主キー重複
+    muni_col = 'municipality_id' if 'municipality_id' in dfs['municipalities'].columns else 'municipality_id_tmp'
     id_cols = {
-        'municipalities': 'municipality_id_tmp',
+        'municipalities': muni_col,
         'operators': 'operator_id',
         'routes': 'route_id',
         'nodes': 'node_id',
@@ -191,14 +192,15 @@ def check_integrity(dfs):
                 print(f"[正常] {k}.csv: 主キー重複なし (全 {len(df)} 件)")
 
     # 外部キー整合性
-    m_ids = set(dfs['municipalities']['municipality_id_tmp']) if len(dfs['municipalities']) > 0 else set()
+    m_ids = set(dfs['municipalities'][muni_col]) if len(dfs['municipalities']) > 0 and muni_col in dfs['municipalities'].columns else set()
     op_ids = set(dfs['operators']['operator_id']) if len(dfs['operators']) > 0 else set()
 
     # 拠点の自治体
-    if len(dfs['nodes']) > 0 and len(m_ids) > 0:
+    node_muni_col = 'municipality_id' if 'municipality_id' in dfs['nodes'].columns else 'municipality_id_tmp'
+    if len(dfs['nodes']) > 0 and len(m_ids) > 0 and node_muni_col in dfs['nodes'].columns:
         nodes = dfs['nodes']
-        no_muni = nodes[nodes['municipality_id_tmp'] == '']
-        bad_muni = nodes[(nodes['municipality_id_tmp'] != '') & (~nodes['municipality_id_tmp'].isin(m_ids))]
+        no_muni = nodes[nodes[node_muni_col] == '']
+        bad_muni = nodes[(nodes[node_muni_col] != '') & (~nodes[node_muni_col].isin(m_ids))]
         print(f"- 拠点の所在自治体未設定: {len(no_muni)} 件")
         if len(bad_muni) > 0:
             print(f"[警告] 拠点の自治体ID参照先不明（迷子）: {len(bad_muni)} 件")
