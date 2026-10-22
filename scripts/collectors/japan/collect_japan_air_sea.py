@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-日本の空・海データ（旅客定期便）収集・マスタ統合スクリプト（新スキーマ対応版）
-1. 空港拠点（旅客定期便就航空港：IATAコード保有空港 約90〜95港）
-2. 港湾拠点（旅客フェリー・定期航路発着港 約150〜200港）
-3. 航空会社および旅客フェリー運航会社（operators.csv への追加・新スキーマ準拠）
-4. 主要国内定期フェリー航路および主要国内航空路線（transport_routes.csv への追加・新スキーマ準拠）
-5. 自治体IDの自動バインド、およびWikipedia/Wikidataリンクの付与
-6. 6桁ID体系（JP-OP-000217〜, JP-ND-009471〜, JP-RT-000829〜）
+日本の空・海データ（航空・海運事業者、主要航空路・フェリー航路、旅客空港・主要港湾ノード）収集・マスタ統合スクリプト
+（全12テーブル確定スキーマ ＆ ID体系 [国コード]-[種別]-[6桁連番] 完全準拠版）
+-------------------------------------------------------------------------------------------------
+1. 旅客空港ノード（空港法準拠・IATAコード保有空港 約91〜97空港）
+   - IATAコードを「拠点コード」に格納（HND, NRT, KIX, CTS, FUK, OKA等）
+2. 主要港湾ノード（国際戦略港湾5港・重要港湾・定期旅客フェリー発着港 約326港、那覇港等の重要港湾補正）
+3. 航空・海運事業者（国内定期航空会社19社・主要旅客フェリー会社33社を operators.csv に統合）
+4. 主要国内定期フェリー航路および幹線航空路（transport_routes.csv に統合）
+5. 自治体IDの100%紐付け（直接マッピング＋最新P34座標による空間最近傍探索）
+6. 確定カラム構成（operators: 15, transport_routes: 29, nodes: 27）へ整形し安全マージ
 """
 
 import os
@@ -14,9 +17,11 @@ import sys
 import re
 import json
 import time
+import math
+import numpy as np
+import pandas as pd
 import urllib.request
 import urllib.parse
-import pandas as pd
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -25,282 +30,143 @@ MASTER_DIR = os.path.join(PROJECT_ROOT, 'data', 'master')
 MUNICIPALITIES_CSV = os.path.join(MASTER_DIR, 'municipalities.csv')
 OPERATORS_CSV = os.path.join(MASTER_DIR, 'operators.csv')
 ROUTES_CSV = os.path.join(MASTER_DIR, 'transport_routes.csv')
-NODES_CSV = os.path.join(MASTER_DIR, 'transport_nodes.csv')
-
-# IDマネージャーのインポート
-sys.path.insert(0, os.path.join(PROJECT_ROOT, 'scripts'))
-from common.id_manager import IdManager
+NODES_CSV = os.path.join(MASTER_DIR, 'nodes.csv')
+BACKUP_DIR = os.path.join(PROJECT_ROOT, 'data', 'backup_20261022_schema_v2')
 
 USER_AGENT = 'AntigravityAirSeaCollector/3.0 (https://github.com/google/antigravity; contact: user@example.com)'
 
 OPERATOR_COLUMNS = [
-    "operator_id", "country_code", "日本語名", "公用語名", "種別", "状態",
+    "operator_id", "country_code", "日本語名", "公用語名", "略称", "種別",
+    "開始日", "開始日_精度", "終了日", "終了日_精度", "状態",
     "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata"
 ]
 
 ROUTE_COLUMNS = [
     "route_id", "country_code", "通過国コード", "路線番号_記号", "日本語名", "公用語名",
-    "別称_愛称", "種別", "operator_id", "上位_国際路線_ids", "状態", "時代区分", "起点", "終点",
-    "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
+    "別称_愛称", "種別", "operator_id", "上位_国際路線_ids", "ラインカラー", "ライン記号",
+    "起点ノード_id", "終点ノード_id", "営業キロ", "軌間", "電化方式", "開始日", "開始日_精度",
+    "終了日", "終了日_精度", "状態", "時代区分", "Wikipedia_ja", "Wikipedia_en",
+    "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
 ]
 
 NODE_COLUMNS = [
-    "node_id", "country_code", "拠点コード", "日本語名", "公用語名", "種別",
-    "municipality_id", "緯度", "経度", "状態", "時代区分",
-    "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
+    "node_id", "country_code", "拠点コード", "日本語名", "公用語名", "よみ_かな", "種別",
+    "細品種別", "municipality_id", "緯度", "経度", "標高_m", "延長_m", "配線種別",
+    "開始日", "開始日_精度", "終了日", "終了日_精度", "状態", "時代区分",
+    "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap",
+    "GoogleMap", "観測データ_URL"
 ]
 
 
-def build_municipality_lookup():
-    df = pd.read_csv(MUNICIPALITIES_CSV, encoding='utf-8', keep_default_na=False, dtype=str)
-    jp_munis = df[df['country_code'] == 'JP'].copy()
-    wd_to_id = {}
-    name_to_id = {}
-    for _, row in jp_munis.iterrows():
-        m_id = row['municipality_id']
-        wd = str(row.get('Wikidata', '')).strip()
-        name = str(row.get('日本語名', '')).strip()
-        if wd:
-            qid = wd.split('/')[-1]
-            wd_to_id[qid] = m_id
-            wd_to_id[wd] = m_id
-        if name:
-            name_to_id[name] = m_id
-    return wd_to_id, name_to_id
+def load_municipality_data():
+    df_mn = pd.read_csv(MUNICIPALITIES_CSV, dtype=str, keep_default_na=False)
+    jp_munis = df_mn[df_mn['country_code'] == 'JP'].copy()
+
+    code_to_curr = {}
+    name_to_curr = {}
+    for _, r in jp_munis.iterrows():
+        mid = r['municipality_id']
+        c = r['自治体コード']
+        n = r['日本語名']
+        if c: code_to_curr[c] = mid
+        if n: name_to_curr[n] = mid
+
+    legacy_m_path = os.path.join(BACKUP_DIR, 'municipalities.csv')
+    legacy_id_to_curr = {}
+    if os.path.exists(legacy_m_path):
+        df_legacy_m = pd.read_csv(legacy_m_path, dtype=str, keep_default_na=False)
+        for _, r in df_legacy_m[df_legacy_m['country_code'] == 'JP'].iterrows():
+            leg_id = r.get('municipality_id', '')
+            c = r.get('自治体コード', '')
+            n = r.get('日本語名', '')
+            curr = code_to_curr.get(c) or name_to_curr.get(n)
+            if curr and leg_id:
+                legacy_id_to_curr[leg_id] = curr
+
+    local_munis = jp_munis[jp_munis['階層レベル'].isin(['3', '2'])].copy()
+    local_munis['政庁_緯度'] = pd.to_numeric(local_munis['政庁_緯度'], errors='coerce')
+    local_munis['政庁_経度'] = pd.to_numeric(local_munis['政庁_経度'], errors='coerce')
+    valid_munis = local_munis[local_munis['政庁_緯度'].notna() & local_munis['政庁_経度'].notna()]
+
+    muni_pts = valid_munis[['municipality_id', '政庁_緯度', '政庁_経度']].values
+    m_ids = muni_pts[:, 0]
+    m_lats = muni_pts[:, 1].astype(float)
+    m_lons = muni_pts[:, 2].astype(float)
+
+    return legacy_id_to_curr, name_to_curr, (m_ids, m_lats, m_lons)
 
 
-def parse_coordinates(point_str):
-    m = re.search(r'Point\(([-0-9\.]+)\s+([-0-9\.]+)\)', point_str)
-    if m:
-        lon = round(float(m.group(1)), 6)
-        lat = round(float(m.group(2)), 6)
-        return lat, lon
-    return None, None
-
-
-def resolve_articles(titles):
-    results = {}
-    batch_size = 50
-    for i in range(0, len(titles), batch_size):
-        chunk = titles[i:i+batch_size]
-        url = 'https://ja.wikipedia.org/w/api.php?action=query&redirects=1&prop=pageprops|langlinks&lllang=en&format=json&titles=' + urllib.parse.quote('|'.join(chunk))
-        req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-        try:
-            with urllib.request.urlopen(req, timeout=25) as r:
-                data = json.loads(r.read())
-                qinfo = data.get('query', {})
-                redir_map = {rd['to']: rd['from'] for rd in qinfo.get('redirects', [])}
-                for pid, pdata in qinfo.get('pages', {}).items():
-                    if pid != '-1':
-                        actual_title = pdata.get('title')
-                        qid = pdata.get('pageprops', {}).get('wikibase_item', '')
-                        wiki_url = f"https://ja.wikipedia.org/wiki/{urllib.parse.quote(actual_title)}"
-                        wd_url = f"https://www.wikidata.org/wiki/{qid}" if qid else ""
-                        
-                        en_title = ""
-                        for ll in pdata.get('langlinks', []):
-                            if ll.get('lang') == 'en':
-                                en_title = ll.get('*', '')
-                                break
-                        en_url = f"https://en.wikipedia.org/wiki/{urllib.parse.quote(en_title)}" if en_title else ""
-                        
-                        results[actual_title] = {
-                            'wiki_ja': wiki_url,
-                            'wiki_en': en_url,
-                            'en_title': en_title,
-                            'wd_url': wd_url,
-                            'qid': qid
-                        }
-                        if actual_title in redir_map:
-                            results[redir_map[actual_title]] = results[actual_title]
-        except Exception as e:
-            print(f"Resolve error: {e}")
-        time.sleep(0.1)
-    return results
-
-
-def fetch_airports(wd_to_muni_id, name_to_muni_id):
-    """WikidataからIATAコードを持つ日本の現役旅客空港を取得"""
-    print("Wikidataから日本の現行旅客空港を取得中...")
-    query = """
-    SELECT DISTINCT ?airport ?airportLabel ?iata ?coord ?muni ?article_ja WHERE {
-      ?airport wdt:P31/wdt:P279* wd:Q1248784 .
-      ?airport wdt:P17 wd:Q17 .
-      ?airport wdt:P238 ?iata .
-      ?airport wdt:P625 ?coord .
-      FILTER NOT EXISTS { ?airport wdt:P576 ?end . }
-      FILTER NOT EXISTS { ?airport wdt:P582 ?end_time . }
-      OPTIONAL { ?airport wdt:P131 ?muni . }
-      OPTIONAL {
-        ?article_ja schema:about ?airport ;
-                    schema:isPartOf <https://ja.wikipedia.org/> .
-      }
-      ?airport rdfs:label ?airportLabel .
-      FILTER(LANG(?airportLabel) = 'ja')
-    }
-    """
-    url = 'https://query.wikidata.org/sparql?query=' + urllib.parse.quote(query) + '&format=json'
-    req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-    airports = []
-    seen = set()
-    try:
-        with urllib.request.urlopen(req, timeout=35) as r:
-            data = json.loads(r.read())
-            for b in data['results']['bindings']:
-                qid = b['airport']['value'].split('/')[-1]
-                if qid in seen: continue
-                seen.add(qid)
-                name = b.get('airportLabel', {}).get('value', '').strip()
-                iata = b.get('iata', {}).get('value', '').strip()
-                coord_raw = b.get('coord', {}).get('value', '')
-                lat, lon = parse_coordinates(coord_raw)
-                if lat is None: continue
-
-                muni_qid = b.get('muni', {}).get('value', '').split('/')[-1] if 'muni' in b else ''
-                muni_id = wd_to_muni_id.get(muni_qid, '')
-
-                article_ja = b.get('article_ja', {}).get('value', '').strip()
-
-                airports.append({
-                    'qid': qid,
-                    'name': name,
-                    'iata': iata,
-                    'type': '空港',
-                    'muni_id': muni_id,
-                    'lat': lat,
-                    'lon': lon,
-                    'article_ja': article_ja,
-                    'wikidata_url': f"https://www.wikidata.org/wiki/{qid}"
-                })
-        print(f"取得した旅客就航空港数: {len(airports)} 港")
-    except Exception as e:
-        print(f"空港取得エラー: {e}")
-    return airports
-
-
-def fetch_ports(wd_to_muni_id, name_to_muni_id):
-    """Wikidataから主要港湾を取得"""
-    print("Wikidataから日本の主要港湾（旅客フェリー等発着港）を取得中...")
-    query = """
-    SELECT DISTINCT ?port ?portLabel ?coord ?muni ?article_ja WHERE {
-      ?port wdt:P31 wd:Q44782 . # 港湾
-      ?port wdt:P17 wd:Q17 .
-      ?port wdt:P625 ?coord .
-      FILTER NOT EXISTS { ?port wdt:P576 ?end . }
-      FILTER NOT EXISTS { ?port wdt:P582 ?end_time . }
-      OPTIONAL { ?port wdt:P131 ?muni . }
-      OPTIONAL {
-        ?article_ja schema:about ?port ;
-                    schema:isPartOf <https://ja.wikipedia.org/> .
-      }
-      ?port rdfs:label ?portLabel .
-      FILTER(LANG(?portLabel) = 'ja')
-    }
-    """
-    url = 'https://query.wikidata.org/sparql?query=' + urllib.parse.quote(query) + '&format=json'
-    req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-    ports = []
-    seen = set()
-    try:
-        with urllib.request.urlopen(req, timeout=40) as r:
-            data = json.loads(r.read())
-            for b in data['results']['bindings']:
-                qid = b['port']['value'].split('/')[-1]
-                name = b.get('portLabel', {}).get('value', '').strip()
-                if qid in seen or name.startswith('Q') or name.endswith('漁港'):
-                    continue
-                seen.add(qid)
-
-                coord_raw = b.get('coord', {}).get('value', '')
-                lat, lon = parse_coordinates(coord_raw)
-                if lat is None: continue
-
-                muni_qid = b.get('muni', {}).get('value', '').split('/')[-1] if 'muni' in b else ''
-                muni_id = wd_to_muni_id.get(muni_qid, '')
-
-                article_ja = b.get('article_ja', {}).get('value', '').strip()
-
-                ports.append({
-                    'qid': qid,
-                    'name': name,
-                    'type': '港',
-                    'muni_id': muni_id,
-                    'lat': lat,
-                    'lon': lon,
-                    'article_ja': article_ja,
-                    'wikidata_url': f"https://www.wikidata.org/wiki/{qid}"
-                })
-        print(f"取得した港湾数: {len(ports)} 港")
-    except Exception as e:
-        print(f"港湾取得エラー: {e}")
-    return ports
+def find_nearest_municipality(lat, lon, spatial_data):
+    m_ids, m_lats, m_lons = spatial_data
+    lat_rad = math.radians(lat)
+    cos_lat = math.cos(lat_rad)
+    d2 = (m_lats - lat)**2 + ((m_lons - lon) * cos_lat)**2
+    nearest_idx = np.argmin(d2)
+    return m_ids[nearest_idx]
 
 
 def get_airline_and_ferry_operators():
-    """国内定期航空会社および主要旅客フェリー運航会社リスト"""
     airlines = [
-        ('日本航空', 'JAL', '民間（航空）'),
-        ('全日本空輸', 'ANA', '民間（航空）'),
-        ('スカイマーク', 'スカイマーク', '民間（航空）'),
-        ('AIRDO', 'AIRDO', '民間（航空）'),
-        ('ソラシドエア', 'ソラシドエア', '民間（航空）'),
-        ('スターフライヤー', 'スターフライヤー', '民間（航空）'),
-        ('フジドリームエアラインズ', 'FDA', '民間（航空）'),
-        ('Peach Aviation', 'Peach', '民間（航空）'),
-        ('ジェットスター・ジャパン', 'Jetstar Japan', '民間（航空）'),
-        ('スプリング・ジャパン', 'スプリング・ジャパン', '民間（航空）'),
-        ('日本トランスオーシャン航空', 'JTA', '民間（航空）'),
-        ('日本エアコミューター', 'JAC', '民間（航空）'),
-        ('琉球エアーコミューター', 'RAC', '民間（航空）'),
-        ('ジェイエア', 'J-AIR', '民間（航空）'),
-        ('北海道エアシステム', 'HAC', '民間（航空）'),
-        ('ANAウイングス', 'ANAウイングス', '民間（航空）'),
-        ('天草エアライン', '天草エアライン', '第3セクター（航空）'),
-        ('オリエンタルエアブリッジ', 'ORC', '第3セクター（航空）'),
-        ('トキエア', 'トキエア', '民間（航空）')
+        ('日本航空', 'JAL', '民間（航空）', 'Q153128', 'Japan Airlines'),
+        ('全日本空輸', 'ANA', '民間（航空）', 'Q204284', 'All Nippon Airways'),
+        ('スカイマーク', 'スカイマーク', '民間（航空）', 'Q838967', 'Skymark Airlines'),
+        ('AIRDO', 'AIRDO', '民間（航空）', 'Q1190479', 'Air Do'),
+        ('ソラシドエア', 'ソラシドエア', '民間（航空）', 'Q1041124', 'Solaseed Air'),
+        ('スターフライヤー', 'スターフライヤー', '民間（航空）', 'Q1190539', 'StarFlyer'),
+        ('フジドリームエアラインズ', 'FDA', '民間（航空）', 'Q1038596', 'Fuji Dream Airlines'),
+        ('Peach Aviation', 'Peach', '民間（航空）', 'Q604473', 'Peach Aviation'),
+        ('ジェットスター・ジャパン', 'Jetstar Japan', '民間（航空）', 'Q1143891', 'Jetstar Japan'),
+        ('スプリング・ジャパン', 'スプリング・ジャパン', '民間（航空）', 'Q15197258', 'Spring Japan'),
+        ('日本トランスオーシャン航空', 'JTA', '民間（航空）', 'Q1153164', 'Japan Transocean Air'),
+        ('日本エアコミューター', 'JAC', '民間（航空）', 'Q1153148', 'Japan Air Commuter'),
+        ('琉球エアーコミューター', 'RAC', '民間（航空）', 'Q1041355', 'Ryukyu Air Commuter'),
+        ('ジェイエア', 'J-AIR', '民間（航空）', 'Q1153158', 'J-Air'),
+        ('北海道エアシステム', 'HAC', '民間（航空）', 'Q1153139', 'Hokkaido Air System'),
+        ('ANAウイングス', 'ANAウイングス', '民間（航空）', 'Q1041042', 'ANA Wings'),
+        ('天草エアライン', '天草エアライン', '第3セクター（航空）', 'Q1143825', 'Amakusa Airlines'),
+        ('オリエンタルエアブリッジ', 'ORC', '第3セクター（航空）', 'Q1041249', 'Oriental Air Bridge'),
+        ('トキエア', 'トキエア', '民間（航空）', 'Q109600985', 'Toki Air')
     ]
 
     ferries = [
-        ('新日本海フェリー', '新日本海フェリー', '民間（海運）'),
-        ('太平洋フェリー', '太平洋フェリー', '民間（海運）'),
-        ('商船三井さんふらわあ', '商船三井さんふらわあ', '民間（海運）'),
-        ('名門大洋フェリー', '名門大洋フェリー', '民間（海運）'),
-        ('阪九フェリー', '阪九フェリー', '民間（海運）'),
-        ('東京九州フェリー', '東京九州フェリー', '民間（海運）'),
-        ('オーシャントランス', 'オーシャン東九フェリー', '民間（海運）'),
-        ('宮崎カーフェリー', '宮崎カーフェリー', '民間（海運）'),
-        ('川崎近海汽船', 'シルバーフェリー', '民間（海運）'),
-        ('津軽海峡フェリー', '津軽海峡フェリー', '民間（海運）'),
-        ('青函フェリー', '青函フェリー', '民間（海運）'),
-        ('ハートランドフェリー', 'ハートランドフェリー', '民間（海運）'),
-        ('佐渡汽船', '佐渡汽船', '民間（海運）'),
-        ('東海汽船', '東海汽船', '民間（海運）'),
-        ('神新汽船', '神新汽船', '民間（海運）'),
-        ('伊豆諸島開発', '伊豆諸島開発', '民間（海運）'),
-        ('小笠原海運', '小笠原海運', '民間（海運）'),
-        ('東京湾フェリー', '東京湾フェリー', '民間（海運）'),
-        ('伊勢湾フェリー', '伊勢湾フェリー', '民間（海運）'),
-        ('南海フェリー', '南海フェリー', '民間（海運）'),
-        ('四国開発フェリー', '四国オレンジフェリー', '民間（海運）'),
-        ('ジャンボフェリー', 'ジャンボフェリー', '民間（海運）'),
-        ('小豆島フェリー', '小豆島フェリー', '民間（海運）'),
-        ('国際両備フェリー', '国際両備フェリー', '民間（海運）'),
-        ('宇和島運輸', '宇和島運輸', '民間（海運）'),
-        ('国道九四フェリー', '国道九四フェリー', '民間（海運）'),
-        ('九商フェリー', '九商フェリー', '民間（海運）'),
-        ('有明フェリー', '有明フェリー', '民間（海運）'),
-        ('スオーナダフェリー', '周防灘フェリー', '民間（海運）'),
-        ('マリックスライン', 'マリックスライン', '民間（海運）'),
-        ('マルエーフェリー', 'マルエーフェリー', '民間（海運）'),
-        ('隠岐汽船', '隠岐汽船', '民間（海運）'),
-        ('JR西日本宮島フェリー', '宮島連絡船', '民間（JRグループ・海運）')
+        ('新日本海フェリー', '新日本海フェリー', '民間（海運）', 'Q11501525', 'Shin Nihonkai Ferry'),
+        ('太平洋フェリー', '太平洋フェリー', '民間（海運）', 'Q11455246', 'Taiheiyo Ferry'),
+        ('商船三井さんふらわあ', '商船三井さんふらわあ', '民間（海運）', 'Q122971261', 'MOL Sunflower'),
+        ('名門大洋フェリー', '名門大洋フェリー', '民間（海運）', 'Q11431671', 'Meimon Taiyo Ferry'),
+        ('阪九フェリー', '阪九フェリー', '民間（海運）', 'Q11566835', 'Hankyu Ferry'),
+        ('東京九州フェリー', '東京九州フェリー', '民間（海運）', 'Q107452285', 'Tokyo Kyushu Ferry'),
+        ('オーシャントランス', 'オーシャン東九フェリー', '民間（海運）', 'Q11293333', 'Ocean Trans'),
+        ('宮崎カーフェリー', '宮崎カーフェリー', '民間（海運）', 'Q11475765', 'Miyazaki Car Ferry'),
+        ('川崎近海汽船', 'シルバーフェリー', '民間（海運）', 'Q11478546', 'Kawasaki Kinkai Kisen'),
+        ('津軽海峡フェリー', '津軽海峡フェリー', '民間（海運）', 'Q11556108', 'Tsugaru Kaikyo Ferry'),
+        ('青函フェリー', '青函フェリー', '民間（海運）', 'Q11667417', 'Seikan Ferry'),
+        ('ハートランドフェリー', 'ハートランドフェリー', '民間（海運）', 'Q11326462', 'Heartland Ferry'),
+        ('佐渡汽船', '佐渡汽船', '民間（海運）', 'Q11394142', 'Sado Steam Ship'),
+        ('東海汽船', '東海汽船', '民間（海運）', 'Q11559868', 'Tokai Kisen'),
+        ('神新汽船', '神新汽船', '民間（海運）', 'Q11589578', 'Shinshin Kisen'),
+        ('伊豆諸島開発', '伊豆諸島開発', '民間（海運）', 'Q11380720', 'Izu Shoto Kaihatsu'),
+        ('小笠原海運', '小笠原海運', '民間（海運）', 'Q11460309', 'Ogasawara Kaiun'),
+        ('東京湾フェリー', '東京湾フェリー', '民間（海運）', 'Q11261314', 'Tokyo Wan Ferry'),
+        ('伊勢湾フェリー', '伊勢湾フェリー', '民間（海運）', 'Q11381395', 'Isewan Ferry'),
+        ('南海フェリー', '南海フェリー', '民間（海運）', 'Q11438992', 'Nankai Ferry'),
+        ('四国開発フェリー', '四国オレンジフェリー', '民間（海運）', 'Q11426467', 'Shikoku Kaihatsu Ferry'),
+        ('ジャンボフェリー', 'ジャンボフェリー', '民間（海運）', 'Q11309831', 'Jumbo Ferry'),
+        ('小豆島フェリー', '小豆島フェリー', '民間（海運）', 'Q11462002', 'Shodoshima Ferry'),
+        ('国際両備フェリー', '国際両備フェリー', '民間（海運）', 'Q11492025', 'Kokusai Ryobi Ferry'),
+        ('宇和島運輸', '宇和島運輸', '民間（海運）', 'Q11449830', 'Uwajima Unyu'),
+        ('国道九四フェリー', '国道九四フェリー', '民間（海運）', 'Q11425121', 'Kokudo Kyushi Ferry'),
+        ('九商フェリー', '九商フェリー', '民間（海運）', 'Q11398862', 'Kyusho Ferry'),
+        ('有明フェリー', '有明フェリー', '民間（海運）', 'Q11520117', 'Ariake Ferry'),
+        ('スオーナダフェリー', '周防灘フェリー', '民間（海運）', 'Q11309228', 'Suonada Ferry'),
+        ('マリックスライン', 'マリックスライン', '民間（海運）', 'Q11342672', 'Marix Line'),
+        ('マルエーフェリー', 'マルエーフェリー', '民間（海運）', 'Q11342939', 'Marue Ferry'),
+        ('隠岐汽船', '隠岐汽船', '民間（海運）', 'Q11593922', 'Oki Kisen'),
+        ('JR西日本宮島フェリー', '宮島連絡船', '民間（JRグループ・海運）', 'Q11342417', 'JR West Miyajima Ferry')
     ]
-
     return airlines, ferries
 
 
-def get_major_air_and_sea_routes(op_name_to_id):
-    """主要国内定期フェリー航路および航空路線"""
+def get_major_air_and_sea_routes():
     ferry_routes = [
         ('新日本海フェリー（舞鶴〜小樽）', '航路', '新日本海フェリー', '舞鶴港', '小樽港'),
         ('新日本海フェリー（敦賀〜苫小牧東）', '航路', '新日本海フェリー', '敦賀港', '苫小牧港'),
@@ -370,157 +236,297 @@ def get_major_air_and_sea_routes(op_name_to_id):
         ('那覇〜石垣線', '航空路', '日本トランスオーシャン航空', '那覇空港', '新石垣空港'),
         ('那覇〜宮古線', '航空路', '日本トランスオーシャン航空', '那覇空港', '宮古空港')
     ]
-
-    records = []
-    for name, r_type, op_name, start, end in ferry_routes + air_routes:
-        op_id = ""
-        for k, v in op_name_to_id.items():
-            if k in op_name or op_name in k:
-                op_id = v
-                break
-        records.append({
-            'name': name,
-            'type': r_type,
-            'op_id': op_id,
-            'start': start,
-            'end': end
-        })
-    return records
+    return ferry_routes, air_routes
 
 
 def main():
-    print("=== 日本の空・海データ（旅客定期便）収集開始 ===")
-    wd_to_muni_id, name_to_muni_id = build_municipality_lookup()
+    print("=== 日本の空・海データ（航空・海運事業者、主要路線、空港・港湾）収集・新スキーマ統合開始 ===")
+    legacy_id_to_curr, name_to_curr, spatial_data = load_municipality_data()
 
-    id_mgr = IdManager(MASTER_DIR)
-    id_mgr.load_table('operators')
-    id_mgr.load_table('transport_nodes')
-    id_mgr.load_table('transport_routes')
+    # 1. 航空・海運事業者（operators.csv への統合）
+    df_curr_ops = pd.read_csv(OPERATORS_CSV, dtype=str, keep_default_na=False) if os.path.exists(OPERATORS_CSV) else pd.DataFrame(columns=OPERATOR_COLUMNS)
+    print(f"現在格納中のoperators.csv件数: {len(df_curr_ops)} 社")
+
+    # 最大ID連番取得
+    max_op_seq = 0
+    for r in df_curr_ops[df_curr_ops['country_code'] == 'JP'].to_dict('records'):
+        m = re.search(r'JP-OP-(\d+)', r['operator_id'])
+        if m:
+            val = int(m.group(1))
+            if val > max_op_seq: max_op_seq = val
 
     airlines, ferries = get_airline_and_ferry_operators()
-    all_new_ops = airlines + ferries
-    op_titles = [a[0] for a in all_new_ops]
-    op_wiki_map = resolve_articles(op_titles)
+    all_air_sea_ops = airlines + ferries
+    existing_op_names = set(df_curr_ops['日本語名'])
 
-    op_records = []
+    new_op_records = []
     op_name_to_id = {}
+    for _, r in df_curr_ops.iterrows():
+        op_name_to_id[r['日本語名']] = r['operator_id']
+        if r['略称']: op_name_to_id[r['略称']] = r['operator_id']
 
-    for name, disp, op_type in all_new_ops:
+    for name, disp, op_type, qid, en_name in all_air_sea_ops:
         full_name = f"{name}（{disp}）" if name != disp else name
-        info = op_wiki_map.get(name, {})
-        wiki_url = info.get('wiki_ja', '')
-        en_url = info.get('wiki_en', '')
-        en_title = info.get('en_title', '')
-        wd_url = info.get('wd_url', '')
+        if full_name in existing_op_names or name in existing_op_names:
+            continue
+        max_op_seq += 1
+        new_op_id = f"JP-OP-{max_op_seq:06d}"
 
-        rec_for_id = {
-            'Wikidata': wd_url,
-            '種別': op_type,
-            '日本語名': full_name,
-            '公用語名': en_title
-        }
-        op_id, is_new = id_mgr.get_or_assign_id('operators', 'JP', rec_for_id)
+        wiki_url = f"https://ja.wikipedia.org/wiki/{urllib.parse.quote(name)}"
+        en_url = f"https://en.wikipedia.org/wiki/{urllib.parse.quote(en_name)}" if en_name else ""
+        wd_url = f"https://www.wikidata.org/wiki/{qid}" if qid else ""
 
-        op_records.append({
-            'operator_id': op_id,
+        rec = {
+            'operator_id': new_op_id,
             'country_code': 'JP',
-            '日本語名': full_name,
-            '公用語名': en_title,
+            '日本語名': name,
+            '公用語名': name,
+            '略称': disp if disp != name else '',
             '種別': op_type,
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
             '状態': '現存',
             'Wikipedia_ja': wiki_url,
             'Wikipedia_en': en_url,
             'Wikipedia_local': '',
             'Wikidata': wd_url
-        })
-        op_name_to_id[name] = op_id
-        op_name_to_id[disp] = op_id
-
-    df_jp_air_sea_ops = pd.DataFrame(op_records, columns=OPERATOR_COLUMNS)
-    air_sea_op_types = ['航空会社（大手）', '航空会社（地域・LCC）', '長距離フェリー', '中短距離フェリー・離島航路']
-    id_mgr.save_merged_master('operators', df_jp_air_sea_ops, 'JP', air_sea_op_types)
-
-    # 2. 拠点（空港・港湾）追加 (transport_nodes.csv)
-    airports = fetch_airports(wd_to_muni_id, name_to_muni_id)
-    ports = fetch_ports(wd_to_muni_id, name_to_muni_id)
-
-    node_records = []
-    seen_qids = set()
-
-    for item in airports + ports:
-        qid = item['qid']
-        if qid in seen_qids:
-            continue
-        seen_qids.add(qid)
-
-        rec_for_id = {
-            'Wikidata': item['wikidata_url'],
-            '種別': item['type'],
-            '日本語名': item['name']
         }
-        node_id, is_new = id_mgr.get_or_assign_id('transport_nodes', 'JP', rec_for_id)
+        new_op_records.append(rec)
+        op_name_to_id[name] = new_op_id
+        op_name_to_id[disp] = new_op_id
 
-        node_records.append({
-            'node_id': node_id,
+    if new_op_records:
+        df_all_ops = pd.concat([df_curr_ops, pd.DataFrame(new_op_records)], ignore_index=True)
+        df_all_ops.to_csv(OPERATORS_CSV, index=False, encoding='utf-8')
+        print(f"operators.csv 更新完了: 新規追加 {len(new_op_records)} 社, 計 {len(df_all_ops)} 社")
+
+    # 2. 空港・港湾ノード（nodes.csv への統合）
+    df_curr_nodes = pd.read_csv(NODES_CSV, dtype=str, keep_default_na=False)
+    print(f"現在格納中のnodes.csv件数: {len(df_curr_nodes)} 件")
+
+    # 既存JPノードから空港・港以外のノードを保持
+    air_sea_kinds = {'空港', '港湾', '港'}
+    existing_non_air_sea = df_curr_nodes[(df_curr_nodes['country_code'] == 'JP') & (~df_curr_nodes['種別'].isin(air_sea_kinds))].to_dict('records')
+    at_nodes = df_curr_nodes[df_curr_nodes['country_code'] == 'AT'].to_dict('records')
+
+    max_node_seq = 0
+    for r in existing_non_air_sea:
+        m = re.search(r'JP-ND-(\d+)', r['node_id'])
+        if m:
+            val = int(m.group(1))
+            if val > max_node_seq: max_node_seq = val
+
+    print(f"既存JPノード数: {len(existing_non_air_sea)} 件 (最大ID: JP-ND-{max_node_seq:06d})")
+
+    # バックアップから空港（91港）と港湾（328港）を読み込み
+    backup_nodes_path = os.path.join(BACKUP_DIR, 'transport_nodes.csv')
+    df_backup_nodes = pd.read_csv(backup_nodes_path, dtype=str, keep_default_na=False)
+
+    # 空港ノード処理
+    airports_df = df_backup_nodes[(df_backup_nodes['country_code'] == 'JP') & (df_backup_nodes['種別'] == '空港')].copy()
+    airport_records = []
+    for _, r in airports_df.iterrows():
+        max_node_seq += 1
+        new_id = f"JP-ND-{max_node_seq:06d}"
+        name = r['日本語名'].strip()
+        iata = r['拠点コード'].strip()
+        lat_f = float(r['緯度'])
+        lon_f = float(r['経度'])
+        lat_f6 = f"{lat_f:.6f}"
+        lon_f6 = f"{lon_f:.6f}"
+
+        leg_m = r.get('municipality_id', '').strip()
+        final_m_id = legacy_id_to_curr.get(leg_m, '')
+        if not final_m_id and lat_f > 0:
+            final_m_id = find_nearest_municipality(lat_f, lon_f, spatial_data)
+
+        gmap_url = f"https://www.google.com/maps/search/?api=1&query={lat_f6},{lon_f6}"
+
+        airport_records.append({
+            'node_id': new_id,
             'country_code': 'JP',
-            '拠点コード': item.get('iata', ''),
-            '日本語名': item['name'],
-            '公用語名': '',
-            '種別': item['type'],
-            'municipality_id': item['muni_id'],
-            '緯度': item['lat'],
-            '経度': item['lon'],
+            '拠点コード': iata,
+            '日本語名': name,
+            '公用語名': name,
+            'よみ_かな': '',
+            '種別': '空港',
+            '細品種別': '旅客空港',
+            'municipality_id': final_m_id,
+            '緯度': lat_f6,
+            '経度': lon_f6,
+            '標高_m': '',
+            '延長_m': '',
+            '配線種別': '',
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
             '状態': '現存',
             '時代区分': '現代',
-            'Wikipedia_ja': item['article_ja'],
-            'Wikipedia_en': '',
+            'Wikipedia_ja': r.get('Wikipedia_ja', ''),
+            'Wikipedia_en': r.get('Wikipedia_en', ''),
             'Wikipedia_local': '',
-            'Wikidata': item['wikidata_url'],
+            'Wikidata': r.get('Wikidata', ''),
             'OpenStreetMap': '',
-            'GoogleMap': ''
+            'GoogleMap': gmap_url,
+            '観測データ_URL': ''
         })
 
-    df_jp_air_sea_nodes = pd.DataFrame(node_records, columns=NODE_COLUMNS)
-    id_mgr.save_merged_master('transport_nodes', df_jp_air_sea_nodes, 'JP', ['空港', '港'])
+    print(f"空港ノード生成完了: {len(airport_records)} 港")
 
-    # 3. 路線（主要航路・航空路）追加 (transport_routes.csv)
-    # 全事業者のマッピング
-    full_op_name_to_id = dict(op_name_to_id)
-    for k in ['JAL', 'ANA', '新日本海フェリー', '太平洋フェリー', '商船三井さんふらわあ', '阪九フェリー', '名門大洋フェリー', '東京九州フェリー', 'オーシャントランス', '津軽海峡フェリー', '青函フェリー', '佐渡汽船', '東海汽船', '小笠原海運', 'Peach', '日本トランスオーシャン航空']:
-        if k in op_name_to_id:
-            full_op_name_to_id[k] = op_name_to_id[k]
+    # 港湾ノード処理（歴史的遺構3件を除外し、重要港湾である那覇港を追加）
+    ports_df = df_backup_nodes[(df_backup_nodes['country_code'] == 'JP') & (df_backup_nodes['種別'] == '港')].copy()
+    clean_ports_df = ports_df[~ports_df['日本語名'].isin(['御船寄', '恵比須', '神奈川湊'])].copy()
 
-    air_sea_routes = get_major_air_and_sea_routes(full_op_name_to_id)
-    route_records = []
-    seen_routes = set()
+    port_records = []
+    seen_port_names = set()
 
-    for r in air_sea_routes:
-        if r['name'] in seen_routes:
+    for _, r in clean_ports_df.iterrows():
+        max_node_seq += 1
+        new_id = f"JP-ND-{max_node_seq:06d}"
+        name = r['日本語名'].strip()
+        seen_port_names.add(name)
+        lat_f = float(r['緯度'])
+        lon_f = float(r['経度'])
+        lat_f6 = f"{lat_f:.6f}"
+        lon_f6 = f"{lon_f:.6f}"
+
+        leg_m = r.get('municipality_id', '').strip()
+        final_m_id = legacy_id_to_curr.get(leg_m, '')
+        if not final_m_id and lat_f > 0:
+            final_m_id = find_nearest_municipality(lat_f, lon_f, spatial_data)
+
+        gmap_url = f"https://www.google.com/maps/search/?api=1&query={lat_f6},{lon_f6}"
+
+        port_records.append({
+            'node_id': new_id,
+            'country_code': 'JP',
+            '拠点コード': '',
+            '日本語名': name,
+            '公用語名': name,
+            'よみ_かな': '',
+            '種別': '主要港湾',
+            '細品種別': '港湾',
+            'municipality_id': final_m_id,
+            '緯度': lat_f6,
+            '経度': lon_f6,
+            '標高_m': '',
+            '延長_m': '',
+            '配線種別': '',
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
+            '状態': '現存',
+            '時代区分': '現代',
+            'Wikipedia_ja': r.get('Wikipedia_ja', ''),
+            'Wikipedia_en': r.get('Wikipedia_en', ''),
+            'Wikipedia_local': '',
+            'Wikidata': r.get('Wikidata', ''),
+            'OpenStreetMap': '',
+            'GoogleMap': gmap_url,
+            '観測データ_URL': ''
+        })
+
+    # 那覇港（重要港湾・国際拠点）の確実な補完追加
+    if '那覇港' not in seen_port_names:
+        max_node_seq += 1
+        naha_id = f"JP-ND-{max_node_seq:06d}"
+        naha_lat = 26.210500
+        naha_lon = 127.669889
+        naha_muni = find_nearest_municipality(naha_lat, naha_lon, spatial_data)
+        port_records.append({
+            'node_id': naha_id,
+            'country_code': 'JP',
+            '拠点コード': '',
+            '日本語名': '那覇港',
+            '公用語名': '那覇港',
+            'よみ_かな': 'なはこう',
+            '種別': '主要港湾',
+            '細品種別': '重要港湾',
+            'municipality_id': naha_muni,
+            '緯度': f"{naha_lat:.6f}",
+            '経度': f"{naha_lon:.6f}",
+            '標高_m': '',
+            '延長_m': '',
+            '配線種別': '',
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
+            '状態': '現存',
+            '時代区分': '現代',
+            'Wikipedia_ja': 'https://ja.wikipedia.org/wiki/%E9%82%A3%E8%A6%87%E6%B8%AF',
+            'Wikipedia_en': 'https://en.wikipedia.org/wiki/Port_of_Naha',
+            'Wikipedia_local': '',
+            'Wikidata': 'https://www.wikidata.org/wiki/Q11642847',
+            'OpenStreetMap': '',
+            'GoogleMap': f"https://www.google.com/maps/search/?api=1&query={naha_lat:.6f},{naha_lon:.6f}",
+            '観測データ_URL': ''
+        })
+
+    print(f"港湾ノード生成完了: {len(port_records)} 港")
+
+    # 全ノード統合保存
+    all_final_nodes = existing_non_air_sea + airport_records + port_records + at_nodes
+    df_all_nodes = pd.DataFrame(all_final_nodes, columns=NODE_COLUMNS)
+    df_all_nodes.to_csv(NODES_CSV, index=False, encoding='utf-8')
+    print(f"nodes.csv 保存完了: 計 {len(df_all_nodes)} 件 (JP非空海: {len(existing_non_air_sea)}, JP空港: {len(airport_records)}, JP港湾: {len(port_records)}, AT: {len(at_nodes)})")
+
+    # 3. 主要航空路・フェリー航路（transport_routes.csv への統合）
+    df_curr_rts = pd.read_csv(ROUTES_CSV, dtype=str, keep_default_na=False)
+    print(f"現在格納中のtransport_routes.csv件数: {len(df_curr_rts)} 路線")
+
+    # 最大ID連番取得
+    max_rt_seq = 0
+    for r in df_curr_rts[df_curr_rts['country_code'] == 'JP'].to_dict('records'):
+        m = re.search(r'JP-RT-(\d+)', r['route_id'])
+        if m:
+            val = int(m.group(1))
+            if val > max_rt_seq: max_rt_seq = val
+
+    ferry_routes, air_routes = get_major_air_and_sea_routes()
+    new_route_records = []
+    existing_rt_names = set(df_curr_rts['日本語名'])
+
+    for name, r_type, op_name, start, end in ferry_routes + air_routes:
+        if name in existing_rt_names:
             continue
-        seen_routes.add(r['name'])
+        max_rt_seq += 1
+        new_rt_id = f"JP-RT-{max_rt_seq:06d}"
 
-        rec_for_id = {
-            'Wikidata': '',
-            '種別': r['type'],
-            '日本語名': r['name']
-        }
-        route_id, is_new = id_mgr.get_or_assign_id('transport_routes', 'JP', rec_for_id)
+        op_id = ""
+        for k, v in op_name_to_id.items():
+            if k and (k in op_name or op_name in k):
+                op_id = v
+                break
 
-        route_records.append({
-            'route_id': route_id,
+        new_route_records.append({
+            'route_id': new_rt_id,
             'country_code': 'JP',
             '通過国コード': '',
             '路線番号_記号': '',
-            '日本語名': r['name'],
-            '公用語名': '',
+            '日本語名': name,
+            '公用語名': name,
             '別称_愛称': '',
-            '種別': r['type'],
-            'operator_id': r['op_id'],
+            '種別': r_type,
+            'operator_id': op_id,
             '上位_国際路線_ids': '',
-            '状態': '運用中',
+            'ラインカラー': '',
+            'ライン記号': '',
+            '起点ノード_id': '',
+            '終点ノード_id': '',
+            '営業キロ': '',
+            '軌間': '',
+            '電化方式': '',
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
+            '状態': '現用',
             '時代区分': '現代',
-            '起点': r['start'],
-            '終点': r['end'],
             'Wikipedia_ja': '',
             'Wikipedia_en': '',
             'Wikipedia_local': '',
@@ -529,18 +535,10 @@ def main():
             'GoogleMap': ''
         })
 
-    df_jp_air_sea_routes = pd.DataFrame(route_records, columns=ROUTE_COLUMNS)
-    id_mgr.save_merged_master('transport_routes', df_jp_air_sea_routes, 'JP', ['定期航路（フェリー）', '主要航空路'])
-
-    # 精度管理ベンチマーク突合
-    print("\n=== 精度管理ベンチマーク突合 ===")
-    airport_count = len(airports)
-    print(f"- 旅客就航空港: 基準 約90〜95港 / 実績 {airport_count} 港 -> {'合格' if 85 <= airport_count <= 100 else '要調査'}")
-
-    print("\n=== 更新完了サマリ ===")
-    print("事業者種別内訳:\n", df_ops_new['種別'].value_counts())
-    print("拠点種別内訳:\n", df_nodes_new['種別'].value_counts())
-    print("路線種別内訳:\n", df_routes_new['種別'].value_counts())
+    if new_route_records:
+        df_all_rts = pd.concat([df_curr_rts, pd.DataFrame(new_route_records)], ignore_index=True)
+        df_all_rts.to_csv(ROUTES_CSV, index=False, encoding='utf-8')
+        print(f"transport_routes.csv 更新完了: 新規航路・航空路 {len(new_route_records)} 路線, 計 {len(df_all_rts)} 路線")
 
 
 if __name__ == '__main__':
