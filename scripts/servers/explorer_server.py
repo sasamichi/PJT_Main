@@ -270,7 +270,8 @@ class ExplorerAPIHandler(SimpleHTTPRequestHandler):
     def api_nodes(self, qs):
         """表示範囲（中心＋半径）内の拠点を返す。国指定は任意（国境をまたいで表示するため）"""
         cc = qs.get('country_code', [''])[0]
-        nodes = read_master('transport_nodes.csv')
+        nodes_file = 'nodes.csv' if os.path.exists(os.path.join(MASTER_DIR, 'nodes.csv')) else 'transport_nodes.csv'
+        nodes = read_master(nodes_file)
         if cc:
             nodes = [n for n in nodes if n.get('country_code') == cc]
 

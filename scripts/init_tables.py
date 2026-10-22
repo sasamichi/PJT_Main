@@ -326,13 +326,27 @@ print(f"-> exploration_logs.csv 生成完了: 0 件（空枠）")
 
 
 # -------------------------------------------------------------
-# 12. country_progress.csv の作成（フェーズ1）
+# 12. country_progress.csv の作成（フェーズ1 + 各国作業順反映）
 # -------------------------------------------------------------
-print("\n12. country_progress.csv を初期化中...")
+print("\n12. country_progress.csv を初期化中（各国作業順.csv 連携）...")
 prog_cols = [
     "country_code", "国名", "段階区分", "収集方針_自治体", "収集方針_交通網",
     "ステータス", "更新日", "備考"
 ]
+
+order_path = os.path.join(BASE_DIR, "各国作業順.csv")
+order_map = {}
+if os.path.exists(order_path):
+    df_order = pd.read_csv(order_path, encoding="utf-8-sig", keep_default_na=False, dtype=str)
+    for _, r in df_order.iterrows():
+        code = r.get("ISO 3166-1(2)", "").strip()
+        if code:
+            order_map[code] = {
+                "order": r.get("作業順", "").strip(),
+                "priority": r.get("優先度", "").strip(),
+                "region": r.get("Unnamed: 4", "").strip(),
+                "memo": r.get("メモ", "").strip()
+            }
 
 prog_rows = []
 for _, row in df_iso1.iterrows():
@@ -341,21 +355,48 @@ for _, row in df_iso1.iterrows():
         continue
     ja_name = row.get("日本語略名", "").strip()
     
+    info = order_map.get(c_code, {})
+    order_num = info.get("order", "")
+    prio = info.get("priority", "")
+    reg = info.get("region", "")
+    mem = info.get("memo", "")
+
+    notes = []
+    if order_num:
+        notes.append(f"作業順:{order_num}")
+    if prio:
+        notes.append(f"優先度:{prio}")
+    if mem:
+        notes.append(f"{mem}")
+    if reg:
+        notes.append(f"{reg}")
+    note_str = " | ".join(notes)
+
     if c_code == "JP":
-        phase = "フェーズ2"
+        phase = "フェーズ2（優先0・作業順001）"
         m_policy = "総務省・国土数値情報"
         t_policy = "国土数値情報・JR・大手私鉄・高速・国道"
         status = "未着手"
     elif c_code == "AT":
-        phase = "フェーズ4"
+        phase = "フェーズ4（優先1・作業順002）"
         m_policy = "オーストリア統計局(Statistik Austria)"
         t_policy = "ÖBB・ASFINAG"
         status = "未着手"
-    elif c_code in ["KR", "TW", "CH"]:
-        phase = "フェーズ5"
+    elif c_code in ["TW", "KR", "CH"]:
+        phase = f"フェーズ5（優先1・作業順{order_num}）"
         m_policy = "各国公的統計"
         t_policy = "各国交通当局"
         status = "未着手"
+    elif order_num:
+        phase = f"フェーズ5（優先{prio}・作業順{order_num}）"
+        m_policy = "各国公的統計"
+        t_policy = "未定"
+        status = "枠組み完了"
+    elif prio:
+        phase = f"フェーズ5（優先{prio}）"
+        m_policy = "ISO 3166-2"
+        t_policy = "未定"
+        status = "枠組み完了"
     else:
         phase = "フェーズ1"
         m_policy = "ISO 3166-2"
@@ -370,7 +411,7 @@ for _, row in df_iso1.iterrows():
         "収集方針_交通網": t_policy,
         "ステータス": status,
         "更新日": "2026-10-22",
-        "備考": ""
+        "備考": note_str
     })
 
 df_prog = pd.DataFrame(prog_rows, columns=prog_cols)

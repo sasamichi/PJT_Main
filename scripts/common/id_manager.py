@@ -14,22 +14,30 @@ import pandas as pd
 
 
 class IdManager:
-    # テーブル種別ごとのIDプレフィックス定義
+    # テーブル種別ごとのIDプレフィックス定義（docs/02 確定仕様準拠）
     PREFIX_MAP = {
-        'municipalities': 'M',
+        'municipalities': 'MN',
+        'weather_zones': 'WZ',
         'operators': 'OP',
         'transport_routes': 'RT',
-        'transport_nodes': 'ND',
-        'route_nodes': 'RN',
+        'nodes': 'ND',
+        'edges': 'ED',
+        'historical_transitions': 'TR',
+        'city_partnerships': 'PRT',
+        'theme_spots': 'SP',
         'exploration_logs': 'LOG'
     }
 
     ID_COL_MAP = {
         'municipalities': 'municipality_id',
+        'weather_zones': 'zone_id',
         'operators': 'operator_id',
         'transport_routes': 'route_id',
-        'transport_nodes': 'node_id',
-        'route_nodes': 'link_id',
+        'nodes': 'node_id',
+        'edges': 'edge_id',
+        'historical_transitions': 'transition_id',
+        'city_partnerships': 'partnership_id',
+        'theme_spots': 'spot_id',
         'exploration_logs': 'log_id'
     }
 
@@ -88,8 +96,14 @@ class IdManager:
                 # 3. 日本語名 / 公用語名
                 name_ja = str(row.get('日本語名', '')).strip()
                 name_local = str(row.get('公用語名', '')).strip()
-                # 4. route_nodes 用照合キー (route_id + node_id + 区間別称)
-                if table_name == 'route_nodes':
+                # 4. edges / route_nodes 用照合キー
+                if table_name == 'edges':
+                    r_id = str(row.get('route_id', '')).strip()
+                    fn_id = str(row.get('from_node_id', '')).strip()
+                    tn_id = str(row.get('to_node_id', '')).strip()
+                    if r_id and fn_id and tn_id:
+                        self.key_to_id[(table_name, cc, f"edge:{r_id}:{fn_id}:{tn_id}")] = current_id
+                elif table_name == 'route_nodes':
                     r_id = str(row.get('route_id', '')).strip()
                     n_id = str(row.get('node_id', '')).strip()
                     sub_sec = str(row.get('区間別称', '')).strip()
@@ -106,8 +120,15 @@ class IdManager:
         prefix = self.PREFIX_MAP.get(table_name, 'REC')
         cc = country_code.strip()
 
-        # 0. route_nodes 特殊照合 (route_id + node_id + 区間別称)
-        if table_name == 'route_nodes':
+        # 0. edges / route_nodes 特殊照合
+        if table_name == 'edges':
+            r_id = str(record_dict.get('route_id', '')).strip()
+            fn_id = str(record_dict.get('from_node_id', '')).strip()
+            tn_id = str(record_dict.get('to_node_id', '')).strip()
+            edge_k = (table_name, cc, f"edge:{r_id}:{fn_id}:{tn_id}")
+            if edge_k in self.key_to_id:
+                return self.key_to_id[edge_k], False
+        elif table_name == 'route_nodes':
             r_id = str(record_dict.get('route_id', '')).strip()
             n_id = str(record_dict.get('node_id', '')).strip()
             sub_sec = str(record_dict.get('区間別称', '')).strip()

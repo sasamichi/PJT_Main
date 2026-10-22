@@ -101,12 +101,27 @@ def save_csv_clean(df, filename):
 
 
 def load_all_data():
+    # 新旧テーブル名の自動フォールバック対応
+    nodes_csv = "nodes.csv" if os.path.exists(os.path.join(MASTER_DATA_DIR, "nodes.csv")) else "transport_nodes.csv"
+    edges_csv = "edges.csv" if os.path.exists(os.path.join(MASTER_DATA_DIR, "edges.csv")) else "route_nodes.csv"
+
     return (
         read_csv_clean("countries.csv"),
         read_csv_clean("municipalities.csv"),
         read_csv_clean("operators.csv"),
         read_csv_clean("transport_routes.csv"),
-        read_csv_clean("transport_nodes.csv"),
-        read_csv_clean("route_nodes.csv"),
+        read_csv_clean(nodes_csv),
+        read_csv_clean(edges_csv),
         read_csv_clean("country_progress.csv"),
     )
+
+
+def load_all_12_tables():
+    """全12テーブル確定スキーマの辞書を返す"""
+    tables = [
+        "countries.csv", "municipalities.csv", "weather_zones.csv",
+        "operators.csv", "transport_routes.csv", "nodes.csv", "edges.csv",
+        "historical_transitions.csv", "city_partnerships.csv", "theme_spots.csv",
+        "exploration_logs.csv", "country_progress.csv"
+    ]
+    return {t: read_csv_clean(t) for t in tables}
