@@ -148,12 +148,24 @@ with tab2:
             source = row.get('公的出典_根拠', '').strip()
 
             actual_count = 0
-            if item in ['都道府県', '政令指定都市', '政令指定都市_行政区', '特別区', '市', '町', '村', '連邦州', '郡', '憲章都市', '基礎自治体']:
+            if item in ['都道府県', '政令指定都市', '政令指定都市_行政区', '中核市', '施行時特例市', '一般市', '特別区', '市', '町', '村', '連邦州', '郡', '憲章都市', '基礎自治体']:
                 if len(df_municipalities) > 0:
-                    if item == '政令指定都市_行政区':
+                    if item == '都道府県' and cc == 'JP':
+                        actual_count = len(df_municipalities[(df_municipalities['country_code'] == cc) & (df_municipalities['種別'].isin(['都', '道', '府', '県', '都道府県']))])
+                    elif item == '政令指定都市_行政区':
                         actual_count = len(df_municipalities[(df_municipalities['country_code'] == cc) & (df_municipalities['種別'] == '行政区')])
+                    elif item == '一般市' and cc == 'JP':
+                        actual_count = len(df_municipalities[(df_municipalities['country_code'] == cc) & (df_municipalities['種別'].isin(['一般市', '市']))])
+                    elif item == '市' and cc == 'JP':
+                        actual_count = len(df_municipalities[(df_municipalities['country_code'] == cc) & (df_municipalities['種別'].isin(['中核市', '施行時特例市', '一般市', '市']))])
                     else:
                         actual_count = len(df_municipalities[(df_municipalities['country_code'] == cc) & (df_municipalities['種別'] == item)])
+            elif item == '気象予報区_一次細分区域':
+                if len(df_weather) > 0:
+                    actual_count = len(df_weather[(df_weather['country_code'] == cc) & (df_weather['予報区種別'] == '一次細分区域')])
+            elif item == '気象庁アメダス観測所':
+                if len(df_nodes) > 0:
+                    actual_count = len(df_nodes[(df_nodes['country_code'] == cc) & (df_nodes['種別'] == '気象観測点')])
             elif item in ['一般国道', '主要地方道', '高速道路・都市高速', '高速道路', '自動車専用道', '主要州道']:
                 if len(df_routes) > 0:
                     if item == '高速道路・都市高速':
@@ -162,12 +174,14 @@ with tab2:
                         actual_count = len(df_routes[(df_routes['country_code'] == cc) & (df_routes['種別'].isin(['主要州道', '主要地方道']))])
                     else:
                         actual_count = len(df_routes[(df_routes['country_code'] == cc) & (df_routes['種別'] == item)])
-            elif item in ['道の駅', '旅客空港', '主要旅客空港', '現行鉄道駅']:
+            elif item in ['道の駅', '旅客空港', '主要旅客空港', '主要港湾', '現行鉄道駅']:
                 if len(df_nodes) > 0:
                     if item in ['旅客空港', '主要旅客空港']:
                         actual_count = len(df_nodes[(df_nodes['country_code'] == cc) & (df_nodes['種別'] == '空港')])
+                    elif item == '主要港湾':
+                        actual_count = len(df_nodes[(df_nodes['country_code'] == cc) & (df_nodes['種別'].isin(['港湾', '主要港湾', 'フェリーターミナル']))])
                     elif item == '現行鉄道駅':
-                        actual_count = len(df_nodes[(df_nodes['country_code'] == cc) & (df_nodes['種別'] == '駅')])
+                        actual_count = len(df_nodes[(df_nodes['country_code'] == cc) & (df_nodes['種別'].isin(['駅', '停留場']))])
                     else:
                         actual_count = len(df_nodes[(df_nodes['country_code'] == cc) & (df_nodes['種別'] == item)])
             elif item == '鉄軌道事業者':
