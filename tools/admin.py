@@ -54,6 +54,8 @@ with tab1:
     r_counts = df_routes["country_code"].value_counts().to_dict() if len(df_routes) > 0 else {}
     n_counts = df_nodes["country_code"].value_counts().to_dict() if len(df_nodes) > 0 else {}
     w_counts = df_weather_zones["country_code"].value_counts().to_dict() if len(df_weather_zones) > 0 else {}
+    o_counts = df_operators["country_code"].value_counts().to_dict() if len(df_operators) > 0 else {}
+    e_counts = df_edges["edge_id"].str.slice(0, 2).value_counts().to_dict() if len(df_edges) > 0 else {}
 
     prog_rows = []
     for _, r in df_country_prog.iterrows():
@@ -64,8 +66,10 @@ with tab1:
             "段階区分": r["段階区分"],
             "自治体件数": m_counts.get(cc, 0),
             "気象予報区": w_counts.get(cc, 0),
+            "事業者数": o_counts.get(cc, 0),
             "路線件数": r_counts.get(cc, 0),
             "拠点(node)": n_counts.get(cc, 0),
+            "区間(edge)": e_counts.get(cc, 0),
             "収集ステータス": r["ステータス"],
             "自治体方針": r["収集方針_自治体"],
             "交通網方針": r["収集方針_交通網"],
@@ -161,8 +165,8 @@ with tab2:
                     else:
                         actual_count = len(df_municipalities[(df_municipalities['country_code'] == cc) & (df_municipalities['種別'] == item)])
             elif item == '気象予報区_一次細分区域':
-                if len(df_weather) > 0:
-                    actual_count = len(df_weather[(df_weather['country_code'] == cc) & (df_weather['予報区種別'] == '一次細分区域')])
+                if len(df_weather_zones) > 0:
+                    actual_count = len(df_weather_zones[(df_weather_zones['country_code'] == cc) & (df_weather_zones['予報区種別'] == '一次細分区域')])
             elif item == '気象庁アメダス観測所':
                 if len(df_nodes) > 0:
                     actual_count = len(df_nodes[(df_nodes['country_code'] == cc) & (df_nodes['種別'] == '気象観測点')])
@@ -189,7 +193,10 @@ with tab2:
                         actual_count = len(df_nodes[(df_nodes['country_code'] == cc) & (df_nodes['種別'] == item)])
             elif item == '鉄軌道事業者':
                 if len(df_operators) > 0:
-                    actual_count = len(df_operators[df_operators['country_code'] == cc])
+                    if cc == 'JP':
+                        actual_count = len(df_operators[(df_operators['country_code'] == cc) & (df_operators['種別'].isin(['一般鉄軌道事業者', '地方公営企業', '特殊会社（JRグループ）']))])
+                    else:
+                        actual_count = len(df_operators[df_operators['country_code'] == cc])
 
             status = '合格'
             status_icon = '✅'

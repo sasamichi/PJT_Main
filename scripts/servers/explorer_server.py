@@ -245,6 +245,12 @@ class ExplorerAPIHandler(SimpleHTTPRequestHandler):
                 cc = qs.get('country_code', ['JP'])[0]
                 res = [r for r in read_master('transport_routes.csv') if r.get('country_code') == cc]
                 self.send_json({"routes": res, "total": len(res)})
+            elif path == '/api/edges':
+                route_id = qs.get('route_id', [''])[0]
+                edges = read_master('edges.csv')
+                if route_id:
+                    edges = [e for e in edges if e.get('route_id') == route_id]
+                self.send_json({"edges": edges, "total": len(edges)})
             elif path == '/api/municipalities':
                 cc = qs.get('country_code', ['JP'])[0]
                 res = [m for m in read_master('municipalities.csv') if m.get('country_code') == cc]

@@ -34,6 +34,8 @@ const jsonRequest = (method, body) => ({
 const apiFetchNodes = (lat, lon, radiusKm = 35) =>
   apiJson(`/api/nodes?lat=${lat}&lon=${lon}&radius_km=${radiusKm}`);
 const apiFetchRoutes = (cc) => apiJson(`/api/routes?country_code=${cc}`);
+const apiFetchEdges = (routeId = "") =>
+  apiJson(routeId ? `/api/edges?route_id=${encodeURIComponent(routeId)}` : "/api/edges");
 const apiFetchMunicipalities = (cc) => apiJson(`/api/municipalities?country_code=${cc}`);
 
 // --- 探索ログ（ポイント／ルート） ---
