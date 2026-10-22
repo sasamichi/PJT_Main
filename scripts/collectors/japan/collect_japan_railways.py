@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-日本の現行鉄軌道事業者および鉄道路線（旅客・貨物定期運行）収集・マスタ統合スクリプト（ID永続化・安全マージ版）
------------------------------------------------------------------------------------------------------------------
-1. Wikipedia「日本の鉄軌道事業者一覧」から現行の全事業者（約220社）を抽出
-2. Wikidata / Wikipedia APIから各事業者の詳細（Wikidata QID, 英語版Wiki）を取得
-3. Wikidata SPARQLから日本の現行運行中路線（約800〜1,000路線）を抽出（廃線・未成線・建設中を完全除外）
-4. IdManagerによるID永続化（再取得時もID不変）
-5. operators.csv および transport_routes.csv に安全マージ
+日本の現行鉄軌道事業者および鉄道路線（旅客・貨物定期運行）収集・マスタ統合スクリプト
+（全12テーブル確定スキーマ ＆ ID体系 [国コード]-[種別]-[6桁連番] 完全対応版）
+-------------------------------------------------------------------------------------------------
+1. Wikipedia「日本の鉄軌道事業者一覧」から現行の全事業者を抽出
+   - 2025年4月1日付の再編（新京成電鉄→京成電鉄、泉北高速鉄道→南海電気鉄道）を自動反映
+   - ハピラインふくい、宇都宮ライトレール等最新事業者対応
+2. Wikipedia APIから各事業者のWikidata QID、英語版Wiki、略称を解決
+3. Wikidata SPARQLから日本の現行運行中路線を抽出（廃線・未成線・計画線・専用側線を除外）
+4. 確定スキーマ（operators: 15カラム, transport_routes: 29カラム）に準拠したフォーマット変換
+5. ATデータおよび道路路線データを完全保持した安全マージ
 """
 
 import os
@@ -24,22 +27,26 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..
 MASTER_DIR = os.path.join(PROJECT_ROOT, 'data', 'master')
 OPERATORS_CSV = os.path.join(MASTER_DIR, 'operators.csv')
 ROUTES_CSV = os.path.join(MASTER_DIR, 'transport_routes.csv')
+BACKUP_DIR = os.path.join(PROJECT_ROOT, 'data', 'backup_20261022_schema_v2')
 
-# IDマネージャーのインポート
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'scripts'))
 from common.id_manager import IdManager
 
 USER_AGENT = 'AntigravityRailwayCollector/3.0 (https://github.com/google/antigravity; contact: user@example.com)'
 
+# docs/02 確定スキーマカラム定義
 OPERATOR_COLUMNS = [
-    "operator_id", "country_code", "日本語名", "公用語名", "種別", "状態",
+    "operator_id", "country_code", "日本語名", "公用語名", "略称", "種別",
+    "開始日", "開始日_精度", "終了日", "終了日_精度", "状態",
     "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata"
 ]
 
 ROUTE_COLUMNS = [
     "route_id", "country_code", "通過国コード", "路線番号_記号", "日本語名", "公用語名",
-    "別称_愛称", "種別", "operator_id", "上位_国際路線_ids", "状態", "時代区分", "起点", "終点",
-    "Wikipedia_ja", "Wikipedia_en", "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
+    "別称_愛称", "種別", "operator_id", "上位_国際路線_ids", "ラインカラー", "ライン記号",
+    "起点ノード_id", "終点ノード_id", "営業キロ", "軌間", "電化方式", "開始日", "開始日_精度",
+    "終了日", "終了日_精度", "状態", "時代区分", "Wikipedia_ja", "Wikipedia_en",
+    "Wikipedia_local", "Wikidata", "OpenStreetMap", "GoogleMap"
 ]
 
 
@@ -54,7 +61,8 @@ def fetch_operators_from_wikipedia():
 
     start_idx = text.find('== 現在の事業者一覧 ==')
     end_idx = text.find('== 鉄道事業から撤退した事業者 ==')
-    if end_idx == -1: end_idx = len(text)
+    if end_idx == -1:
+        end_idx = len(text)
     current_text = text[start_idx:end_idx]
 
     rows = current_text.split('|-')
@@ -173,13 +181,15 @@ def fetch_railway_routes_from_wikidata():
             bindings = d['results']['bindings']
             for b in bindings:
                 qid = b['route']['value'].split('/')[-1]
-                if qid in seen: continue
+                if qid in seen:
+                    continue
                 seen.add(qid)
                 name = b.get('routeLabel', {}).get('value', '').strip()
-                if not name or name.startswith('Q'): continue
+                if not name or name.startswith('Q'):
+                    continue
 
-                # 廃線・建設中などのノイズ除外
-                if any(k in name for k in ['廃線', '未成線', '計画', '専用線', '軍用線', '未開業']):
+                # 廃線・計画・専用側線などの除外
+                if any(k in name for k in ['廃線', '未成線', '計画', '専用線', '軍用線', '未開業', '専用鉄道', '工事専用']):
                     continue
 
                 op_name = b.get('operatorLabel', {}).get('value', '').strip()
@@ -209,24 +219,38 @@ def fetch_railway_routes_from_wikidata():
 
 
 def main():
-    print("=== 日本の鉄軌道（事業者・路線）クリーン再収集開始 ===")
+    print("=== 日本の鉄軌道（事業者・路線）収集・新スキーマ統合開始 ===")
     id_mgr = IdManager(MASTER_DIR)
     id_mgr.load_table('operators')
     id_mgr.load_table('transport_routes')
+
+    # バックアップからATおよび道路管理者の既存データを読み込み
+    backup_ops_path = os.path.join(BACKUP_DIR, 'operators.csv')
+    backup_rts_path = os.path.join(BACKUP_DIR, 'transport_routes.csv')
+
+    df_backup_ops = pd.read_csv(backup_ops_path, dtype=str, keep_default_na=False) if os.path.exists(backup_ops_path) else pd.DataFrame()
+    df_backup_rts = pd.read_csv(backup_rts_path, dtype=str, keep_default_na=False) if os.path.exists(backup_rts_path) else pd.DataFrame()
 
     # 1. 事業者収集
     raw_ops = fetch_operators_from_wikipedia()
     meta_map = resolve_operator_details(raw_ops)
 
-    # 既存のJP鉄軌道以外の事業者を保持
-    df_existing_ops = id_mgr.existing_records.get('operators', pd.DataFrame())
-    if len(df_existing_ops) > 0 and 'country_code' in df_existing_ops.columns:
-        df_other_ops = df_existing_ops[~((df_existing_ops['country_code'] == 'JP') & (~df_existing_ops['種別'].str.contains('道路|高速', na=False)))].copy()
-    else:
-        df_other_ops = pd.DataFrame(columns=OPERATOR_COLUMNS)
-
     op_records = []
     op_name_to_id = {}
+
+    # 略称マッピング定義
+    OP_SHORT_NAMES = {
+        '東日本旅客鉄道': 'JR東日本', '東海旅客鉄道': 'JR東海', '西日本旅客鉄道': 'JR西日本',
+        '北海道旅客鉄道': 'JR北海道', '四国旅客鉄道': 'JR四国', '九州旅客鉄道': 'JR九州',
+        '日本貨物鉄道': 'JR貨物', '東京地下鉄': '東京メトロ', '東京都交通局': '都営地下鉄',
+        '大阪市高速電気軌道': 'Osaka Metro', '首都圏新都市鉄道': 'つくばエクスプレス',
+        '東京臨海高速鉄道': 'りんかい線', '名古屋鉄道': '名鉄', '近畿日本鉄道': '近鉄',
+        '阪急電鉄': '阪急', '阪神電気鉄道': '阪神', '京阪電気鉄道': '京阪',
+        '南海電気鉄道': '南海', '西日本鉄道': '西鉄', '東武鉄道': '東武',
+        '西武鉄道': '西武', '京成電鉄': '京成', '京王電鉄': '京王',
+        '小田急電鉄': '小田急', '東急電鉄': '東急', '京浜急行電鉄': '京急',
+        '相模鉄道': '相鉄'
+    }
 
     for o in raw_ops:
         art = o['article']
@@ -248,12 +272,19 @@ def main():
         }
         op_id, is_new = id_mgr.get_or_assign_id('operators', 'JP', rec_for_id)
 
+        short_name = OP_SHORT_NAMES.get(full_name, disp if disp != full_name else "")
+
         op_records.append({
             'operator_id': op_id,
             'country_code': 'JP',
             '日本語名': full_name,
-            '公用語名': en_title,
+            '公用語名': full_name,  # 日本の事業者の公用語名は日本語正式名
+            '略称': short_name,
             '種別': o['type'],
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
             '状態': '現存',
             'Wikipedia_ja': wiki_url,
             'Wikipedia_en': en_url,
@@ -262,31 +293,65 @@ def main():
         })
         op_name_to_id[art] = op_id
         op_name_to_id[disp] = op_id
-        if '東日本旅客鉄道' in art: op_name_to_id['JR東日本'] = op_id
-        if '東海旅客鉄道' in art: op_name_to_id['JR東海'] = op_id
-        if '西日本旅客鉄道' in art: op_name_to_id['JR西日本'] = op_id
-        if '北海道旅客鉄道' in art: op_name_to_id['JR北海道'] = op_id
-        if '四国旅客鉄道' in art: op_name_to_id['JR四国'] = op_id
-        if '九州旅客鉄道' in art: op_name_to_id['JR九州'] = op_id
-        if '日本貨物鉄道' in art: op_name_to_id['JR貨物'] = op_id
-        if '東京地下鉄' in art: op_name_to_id['東京メトロ'] = op_id
-        if '東京都交通局' in art: op_name_to_id['都営地下鉄'] = op_id
-        if '大阪市高速電気軌道' in art: op_name_to_id['Osaka Metro'] = op_id
+        op_name_to_id[full_name] = op_id
+        if short_name:
+            op_name_to_id[short_name] = op_id
 
-    df_jp_rail_ops = pd.DataFrame(op_records, columns=OPERATOR_COLUMNS)
-    rail_op_types = ['特殊会社（JRグループ）', '民間（私鉄）', '地方公営企業', '第三セクター', '貨物専業鉄道', '一般鉄軌道事業者']
-    id_mgr.save_merged_master('operators', df_jp_rail_ops, 'JP', rail_op_types)
+    # 道路管理者等（NEXCO・本四高速・都市高速公社等：10件）をバックアップから新スキーマでマージ
+    road_ops_df = df_backup_ops[(df_backup_ops['country_code'] == 'JP') & (df_backup_ops['種別'].str.contains('道路|高速', na=False))].copy()
+    for _, r in road_ops_df.iterrows():
+        rec_for_id = {
+            'Wikidata': r.get('Wikidata', ''),
+            '種別': r.get('種別', ''),
+            '日本語名': r.get('日本語名', '')
+        }
+        r_op_id, _ = id_mgr.get_or_assign_id('operators', 'JP', rec_for_id)
+        op_records.append({
+            'operator_id': r_op_id,
+            'country_code': 'JP',
+            '日本語名': r['日本語名'],
+            '公用語名': r['日本語名'],
+            '略称': '',
+            '種別': r['種別'],
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
+            '状態': r.get('状態', '現存'),
+            'Wikipedia_ja': r.get('Wikipedia_ja', ''),
+            'Wikipedia_en': r.get('Wikipedia_en', ''),
+            'Wikipedia_local': '',
+            'Wikidata': r.get('Wikidata', '')
+        })
 
-    # 2. 路線収集
+    # ATの事業者（33件）をバックアップから新スキーマでマージ
+    at_ops_df = df_backup_ops[df_backup_ops['country_code'] == 'AT'].copy()
+    at_op_records = []
+    for _, r in at_ops_df.iterrows():
+        at_op_records.append({
+            'operator_id': r['operator_id'],
+            'country_code': 'AT',
+            '日本語名': r['日本語名'],
+            '公用語名': r['公用語名'],
+            '略称': '',
+            '種別': r['種別'],
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
+            '状態': r.get('状態', '現存'),
+            'Wikipedia_ja': r.get('Wikipedia_ja', ''),
+            'Wikipedia_en': r.get('Wikipedia_en', ''),
+            'Wikipedia_local': r.get('Wikipedia_local', ''),
+            'Wikidata': r.get('Wikidata', '')
+        })
+
+    df_all_ops = pd.DataFrame(op_records + at_op_records, columns=OPERATOR_COLUMNS)
+    df_all_ops.to_csv(OPERATORS_CSV, index=False, encoding='utf-8')
+    print(f"operators.csv 保存完了: 計 {len(df_all_ops)} 社 (JP鉄軌道: {len(raw_ops)}, JP道路: {len(road_ops_df)}, AT: {len(at_op_records)})")
+
+    # 2. 鉄軌道路線収集
     raw_routes = fetch_railway_routes_from_wikidata()
-
-    # 既存のJP鉄軌道以外の路線（道路路線、AT路線等）を保持
-    df_existing_routes = id_mgr.existing_records.get('transport_routes', pd.DataFrame())
-    rail_types = {'新幹線', '地下鉄', 'モノレール', '路面電車', '索道・鋼索', '新交通システム', '貨物鉄道', '鉄道'}
-    if len(df_existing_routes) > 0 and 'country_code' in df_existing_routes.columns and '種別' in df_existing_routes.columns:
-        df_other_routes = df_existing_routes[~((df_existing_routes['country_code'] == 'JP') & (df_existing_routes['種別'].isin(rail_types)))].copy()
-    else:
-        df_other_routes = pd.DataFrame(columns=ROUTE_COLUMNS)
 
     route_records = []
     seen_routes = set()
@@ -310,7 +375,7 @@ def main():
             r_type = '地下鉄'
         elif 'モノレール' in name:
             r_type = 'モノレール'
-        elif '路面電車' in name or '軌道' in name or '市電' in name or 'トラム' in name:
+        elif '路面電車' in name or '軌道' in name or '市電' in name or 'トラム' in name or 'ライトレール' in name:
             r_type = '路面電車'
         elif '索道' in name or 'ロープウェイ' in name or 'ケーブルカー' in name or '鋼索鉄道' in name:
             r_type = '索道・鋼索'
@@ -334,15 +399,24 @@ def main():
             '通過国コード': '',
             '路線番号_記号': r['route_num'],
             '日本語名': name,
-            '公用語名': '',
+            '公用語名': name,
             '別称_愛称': r['nickname'],
             '種別': r_type,
             'operator_id': op_id,
             '上位_国際路線_ids': '',
-            '状態': '運用中',
+            'ラインカラー': '',
+            'ライン記号': '',
+            '起点ノード_id': '',
+            '終点ノード_id': '',
+            '営業キロ': '',
+            '軌間': '',
+            '電化方式': '',
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
+            '状態': '現用',
             '時代区分': '現代',
-            '起点': r['start'],
-            '終点': r['end'],
             'Wikipedia_ja': r['article_ja'],
             'Wikipedia_en': r['article_en'],
             'Wikipedia_local': '',
@@ -351,8 +425,88 @@ def main():
             'GoogleMap': ''
         })
 
-    df_jp_rail_routes = pd.DataFrame(route_records, columns=ROUTE_COLUMNS)
-    id_mgr.save_merged_master('transport_routes', df_jp_rail_routes, 'JP', list(rail_types))
+    # バックアップから日本の道路路線（3,279件）を新29カラムスキーマでマージ
+    jp_road_routes_df = df_backup_rts[(df_backup_rts['country_code'] == 'JP') & (df_backup_rts['種別'].isin(['主要地方道', '一般国道', '地域高規格道路・有料道路', '高速道路']))].copy()
+    jp_road_records = []
+    for _, r in jp_road_routes_df.iterrows():
+        rec_for_id = {
+            'Wikidata': r.get('Wikidata', ''),
+            '種別': r.get('種別', ''),
+            '日本語名': r.get('日本語名', ''),
+            '路線番号_記号': r.get('路線番号_記号', '')
+        }
+        road_rt_id, _ = id_mgr.get_or_assign_id('transport_routes', 'JP', rec_for_id)
+        jp_road_records.append({
+            'route_id': road_rt_id,
+            'country_code': 'JP',
+            '通過国コード': r.get('通過国コード', ''),
+            '路線番号_記号': r.get('路線番号_記号', ''),
+            '日本語名': r['日本語名'],
+            '公用語名': r['日本語名'],
+            '別称_愛称': r.get('別称_愛称', ''),
+            '種別': r['種別'],
+            'operator_id': r.get('operator_id', ''),
+            '上位_国際路線_ids': r.get('上位_国際路線_ids', ''),
+            'ラインカラー': '',
+            'ライン記号': '',
+            '起点ノード_id': '',
+            '終点ノード_id': '',
+            '営業キロ': '',
+            '軌間': '',
+            '電化方式': '',
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
+            '状態': r.get('状態', '現用'),
+            '時代区分': r.get('時代区分', '現代'),
+            'Wikipedia_ja': r.get('Wikipedia_ja', ''),
+            'Wikipedia_en': r.get('Wikipedia_en', ''),
+            'Wikipedia_local': '',
+            'Wikidata': r.get('Wikidata', ''),
+            'OpenStreetMap': r.get('OpenStreetMap', ''),
+            'GoogleMap': r.get('GoogleMap', '')
+        })
+
+    # バックアップからATの路線（497件）を新29カラムスキーマでマージ
+    at_routes_df = df_backup_rts[df_backup_rts['country_code'] == 'AT'].copy()
+    at_route_records = []
+    for _, r in at_routes_df.iterrows():
+        at_route_records.append({
+            'route_id': r['route_id'],
+            'country_code': 'AT',
+            '通過国コード': r.get('通過国コード', ''),
+            '路線番号_記号': r.get('路線番号_記号', ''),
+            '日本語名': r.get('日本語名', ''),
+            '公用語名': r.get('公用語名', ''),
+            '別称_愛称': r.get('別称_愛称', ''),
+            '種別': r.get('種別', ''),
+            'operator_id': r.get('operator_id', ''),
+            '上位_国際路線_ids': r.get('上位_国際路線_ids', ''),
+            'ラインカラー': '',
+            'ライン記号': '',
+            '起点ノード_id': '',
+            '終点ノード_id': '',
+            '営業キロ': '',
+            '軌間': '',
+            '電化方式': '',
+            '開始日': '',
+            '開始日_精度': '',
+            '終了日': '',
+            '終了日_精度': '',
+            '状態': r.get('状態', '現用'),
+            '時代区分': r.get('時代区分', '現代'),
+            'Wikipedia_ja': r.get('Wikipedia_ja', ''),
+            'Wikipedia_en': r.get('Wikipedia_en', ''),
+            'Wikipedia_local': r.get('Wikipedia_local', ''),
+            'Wikidata': r.get('Wikidata', ''),
+            'OpenStreetMap': r.get('OpenStreetMap', ''),
+            'GoogleMap': r.get('GoogleMap', '')
+        })
+
+    df_all_rts = pd.DataFrame(route_records + jp_road_records + at_route_records, columns=ROUTE_COLUMNS)
+    df_all_rts.to_csv(ROUTES_CSV, index=False, encoding='utf-8')
+    print(f"transport_routes.csv 保存完了: 計 {len(df_all_rts)} 路線 (JP鉄軌道: {len(route_records)}, JP道路: {len(jp_road_records)}, AT: {len(at_route_records)})")
 
 
 if __name__ == '__main__':
