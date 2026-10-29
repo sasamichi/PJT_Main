@@ -1,0 +1,8 @@
+{
+  "head" : {
+    "vars" : [ "item", "itemLabel", "lgcode", "parent", "parentLabel", "parentCoord", "parentArticle" ]
+  },
+  "results" : {
+    "bindings" : [ ]
+  }
+}

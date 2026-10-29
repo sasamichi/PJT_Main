@@ -1,10 +1,33 @@
 import os
+import shutil
+import glob
+from datetime import datetime
 import pandas as pd
-import streamlit as st
+
+try:
+    import streamlit as st
+except ImportError:
+    st = None
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MASTER_DATA_DIR = os.path.join(BASE_DIR, "data", "master")
+STAGING_JP_DIR = os.path.join(BASE_DIR, "data", "staging", "JP")
+BACKUP_DIR = os.path.join(BASE_DIR, "data", "backup")
 EXPLORER_URL = "http://localhost:8080"
+
+# 新方針「基盤の基盤」確定10テーブル体系
+MASTER_TABLES = [
+    "areas.csv",
+    "area_types.csv",
+    "countries.csv",
+    "country_progress.csv",
+    "data_sources.csv",
+    "operators.csv",
+    "transport_routes.csv",
+    "nodes.csv",
+    "edges.csv",
+    "exploration_logs.csv",
+]
 
 BASE_CSS = """
 <style>
@@ -54,15 +77,35 @@ button[data-baseweb="tab"] { color: #f8fafc; }
 </style>
 """
 
+# 白背景用クリーンホワイトテーマ（デフォルト）
+LIGHT_CSS = """
+<style>
+.stApp, [data-testid="stHeader"] { background: #ffffff !important; color: #0f172a; }
+[data-testid="stSidebar"] { background: #f8fafc; border-right: 1px solid #e2e8f0; }
+.stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5,
+[data-testid="stMarkdownContainer"] *, [data-testid="stWidgetLabel"] *,
+[data-testid="stCaptionContainer"] *, [data-testid="stMetric"] *,
+button[data-baseweb="tab"] { color: #0f172a; }
+.brand-bar .sub { color: #64748b; }
+[data-baseweb="select"] > div, [data-baseweb="input"] > div, textarea, input {
+  background: #ffffff !important; color: #0f172a !important; border-color: #cbd5e1 !important;
+}
+[data-baseweb="popover"] ul { background: #ffffff; }
+[data-testid="stForm"] { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; }
+[data-testid="stAlert"] { background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a; }
+[data-testid="stMetric"] { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+</style>
+"""
+
 
 def render_header(subtitle):
-    """机上探索 Web GIS と共通のヘッダー（ブランド・黒/白テーマ切替・GISへのリンク）を描画する。
-    テーマは ?theme=dark|light のURLパラメータで探索ツールから引き継ぐ。"""
+    """机上探索 Web GIS と共通のヘッダーを描画する。デフォルトは白背景（lightテーマ）。"""
     if "theme" not in st.session_state:
         st.session_state["theme"] = "dark" if st.query_params.get("theme") == "dark" else "light"
     theme = st.session_state["theme"]
 
-    st.markdown(BASE_CSS + (DARK_CSS if theme == "dark" else ""), unsafe_allow_html=True)
+    theme_css = DARK_CSS if theme == "dark" else LIGHT_CSS
+    st.markdown(BASE_CSS + theme_css, unsafe_allow_html=True)
 
     col_brand, col_theme, col_gis, col_pub = st.columns([4.3, 1.7, 2.0, 2.0])
     with col_brand:
@@ -86,42 +129,123 @@ def render_header(subtitle):
 
 
 def read_csv_clean(filename):
-    path = os.path.join(MASTER_DATA_DIR, filename)
-    if not os.path.exists(path):
+    """CSVをクリーンに読み込む。masterが空または不在の場合はstaging/JPからフォールバック"""
+    master_path = os.path.join(MASTER_DATA_DIR, filename)
+    target_path = master_path
+    
+    # masterが存在しないか、空ファイル（ヘッダのみや0バイト）の場合、staging/JPをフォールバック確認
+    if not os.path.exists(master_path) or os.path.getsize(master_path) == 0:
+        staging_path = os.path.join(STAGING_JP_DIR, filename)
+        if os.path.exists(staging_path) and os.path.getsize(staging_path) > 0:
+            target_path = staging_path
+
+    if not os.path.exists(target_path) or os.path.getsize(target_path) == 0:
         return pd.DataFrame()
-    df = pd.read_csv(path, encoding="utf-8", keep_default_na=False, dtype=str).fillna("")
-    for col in df.columns:
-        df[col] = df[col].astype(str).str.strip()
-    return df
+
+    try:
+        df = pd.read_csv(target_path, encoding="utf-8", keep_default_na=False, dtype=str).fillna("")
+        for col in df.columns:
+            df[col] = df[col].astype(str).str.strip()
+        return df
+    except Exception:
+        return pd.DataFrame()
 
 
 def save_csv_clean(df, filename):
+    """data/master/ にBOMなしUTF-8で保存"""
+    os.makedirs(MASTER_DATA_DIR, exist_ok=True)
     path = os.path.join(MASTER_DATA_DIR, filename)
     df.to_csv(path, index=False, encoding="utf-8")
 
 
-def load_all_data():
-    # 新旧テーブル名の自動フォールバック対応
-    nodes_csv = "nodes.csv" if os.path.exists(os.path.join(MASTER_DATA_DIR, "nodes.csv")) else "transport_nodes.csv"
-    edges_csv = "edges.csv" if os.path.exists(os.path.join(MASTER_DATA_DIR, "edges.csv")) else "route_nodes.csv"
+def save_master_table_with_backup(df, filename):
+    """
+    保存前に既存の正本ファイルを data/backup/{filename}_{timestamp}.bak に退避し、
+    その後新しいDataFrameを data/master/{filename} に安全保存する。
+    """
+    os.makedirs(BACKUP_DIR, exist_ok=True)
+    master_path = os.path.join(MASTER_DATA_DIR, filename)
+    
+    backup_file_path = None
+    if os.path.exists(master_path) and os.path.getsize(master_path) > 0:
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        base_name = filename.replace(".csv", "")
+        backup_filename = f"{base_name}_{ts}.bak"
+        backup_file_path = os.path.join(BACKUP_DIR, backup_filename)
+        shutil.copy2(master_path, backup_file_path)
+    
+    save_csv_clean(df, filename)
+    return backup_file_path
 
-    return (
-        read_csv_clean("countries.csv"),
-        read_csv_clean("municipalities.csv"),
-        read_csv_clean("operators.csv"),
-        read_csv_clean("transport_routes.csv"),
-        read_csv_clean(nodes_csv),
-        read_csv_clean(edges_csv),
-        read_csv_clean("country_progress.csv"),
-    )
+
+def get_backup_history(filename, max_count=10):
+    """指定されたテーブルのバックアップ履歴一覧を新しい順で返す"""
+    if not os.path.exists(BACKUP_DIR):
+        return []
+    base_name = filename.replace(".csv", "")
+    pattern = os.path.join(BACKUP_DIR, f"{base_name}_*.bak")
+    files = glob.glob(pattern)
+    files.sort(key=os.path.getmtime, reverse=True)
+    
+    history = []
+    for f in files[:max_count]:
+        mtime = datetime.fromtimestamp(os.path.getmtime(f))
+        size = os.path.getsize(f)
+        history.append({
+            "path": f,
+            "filename": os.path.basename(f),
+            "timestamp": mtime.strftime("%Y-%m-%d %H:%M:%S"),
+            "size_kb": round(size / 1024, 1)
+        })
+    return history
+
+
+def restore_master_table_from_backup(filename, backup_path=None):
+    """
+    バックアップから正本テーブルを復元する。
+    backup_path が未指定の場合は最新のバックアップファイルを自動選択。
+    """
+    if backup_path is None:
+        history = get_backup_history(filename, max_count=1)
+        if not history:
+            raise FileNotFoundError(f"復元可能なバックアップファイルが存在しません: {filename}")
+        backup_path = history[0]["path"]
+
+    if not os.path.exists(backup_path):
+        raise FileNotFoundError(f"バックアップファイルが見つかりません: {backup_path}")
+
+    master_path = os.path.join(MASTER_DATA_DIR, filename)
+    # 現在のファイルも念のため直前退避
+    if os.path.exists(master_path) and os.path.getsize(master_path) > 0:
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        base_name = filename.replace(".csv", "")
+        pre_restore_bak = os.path.join(BACKUP_DIR, f"{base_name}_pre_restore_{ts}.bak")
+        shutil.copy2(master_path, pre_restore_bak)
+
+    shutil.copy2(backup_path, master_path)
+    return os.path.basename(backup_path)
+
+
+def load_all_master_tables():
+    """新方針「基盤の基盤」確定10テーブルの辞書を返す"""
+    return {t: read_csv_clean(t) for t in MASTER_TABLES}
 
 
 def load_all_12_tables():
-    """全12テーブル確定スキーマの辞書を返す"""
-    tables = [
-        "countries.csv", "municipalities.csv", "weather_zones.csv",
-        "operators.csv", "transport_routes.csv", "nodes.csv", "edges.csv",
-        "historical_transitions.csv", "city_partnerships.csv", "theme_spots.csv",
-        "exploration_logs.csv", "country_progress.csv"
-    ]
-    return {t: read_csv_clean(t) for t in tables}
+    """下位互換性用エイリアス"""
+    return load_all_master_tables()
+
+
+def load_all_data():
+    """主要テーブルを個別のDataFrameとして返す"""
+    tables = load_all_master_tables()
+    return (
+        tables.get("countries.csv", pd.DataFrame()),
+        tables.get("areas.csv", pd.DataFrame()),
+        tables.get("area_types.csv", pd.DataFrame()),
+        tables.get("operators.csv", pd.DataFrame()),
+        tables.get("transport_routes.csv", pd.DataFrame()),
+        tables.get("nodes.csv", pd.DataFrame()),
+        tables.get("edges.csv", pd.DataFrame()),
+        tables.get("country_progress.csv", pd.DataFrame()),
+    )

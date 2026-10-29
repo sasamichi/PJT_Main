@@ -1,0 +1,528 @@
+/* minimal.css: 最低限Webサイト（仮）専用スタイルシート (テーブル表示 ＆ 多層ツリー対応) */
+:root {
+  --primary: #1e3a8a;
+  --primary-light: #3b82f6;
+  --primary-bg: #eff6ff;
+  --bg-main: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-sub: #475569;
+  --text-muted: #94a3b8;
+  --border: #e2e8f0;
+  --border-focus: #3b82f6;
+  --badge-rail: #2563eb;
+  --badge-air: #0284c7;
+  --badge-sea: #0d9488;
+  --badge-road: #d97706;
+  --badge-met: #059669;
+  --badge-admin: #64748b;
+  --radius: 6px;
+  --shadow: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.45;
+  font-size: 13px;
+}
+
+/* ヘッダー・ナビゲーション */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+
+.brand-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.brand-badge {
+  font-size: 10px;
+  padding: 1px 5px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  color: var(--text-sub);
+}
+
+.header-nav {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.nav-tab-btn {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: var(--text-sub);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s;
+}
+
+.nav-tab-btn:hover {
+  background: var(--primary-bg);
+  color: var(--primary);
+  border-color: var(--primary-light);
+}
+
+.nav-tab-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+/* パンくずバー */
+.breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--text-sub);
+  padding: 6px 10px;
+  background: #ffffff;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.bc-item {
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.bc-item.active {
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: default;
+}
+
+.bc-sep {
+  color: var(--text-muted);
+}
+
+/* メインコンテナ */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+/* 検索ボックス */
+.search-box-card {
+  background: var(--card-bg);
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 32px 8px 30px;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  outline: none;
+  background: #f8fafc;
+}
+
+.search-input:focus {
+  border-color: var(--border-focus);
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: none;
+}
+
+/* コンテンツ枠 */
+.tree-results-card {
+  background: var(--card-bg);
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* =========================================================
+   テーブル表示スタイル (スマホ・PC両対応)
+   ========================================================= */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+.data-table th {
+  background: #f1f5f9;
+  color: var(--text-sub);
+  font-weight: 700;
+  text-align: left;
+  padding: 7px 10px;
+  border-bottom: 2px solid #cbd5e1;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.data-table tbody tr:hover td {
+  background-color: #f8fafc;
+}
+
+.data-table tr.clickable-row {
+  cursor: pointer;
+}
+
+.data-table tr.japan-row td {
+  background-color: #eff6ff;
+}
+
+.data-table tr.japan-row:hover td {
+  background-color: #dbeafe;
+}
+
+.data-table tr.highlight td {
+  background-color: #fef2f2 !important;
+  animation: pulse-row 2s ease-in-out;
+}
+
+@keyframes pulse-row {
+  0% { background-color: #fee2e2; }
+  50% { background-color: #fecaca; }
+  100% { background-color: #ffffff; }
+}
+
+/* =========================================================
+   多層ツリー構造スタイル (地方 ➔ 都道府県 ➔ 市区町村 ➔ 拠点表)
+   ========================================================= */
+.tree-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tree-branch {
+  border-left: 2px solid #cbd5e1;
+  margin-left: 10px;
+  padding-left: 8px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+.tree-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s;
+  margin-bottom: 2px;
+}
+
+.tree-row:hover {
+  border-color: #94a3b8;
+}
+
+/* 第1階層: 地方 */
+.tree-row-l1 {
+  background: #e2e8f0;
+  font-weight: 700;
+  font-size: 13px;
+  color: #0f172a;
+}
+.tree-row-l1:hover { background: #cbd5e1; }
+
+/* 第2階層: 都道府県 */
+.tree-row-l2 {
+  background: #f1f5f9;
+  font-weight: 600;
+  font-size: 13px;
+  color: #1e293b;
+}
+.tree-row-l2:hover { background: #e2e8f0; }
+
+/* 第3階層: 政令指定都市 */
+.tree-row-l3-desig {
+  background: #eef2ff;
+  font-weight: 600;
+  font-size: 12px;
+  color: #1e3a8a;
+  border-color: #c7d2fe;
+}
+.tree-row-l3-desig:hover { background: #e0e7ff; }
+
+/* 第3/4階層: 市区町村・行政区 */
+.tree-row-l3 {
+  background: #ffffff;
+  font-weight: 600;
+  font-size: 12px;
+  color: #334155;
+}
+.tree-row-l3:hover { background: #f8fafc; }
+
+.tree-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tree-arrow {
+  display: inline-block;
+  width: 14px;
+  font-size: 10px;
+  color: var(--text-sub);
+  text-align: center;
+  transition: transform 0.15s;
+}
+
+.tree-arrow.open {
+  transform: rotate(90deg);
+}
+
+.tree-count {
+  font-size: 11px;
+  font-weight: normal;
+  color: var(--text-sub);
+  background: rgba(255,255,255,0.7);
+  padding: 1px 6px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.tree-table-box {
+  margin: 4px 0 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* 種別バッジ */
+.badge-kind {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 3px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.badge-kind[data-kind*="鉄道"] { background-color: var(--badge-rail); }
+.badge-kind[data-kind*="空港"] { background-color: var(--badge-air); }
+.badge-kind[data-kind*="港湾"] { background-color: var(--badge-sea); }
+.badge-kind[data-kind*="IC"], .badge-kind[data-kind*="高速"] { background-color: var(--badge-road); }
+.badge-kind[data-kind*="道の駅"] { background-color: #10b981; }
+.badge-kind[data-kind*="気象"] { background-color: var(--badge-met); }
+.badge-kind[data-kind*="役場"], .badge-kind[data-kind*="自治体"] { background-color: var(--badge-admin); }
+
+.map-link-btn {
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid var(--primary-light);
+  background: var(--primary-bg);
+  color: var(--primary);
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.map-link-btn:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* 地図画面レイアウト */
+.map-layout {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 54px);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-filter-bar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 11px;
+  align-items: center;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  user-select: none;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.map-info-bar {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-sub);
+}
+
+/* Leaflet ポップアップ */
+.leaflet-popup-content {
+  margin: 10px 12px;
+  line-height: 1.4;
+  font-size: 12px;
+}
+
+.popup-title {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.popup-row {
+  margin: 2px 0;
+  font-size: 11px;
+  color: var(--text-sub);
+}
+
+.popup-back-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+  padding: 5px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #1e3a8a;
+  color: #ffffff !important;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.popup-back-btn:hover {
+  background: #2563eb;
+}
+
+/* スマホ向け最適化 */
+@media (max-width: 640px) {
+  .main-container { padding: 8px 6px; }
+  .tree-results-card { padding: 8px; }
+  .data-table th, .data-table td { padding: 6px 6px; font-size: 11px; }
+  .hide-mobile { display: none; }
+  .tree-branch { margin-left: 6px; padding-left: 6px; }
+  .tree-table-box { margin-left: 4px; }
+  .tree-row { padding: 6px 8px; }
+}

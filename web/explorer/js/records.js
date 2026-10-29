@@ -31,8 +31,11 @@ function parseCoords(text) {
   return m ? [parseFloat(m[1]), parseFloat(m[2])] : null;
 }
 
+// 描画方法（ポイント／ルート）は専用列を持たず、ルート座標の有無で判定する（記録種別は探索カテゴリ）
+const isRouteLog = (log) => !!String(log["ルート座標"] || "").trim();
+
 const logLocation = (log) => {
-  if (log["記録種別"] === "ルート") return parseRoute(log["ルート座標"])[0] || null;
+  if (isRouteLog(log)) return parseRoute(log["ルート座標"])[0] || null;
   const lat = parseFloat(log["緯度"]), lon = parseFloat(log["経度"]);
   return Number.isFinite(lat) && Number.isFinite(lon) ? [lat, lon] : null;
 };
@@ -114,8 +117,12 @@ function initRecordPanel() {
   document.querySelectorAll(".panel-tab").forEach((t) => t.addEventListener("click", () => showTab(t.dataset.target)));
 
   $("log-country").addEventListener("change", (e) => {
-    focusOn(...COUNTRY_CENTERS[e.target.value], 12);
-    loadMasterOptions(e.target.value);
+    const cc = e.target.value;
+    focusOn(...COUNTRY_CENTERS[cc], 12);
+    loadMasterOptions(cc);
+    if (typeof updateAllTileSelectors === "function") {
+      updateAllTileSelectors(cc);
+    }
   });
   $("log-type").addEventListener("change", (e) => {
     setTool(e.target.value === "ルート" ? "route" : "point");
@@ -131,6 +138,15 @@ function initRecordPanel() {
   $("btn-cancel-edit").addEventListener("click", resetForm);
   $("exploration-form").addEventListener("submit", handleSubmit);
   $("logs-list-container").addEventListener("click", handleLogAction);
+
+  // 保存先振り分けラジオの切り替えリスナー
+  document.querySelectorAll('input[name="save-destination"]').forEach((r) => {
+    r.addEventListener("change", (e) => {
+      const isThemeSpot = e.target.value === "theme_spot";
+      $("fields-theme-spot").style.display = isThemeSpot ? "block" : "none";
+      $("field-log-category").style.display = isThemeSpot ? "none" : "block";
+    });
+  });
 
   ["log-title", "log-memo", "log-tags", "log-url"].forEach((id) => $(id).addEventListener("input", updateSnsDrafts));
   $("btn-copy-x").addEventListener("click", () => copyText("draft-x", "X用下書き"));
@@ -230,19 +246,58 @@ async function handleSubmit(e) {
     location = draft.point;
   }
 
+  const dest = document.querySelector('input[name="save-destination"]:checked')?.value || "log";
+  const svStatus = $("log-sv-status").value; // 確認済 / 未確認 / SVなし
+
+  // 1. 中世史跡への振り分け保存
+  if (dest === "theme_spot") {
+    const spotPayload = {
+      country_code: $("log-country").value,
+      日本語名: title,
+      種別: $("spot-category").value,
+      時代区分: $("spot-era").value,
+      関連人物_出来事: $("spot-person").value.trim(),
+      緯度: location[0].toFixed(6),
+      経度: location[1].toFixed(6),
+      近隣ノード_id: pickers.node.getIds()[0] || "",
+      municipality_id: pickers.municipality.getIds().join(","),
+      SV確認済: svStatus,
+      備考_解説: $("log-memo").value.trim(),
+      GoogleMap: `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${location[0].toFixed(6)},${location[1].toFixed(6)}`,
+      Wikipedia_ja: $("log-url").value.trim()
+    };
+    if (!spotPayload.municipality_id) return showToast("所在自治体を「対象自治体」から選択してください（必須）");
+    try {
+      const res = await apiSaveThemeSpot(spotPayload);
+      showToast(`中世史跡として登録しました (${res.spot.spot_id})`);
+      resetForm();
+      if (window.refreshThemeSpots) await window.refreshThemeSpots();
+    } catch (err) {
+      showToast("史跡の保存に失敗しました: " + err.message);
+    }
+    return;
+  }
+
+  // 2. 通常の探索ログ保存
+  const tags = $("log-tags").value.trim();
+  const memo = $("log-memo").value.trim();
+  if (!memo) return showToast("本文（探索メモ）を入力してください（必須）");
+  const geoguessr = { "確認済": "確認済", "未確認": "未確認", "SVなし": "対象外" }[svStatus];
+
   const payload = {
     country_code: $("log-country").value,
-    記録種別: isRoute ? "ルート" : "ポイント",
+    記録種別: $("log-category").value,
     タイトル: title,
     対象路線_ids: pickers.route.getIds().join(","),
-    対象拠点_ids: pickers.node.getIds().join(","),
+    対象ノード_ids: pickers.node.getIds().join(","),
     対象自治体_ids: pickers.municipality.getIds().join(","),
     緯度: location[0].toFixed(6),
     経度: location[1].toFixed(6),
     ルート座標: isRoute ? formatRoute(draft.route) : "",
-    タグ: $("log-tags").value.trim(),
-    本文: $("log-memo").value.trim(),
-    Webリンク: $("log-url").value.trim()
+    タグ: tags,
+    本文: memo,
+    Webリンク: $("log-url").value.trim(),
+    Geoguessr候補: geoguessr
   };
 
   try {
@@ -261,7 +316,7 @@ async function handleSubmit(e) {
 function editLog(logId) {
   const log = appLogs.find((l) => l.log_id === logId);
   if (!log) return;
-  const isRoute = log["記録種別"] === "ルート";
+  const isRoute = isRouteLog(log);
   const splitIds = (s) => String(s || "").match(ID_RE) || [];
 
   draft.editingId = null;
@@ -270,7 +325,8 @@ function editLog(logId) {
   draft.route = isRoute ? parseRoute(log["ルート座標"]) : [];
   draft.editingId = logId;
 
-  const cc = logId.split("-")[0];
+  // log_id は国コードを含まないため、関連IDの先頭（例: JP-RT-…）から対象国を推定する
+  const cc = ((String(log["対象路線_ids"] || "") + "," + String(log["対象ノード_ids"] || "") + "," + String(log["対象自治体_ids"] || "")).match(ID_RE) || [""])[0].split("-")[0];
   if (cc !== $("log-country").value && [...$("log-country").options].some((o) => o.value === cc)) {
     $("log-country").value = cc;
     loadMasterOptions(cc);
@@ -280,7 +336,9 @@ function editLog(logId) {
   $("log-memo").value = log["本文"];
   $("log-url").value = log["Webリンク"];
   pickers.route.setIds(splitIds(log["対象路線_ids"]));
-  pickers.node.setIds(splitIds(log["対象拠点_ids"]));
+  pickers.node.setIds(splitIds(log["対象ノード_ids"]));
+  $("log-category").value = log["記録種別"] || "鉄道探索";
+  $("log-sv-status").value = { "確認済": "確認済", "未確認": "未確認", "対象外": "SVなし" }[log["Geoguessr候補"]] || "未確認";
   pickers.municipality.setIds(splitIds(log["対象自治体_ids"]));
 
   showTab("tab-input");
@@ -346,7 +404,7 @@ function renderLogsList() {
     return;
   }
   box.innerHTML = appLogs.slice().reverse().map((l) => {
-    const isRoute = l["記録種別"] === "ルート";
+    const isRoute = isRouteLog(l);
     const memo = l["本文"] ? esc(l["本文"].slice(0, 60)) + (l["本文"].length > 60 ? "…" : "") : "";
     return `<div class="log-card">
       <div class="log-card-head"><strong>${esc(l.log_id)}</strong><span>${isRoute ? "〰️ ルート" : "📍 ポイント"} / ${esc(l["探索日"])}</span></div>

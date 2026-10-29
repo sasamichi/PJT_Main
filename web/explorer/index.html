@@ -30,11 +30,41 @@
         <button class="split-btn" data-layout="quad">⊞ 4画面</button>
       </div>
 
+      <!-- 探索モード切替 -->
+      <div style="display:flex; gap:6px;">
+        <button class="mode-btn active" id="btn-mode-tour" title="路線に沿って起点から終点へ進む">🚆 路線ツアー</button>
+        <button class="mode-btn" id="btn-mode-free" title="自由に地図を探索する">🧭 フリー探索</button>
+      </div>
+
       <div class="header-actions">
         <button class="btn-icon" id="btn-toggle-theme" title="背景色切り替え (黒/白)">🌙 黒背景</button>
         <a href="/public/" target="_blank" class="btn-icon" id="link-public" title="一般公開用Webサイト（プロトタイプ）を開く">🌐 公開サイト</a>
         <a href="http://localhost:8501/" target="_blank" class="btn-icon" id="link-admin" title="データ管理・品質保証ツールを開く">📊 データ管理へ</a>
         <button class="btn-primary" id="btn-toggle-record">📝 記録表示</button>
+      </div>
+    </div>
+
+    <!-- 路線ツアー専用ナビゲーションバー -->
+    <div class="header-tour" id="tour-nav-bar">
+      <div style="display:flex; align-items:center; gap:6px;">
+        <label style="font-size:12px; font-weight:700;">ツアー路線:</label>
+        <select id="tour-route-select" class="form-control" style="width: 220px; font-size:12px; height:28px;">
+          <option value="">路線を選択...</option>
+        </select>
+      </div>
+
+      <div class="tour-stepper" id="tour-stepper">
+        <button class="btn-icon" id="btn-tour-prev" title="前の駅・区間へ" disabled>◀ 前の駅</button>
+        <div class="tour-current-info" id="tour-current-info">路線を選択してください</div>
+        <button class="btn-icon" id="btn-tour-next" title="次の駅・区間へ" disabled>次の駅 ▶</button>
+      </div>
+
+      <div class="tour-meta" id="tour-meta">
+        <!-- 進捗・距離・駅番号 -->
+      </div>
+
+      <div style="margin-left:auto; display:flex; gap:6px;">
+        <button class="btn-icon" id="btn-tour-sv" title="現在駅のストリートビューを開く/閉じる">👀 ストリートビュー</button>
       </div>
     </div>
 
@@ -49,8 +79,10 @@
       </div>
 
       <div class="layers-group">
+        <label class="layer-toggle"><input type="checkbox" id="toggle-layer-edges" checked><span class="legend-dot" style="background:#3b82f6"></span><span>路線エッジ</span></label>
         <label class="layer-toggle"><input type="checkbox" id="toggle-layer-nodes" checked><span class="legend-dot" style="background:#2563eb"></span><span>登録拠点</span></label>
-        <label class="layer-toggle"><input type="checkbox" id="toggle-layer-mine" checked><span class="legend-dot" style="background:#f97316"></span><span>追加データ</span></label>
+        <label class="layer-toggle"><input type="checkbox" id="toggle-layer-spots" checked><span class="legend-dot" style="background:#b91c1c"></span><span>中世史跡</span></label>
+        <label class="layer-toggle"><input type="checkbox" id="toggle-layer-mine" checked><span class="legend-dot" style="background:#f97316"></span><span>探索ログ</span></label>
         <label class="layer-toggle"><input type="checkbox" id="toggle-layer-wiki" checked><span class="legend-dot" style="background:#a855f7"></span><span>Wikidata</span></label>
       </div>
     </div>
@@ -82,7 +114,7 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label>記録種別</label>
+              <label>描画方法</label>
               <select class="form-control" id="log-type">
                 <option value="ポイント">📍 ポイント</option>
                 <option value="ルート">〰️ ルート</option>
@@ -93,8 +125,69 @@
               <select class="form-control" id="log-country">
                 <option value="JP" selected>JP (日本)</option>
                 <option value="AT">AT (オーストリア)</option>
+                <option value="CH">CH (スイス)</option>
+                <option value="TW">TW (台湾)</option>
               </select>
             </div>
+          </div>
+
+          <div class="form-group" id="field-log-category">
+            <label>記録種別 *</label>
+            <select class="form-control" id="log-category">
+              <option value="鉄道探索">鉄道探索</option>
+              <option value="古道・街道探索">古道・街道探索</option>
+              <option value="峠・トンネル探訪">峠・トンネル探訪</option>
+              <option value="境界探訪">境界探訪</option>
+              <option value="中世史跡">中世史跡</option>
+            </select>
+          </div>
+
+          <!-- 保存先振り分け（探索ログ vs 中世史跡） -->
+          <div class="form-group" style="background:var(--bg-header); padding:8px 10px; border-radius:6px; border:1px solid var(--border-color);">
+            <label style="font-weight:700;">💾 保存先データ振り分け</label>
+            <div style="display:flex; gap:14px; font-size:12px; margin-top:4px;">
+              <label style="cursor:pointer;"><input type="radio" name="save-destination" value="log" checked> 📝 探索ログ (exploration_logs)</label>
+              <label style="cursor:pointer;"><input type="radio" name="save-destination" value="theme_spot"> 🏯 中世史跡 (theme_spots)</label>
+            </div>
+          </div>
+
+          <!-- 中世史跡選択時の入力欄 -->
+          <div id="fields-theme-spot" style="display:none; background:var(--bg-header); padding:10px; border-radius:6px; margin-bottom:10px; border:1px solid #b91c1c;">
+            <div class="form-group">
+              <label>中世史跡の種別</label>
+              <select class="form-control" id="spot-category">
+                <option value="城跡">城跡</option>
+                <option value="館跡">館跡</option>
+                <option value="古戦場">古戦場</option>
+                <option value="寺社">寺社</option>
+                <option value="関所">関所</option>
+                <option value="宿場">宿場</option>
+                <option value="遺跡">遺跡</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>時代区分 *</label>
+              <select class="form-control" id="spot-era">
+                <option value="中世全般">中世全般</option>
+                <option value="鎌倉">鎌倉</option>
+                <option value="南北朝">南北朝</option>
+                <option value="室町・戦国">室町・戦国</option>
+                <option value="安土桃山">安土桃山</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>関連人物・歴史的出来事</label>
+              <input type="text" class="form-control" id="spot-person" placeholder="例: 源義経、北条泰時、函館夜戦">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label style="font-weight:700; color:#0284c7;">👀 ストリートビュー確認 (Geoguessr候補)</label>
+            <select class="form-control" id="log-sv-status">
+              <option value="未確認">未確認</option>
+              <option value="確認済">確認済</option>
+              <option value="SVなし">SVなし</option>
+            </select>
           </div>
 
           <div class="form-group">
@@ -124,7 +217,7 @@
           </div>
 
           <div class="form-group">
-            <label>対象拠点 <span class="coord-indicator">表示中の地図周辺から選択</span></label>
+            <label>対象ノード <span class="coord-indicator">表示中の地図周辺から選択</span></label>
             <div class="chips" id="chips-node"></div>
             <input type="text" class="form-control" id="log-node" list="dl-node" placeholder="拠点名を入力して選択（複数可）" autocomplete="off">
             <datalist id="dl-node"></datalist>
@@ -170,8 +263,48 @@
 
       <!-- 蓄積ログ一覧 -->
       <div class="panel-body tab-content" id="tab-logs" hidden>
+        <div class="form-group" style="background:var(--bg-header); padding:10px; border-radius:6px; border:1px solid var(--border-color); margin-bottom:10px;">
+          <label style="font-weight:700;">📤 Geoguessr用エクスポート (map-making.app へインポート)</label>
+          <div style="font-size:11px; margin:4px 0;">🏯 中世史跡（SV確認済のみ）:
+            <a href="/api/export/geoguessr?theme=medieval&format=csv" download>CSV</a> /
+            <a href="/api/export/geoguessr?theme=medieval&format=json" download>JSON</a></div>
+          <div style="font-size:11px; margin:4px 0;">🚉 交通拠点（Geoguessr候補=確認済ログの対象ノード）:
+            <a href="/api/export/geoguessr?theme=transport&format=csv" download>CSV</a> /
+            <a href="/api/export/geoguessr?theme=transport&format=json" download>JSON</a></div>
+        </div>
         <div id="logs-list-container"></div>
       </div>
+    </div>
+  </div>
+
+  <!-- ストリートビュー・プレビュードロワー（初期折りたたみ） -->
+  <div id="sv-drawer" class="sv-drawer">
+    <div class="sv-header">
+      <span style="font-size:12px; font-weight:700;">👀 ストリートビュー / 現地プレビュー</span>
+      <button id="btn-close-sv" class="btn-icon" style="padding:2px 6px;" title="閉じる">✕</button>
+    </div>
+    <div class="sv-body" id="sv-body">
+      <div id="sv-placeholder" style="color:#aaa; display:flex; align-items:center; justify-content:center; height:100%; font-size:12px;">
+        地図上の地点を選択するか、ツアーを進めるとストリートビューが表示されます。
+      </div>
+      <iframe id="sv-iframe" src="" style="width:100%; height:100%; border:none; display:none;"></iframe>
+    </div>
+  </div>
+
+  <!-- 地図右クリック・コンテキストメニュー -->
+  <div id="map-context-menu" class="map-context-menu">
+    <div class="context-menu-item" id="ctx-open-sv">
+      <span>👀</span>
+      <span>この地点のストリートビューを開く</span>
+    </div>
+    <div class="context-menu-item" id="ctx-copy-coords">
+      <span>📋</span>
+      <span>座標をコピー (緯度, 経度)</span>
+    </div>
+    <div class="context-menu-divider"></div>
+    <div class="context-menu-item" id="ctx-add-point">
+      <span>📍</span>
+      <span>ここに探索ポイントを追加</span>
     </div>
   </div>
 

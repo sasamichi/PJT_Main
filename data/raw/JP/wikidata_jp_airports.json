@@ -1,0 +1,3773 @@
+{
+  "head" : {
+    "vars" : [ "item", "itemLabel", "iata", "icao", "coord", "website", "article" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q908296"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%8D%83%E6%AD%B3%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "CTS"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJCC"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(141.692283333 42.7752)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.hokkaido-airports.com/ja/new-chitose/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "新千歳空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1320088"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E8%8A%B1%E5%B7%BB%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HNA"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSI"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(141.135277777 39.428611111)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.hna-terminal.co.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "花巻空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q705963"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%9F%B3%E5%9E%A3%E7%A9%BA%E6%B8%AF_(%E5%88%9D%E4%BB%A3)"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "ISG"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "ROIG"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(124.186944444 24.344722222)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "旧石垣空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1141913"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%BE%8E%E4%BF%9D%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "YGJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(133.239166666 35.493333333)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.yonago-air.com/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "美保飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1196909"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OIM"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJTO"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.360277777 34.781944444)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "大島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1366065"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%85%AB%E5%B0%BE%E7%A9%BA%E6%B8%AF"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOY"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.602777777 34.596111111)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "八尾空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1046748"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%98%AA%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "ITM"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOO"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.438222222 34.785527777)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.osaka-airport.co.jp"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "大阪国際空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1334587"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%88%86%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OIT"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFO"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.737222222 33.479444444)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://oita-airport.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "大分空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1134491"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%AF%BE%E9%A6%AC%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "TSJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJDT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(129.330555555 34.285)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.tsushima-airport.co.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "対馬空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1141847"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%BE%B3%E4%B9%8B%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "TKN"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJKN"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(128.881388888 27.836388888)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "徳之島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1141511"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%B0%8F%E6%9D%BE%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KMQ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJNK"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(136.4075 36.393888888)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.komatsuairport.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "小松飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1148447"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%9A%A0%E5%B2%90%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OKI"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJNO"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(133.323333333 36.178333333)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.oki-airport.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "隠岐空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q679345"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%B8%AD%E9%83%A8%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "NGO"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJGG"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(136.805277777 34.858333333)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.centrair.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "中部国際空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q741372"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A5%9E%E6%88%B8%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "UKB"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBE"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.223888888 34.632777777)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kairport.co.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "神戸空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q741372"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A5%9E%E6%88%B8%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "UKB"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBE"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.223888888 34.632777777)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kairport.co.jp/chi1/index.html"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "神戸空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q741372"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A5%9E%E6%88%B8%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "UKB"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBE"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.223888888 34.632777777)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kairport.co.jp/chi2/index.html"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "神戸空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q741372"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A5%9E%E6%88%B8%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "UKB"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBE"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.223888888 34.632777777)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kairport.co.jp/eng/index.html"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "神戸空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q741372"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A5%9E%E6%88%B8%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "UKB"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBE"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.223888888 34.632777777)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kairport.co.jp/kor/index.html"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "神戸空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1156420"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%99%BE%E9%87%8C%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "IBR"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJAH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.414722222 36.181666666)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.ibaraki-airport.net/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "百里飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1156420"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%99%BE%E9%87%8C%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "IBR"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJAH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.414722222 36.181666666)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.ibaraki-airport.net/ko/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "百里飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1156420"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%99%BE%E9%87%8C%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "IBR"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJAH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.414722222 36.181666666)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.ibaraki-airport.net/zh-CN/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "百里飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1156420"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%99%BE%E9%87%8C%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "IBR"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJAH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.414722222 36.181666666)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.ibaraki-airport.net/zh-TW/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "百里飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1156420"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%99%BE%E9%87%8C%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "IBR"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJAH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.414722222 36.181666666)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.ibaraki-airport.net/en/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "百里飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1139412"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%87%BA%E9%9B%B2%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "IZO"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOC"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(132.89 35.413611111)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.izumo-airport.co.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "出雲空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1368344"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A8%9A%E5%86%85%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "WKJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJCW"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(141.802222222 45.404444444)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.hokkaido-airports.com/ja/wakkanai/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "稚内空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1155685"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%87%BD%E9%A4%A8%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HKD"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJCH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.821944444 41.77)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.hokkaido-airports.com/ja/hakodate/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "函館空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1197536"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%96%B0%E6%BD%9F%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KIJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSN"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.111666666 37.955833333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "新潟空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1366663"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%BD%90%E8%B3%80%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HSG"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFS"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(130.302222222 33.149722222)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://saga-ab.jp"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "佐賀空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1328906"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%B1%B1%E5%8F%A3%E5%AE%87%E9%83%A8%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "UBJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJDC"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.278611111 33.93)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.yamaguchiube-airport.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "山口宇部空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q713881"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%B3%A2%E7%85%A7%E9%96%93%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HTR"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RORH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(123.803888888 24.058333333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "波照間空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1322391"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OKJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOB"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(133.855277777 34.756944444)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.okayama-airport.org/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "岡山空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1016960"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%A4%A8%E8%83%BD%E4%BB%A3%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "ONJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSR"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.371666666 40.191944444)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://onj-airterminal.com/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "大館能代空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1336514"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A7%8B%E7%94%B0%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "AXT"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSK"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.218611111 39.615555555)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "秋田空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1368593"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%BC%8A%E6%B1%9F%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "IEJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RORE"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(127.786944444 26.7225)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "伊江島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1142453"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B3%B6%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "TKS"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOS"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(134.606388888 34.132777777)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.tokushima-airport.co.jp/english/index.html"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "徳島阿波おどり空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1049856"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%88%A9%E5%B0%BB%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "RIS"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJER"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(141.1875 45.241944444)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "利尻空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1191625"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%B1%B1%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "TOY"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJNT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(137.1875 36.648333333)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.toyama-airport.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "富山空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1019284"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%BD%90%E6%B8%A1%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "SDS"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSD"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(138.41416667 38.06111111)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "佐渡空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1322497"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "NKM"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJNA"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(136.924444444 35.255)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.nagoya-airport-bldg.co.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "名古屋飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1209993"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%9D%99%E5%B2%A1%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "FSZ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJNS"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(138.189444444 34.796111111)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.mtfuji-shizuokaairport.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "静岡空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1378640"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%B4%8E%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KMI"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFM"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.448611111 31.877222222)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.miyazaki-airport.co.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "宮崎空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1199773"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KMJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(130.855277777 32.837222222)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kumamoto-airport.co.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "熊本空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1054857"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "SDJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSS"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.916944444 38.139722222)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.sendai-airport.co.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "仙台空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1334587"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%88%86%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OIT"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFO"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.737222222 33.479444444)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.oita-airport.jp/en/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "大分空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q970339"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E8%AA%BF%E5%B8%83%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJTF"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.528055555 35.671666666)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kouwan.metro.tokyo.lg.jp/rito/tmg-airport/chofu/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "調布飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1333925"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%87%A7%E8%B7%AF%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KUH"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJCK"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(144.193055555 43.040833333)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.hokkaido-airports.com/ja/kushiro/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "釧路空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1064050"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%8D%97%E7%B4%80%E7%99%BD%E6%B5%9C%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "SHM"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBD"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.364444444 33.662222222)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://shirahama-airport.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "南紀白浜空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1030389"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%B2%A9%E5%9B%BD%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "IWK"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOI"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(132.244166666 34.145)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.mcasiwakuni.marines.mil/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "岩国飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1197455"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%82%A3%E8%A6%87%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OKA"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "ROAH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(127.645833333 26.195833333)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.naha-airport.co.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "那覇空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1156310"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%B9%BF%E5%85%90%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KOJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFK"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(130.721666666 31.8)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://koj-ab.co.jp/en/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "鹿児島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q708517"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%B8%8E%E9%82%A3%E5%9B%BD%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OGN"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "ROYN"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(122.979722222 24.4675)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "与那国空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1038664"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A3%B1%E5%B2%90%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "IKI"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJDB"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(129.785833333 33.749166666)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "壱岐空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1018757"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%B0%8F%E5%80%A4%E8%B3%80%E7%A9%BA%E6%B8%AF"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJDO"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(129.09027778 33.19083333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "小値賀空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1057877"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%8D%97%E5%A4%A7%E6%9D%B1%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "MMD"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "ROMD"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.263611111 25.846666666)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "南大東空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1156315"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%9F%A5%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KCZ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOK"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(133.669444444 33.546111111)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.kochiap.co.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "高知空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1137465"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "FUK"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFF"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(130.451666666 33.584444444)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.fukuoka-airport.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "福岡空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1332254"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%B8%AF%E5%BA%83%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OBO"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJCB"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(143.217222222 42.733333333)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.hokkaido-airports.com/ja/obihiro/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "帯広空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1334603"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%AB%98%E6%9D%BE%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "TAK"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(134.015555555 34.214166666)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.takamatsu-airport.com/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "高松空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q654922"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%B8%8B%E5%9C%B0%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "SHI"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RORS"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(125.144722222 24.826666666)"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://shimojishima.jp/"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "下地島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1432227"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A5%A5%E5%B0%BB%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OIR"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJEO"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.43277778 42.07166667)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "奥尻空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.town.okushiri.lg.jp/hotnews/hotnews_view.php?id=517"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q104811623"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(130.554444444 31.555833333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "鴨池空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q628429"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%9D%92%E6%A3%AE%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "AOJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSA"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.688611111 40.733333333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "青森空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.aomori-airport.jp"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q652331"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%9C%AC%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "MMJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJAF"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(137.922777777 36.166666666)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "松本空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.matsumoto-airport.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1931194"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%BD%86%E9%A6%AC%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "TJH"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(134.786944444 35.512777777)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "但馬飛行場"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.tajima-airport.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q35284166"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(133.3 33.95)"
+      },
+      "itemLabel" : {
+        "type" : "literal",
+        "value" : "Q35284166"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q651482"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A5%B3%E6%BA%80%E5%88%A5%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "MMB"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJCM"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(144.164166666 43.880555555)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "女満別空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.hokkaido-airports.com/ja/memanbetsu/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1927323"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%BA%84%E5%86%85%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "SYO"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSY"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.787222222 38.812222222)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "庄内空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.shonai-airport.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q387048"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%97%AD%E5%B7%9D%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "AKJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJEC"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(142.4475 43.670833333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "旭川空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.hokkaido-airports.com/ja/asahikawa/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4700615"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%98%8E%E9%87%8E%E9%A7%90%E5%B1%AF%E5%9C%B0"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOE"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(136.672222222 34.533888888)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "明野駐屯地"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q136375227"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "日本の空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2902428"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%97%AD%E5%B7%9D%E9%A7%90%E5%B1%AF%E5%9C%B0"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJCA"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(142.365833333 43.794722222)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "旭川駐屯地"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q193682"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%96%A2%E8%A5%BF%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KIX"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBB"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.230277777 34.430555555)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "関西国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kansai-airport.or.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q193682"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%96%A2%E8%A5%BF%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KIX"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBB"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.230277777 34.430555555)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "関西国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kansai-airport.or.jp/cn/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q193682"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%96%A2%E8%A5%BF%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KIX"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBB"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.230277777 34.430555555)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "関西国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kansai-airport.or.jp/en/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q193682"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%96%A2%E8%A5%BF%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KIX"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBB"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.230277777 34.430555555)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "関西国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kansai-airport.or.jp/kr/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q193682"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%96%A2%E8%A5%BF%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KIX"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBB"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(135.230277777 34.430555555)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "関西国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kansai-airport.or.jp/tw/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2235009"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A5%9E%E6%B4%A5%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJAZ"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.13361111 34.18944444)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "神津島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q11677285"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%B9%BF%E9%83%A8%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJ04"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.793056 42.044722)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "鹿部飛行場"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2901234"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%B2%96%E6%B0%B8%E8%89%AF%E9%83%A8%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OKE"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJKB"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(128.705555555 27.431666666)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "沖永良部空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7116694"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%B0%8F%E6%9C%88%E8%88%AA%E7%A9%BA%E5%9F%BA%E5%9C%B0"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOZ"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.052222222 34.045277777)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "小月航空基地"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q176187"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%B1%B1%E5%BD%A2%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "GAJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSC"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.371111111 38.411944444)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "山形空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.yamagata-airport.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q255345"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%B1%B1%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "MYJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOM"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(132.699722222 33.827222222)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "松山空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.matsuyama-airport.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q594223"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%8C%97%E4%B9%9D%E5%B7%9E%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KKJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFR"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.035 33.845555555)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "北九州空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.kitakyu-air.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3273382"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E8%A5%BF%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HIW"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJBH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(132.413888888 34.366944444)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "広島西飛行場"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.hij.airport.jp/nishi/index.html"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1930831"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%8C%97%E5%A4%A7%E6%9D%B1%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KTD"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RORK"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.326944444 25.944722222)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "北大東空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2512004"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%85%AB%E4%B8%88%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HAC"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJTH"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.785833333 33.115)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "八丈島空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://hachijoapo.net/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1433078"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%B3%A5%E5%8F%96%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "TTJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOR"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(134.1625 35.53)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "鳥取空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.ttj-ap-bld.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1432054"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%B4%8B%E5%88%A5%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "MBE"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJEB"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(143.404166666 44.304166666)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "紋別空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://mombetsu.jp/access/plane.html"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3273365"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A6%8F%E4%BA%95%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "FKJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJNF"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(136.22388889 36.14277778)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "福井空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.fukui-airport.com/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3273365"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A6%8F%E4%BA%95%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "FKJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJNF"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(136.22388889 36.14277778)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "福井空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.pref.fukui.lg.jp/doc/fukui-airport/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q11434817"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%9F%B3%E5%9E%A3%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "ISG"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "ROIG"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(124.245 24.396388888)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "石垣空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.ishigaki-airport.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q36454"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%88%90%E7%94%B0%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "NRT"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJAA"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.38845 35.7649)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "成田国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.narita-airport.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2902013"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%9C%AD%E5%B9%8C%E9%A3%9B%E8%A1%8C%E5%A0%B4"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "OKD"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJCO"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(141.381388888 43.1175)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "札幌飛行場"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.okadama-airport.co.jp/eng/index.html"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3273378"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%85%B6%E8%89%AF%E9%96%93%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KJP"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "ROKR"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(127.293333333 26.168333333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "慶良間空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1927346"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%96%9C%E7%95%8C%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KKX"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJKI"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(129.928055555 28.321388888)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "喜界空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q82240"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HIJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOA"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(132.919444444 34.436111111)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "広島空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.hij.airport.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q11370191"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%B9%9D%E5%B7%9E%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "九州国際空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q17988856"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E3%83%A4%E3%83%BC%E3%82%B9%E3%83%8C%E3%82%A4%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "ITU"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "UHSI"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(147.95583333 45.25638889)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "ヤースヌイ空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1433247"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%B1%8B%E4%B9%85%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "KUM"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFC"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(130.659166666 30.385555555)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "屋久島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1432159"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A8%AE%E5%AD%90%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "TNE"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFG"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(130.991666666 30.605)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "種子島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q138592032"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%9B%9B%E4%B8%87%E5%8D%81%E7%A9%BA%E6%B8%AF"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(132.956444444 32.963916666)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "四万十空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1430769"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A5%84%E7%BE%8E%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "ASJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJKA"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(129.7125 28.430833333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "奄美空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://amami-airport.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1430769"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A5%84%E7%BE%8E%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "ASJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJKA"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(129.7125 28.430833333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "奄美空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://amami-airport.co.jp/en/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3276359"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%B8%8A%E4%BA%94%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJDK"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(129.1925 33.01361111)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "上五島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3274784"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%98%B2%E5%BA%9C%E5%8C%97%E5%9F%BA%E5%9C%B0"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOF"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.549166666 34.034444444)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "防府北基地"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q60987150"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E3%81%B3%E3%82%8F%E3%81%93%E7%A9%BA%E6%B8%AF"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(136.211611111 35.037416666)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "びわこ空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1431559"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%9F%B3%E8%A6%8B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "IWJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJOW"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.790277777 34.676388888)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "石見空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://hagiiwami.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2902639"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E8%8A%A6%E5%B1%8B%E5%9F%BA%E5%9C%B0"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFA"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(130.653055555 33.883055555)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "芦屋基地"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3566938"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "MSJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSM"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(141.371944444 40.705277777)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "三沢空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://misawa-airport.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3275961"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A4%BC%E6%96%87%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "RBJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJCR"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(141.039166666 45.455)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "礼文空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q204853"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HND"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJTT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.781111111 35.553333333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "東京国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://tokyo-haneda.com/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q204853"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HND"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJTT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.781111111 35.553333333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "東京国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://tokyo-haneda.com/en/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q204853"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HND"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJTT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.781111111 35.553333333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "東京国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://tokyo-haneda.com/ko/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q204853"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HND"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJTT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.781111111 35.553333333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "東京国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://tokyo-haneda.com/zh-CHS"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q204853"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "HND"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJTT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.781111111 35.553333333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "東京国際空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://tokyo-haneda.com/zh-CHT"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6374903"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%9C%9E%E3%83%B6%E6%B5%A6%E9%A7%90%E5%B1%AF%E5%9C%B0"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJAK"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.193055555 36.034444444)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "霞ヶ浦駐屯地"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7903279"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%8C%97%E5%AE%87%E9%83%BD%E5%AE%AE%E9%A7%90%E5%B1%AF%E5%9C%B0"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "QUT"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJTU"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.870555555 36.514722222)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "北宇都宮駐屯地"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q177473"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "FKS"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJSF"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(140.428055555 37.2275)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "福島空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.fks-ab.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2233042"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%89%AF%E9%96%93%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "TRA"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RORT"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(124.675277777 24.653888888)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "多良間空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q255228"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%AF%89%E5%9F%8E%E5%9F%BA%E5%9C%B0"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFZ"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(131.040277777 33.685)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "築城基地"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2248108"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJAN"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.26861111 34.36944444)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "新島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1432192"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E8%83%BD%E7%99%BB%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "NTQ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJNW"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(136.962222222 37.293333333)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "能登空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://www.noto-airport.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3235075"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "UEO"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "ROKJ"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(126.713888888 26.363611111)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "久米島空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://kumejima-airport.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1431393"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A6%8F%E6%B1%9F%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "FUJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFE"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(128.832777777 32.666388888)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "福江空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "http://www.fuj.ecnet.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2234528"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%AE%85%E5%B3%B6%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "MYE"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJTQ"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(139.560277777 34.073611111)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "三宅島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q116725"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%8F%A4%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "MMY"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "ROMY"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(125.295 24.782777777)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "宮古空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://miyakoap.co.jp/"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1432123"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%B8%AD%E6%A8%99%E6%B4%A5%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "SHB"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJCN"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(144.96 43.5775)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "中標津空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q11596385"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%A8%AE%E5%AD%90%E5%B3%B6%E7%A9%BA%E6%B8%AF_(%E5%88%9D%E4%BB%A3)"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "TNE"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFG"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(130.95472222 30.54388889)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "種子島空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1927310"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E4%B8%8E%E8%AB%96%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "RNJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RORY"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(128.401666666 27.043888888)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "与論空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q252768"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E7%B2%9F%E5%9B%BD%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "AGJ"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RORA"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(127.240277777 26.592777777)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "粟国空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q55523965"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E6%92%AD%E7%A3%A8%E7%A9%BA%E6%B8%AF"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(134.692861111 34.895138888)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "播磨空港"
+      }
+    }, {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q133796"
+      },
+      "article" : {
+        "type" : "uri",
+        "value" : "https://ja.wikipedia.org/wiki/%E9%95%B7%E5%B4%8E%E7%A9%BA%E6%B8%AF"
+      },
+      "iata" : {
+        "type" : "literal",
+        "value" : "NGS"
+      },
+      "icao" : {
+        "type" : "literal",
+        "value" : "RJFU"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(129.913611111 32.916944444)"
+      },
+      "itemLabel" : {
+        "xml:lang" : "ja",
+        "type" : "literal",
+        "value" : "長崎空港"
+      },
+      "website" : {
+        "type" : "uri",
+        "value" : "https://nagasaki-airport.jp/"
+      }
+    } ]
+  }
+}

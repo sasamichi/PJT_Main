@@ -1,0 +1,357 @@
+{
+  "country_code": "AT",
+  "name": "オーストリア",
+  "flag": "🇦🇹",
+  "basic_info": {
+    "official_name": "オーストリア共和国",
+    "native_name": "Republik Österreich / Republic of Austria",
+    "government_type": "連邦共和制（9つの連邦州［Bundesländer］から構成される連邦国家）。地方行政の基本構造は、第1階層の連邦州（9州）、第2階層の連邦・州の一般行政管区である政治地区（Politischer Bezirk：79郡）および郡の行政機能を兼ねる憲章都市（Statutarstadt：15市）の計94地区、第3階層の基礎自治体（Gemeinde：2,092市町村）による階層構造をとる。連邦首都ウィーン（Wien）は、連邦州・憲章都市（政治地区）・基礎自治体の3階層の法的地位を単一領域で兼ね備える特別構造を有する。",
+    "official_languages": "ドイツ語（Deutsch：連邦全体の公用語）。地域的公認言語として、ブルゲンラント・クロアチア語およびハンガリー語（ブルゲンラント州）、スロベニア語（ケルンテン州・シュタイアーマルク州の一部）、チェコ語、スロバキア語、ロマ語、オーストリア手話が公認されている。",
+    "territory_bbox": "アルプス東部に位置する内陸国（面積83,894 km²）。緯度: 46.37°N〜49.04°N、経度: 9.48°E〜17.16°E。",
+    "special_regions": "海外領土・自治領は一切存在しない。国境上の地理的機能飛び地（準飛び地）として、チロル州ロイテ郡（Bezirk Reutte）の基礎自治体ユングホルツ（Jungholz, GKZ: `70818`：ツォークシュピッツェ山頂の1点のみで本土と接続し四方をドイツ領に囲まれる）およびフォアアールベルク州ブレゲンツ郡（Bezirk Bregenz）の基礎自治体ミッテルベルク（Mittelberg / Kleinwalsertal, GKZ: `80228`：アルプス山脈により道路網がドイツ側とのみ接続）が存在するほか、国内の州間飛地としてチロル州のリアンツ郡（Bezirk Lienz / 東チロル, GKZ: `707`）がザルツブルク州とイタリア国境により北チロル本領から分断されている。これらはいずれも行政法・統計・地籍上は特別な除外区域ではなく、通常の連邦州・政治地区・基礎自治体コード体系の内部に完全に統合されて扱われる。 ---"
+  },
+  "admin_hierarchy": {
+    "summary": "連邦憲法（B-VG）に基づく連邦州（9州）、政治地区（79郡＋15憲章都市＝94地区）、基礎自治体（2,092市町村）の3層構造。憲章都市（Statutarstadt）は基礎自治体と郡行政の機能を併せ持つ。",
+    "levels": [
+      {
+        "level": "1",
+        "name_ja": "連邦州",
+        "name_local": "Bundesland",
+        "scale": "9",
+        "description": "連邦憲法（B-VG）に基づく連邦構成州。独自の州政府・州法体系を持ち高度な自治権を有する。EU統計のNUTS 2と完全一致する。"
+      },
+      {
+        "level": "2",
+        "name_ja": "憲章都市（特別市）",
+        "name_local": "Stadt mit eigenem Statut (Statutarstadt)",
+        "scale": "15",
+        "description": "連邦憲法第116条第3項に基づき独自の都市憲章を持つ都市。基礎自治体（Gemeinde）の自治権と政治地区（郡行政庁）の管轄権を併せ持つ（94政治地区の内数かつ2,092基礎自治体の内数）。"
+      },
+      {
+        "level": "2",
+        "name_ja": "政治地区（郡）",
+        "name_local": "Politischer Bezirk (Verwaltungsbezirk)",
+        "scale": "79",
+        "description": "連邦および州の間接行政を担う郡行政庁（Bezirkshauptmannschaft）の管轄区域。自治権を持たない純粋な行政管区であり、憲章都市15市と合わせて計94の政治地区を構成する。"
+      },
+      {
+        "level": "2",
+        "name_ja": "司法管区（区裁判所管区）",
+        "name_local": "Gerichtsbezirk",
+        "scale": "113",
+        "description": "区裁判所（Bezirksgericht）の管轄区域。自治権を持たない司法行政単位であり、原則として複数の基礎自治体を束ねて政治地区の下位または同等に配置される（4桁コード）。"
+      },
+      {
+        "level": "3",
+        "name_ja": "市（一般市）",
+        "name_local": "Stadtgemeinde",
+        "scale": "186",
+        "description": "連邦憲法第116条に基づく基礎自治体のうち、州法により「市（Stadt）」の称号を付与された自治体（憲章都市15市を除く）。法的権限や自治権の範囲は市場町・一般町村と同一。"
+      },
+      {
+        "level": "3",
+        "name_ja": "市場町（町）",
+        "name_local": "Marktgemeinde",
+        "scale": "771",
+        "description": "基礎自治体のうち、州法により「市場町（Markt）」の称号を付与された自治体。法的権限や自治権の範囲は一般市や一般町村と同一。"
+      },
+      {
+        "level": "3",
+        "name_ja": "町村（一般ゲマインデ）",
+        "name_local": "Gemeinde (einfache Gemeinde / Landgemeinde)",
+        "scale": "1,120",
+        "description": "憲章都市（15）・一般市（186）・市場町（771）の称号を持たない基礎自治体。連邦憲法第116条に基づく完全な地方自治権を有し、4種別合計で全2,092基礎自治体（LAU）を構成する。"
+      },
+      {
+        "level": "4",
+        "name_ja": "市区（都市内行政区）",
+        "name_local": "Gemeindebezirk (Stadtbezirk)",
+        "scale": "40",
+        "description": "ウィーン市（23区）およびグラーツ市（17区）に置かれる都市内の下部行政区。独立した法人格はなく、市の内部行政単位として機能する。"
+      },
+      {
+        "level": "4",
+        "name_ja": "地籍区（カダスター区）",
+        "name_local": "Katastralgemeinde (KG)",
+        "scale": "7,850",
+        "description": "測量法（VermG）および連邦計量・測量局（BEV）のデジタル地籍図（DKM）・土地登記簿の最小管理区域。自治権はないが、全行政境界の幾何学的構成単位となる。"
+      }
+    ]
+  },
+  "weather_system": {
+    "agency_name": "オーストリア国立地質・地球物理・気候・気象研究所 (GeoSphere Austria)",
+    "agency_url": "https://www.geosphere.at/",
+    "agency_desc": "連邦教育・科学・研究省所管の研究機関。旧中央気象地球物理研究所（ZAMG）と連邦地質研究所（GBA）が2023年に統合発足したオーストリアの国家気象機関。",
+    "forecast_zones": [
+      {
+        "level_name": "連邦州予報区 (Bundesland)",
+        "scale": "9州",
+        "description": "広域天気予報の第1階層単位。"
+      },
+      {
+        "level_name": "政治地区予報区 (Bezirke)",
+        "scale": "94地区",
+        "description": "気象警報・防災情報の中間発表単位。"
+      },
+      {
+        "level_name": "基礎自治体局地予報 (Gemeinde)",
+        "scale": "2,092自治体",
+        "description": "市町村ピンポイント予報の配信単位。"
+      }
+    ],
+    "marine_zones": "内陸国のため海洋予報区なし（主要湖沼ボーデン湖・ノイジードル湖等の突風警報網を運用）。",
+    "observation_network": {
+      "network_name": "半自動気象観測網（TAWES: Teilautomatisches Wetterstationsnetz）",
+      "stations_scale": "約270〜280地点（全国自動観測所）",
+      "description": "気温・気圧・湿度・風向風速・降水量・日照時間を10分間隔で自動計測・オープンデータ配信（GeoSphere Austria Data Hub）。"
+    }
+  },
+  "transit_system": {
+    "road": {
+      "summary": "連邦道路法に基づくアウトバーン（A路線）、高速道路（S路線）、連邦州道路（B路線・L路線）、自治体道の体系。高速道路インフラは国有公社ASFINAGが一元管理・料金徴収（ヴィニエット・GO-Box）。",
+      "classifications": [
+        {
+          "category": "連邦道路（Bundesstraßen）",
+          "name_ja": "連邦アウトバーン（高速自動車国道相当）",
+          "name_local": "Bundesautobahnen（Bundesstraßen A）",
+          "law": "1971年連邦道路法 別表1（BStG 1971 Verzeichnis 1）",
+          "manager": "ASFINAG（連邦所有・用益権契約に基づく管理運営）",
+          "scale": "約1,756 km（A・S道路網合計2,278 km）"
+        },
+        {
+          "category": "連邦道路（Bundesstraßen）",
+          "name_ja": "連邦自動車専用道路（高規格幹線道路相当）",
+          "name_local": "Bundesschnellstraßen（Bundesstraßen S）",
+          "law": "1971年連邦道路法 別表2（BStG 1971 Verzeichnis 2）",
+          "manager": "ASFINAG（連邦所有・用益権契約に基づく管理運営）",
+          "scale": "約522 km（一部アウトバーン断面区間を含む）"
+        },
+        {
+          "category": "州道（Landesstraßen）",
+          "name_ja": "主要州道B（一般国道・主要幹線地方道相当）",
+          "name_local": "Landesstraßen B（Vorrangstraßen）",
+          "law": "各連邦州道路法（Landesstraßengesetze）",
+          "manager": "各連邦州政府（Amt der Landesregierung）",
+          "scale": "約10,000 km"
+        },
+        {
+          "category": "州道（Landesstraßen）",
+          "name_ja": "一般州道L（都道府県道・二次地方道相当）",
+          "name_local": "Landesstraßen L（Landesstraßen 1. und 2. Ordnung / Bezirksstraßen）",
+          "law": "各連邦州道路法（Landesstraßengesetze）",
+          "manager": "各連邦州政府（Amt der Landesregierung）",
+          "scale": "約24,000 km"
+        },
+        {
+          "category": "市町村道（Gemeindestraßen）",
+          "name_ja": "市町村道・都市内一般街路",
+          "name_local": "Gemeindestraßen",
+          "law": "各連邦州道路法・自治体条例",
+          "manager": "各基礎自治体（Gemeinden / Magistrat）",
+          "scale": "約90,000 km"
+        },
+        {
+          "category": "その他道路（Sonstige Straßen）",
+          "name_ja": "農道・林道・私道・特別有料山岳道路等",
+          "name_local": "Güterwege, Forststraßen, Privatstraßen",
+          "law": "1975年森林法・各州農業道路法・私法",
+          "manager": "森林所有者・農業組合・特別道路会社等",
+          "scale": "約100,000 km以上"
+        }
+      ],
+      "numbering_rules": "アウトバーンはA1〜A26、高速道路はS1〜S37。主要地方道路はB路線（B1〜B320）、州道はL路線（L1〜）。欧州自動車道路（E-routes）のE45, E55, E60等が重複指定。",
+      "management_notes": "高規格幹線道路（A/S路線 約2,250km）はASFINAGが管理。旧連邦道路B路線は連邦州に移管され州が管理。"
+    },
+    "railway": {
+      "summary": "鉄道法（Eisenbahngesetz）に基づく幹線鉄道、支線鉄道、トラム・路面電車、地下鉄（ウィーンU-Bahn）、索道。連邦鉄道ÖBBが全国の主要幹線・高速列車Railjetを運行。",
+      "classifications": [
+        {
+          "category": "公共鉄道（幹線）",
+          "name_ja": "主幹線鉄道（国際幹線・都市間長距離線・主要S-Bahn幹線）",
+          "name_local": "Öffentliche Eisenbahnen: Hauptbahnen",
+          "law": "1957年鉄道法 第2条・第4条第1項（EisbG § 2, § 4 Abs. 1）",
+          "lines_or_cities": "ÖBB-Infrastruktur AG 基幹網（Westbahn, Südbahn, Koralmbahn, Tauernbahn, Brennerbahn, Arlbergbahn等）"
+        },
+        {
+          "category": "公共鉄道（支線・地域鉄道）",
+          "name_ja": "地方鉄道・支線鉄道（全国網直通支線、独立狭軌鉄道、登山アプト式鉄道）",
+          "name_local": "Öffentliche Eisenbahnen: Nebenbahnen（vernetzte / nicht vernetzte）",
+          "law": "1957年鉄道法 第2条・第4条第2項（EisbG § 2, § 4 Abs. 2）",
+          "lines_or_cities": "ÖBB支線網、Raaberbahn、GKB、StLB、NÖVOG（Mariazellerbahn, Schneebergbahn）、Salzburg AG（Pinzgauer Lokalbahn, Schafbergbahn）、Zillertalbahn等"
+        },
+        {
+          "category": "都市鉄道・軌道・無軌条電車",
+          "name_ja": "地下鉄（U-Bahn）・路面電車（Straßenbahn / Tram）・トロリーバス（Obus）",
+          "name_local": "Straßenbahnen（U-Bahnen, Straßenbahnen, Oberleitungsomnibusse）",
+          "law": "1957年鉄道法 第5条（EisbG § 5）",
+          "lines_or_cities": "ウィーン（U-Bahn U1〜U6, Tram）、グラーツ（Tram）、リンツ（Tram, Pöstlingbergbahn, Obus）、インスブルック（Tram, Stubaitalbahn）、ザルツブルク（Obus）、グムンデン（Traunseetram）"
+        },
+        {
+          "category": "公共索道（普通索道・鋼索鉄道）",
+          "name_ja": "ケーブルカー（鋼索鉄道）・交走式ロープウェイ・普通ゴンドラリフト（都市交通・通年旅客用）",
+          "name_local": "Öffentliche Seilbahnen（Standseilbahnen, Pendelbahnen, Kabinen-Umlaufbahnen / EUB / ZUB / 3S）",
+          "law": "2003年索道法 第1条〜第3条（SeilbG 2003 §§ 1–3）",
+          "lines_or_cities": "インスブルック（Hungerburgbahn, Nordkettenbahnen）、ザルツブルク（FestungsBahn）、グラーツ（Schlossbergbahn）、主要通年ゴンドラ（8-EUB Acherkogelbahn等）"
+        },
+        {
+          "category": "非公共鉄道・特殊索道",
+          "name_ja": "専用引込線・工事鉱山用軌道・冬季スキー場内チェアリフト・Tバーリフト・貨物索道",
+          "name_local": "Nicht-öffentliche Eisenbahnen（Anschlussbahnen, Materialbahnen）, Sesselbahnen, Schlepplifte, Materialseilbahnen",
+          "law": "1957年鉄道法 第3条・第7条・第8条（EisbG §§ 3, 7, 8）／2003年索道法 第2条（SeilbG 2003 § 2）",
+          "lines_or_cities": "工場専用線（Anschlussbahnverzeichnis登録線）、スキー場内リフト設備等"
+        }
+      ],
+      "special_transit_notes": "山岳アルプス地域における交走式ロープウェイ・循環式ゴンドラリフト（索道：Seilbahn）が発達し、索道法に基づき厳格に法制化されている。",
+      "major_operators": [
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "lines": ""
+        }
+      ]
+    },
+    "bus": {
+      "summary": "連邦鉄道傘下のオーストリア郵便バス（Postbus）および各地域交通連合（VOR, OÖVV, SVV等）による統合運行。全国一括乗り放題の「Klimaticket（気候チケット）」が全土で導入されている。"
+    },
+    "maritime": {
+      "summary": "ドナウ川の水上交通（ウィーン〜ブラチスラヴァを結ぶTwin City Liner等）および主要山岳湖沼（ヴォルフガング湖、アッター湖、ボーデン湖等）の観光定期船運航。"
+    },
+    "aviation": {
+      "summary": "ウィーン国際空港（VIE）を最大ハブとし、グラーツ、リンツ、ザルツブルク、インスブルック、クラーゲンフルトの計6国際空港が機能。オーストリア航空（Lufthansaグループ）が基幹路線を運航。"
+    }
+  },
+  "official_portals": [
+    {
+      "category": "行政・統計",
+      "name": "オーストリア統計局 (Statistik Austria)",
+      "url": "https://www.statistik.at/",
+      "description": "地域区分・自治体台帳・国勢調査区オープンデータ"
+    },
+    {
+      "category": "行政・統計",
+      "name": "オーストリア政府総合オープンデータ (data.gv.at)",
+      "url": "https://www.data.gv.at/",
+      "description": "連邦・州・自治体横断のオープンデータカタログ"
+    },
+    {
+      "category": "地図・GIS",
+      "name": "公式背景地図 basemap.at",
+      "url": "https://basemap.at/",
+      "description": "連邦・全9州共同のオープン背景地図タイルサービス"
+    },
+    {
+      "category": "地図・GIS",
+      "name": "連邦計量・測量局 (BEV)",
+      "url": "https://kataster.bev.gv.at/",
+      "description": "公式地籍図・行政境界（VGD）・標高データ"
+    },
+    {
+      "category": "気象",
+      "name": "GeoSphere Austria Data Hub",
+      "url": "https://data.hub.geosphere.at/",
+      "description": "TAWES観測データ・気候値・気象警報オープンデータ"
+    },
+    {
+      "category": "交通",
+      "name": "ASFINAG 高速道路インフラ公社",
+      "url": "https://www.asfinag.at/",
+      "description": "高速道路網・交通流・料金体系情報"
+    },
+    {
+      "category": "交通",
+      "name": "オーストリア連邦鉄道 (ÖBB)",
+      "url": "https://www.oebb.at/",
+      "description": "全国鉄軌道時刻表・路線網"
+    }
+  ]
+}

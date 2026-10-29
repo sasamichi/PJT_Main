@@ -1,252 +1,252 @@
-country_code,日本語略名,日本語正式名,iso_3166_1_a3,iso_3166_1_nu,地域_国連区分,公用語,通貨,車両通行側,人口,人口_調査年,ccTLD,国際電話番号,開始日,開始日_精度,終了日,終了日_精度,状態,Wikipedia_ja,Wikipedia_en,Wikipedia_local,Wikidata,OpenStreetMap,GoogleMap
-INT,国際・多国籍,国際・多国籍機関/条約,INT,000,国際,"英語, フランス語等",-,-,,,-,-,,,,,現存,https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E6%A9%9F%E9%96%A2,https://en.wikipedia.org/wiki/International_organization,,,,
-AD,アンドラ,アンドラ,AND,20,南ヨーロッパ,カタルーニャ語,ユーロ,右,,,.ad,376,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%83%89%E3%83%A9,https://en.wikipedia.org/wiki/Andorra,,https://www.wikidata.org/wiki/Q228,9407,https://maps.app.goo.gl/ddtyuNDgbV61MUdx5
-AE,アラブ首長国連邦,アラブ首長国連邦,ARE,784,西アジア,アラビア語,UAEディルハム,右,,,.ae,971,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A9%E3%83%96%E9%A6%96%E9%95%B7%E5%9B%BD%E9%80%A3%E9%82%A6,https://en.wikipedia.org/wiki/United_Arab_Emirates,,https://www.wikidata.org/wiki/Q878,307763,https://maps.app.goo.gl/gwv3Q5qyzM5Mf5Jz8
-AF,アフガニスタン,アフガニスタン,AFG,4,南アジア,パシュトー語,アフガニ,右,,,.af,93,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%95%E3%82%AC%E3%83%8B%E3%82%B9%E3%82%BF%E3%83%B3,https://en.wikipedia.org/wiki/Afghanistan,,https://www.wikidata.org/wiki/Q889,303427,https://maps.app.goo.gl/86TchWSuM4uZvv6h8
-AG,アンティグア・バーブーダ,アンティグア・バーブーダ,ATG,28,カリブ海地域,英語,東カリブ・ドル,左,,,.ag,1-268,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%83%86%E3%82%A3%E3%82%B0%E3%82%A2%E3%83%BB%E3%83%90%E3%83%BC%E3%83%96%E3%83%BC%E3%83%80,https://en.wikipedia.org/wiki/Antigua_and_Barbuda,,https://www.wikidata.org/wiki/Q781,535610,https://maps.app.goo.gl/ycmuTTe9s1Cw3m6f9
-AI,アンギラ,アンギラ,AIA,660,カリブ海地域,英語,東カリブ・ドル,左,,,.ai,1-264,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%AE%E3%83%A9,https://en.wikipedia.org/wiki/Anguilla,,https://www.wikidata.org/wiki/Q25228,2177161,https://maps.app.goo.gl/qUsdm2vYa8dfJzAX9
-AL,アルバニア,アルバニア,ALB,8,南ヨーロッパ,アルバニア語,レク,右,,,.al,355,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%90%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Albania,,https://www.wikidata.org/wiki/Q222,53292,https://maps.app.goo.gl/pStB698TQ2PD1wQM6
-AM,アルメニア,アルメニア,ARM,51,西アジア,アルメニア語,ドラム,右,,,.am,374,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%A1%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Armenia,,https://www.wikidata.org/wiki/Q399,364066,https://maps.app.goo.gl/DQFtNfRKPA5Ft8dK7
-AO,アンゴラ,アンゴラ,AGO,24,中部アフリカ,ポルトガル語,クワンザ,右,,,.ao,244,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%B4%E3%83%A9,https://en.wikipedia.org/wiki/Angola,,https://www.wikidata.org/wiki/Q916,195267,https://maps.app.goo.gl/z9AsMXxHNRbeJ8Ti7
-AQ,南極,南極,ATA,10,南極,,,,,,,,,,,,現存,https://ja.wikipedia.org/wiki/%E5%8D%97%E6%A5%B5,https://en.wikipedia.org/wiki/Antarctica,,https://www.wikidata.org/wiki/Q1555938,2186646,https://maps.app.goo.gl/W5TXsSwqNuNADYGS7
-AR,アルゼンチン,アルゼンチン,ARG,32,南アメリカ,スペイン語,アルゼンチン・ペソ,右,,,.ar,54,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%82%BC%E3%83%B3%E3%83%81%E3%83%B3,https://en.wikipedia.org/wiki/Argentina,,https://www.wikidata.org/wiki/Q414,286393,https://maps.app.goo.gl/eBbsJuphUxSrvzua6
-AS,アメリカ領サモア,アメリカ領サモア,ASM,16,オセアニア,"英語, サモア語",アメリカ合衆国ドル,右,,,.as,1-684,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E9%A0%98%E3%82%B5%E3%83%A2%E3%82%A2,https://en.wikipedia.org/wiki/American_Samoa,,https://www.wikidata.org/wiki/Q16641,2177187,https://maps.app.goo.gl/ztLv1w3ADP9zuMcv5
-AT,オーストリア,オーストリア,AUT,40,西ヨーロッパ,ドイツ語,ユーロ,右,,,.at,43,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%82%B9%E3%83%88%E3%83%AA%E3%82%A2,https://en.wikipedia.org/wiki/Austria,,https://www.wikidata.org/wiki/Q40,16239,https://maps.app.goo.gl/FnidqfS6icViMQmH7
-AU,オーストラリア,オーストラリア,AUS,36,オセアニア,英語,オーストラリア・ドル,左,,,.au,61,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%AA%E3%82%A2,https://en.wikipedia.org/wiki/Australia,,https://www.wikidata.org/wiki/Q408,80500,https://maps.app.goo.gl/bKfwNatTGweyDKJy6
-AW,アルバ,アルバ,ABW,533,カリブ海地域,"オランダ語, パピアメント語",アルバ・フロリン,右,,,.aw,297,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%90,https://en.wikipedia.org/wiki/Aruba,,https://www.wikidata.org/wiki/Q21203,1216719,https://maps.app.goo.gl/B4KRzbKCAQAcJSXy9
-AX,オーランド諸島,オーランド諸島,ALA,248,北ヨーロッパ,スウェーデン語,ユーロ,右,,,.ax,358-18,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/%C3%85land_Islands,,https://www.wikidata.org/wiki/Q5689,1650407,https://maps.app.goo.gl/pyfVLk8KU3A17nkA8
-AZ,アゼルバイジャン,アゼルバイジャン,AZE,31,西アジア,アゼルバイジャン語,アゼルバイジャン・マナト,右,,,.az,994,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%BC%E3%83%AB%E3%83%90%E3%82%A4%E3%82%B8%E3%83%A3%E3%83%B3,https://en.wikipedia.org/wiki/Azerbaijan,,https://www.wikidata.org/wiki/Q227,364110,https://maps.app.goo.gl/xYAsoWaJiJWTEwdp7
-BA,ボスニア・ヘルツェゴビナ,ボスニア・ヘルツェゴビナ,BIH,70,南ヨーロッパ,"ボスニア語, セルビア語, クロアチア語",兌換マルク,右,,,.ba,387,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9C%E3%82%B9%E3%83%8B%E3%82%A2%E3%83%BB%E3%83%98%E3%83%AB%E3%83%84%E3%82%A7%E3%82%B4%E3%83%93%E3%83%8A,https://en.wikipedia.org/wiki/Bosnia_and_Herzegovina,,https://www.wikidata.org/wiki/Q225,2528142,https://maps.app.goo.gl/h14Lx74qvmQQSoCKA
-BB,バルバドス,バルバドス,BRB,52,カリブ海地域,英語,バルバドス・ドル,左,,,.bb,1-246,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%AB%E3%83%90%E3%83%89%E3%82%B9,https://en.wikipedia.org/wiki/Barbados,,https://www.wikidata.org/wiki/Q244,547511,https://maps.app.goo.gl/JEBBV6ASQBE3s8SNA
-BD,バングラデシュ,バングラデシュ,BGD,50,南アジア,ベンガル語,タカ,左,,,.bd,880,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%B3%E3%82%B0%E3%83%A9%E3%83%87%E3%82%B7%E3%83%A5,https://en.wikipedia.org/wiki/Bangladesh,,https://www.wikidata.org/wiki/Q902,184640,https://maps.app.goo.gl/oipcDdivRrXkB8Y4A
-BE,ベルギー,ベルギー,BEL,56,西ヨーロッパ,"オランダ語, フランス語, ドイツ語",ユーロ,右,,,.be,32,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%AB%E3%82%AE%E3%83%BC,https://en.wikipedia.org/wiki/Belgium,,https://www.wikidata.org/wiki/Q31,52411,https://maps.app.goo.gl/gYiXkqoXbTmmDWqF8
-BF,ブルキナファソ,ブルキナファソ,BFA,854,西アフリカ,フラニ語,CFAフラン,右,,,.bf,226,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%82%AD%E3%83%8A%E3%83%95%E3%82%A1%E3%82%BD,https://en.wikipedia.org/wiki/Burkina_Faso,,https://www.wikidata.org/wiki/Q965,192783,https://maps.app.goo.gl/XifKiZyC82MfdevY6
-BG,ブルガリア,ブルガリア,BGR,100,東ヨーロッパ,ブルガリア語,レフ,右,,,.bg,359,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%82%AC%E3%83%AA%E3%82%A2,https://en.wikipedia.org/wiki/Bulgaria,,https://www.wikidata.org/wiki/Q219,186382,https://maps.app.goo.gl/XAJQrsV26Tynyo5fA
-BH,バーレーン,バーレーン,BHR,48,西アジア,アラビア語,バーレーン・ディナール,右,,,.bh,973,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%BC%E3%83%AC%E3%83%BC%E3%83%B3,https://en.wikipedia.org/wiki/Bahrain,,https://www.wikidata.org/wiki/Q398,378734,https://maps.app.goo.gl/4FqhozQMw39DCfdQ8
-BI,ブルンジ,ブルンジ,BDI,108,東アフリカ,"ルンディ語, フランス語, 英語",ブルンジ・フラン,右,,,.bi,257,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%B3%E3%82%B8,https://en.wikipedia.org/wiki/Burundi,,https://www.wikidata.org/wiki/Q967,195269,https://maps.app.goo.gl/B6bAcgNqoqNfEor97
-BJ,ベナン,ベナン,BEN,204,西アフリカ,フランス語,CFAフラン,右,,,.bj,229,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%8A%E3%83%B3,https://en.wikipedia.org/wiki/Benin,,https://www.wikidata.org/wiki/Q962,192784,https://maps.app.goo.gl/P3ZbGZvoy7aYmJFu8
-BL,サン・バルテルミー,サン・バルテルミー,BLM,652,カリブ海地域,フランス語,ユーロ,右,,,.bl,590,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%BB%E3%83%90%E3%83%AB%E3%83%86%E3%83%AB%E3%83%9F%E3%83%BC%E5%B3%B6,https://en.wikipedia.org/wiki/Saint_Barth%C3%A9lemy,,https://www.wikidata.org/wiki/Q25362,2811720,https://maps.app.goo.gl/L8carVnwHE4FgMh86
-BM,バミューダ,バミューダ,BMU,60,北部アメリカ,"英語, ポルトガル語",バミューダ・ドル,左,,,.bm,1-441,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%9F%E3%83%A5%E3%83%BC%E3%83%80%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Bermuda,,https://www.wikidata.org/wiki/Q23635,1993208,https://maps.app.goo.gl/PYCdwLhjjUHDne8RA
-BN,ブルネイ,ブルネイ,BRN,96,東南アジア,マレー語,ブルネイ・ドル,左,,,.bn,673,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%8D%E3%82%A4,https://en.wikipedia.org/wiki/Brunei,,https://www.wikidata.org/wiki/Q921,2427873,https://maps.app.goo.gl/f1ZnhfRXbgJ4RcZTA
-BO,ボリビア,ボリビア,BOL,68,南アメリカ,"スペイン語, ケチュア語, アイマラ語, グアラニー語",ボリビアーノ,右,,,.bo,591,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%AA%E3%83%93%E3%82%A2,https://en.wikipedia.org/wiki/Bolivia,,https://www.wikidata.org/wiki/Q750,252645,https://maps.app.goo.gl/hCW5CRBUkCGAWMvf8
-BQ,ボネール、シント・ユースタティウス及びサバ,ボネール、シント・ユースタティウス及びサバ,BES,535,カリブ海地域,"オランダ語, 英語, パピアメント語",アメリカ合衆国ドル,右,,,.nl,599,,,,,現存,https://ja.wikipedia.org/wiki/BES%E8%AB%B8%E5%B3%B6,https://www.wikidata.org/wiki/Q27565,,https://www.wikidata.org/wiki/Q27561,1216720,https://maps.app.goo.gl/9PAhoVbKpNjuN4YbA
-BR,ブラジル,ブラジル,BRA,76,南アメリカ,ポルトガル語,レアル,右,,,.br,55,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%82%B8%E3%83%AB,https://en.wikipedia.org/wiki/Brazil,,https://www.wikidata.org/wiki/Q155,59470,https://maps.app.goo.gl/XuvXQDoJZj9WV1Vn9
-BS,バハマ,バハマ,BHS,44,カリブ海地域,英語,バハマ・ドル,左,,,.bs,1-242,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%8F%E3%83%9E,https://en.wikipedia.org/wiki/Bahamas,,https://www.wikidata.org/wiki/Q778,547469,https://maps.app.goo.gl/RGkktwhDsLbctZnJ7
-BT,ブータン,ブータン,BTN,64,南アジア,ゾンカ語,"インド・ルピー, ヌルタム",左,,,.bt,975,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%BC%E3%82%BF%E3%83%B3,https://en.wikipedia.org/wiki/Bhutan,,https://www.wikidata.org/wiki/Q917,184629,https://maps.app.goo.gl/pXMpC6QBeiqMJnbq9
-BV,ブーベ島,ブーベ島,BVT,74,南部アフリカ,,,,,,.bv,,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%BC%E3%83%99%E5%B3%B6,https://en.wikipedia.org/wiki/Bouvet_Island,,https://www.wikidata.org/wiki/Q23408,2234085,https://maps.app.goo.gl/poYN6LvTMpEhby5P6
-BW,ボツワナ,ボツワナ,BWA,72,南部アフリカ,"ツワナ語, 英語",プラ,左,,,.bw,267,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%84%E3%83%AF%E3%83%8A,https://en.wikipedia.org/wiki/Botswana,,https://www.wikidata.org/wiki/Q963,1889339,https://maps.app.goo.gl/VFCzMhnoq2NKp4pv7
-BY,ベラルーシ,ベラルーシ,BLR,112,東ヨーロッパ,"ベラルーシ語, ロシア語",ベラルーシ・ルーブル,右,,,.by,375,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%A9%E3%83%AB%E3%83%BC%E3%82%B7,https://en.wikipedia.org/wiki/Belarus,,https://www.wikidata.org/wiki/Q184,59065,https://maps.app.goo.gl/FWH38zMGPiNJ1qGg9
-BZ,ベリーズ,ベリーズ,BLZ,84,中央アメリカ,英語,ベリーズ・ドル,右,,,.bz,501,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%AA%E3%83%BC%E3%82%BA,https://en.wikipedia.org/wiki/Belize,,https://www.wikidata.org/wiki/Q242,286807,https://maps.app.goo.gl/HQtCMXYwi3K3Mbqe6
-CA,カナダ,カナダ,CAN,124,北部アメリカ,"英語, フランス語",カナダドル,右,,,.ca,1,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%8A%E3%83%80,https://en.wikipedia.org/wiki/Canada,,https://www.wikidata.org/wiki/Q16,1428125,https://maps.app.goo.gl/mLJt1nQcXe7MZUSo9
-CC,ココス（キーリング）諸島,ココス（キーリング）諸島,CCK,166,オセアニア,英語,オーストラリア・ドル,左,,,.cc,61-891,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%82%B3%E3%82%B9%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Cocos_(Keeling)_Islands,,https://www.wikidata.org/wiki/Q36004,2322004,https://maps.app.goo.gl/rLadd2YY2epSQYKL6
-CD,コンゴ民主共和国,コンゴ民主共和国,COD,180,中部アフリカ,フランス語,コンゴ・フラン,右,,,.cd,243,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%B4%E6%B0%91%E4%B8%BB%E5%85%B1%E5%92%8C%E5%9B%BD,https://en.wikipedia.org/wiki/Democratic_Republic_of_the_Congo,,https://www.wikidata.org/wiki/Q974,192795,https://maps.app.goo.gl/JkjBj2hDd2PbYcP26
-CF,中央アフリカ共和国,中央アフリカ共和国,CAF,140,中部アフリカ,"フランス語, サンゴ語","CFAフラン, ビットコイン",右,,,.cf,236,,,,,現存,https://ja.wikipedia.org/wiki/%E4%B8%AD%E5%A4%AE%E3%82%A2%E3%83%95%E3%83%AA%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD,https://en.wikipedia.org/wiki/Central_African_Republic,,https://www.wikidata.org/wiki/Q929,192790,https://maps.app.goo.gl/WiN8SU7f5vQxbVrR9
-CG,コンゴ,コンゴ,COG,178,中部アフリカ,フランス語,CFAフラン,右,,,.cg,242,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%B4%E5%85%B1%E5%92%8C%E5%9B%BD,https://en.wikipedia.org/wiki/Republic_of_the_Congo,,https://www.wikidata.org/wiki/Q971,192794,https://maps.app.goo.gl/gX7eswEJTpkrmMJv5
-CH,スイス,スイス,CHE,756,西ヨーロッパ,"ドイツ語, フランス語, イタリア語, ロマンシュ語",スイス・フラン,右,,,.ch,41,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%A4%E3%82%B9,https://en.wikipedia.org/wiki/Switzerland,,https://www.wikidata.org/wiki/Q39,51701,https://maps.app.goo.gl/QP9TrUHtwn6VJp7K8
-CI,コートジボワール,コートジボワール,CIV,384,西アフリカ,フランス語,CFAフラン,右,,,.ci,225,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%83%88%E3%82%B8%E3%83%9C%E3%83%AF%E3%83%BC%E3%83%AB,https://en.wikipedia.org/wiki/Ivory_Coast,,https://www.wikidata.org/wiki/Q1008,192779,https://maps.app.goo.gl/Kxvs1Y2FwWg2a8YH6
-CK,クック諸島,クック諸島,COK,184,オセアニア,英語,ニュージーランド・ドル,左,,,.ck,682,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%83%E3%82%AF%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Cook_Islands,,https://www.wikidata.org/wiki/Q26988,2185386,https://maps.app.goo.gl/wiKbMi5BPgRDrGbMA
-CL,チリ,チリ,CHL,152,南アメリカ,スペイン語,チリ・ペソ,右,,,.cl,56,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%AA,https://en.wikipedia.org/wiki/Chile,,https://www.wikidata.org/wiki/Q298,164360,https://maps.app.goo.gl/J1pZXyFr6MLGdcX59
-CM,カメルーン,カメルーン,CMR,120,中部アフリカ,"フランス語, 英語",CFAフラン,右,,,.cm,237,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%A1%E3%83%AB%E3%83%BC%E3%83%B3,https://en.wikipedia.org/wiki/Cameroon,,https://www.wikidata.org/wiki/Q1009,192830,https://maps.app.goo.gl/T16xLaUhkbGMPYwMA
-CN,中国,中国,CHN,156,東アジア,中国語,人民元,右,,,.cn,86,,,,,現存,https://ja.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD,https://en.wikipedia.org/wiki/China,,https://www.wikidata.org/wiki/Q148,270056,https://maps.app.goo.gl/7htpHa5STs7E5Bb3A
-CO,コロンビア,コロンビア,COL,170,南アメリカ,スペイン語,コロンビア・ペソ,右,,,.co,57,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%AD%E3%83%B3%E3%83%93%E3%82%A2,https://en.wikipedia.org/wiki/Colombia,,https://www.wikidata.org/wiki/Q739,120027,https://maps.app.goo.gl/Lw75XyEbKoTrRQ5q6
-CR,コスタリカ,コスタリカ,CRI,188,中央アメリカ,スペイン語,コスタリカ・コロン,右,,,.cr,506,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%82%B9%E3%82%BF%E3%83%AA%E3%82%AB,https://en.wikipedia.org/wiki/Costa_Rica,,https://www.wikidata.org/wiki/Q800,287667,https://maps.app.goo.gl/WVfTXUmq2WJiBgcw9
-CU,キューバ,キューバ,CUB,192,カリブ海地域,スペイン語,キューバ・ペソ,右,,,.cu,53,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%90,https://en.wikipedia.org/wiki/Cuba,,https://www.wikidata.org/wiki/Q241,307833,https://maps.app.goo.gl/uJPQfiMnSYFFXLoX6
-CV,カーボベルデ,カーボベルデ,CPV,132,西アフリカ,ポルトガル語,カーボベルデ・エスクード,右,,,.cv,238,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%BC%E3%83%9C%E3%83%99%E3%83%AB%E3%83%87,https://en.wikipedia.org/wiki/Cape_Verde,,https://www.wikidata.org/wiki/Q1011,192774,https://maps.app.goo.gl/K86ycMEQf5FwFxLW7
-CW,キュラソー,キュラソー,CUW,531,カリブ海地域,"オランダ語, パピアメント語, 英語",カリブ・ギルダー,右,,,.cw,599-9,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A5%E3%83%A9%E3%82%BD%E3%83%BC%E5%B3%B6,https://en.wikipedia.org/wiki/Cura%C3%A7ao,,https://www.wikidata.org/wiki/Q25279,1216718,https://maps.app.goo.gl/DD6G3XLm6q8R51YZ7
-CX,クリスマス島,クリスマス島,CXR,162,オセアニア,英語,オーストラリア・ドル,左,,,.cx,61,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%E5%B3%B6_(%E3%82%AA%E3%83%BC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%AA%E3%82%A2),https://en.wikipedia.org/wiki/Christmas_Island,,https://www.wikidata.org/wiki/Q31063,2322003,https://maps.app.goo.gl/j54ZthqW89V52XMK8
-CY,キプロス,キプロス,CYP,196,西アジア,"ギリシア語, トルコ語",ユーロ,左,,,.cy,357,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%97%E3%83%AD%E3%82%B9,https://en.wikipedia.org/wiki/Cyprus,,https://www.wikidata.org/wiki/Q229,307787,https://maps.app.goo.gl/uoFz8EnH7WsHZGJ48
-CZ,チェコ,チェコ,CZE,203,東ヨーロッパ,チェコ語,チェコ・コルナ,右,,,.cz,420,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%81%E3%82%A7%E3%82%B3,https://en.wikipedia.org/wiki/Czech_Republic,,https://www.wikidata.org/wiki/Q213,51684,https://maps.app.goo.gl/wEMeeHgqtsDRt6ENA
-DE,ドイツ,ドイツ,DEU,276,西ヨーロッパ,ドイツ語,ユーロ,右,,,.de,49,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%89%E3%82%A4%E3%83%84,https://en.wikipedia.org/wiki/Germany,,https://www.wikidata.org/wiki/Q183,51477,https://maps.app.goo.gl/5ds1fmSYpzo86nSo7
-DJ,ジブチ,ジブチ,DJI,262,東アフリカ,"アラビア語, フランス語",ジブチ・フラン,右,,,.dj,253,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%96%E3%83%81,https://en.wikipedia.org/wiki/Djibouti,,https://www.wikidata.org/wiki/Q977,192801,https://maps.app.goo.gl/EE9vHH4k7MmTN915A
-DK,デンマーク,デンマーク,DNK,208,北ヨーロッパ,デンマーク語,デンマーク・クローネ,右,,,.dk,45,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%B3%E3%83%9E%E3%83%BC%E3%82%AF,https://en.wikipedia.org/wiki/Denmark,,https://www.wikidata.org/wiki/Q35,50046,https://maps.app.goo.gl/hryxpLES6JMbs6T69
-DM,ドミニカ,ドミニカ,DMA,212,カリブ海地域,英語,東カリブ・ドル,左,,,.dm,1-767,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%9F%E3%83%8B%E3%82%AB%E5%9B%BD,https://en.wikipedia.org/wiki/Dominica,,https://www.wikidata.org/wiki/Q784,307823,"https://www.google.com/maps/place/%E3%83%89%E3%83%9F%E3%83%8B%E3%82%AB/@15.4261301,-61.6871692,107457m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8c14d2faf2155a15:0x49b39109053afd3c!8m2!3d15.414999!4d-61.370976!16zL20vMDI3bmI?authuser=0&entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
-DO,ドミニカ共和国,ドミニカ共和国,DOM,214,カリブ海地域,スペイン語,ドミニカ・ペソ,右,,,.do,1-809,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%9F%E3%83%8B%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD,https://en.wikipedia.org/wiki/Dominican_Republic,,https://www.wikidata.org/wiki/Q786,307828,"https://www.google.com/maps/place/%E3%83%89%E3%83%9F%E3%83%8B%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD/@18.5956574,-75.427253,1690458m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8eaf8838def1b6f5:0xa6020f24060df7e0!8m2!3d18.735693!4d-70.162651!16zL20vMDI3cm4?authuser=0&entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
-DZ,アルジェリア,アルジェリア,DZA,12,北アフリカ,アラビア語,アルジェリア・ディナール,右,,,.dz,213,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%82%B8%E3%82%A7%E3%83%AA%E3%82%A2,https://en.wikipedia.org/wiki/Algeria,,https://www.wikidata.org/wiki/Q262,192756,https://maps.app.goo.gl/mWpapvtdZ7mN34yv9
-EC,エクアドル,エクアドル,ECU,218,南アメリカ,スペイン語,アメリカ合衆国ドル,右,,,.ec,593,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%AF%E3%82%A2%E3%83%89%E3%83%AB,https://en.wikipedia.org/wiki/Ecuador,,https://www.wikidata.org/wiki/Q736,108089,https://maps.app.goo.gl/MofJDb2JzPH78uTS7
-EE,エストニア,エストニア,EST,233,北ヨーロッパ,エストニア語,ユーロ,右,,,.ee,372,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%B9%E3%83%88%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Estonia,,https://www.wikidata.org/wiki/Q191,79510,https://maps.app.goo.gl/tdxZUp6XvBkg5LXc7
-EG,エジプト,エジプト,EGY,818,北アフリカ,アラビア語,エジプト・ポンド,右,,,.eg,20,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%B8%E3%83%97%E3%83%88,https://en.wikipedia.org/wiki/Egypt,,https://www.wikidata.org/wiki/Q79,1473947,https://maps.app.goo.gl/VhqTB274P4hvKNFX8
-EH,西サハラ,西サハラ,ESH,732,北アフリカ,"アラビア語, スペイン語",サハラ・ペセタ,右,,,.eh,282,,,,,現存,https://ja.wikipedia.org/wiki/%E8%A5%BF%E3%82%B5%E3%83%8F%E3%83%A9,https://en.wikipedia.org/wiki/Western_Sahara,,https://www.wikidata.org/wiki/Q6250,5441968,https://maps.app.goo.gl/TeiWrw5GPFMghsRs9
-ER,エリトリア,エリトリア,ERI,232,東アフリカ,"アラビア語, 英語",ナクファ,右,,,.er,291,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%AA%E3%83%88%E3%83%AA%E3%82%A2,https://en.wikipedia.org/wiki/Eritrea,,https://www.wikidata.org/wiki/Q986,296961,https://maps.app.goo.gl/fRUVvWqHudPCZiRV8
-ES,スペイン,スペイン,ESP,724,南ヨーロッパ,スペイン語,ユーロ,右,,,.es,34,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%9A%E3%82%A4%E3%83%B3,https://en.wikipedia.org/wiki/Spain,,https://www.wikidata.org/wiki/Q29,1311341,https://maps.app.goo.gl/zQ8kFQ9BDWGHb2LQ6
-ET,エチオピア,エチオピア,ETH,231,東アフリカ,"アムハラ語, アファル語, オロモ語, ソマリ語, ティグリニャ語",ブル,右,,,.et,251,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AA%E3%83%94%E3%82%A2,https://en.wikipedia.org/wiki/Ethiopia,,https://www.wikidata.org/wiki/Q115,192800,https://maps.app.goo.gl/NMjzRuPt2jhEj9Yn7
-FI,フィンランド,フィンランド,FIN,246,北ヨーロッパ,"フィンランド語, スウェーデン語",ユーロ,右,,,.fi,358,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%B3%E3%83%A9%E3%83%B3%E3%83%89,https://en.wikipedia.org/wiki/Finland,,https://www.wikidata.org/wiki/Q33,54224,https://maps.app.goo.gl/1mWk8o64XpAjhVBe7
-FJ,フィジー,フィジー,FJI,242,オセアニア,"英語, ヒンディー語, ウルドゥー語",フィジー・ドル,左,,,.fj,679,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%82%B8%E3%83%BC,https://en.wikipedia.org/wiki/Fiji,,https://www.wikidata.org/wiki/Q712,2421377,https://maps.app.goo.gl/xwCrpNcG83aGZJFV8
-FK,フォークランド諸島,フォークランド諸島,FLK,238,南アメリカ,英語,"スターリング・ポンド, フォークランド諸島ポンド",左,,,.fk,500,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E3%83%A9%E3%83%B3%E3%83%89%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Falkland_Islands,,https://www.wikidata.org/wiki/Q9648,2185374,https://maps.app.goo.gl/1w8FAZXybvXnUeps7
-FM,ミクロネシア,ミクロネシア,FSM,583,オセアニア,英語,アメリカ合衆国ドル,右,,,,,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9F%E3%82%AF%E3%83%AD%E3%83%8D%E3%82%B7%E3%82%A2%E9%80%A3%E9%82%A6,https://en.wikipedia.org/wiki/Federated_States_of_Micronesia,,https://www.wikidata.org/wiki/Q702,571802,https://maps.app.goo.gl/iqZnTQ2uaTqmW5go6
-FO,フェロー諸島,フェロー諸島,FRO,234,北ヨーロッパ,"フェロー語, デンマーク語",フェロー・クローネ,右,,,.fo,298,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A7%E3%83%AD%E3%83%BC%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Faroe_Islands,,https://www.wikidata.org/wiki/Q4628,52939,https://maps.app.goo.gl/e4tE6TZJ9AxjAkYD9
-FR,フランス,フランス,FRA,250,西ヨーロッパ,フランス語,ユーロ,右,,,.fr,33,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9,https://en.wikipedia.org/wiki/France,,https://www.wikidata.org/wiki/Q142,1403916,https://maps.app.goo.gl/zUCK9NFkTZBbUc8p7
-GA,ガボン,ガボン,GAB,266,中部アフリカ,フランス語,CFAフラン,右,,,.ga,241,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%9C%E3%83%B3,https://en.wikipedia.org/wiki/Gabon,,https://www.wikidata.org/wiki/Q1000,192793,https://maps.app.goo.gl/uBitVX4yPoR4EbDh7
-GB,イギリス,イギリス,GBR,826,北ヨーロッパ,英語,スターリング・ポンド,左,,,.gb,44,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9,https://en.wikipedia.org/wiki/United_Kingdom,,https://www.wikidata.org/wiki/Q145,62149,https://maps.app.goo.gl/KDpysFPx7vDiSekJA
-GD,グレナダ,グレナダ,GRD,308,カリブ海地域,英語,東カリブ・ドル,左,,,.gd,1-473,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%AC%E3%83%8A%E3%83%80,https://en.wikipedia.org/wiki/Grenada,,https://www.wikidata.org/wiki/Q769,555717,https://maps.app.goo.gl/LmG6Ps5gQjx7v5aD6
-GE,ジョージア,ジョージア,GEO,268,西アジア,グルジア語,ラリ,右,,,.ge,995,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A7%E3%83%BC%E3%82%B8%E3%82%A2_(%E5%9B%BD),https://en.wikipedia.org/wiki/Georgia_(country),,https://www.wikidata.org/wiki/Q230,28699,https://maps.app.goo.gl/RkvJaZoEa1cf2nRh7
-GF,フランス領ギアナ,フランス領ギアナ,GUF,254,南アメリカ,フランス語,ユーロ,右,,,.gf,594,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%A0%98%E3%82%AE%E3%82%A2%E3%83%8A,https://en.wikipedia.org/wiki/French_Guiana,,https://www.wikidata.org/wiki/Q3769,2502078,https://maps.app.goo.gl/j261zjNEh2nteLnT7
-GG,ガーンジー,ガーンジー,GGY,831,西ヨーロッパ,英語,"ガーンジー・ポンド, スターリング・ポンド",左,,,.gg,44-1481,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%BC%E3%83%B3%E3%82%B8%E3%83%BC,https://en.wikipedia.org/wiki/Guernsey,,https://www.wikidata.org/wiki/Q25230,372439,https://maps.app.goo.gl/6igC72Zx7DqEGxJb6
-GH,ガーナ,ガーナ,GHA,288,西アフリカ,英語,セディ,右,,,.gh,233,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%BC%E3%83%8A,https://en.wikipedia.org/wiki/Ghana,,https://www.wikidata.org/wiki/Q117,192781,https://maps.app.goo.gl/rJaSH666HnVQNAVQ7
-GI,ジブラルタル,ジブラルタル,GIB,292,南ヨーロッパ,英語,ジブラルタル・ポンド,右,,,.gi,350,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%96%E3%83%A9%E3%83%AB%E3%82%BF%E3%83%AB,https://en.wikipedia.org/wiki/Gibraltar,,https://www.wikidata.org/wiki/Q1410,1278736,https://maps.app.goo.gl/yHAsMNBHHnbkManR7
-GL,グリーンランド,グリーンランド,GRL,304,北部アメリカ,グリーンランド語,デンマーク・クローネ,右,,,.gl,299,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%A9%E3%83%B3%E3%83%89,https://en.wikipedia.org/wiki/Greenland,,https://www.wikidata.org/wiki/Q223,2184073,https://maps.app.goo.gl/hLxdCDfvkRbk68xw9
-GM,ガンビア,ガンビア,GMB,270,西アフリカ,英語,ダラシ,右,,,.gm,220,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%B3%E3%83%93%E3%82%A2,https://en.wikipedia.org/wiki/The_Gambia,,https://www.wikidata.org/wiki/Q1005,192776,https://maps.app.goo.gl/xcmAunyJNfky3W43A
-GN,ギニア,ギニア,GIN,324,西アフリカ,フランス語,ギニア・フラン,右,,,.gn,224,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Guinea,,https://www.wikidata.org/wiki/Q1006,192778,https://maps.app.goo.gl/Qh1KEtbbsrPDB3yW7
-GP,グアドループ,グアドループ,GLP,312,カリブ海地域,フランス語,ユーロ,右,,,.gp,590,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B0%E3%82%A2%E3%83%89%E3%83%AB%E3%83%BC%E3%83%97,https://en.wikipedia.org/wiki/Guadeloupe,,https://www.wikidata.org/wiki/Q17012,2811722,https://maps.app.goo.gl/2LGg9pqCtGVRVTRaA
-GQ,赤道ギニア,赤道ギニア,GNQ,226,中部アフリカ,"スペイン語, フランス語, ポルトガル語",CFAフラン,右,,,.gq,240,,,,,現存,https://ja.wikipedia.org/wiki/%E8%B5%A4%E9%81%93%E3%82%AE%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Equatorial_Guinea,,https://www.wikidata.org/wiki/Q983,192791,https://maps.app.goo.gl/ERnaFAkhdq4Tv6E49
-GR,ギリシャ,ギリシャ,GRC,300,南ヨーロッパ,ギリシア語,ユーロ,右,,,.gr,30,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%AA%E3%82%B7%E3%83%A3,https://en.wikipedia.org/wiki/Greece,,https://www.wikidata.org/wiki/Q41,192422,https://maps.app.goo.gl/pwFxRzKDTo7cnHzh8
-GS,サウスジョージア・サウスサンドウィッチ諸島,サウスジョージア・サウスサンドウィッチ諸島,SGS,239,南アメリカ,英語,スターリング・ポンド,右,,,.gs,500,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%82%A6%E3%82%B9%E3%82%B8%E3%83%A7%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%BB%E3%82%B5%E3%82%A6%E3%82%B9%E3%82%B5%E3%83%B3%E3%83%89%E3%82%A6%E3%82%A3%E3%83%83%E3%83%81%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/South_Georgia_and_the_South_Sandwich_Islands,,https://www.wikidata.org/wiki/Q35086,1983628,https://maps.app.goo.gl/W3sEZMHGT2xahaMD6
-GT,グアテマラ,グアテマラ,GTM,320,中央アメリカ,スペイン語,ケツァル,右,,,.gt,502,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B0%E3%82%A2%E3%83%86%E3%83%9E%E3%83%A9,https://en.wikipedia.org/wiki/Guatemala,,https://www.wikidata.org/wiki/Q774,1521463,https://maps.app.goo.gl/CBeHyaMnYZQyZCfy6
-GU,グアム,グアム,GUM,316,オセアニア,"英語, チャモロ語",アメリカ合衆国ドル,右,,,.gu,1-671,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B0%E3%82%A2%E3%83%A0,https://en.wikipedia.org/wiki/Guam,,https://www.wikidata.org/wiki/Q16635,306001,https://maps.app.goo.gl/32kkGFYQR2nLCeDw8
-GW,ギニアビサウ,ギニアビサウ,GNB,624,西アフリカ,ポルトガル語,CFAフラン,右,,,.gw,245,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%8B%E3%82%A2%E3%83%93%E3%82%B5%E3%82%A6,https://en.wikipedia.org/wiki/Guinea-Bissau,,https://www.wikidata.org/wiki/Q1007,192775,https://maps.app.goo.gl/TnQ3T1UTcfB3Lr5EA
-GY,ガイアナ,ガイアナ,GUY,328,南アメリカ,英語,ガイアナ・ドル,左,,,.gy,592,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AC%E3%82%A4%E3%82%A2%E3%83%8A,https://en.wikipedia.org/wiki/Guyana,,https://www.wikidata.org/wiki/Q734,287083,https://maps.app.goo.gl/AMku4f4BE6uK5w4A6
-HK,香港,香港,HKG,344,東アジア,"広東語, 中国語, 英語",香港ドル,左,,,.hk,852,,,,,現存,https://ja.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF,https://en.wikipedia.org/wiki/Hong_Kong,,https://www.wikidata.org/wiki/Q8646,913123,https://maps.app.goo.gl/1RFDxoVTQpTfDEa4A
-HM,ハード島とマクドナルド諸島,ハード島とマクドナルド諸島,HMD,334,東アフリカ,,,,,,.hm,,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%BC%E3%83%89%E5%B3%B6%E3%81%A8%E3%83%9E%E3%82%AF%E3%83%89%E3%83%8A%E3%83%AB%E3%83%89%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Heard_Island_and_McDonald_Islands,,https://www.wikidata.org/wiki/Q131198,2322006,https://maps.app.goo.gl/aJtMjuGy2R9tGQ1u6
-HN,ホンジュラス,ホンジュラス,HND,340,中央アメリカ,スペイン語,レンピラ,右,,,.hn,504,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9B%E3%83%B3%E3%82%B8%E3%83%A5%E3%83%A9%E3%82%B9,https://en.wikipedia.org/wiki/Honduras,,https://www.wikidata.org/wiki/Q783,288228,https://maps.app.goo.gl/9rnpCPxWVAP6Wm3p9
-HR,クロアチア,クロアチア,HRV,191,南ヨーロッパ,クロアチア語,ユーロ,右,,,.hr,385,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%A2%E3%83%81%E3%82%A2,https://en.wikipedia.org/wiki/Croatia,,https://www.wikidata.org/wiki/Q224,214885,https://maps.app.goo.gl/5dskFipQp7yM9fuQ9
-HT,ハイチ,ハイチ,HTI,332,カリブ海地域,"ハイチ語, フランス語",ハイチ・グールド,右,,,.ht,509,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8F%E3%82%A4%E3%83%81,https://en.wikipedia.org/wiki/Haiti,,https://www.wikidata.org/wiki/Q790,307821,https://maps.app.goo.gl/BzPtF7dMW3tE3riZ9
-HU,ハンガリー,ハンガリー,HUN,348,東ヨーロッパ,ハンガリー語,フォリント,右,,,.hu,36,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%B3%E3%82%AC%E3%83%AA%E3%83%BC,https://en.wikipedia.org/wiki/Hungary,,https://www.wikidata.org/wiki/Q28,21464,https://maps.app.goo.gl/p6hkg1sGmt4tzzpr9
-ID,インドネシア,インドネシア,IDN,360,東南アジア,インドネシア語,ルピア,左,,,.id,62,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%83%89%E3%83%8D%E3%82%B7%E3%82%A2,https://en.wikipedia.org/wiki/Indonesia,,https://www.wikidata.org/wiki/Q252,21592,https://maps.app.goo.gl/Wro13ah9GtytkC8p7
-IE,アイルランド,アイルランド,IRL,372,北ヨーロッパ,"アイルランド語, 英語",ユーロ,左,,,.ie,353,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%A4%E3%83%AB%E3%83%A9%E3%83%B3%E3%83%89,https://en.wikipedia.org/wiki/Republic_of_Ireland,,https://www.wikidata.org/wiki/Q27,62273,https://maps.app.goo.gl/DsNipYxgxFuDM1uF7
-IL,イスラエル,イスラエル,ISR,376,西アジア,ヘブライ語,新シェケル,右,,,.il,972,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%B9%E3%83%A9%E3%82%A8%E3%83%AB,https://en.wikipedia.org/wiki/Israel,,https://www.wikidata.org/wiki/Q801,1473946,https://maps.app.goo.gl/ZrmQxDWiLPeict1C9
-IM,マン島,マン島,IMN,833,北ヨーロッパ,"英語, マン島語",ダグラス,左,,,.im,44-1624,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%B3%E5%B3%B6,https://en.wikipedia.org/wiki/Isle_of_Man,,https://www.wikidata.org/wiki/Q9676,62269,https://maps.app.goo.gl/Jb65UBm8cvQfujMf8
-IN,インド,インド,IND,356,南アジア,"ヒンディー語, 英語",インド・ルピー,左,,,.in,91,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%83%89,https://en.wikipedia.org/wiki/India,,https://www.wikidata.org/wiki/Q668,304716,https://maps.app.goo.gl/HUNV5NY97p1zm3Y98
-IO,イギリス領インド洋地域,イギリス領インド洋地域,IOT,86,東アフリカ,英語,"アメリカ合衆国ドル, スターリング・ポンド",右,,,.io,246,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9%E9%A0%98%E3%82%A4%E3%83%B3%E3%83%89%E6%B4%8B%E5%9C%B0%E5%9F%9F,https://en.wikipedia.org/wiki/British_Indian_Ocean_Territory,,https://www.wikidata.org/wiki/Q43448,1993867,https://maps.app.goo.gl/Qe1ar1cV7ihgxcFu9
-IQ,イラク,イラク,IRQ,368,西アジア,アラビア語,イラク・ディナール,右,,,.iq,964,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%A9%E3%82%AF,https://en.wikipedia.org/wiki/Iraq,,https://www.wikidata.org/wiki/Q796,310116,https://maps.app.goo.gl/Wz8k7dJwAooUSyBRA
-IR,イラン,イラン,IRN,364,南アジア,ペルシア語,イラン・リヤル,右,,,.ir,98,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%A9%E3%83%B3,https://en.wikipedia.org/wiki/Iran,,https://www.wikidata.org/wiki/Q794,304938,https://maps.app.goo.gl/GvgPqwQUqwM9CxW8A
-IS,アイスランド,アイスランド,ISL,352,北ヨーロッパ,アイスランド語,アイスランド・クローナ,右,,,.is,354,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%A4%E3%82%B9%E3%83%A9%E3%83%B3%E3%83%89,https://en.wikipedia.org/wiki/Iceland,,https://www.wikidata.org/wiki/Q189,299133,https://maps.app.goo.gl/8T3PkUpCBFspKh5i9
-IT,イタリア,イタリア,ITA,380,南ヨーロッパ,イタリア語,ユーロ,右,,,.it,39,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%BF%E3%83%AA%E3%82%A2,https://en.wikipedia.org/wiki/Italy,,https://www.wikidata.org/wiki/Q38,365331,https://maps.app.goo.gl/yJHRdwoHifyWCKMv6
-JE,ジャージー,ジャージー,JEY,832,西ヨーロッパ,"英語, フランス語","ジャージー・ポンド, スターリング・ポンド",左,,,,44-1534,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A3%E3%83%BC%E3%82%B8%E3%83%BC,https://en.wikipedia.org/wiki/Jersey,,https://www.wikidata.org/wiki/Q785,368024,https://maps.app.goo.gl/Gwski3dqRodSfJnR9
-JM,ジャマイカ,ジャマイカ,JAM,388,カリブ海地域,英語,ジャマイカ・ドル,左,,,.jm,1-876,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A3%E3%83%9E%E3%82%A4%E3%82%AB,https://en.wikipedia.org/wiki/Jamaica,,https://www.wikidata.org/wiki/Q766,555514,https://maps.app.goo.gl/HQhbfWiwTq1tPYiC9
-JO,ヨルダン,ヨルダン,JOR,400,西アジア,アラビア語,ヨルダン・ディナール,右,,,.jo,962,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A8%E3%83%AB%E3%83%80%E3%83%B3,https://en.wikipedia.org/wiki/Jordan,,https://www.wikidata.org/wiki/Q810,184818,https://maps.app.goo.gl/HmFgJ64ZLFncNbes5
-JP,日本,日本,JPN,392,東アジア,日本語,円,左,"126,146,099",2020,.jp,81,,,,,現存,https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC,https://en.wikipedia.org/wiki/Japan,,https://www.wikidata.org/wiki/Q17,382313,https://maps.app.goo.gl/VPhBVviYqTL38heo6
-KE,ケニア,ケニア,KEN,404,東アフリカ,"スワヒリ語, 英語",ケニア・シリング,左,,,.ke,254,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B1%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Kenya,,https://www.wikidata.org/wiki/Q114,192798,https://maps.app.goo.gl/GgMTQqNXDEgJB64EA
-KG,キルギス,キルギス,KGZ,417,中央アジア,"キルギス語, ロシア語",ソム,右,,,.kg,996,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%AB%E3%82%AE%E3%82%B9,https://en.wikipedia.org/wiki/Kyrgyzstan,,https://www.wikidata.org/wiki/Q813,178009,https://maps.app.goo.gl/49B6MdtdoryMtCJQ6
-KH,カンボジア,カンボジア,KHM,116,東南アジア,クメール語,リエル,右,,,.kh,855,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%B3%E3%83%9C%E3%82%B8%E3%82%A2,https://en.wikipedia.org/wiki/Cambodia,,https://www.wikidata.org/wiki/Q424,49898,https://maps.app.goo.gl/8UPHhFrduA1kyUAV7
-KI,キリバス,キリバス,KIR,296,オセアニア,英語,オーストラリア・ドル,左,,,.ki,686,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%AA%E3%83%90%E3%82%B9,https://en.wikipedia.org/wiki/Kiribati,,https://www.wikidata.org/wiki/Q710,571804,https://maps.app.goo.gl/pPDcd1nepansD48j6
-KM,コモロ,コモロ,COM,174,東アフリカ,"フランス語, アラビア語",コモロ・フラン,右,,,.km,269,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%A2%E3%83%AD,https://en.wikipedia.org/wiki/Comoros,,https://www.wikidata.org/wiki/Q970,535690,https://maps.app.goo.gl/b61AqCz6UYSa6zD28
-KN,セントクリストファー・ネービス,セントクリストファー・ネービス,KNA,659,カリブ海地域,英語,東カリブ・ドル,左,,,.kn,1-869,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%83%BC%E3%83%BB%E3%83%8D%E3%82%A4%E3%83%93%E3%82%B9,https://en.wikipedia.org/wiki/Saint_Kitts_and_Nevis,,https://www.wikidata.org/wiki/Q763,535639,https://maps.app.goo.gl/YPRSacp94TYQmg1GA
-KP,北朝鮮,北朝鮮,PRK,408,東アジア,韓国語・朝鮮語,北朝鮮ウォン,右,,,.kp,850,,,,,現存,https://ja.wikipedia.org/wiki/%E6%9C%9D%E9%AE%AE%E6%B0%91%E4%B8%BB%E4%B8%BB%E7%BE%A9%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD,https://en.wikipedia.org/wiki/North_Korea,,https://www.wikidata.org/wiki/Q423,190485,https://maps.app.goo.gl/ebDNgF9JJwWaEs1e8
-KR,韓国,韓国,KOR,410,東アジア,韓国語・朝鮮語,韓国ウォン,右,,,.kr,82,,,,,現存,https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%9F%93%E6%B0%91%E5%9B%BD,https://en.wikipedia.org/wiki/South_Korea,,https://www.wikidata.org/wiki/Q884,307756,https://maps.app.goo.gl/RwxjGYQZBAEesJAT6
-KW,クウェート,クウェート,KWT,414,西アジア,アラビア語,クウェート・ディナール,右,,,.kw,965,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AF%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%88,https://en.wikipedia.org/wiki/Kuwait,,https://www.wikidata.org/wiki/Q817,305055,https://maps.app.goo.gl/KZcnbtN2vJgr9fRu5
-KY,ケイマン諸島,ケイマン諸島,CYM,136,カリブ海地域,英語,ケイマン諸島・ドル,左,,,.ky,1-345,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B1%E3%82%A4%E3%83%9E%E3%83%B3%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Cayman_Islands,,https://www.wikidata.org/wiki/Q5785,1993209,https://maps.app.goo.gl/N5kbpCsy395JMzZW9
-KZ,カザフスタン,カザフスタン,KAZ,398,中央アジア,"カザフ語, ロシア語",テンゲ,右,,,.kz,7,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%B6%E3%83%95%E3%82%B9%E3%82%BF%E3%83%B3,https://en.wikipedia.org/wiki/Kazakhstan,,https://www.wikidata.org/wiki/Q232,214665,https://maps.app.goo.gl/4EQvzCHm3xMATBhV8
-LA,ラオス,ラオス,LAO,418,東南アジア,ラーオ語,キープ(キップ),右,,,.la,856,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A9%E3%82%AA%E3%82%B9,https://en.wikipedia.org/wiki/Laos,,https://www.wikidata.org/wiki/Q819,49903,https://maps.app.goo.gl/kd8m3SCn2SMzfnG89
-LB,レバノン,レバノン,LBN,422,西アジア,アラビア語,レバノン・ポンド,右,,,.lb,961,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AC%E3%83%90%E3%83%8E%E3%83%B3,https://en.wikipedia.org/wiki/Lebanon,,https://www.wikidata.org/wiki/Q822,184843,https://maps.app.goo.gl/WJZqkxxXk2ovZBYC7
-LC,セントルシア,セントルシア,LCA,662,カリブ海地域,英語,東カリブ・ドル,左,,,.lc,1-758,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%83%AB%E3%82%B7%E3%82%A2,https://en.wikipedia.org/wiki/Saint_Lucia,,https://www.wikidata.org/wiki/Q760,555725,https://maps.app.goo.gl/vXwVYcwvdwfwC2ag9
-LI,リヒテンシュタイン,リヒテンシュタイン,LIE,438,西ヨーロッパ,ドイツ語,スイス・フラン,右,,,.li,423,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%92%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3,https://en.wikipedia.org/wiki/Liechtenstein,,https://www.wikidata.org/wiki/Q347,1155955,https://maps.app.goo.gl/rtL9pYFR8MQeESwJ8
-LK,スリランカ,スリランカ,LKA,144,南アジア,"シンハラ語, タミル語",スリランカ・ルピー,左,,,.lk,94,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AA%E3%83%A9%E3%83%B3%E3%82%AB,https://en.wikipedia.org/wiki/Sri_Lanka,,https://www.wikidata.org/wiki/Q854,536807,https://maps.app.goo.gl/zZSmPKiRJjXFzPQM6
-LR,リベリア,リベリア,LBR,430,西アフリカ,英語,リベリア・ドル,右,,,.lr,231,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%99%E3%83%AA%E3%82%A2,https://en.wikipedia.org/wiki/Liberia,,https://www.wikidata.org/wiki/Q1014,192780,https://maps.app.goo.gl/Aj6iSQoZiWk5iZit5
-LS,レソト,レソト,LSO,426,南部アフリカ,"ソト語, 英語",ロチ,左,,,.ls,266,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AC%E3%82%BD%E3%83%88,https://en.wikipedia.org/wiki/Lesotho,,https://www.wikidata.org/wiki/Q1013,2093234,https://maps.app.goo.gl/3Rqz1xSxZ3QKYszw7
-LT,リトアニア,リトアニア,LTU,440,北ヨーロッパ,リトアニア語,ユーロ,右,,,.lt,370,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%88%E3%82%A2%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Lithuania,,https://www.wikidata.org/wiki/Q37,72596,https://maps.app.goo.gl/Mr8fZfJLf3L2X696A
-LU,ルクセンブルク,ルクセンブルク,LUX,442,西ヨーロッパ,"ルクセンブルク語, ドイツ語, フランス語",ユーロ,右,,,.lu,352,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AB%E3%82%AF%E3%82%BB%E3%83%B3%E3%83%96%E3%83%AB%E3%82%AF,https://en.wikipedia.org/wiki/Luxembourg,,https://www.wikidata.org/wiki/Q32,2171347,https://maps.app.goo.gl/rJhKSyWscVmrz2EC6
-LV,ラトビア,ラトビア,LVA,428,北ヨーロッパ,ラトビア語,ユーロ,右,,,.lv,371,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A9%E3%83%88%E3%83%93%E3%82%A2,https://en.wikipedia.org/wiki/Latvia,,https://www.wikidata.org/wiki/Q211,72594,https://maps.app.goo.gl/QGsC6g6Qwh4cwLH56
-LY,リビア,リビア,LBY,434,北アフリカ,アラビア語,リビア・ディナール,右,,,.ly,218,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%93%E3%82%A2,https://en.wikipedia.org/wiki/Libya,,https://www.wikidata.org/wiki/Q1016,192758,https://maps.app.goo.gl/FfLwYgSbAA4KsWVp6
-MA,モロッコ,モロッコ,MAR,504,北アフリカ,アラビア語,モロッコ・ディルハム,右,,,.ma,212,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%AD%E3%83%83%E3%82%B3,https://en.wikipedia.org/wiki/Morocco,,https://www.wikidata.org/wiki/Q1028,3630439,https://maps.app.goo.gl/jbPvGUJ4o5sccYFXA
-MC,モナコ,モナコ,MCO,492,西ヨーロッパ,フランス語,ユーロ,右,,,.mc,377,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%8A%E3%82%B3,https://en.wikipedia.org/wiki/Monaco,,https://www.wikidata.org/wiki/Q235,1124039,https://maps.app.goo.gl/mo5hZodrRfRuWPF57
-MD,モルドバ,モルドバ,MDA,498,東ヨーロッパ,ルーマニア語,モルドバ・レウ,右,,,.md,373,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%AB%E3%83%89%E3%83%90,https://en.wikipedia.org/wiki/Moldova,,https://www.wikidata.org/wiki/Q217,59015,https://maps.app.goo.gl/2MB7cNUCypiuGABW8
-ME,モンテネグロ,モンテネグロ,MNE,499,南ヨーロッパ,"アルバニア語, セルビア語, ボスニア語, クロアチア語",ユーロ,右,,,.me,382,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%86%E3%83%8D%E3%82%B0%E3%83%AD,https://en.wikipedia.org/wiki/Montenegro,,https://www.wikidata.org/wiki/Q236,53296,https://maps.app.goo.gl/pxVNbbeDzScv3g7j9
-MF,サン・マルタン,サン・マルタン,MAF,663,カリブ海地域,フランス語,ユーロ,右,,,.mf,590,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%BB%E3%83%9E%E3%83%AB%E3%82%BF%E3%83%B3_(%E8%A5%BF%E3%82%A4%E3%83%B3%E3%83%89%E8%AB%B8%E5%B3%B6),https://en.wikipedia.org/wiki/Collectivity_of_Saint_Martin,,https://www.wikidata.org/wiki/Q126125,126126,https://maps.app.goo.gl/jk9TLKL57BPV9QBd8
-MG,マダガスカル,マダガスカル,MDG,450,東アフリカ,"マダガスカル語, フランス語",マダガスカル・アリアリ,右,,,.mg,261,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%80%E3%82%AC%E3%82%B9%E3%82%AB%E3%83%AB,https://en.wikipedia.org/wiki/Madagascar,,https://www.wikidata.org/wiki/Q1019,447325,https://maps.app.goo.gl/tkKrPQSpmuqX92Qg9
-MH,マーシャル諸島,マーシャル諸島,MHL,584,オセアニア,"マーシャル語, 英語",アメリカ合衆国ドル,右,,,.mh,692,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Marshall_Islands,,https://www.wikidata.org/wiki/Q709,571803,https://maps.app.goo.gl/1geKBS6WfuYQ8ddP8
-MK,北マケドニア,北マケドニア,MKD,807,南ヨーロッパ,"マケドニア語, アルバニア語",マケドニア・デナール,右,,,.mk,389,,,,,現存,https://ja.wikipedia.org/wiki/%E5%8C%97%E3%83%9E%E3%82%B1%E3%83%89%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/North_Macedonia,,https://www.wikidata.org/wiki/Q221,53293,https://maps.app.goo.gl/SSa8HnsJDcvLXoMw9
-ML,マリ,マリ,MLI,466,西アフリカ,"バンバラ語, フラニ語",CFAフラン,右,,,.ml,223,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AA%E5%85%B1%E5%92%8C%E5%9B%BD,https://en.wikipedia.org/wiki/Mali,,https://www.wikidata.org/wiki/Q912,192785,https://maps.app.goo.gl/mBPLU3VD8puvxa6LA
-MM,ミャンマー,ミャンマー,MMR,104,東南アジア,ビルマ語,チャット,右,,,.mm,95,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9F%E3%83%A3%E3%83%B3%E3%83%9E%E3%83%BC,https://en.wikipedia.org/wiki/Myanmar,,https://www.wikidata.org/wiki/Q836,50371,https://maps.app.goo.gl/qLLafTsYS3SCWC549
-MN,モンゴル,モンゴル,MNG,496,東アジア,モンゴル語,トゥグルグ,右,,,.mn,976,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%82%B4%E3%83%AB%E5%9B%BD,https://en.wikipedia.org/wiki/Mongolia,,https://www.wikidata.org/wiki/Q711,161033,https://maps.app.goo.gl/wxo3iyiTfHXSKVNF9
-MO,マカオ,マカオ,MAC,446,東アジア,"中国語, ポルトガル語",マカオ・パタカ,左,,,.mo,853,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%AB%E3%82%AA,https://en.wikipedia.org/wiki/Macau,,https://www.wikidata.org/wiki/Q14773,1867188,https://maps.app.goo.gl/832JQ1Ur7AT6xp978
-MP,北マリアナ諸島,北マリアナ諸島,MNP,580,オセアニア,"英語, チャモロ語",アメリカ合衆国ドル,右,,,.mp,1-670,,,,,現存,https://ja.wikipedia.org/wiki/%E5%8C%97%E3%83%9E%E3%83%AA%E3%82%A2%E3%83%8A%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Northern_Mariana_Islands,,https://www.wikidata.org/wiki/Q16644,306004,https://maps.app.goo.gl/9Xc7zcrAEYtrfRPr8
-MQ,マルティニーク,マルティニーク,MTQ,474,カリブ海地域,フランス語,ユーロ,右,,,.mq,596,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%83%86%E3%82%A3%E3%83%8B%E3%83%BC%E3%82%AF,https://en.wikipedia.org/wiki/Martinique,,https://www.wikidata.org/wiki/Q17054,2811718,https://maps.app.goo.gl/EHcPE9LfofN8S57H6
-MR,モーリタニア,モーリタニア,MRT,478,西アフリカ,アラビア語,ウギア,右,,,.mr,222,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%BC%E3%83%AA%E3%82%BF%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Mauritania,,https://www.wikidata.org/wiki/Q1025,192763,https://maps.app.goo.gl/KPZZqh96rB4AaKdQ8
-MS,モントセラト,モントセラト,MSR,500,カリブ海地域,英語,東カリブ・ドル,左,,,.ms,1-664,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%88%E3%82%BB%E3%83%A9%E3%83%88,https://en.wikipedia.org/wiki/Montserrat,,https://www.wikidata.org/wiki/Q13353,535691,https://maps.app.goo.gl/ZRPqKvsAui38gcKM7
-MT,マルタ,マルタ,MLT,470,南ヨーロッパ,"マルタ語, 英語",ユーロ,左,,,.mt,356,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%82%BF,https://en.wikipedia.org/wiki/Malta,,https://www.wikidata.org/wiki/Q233,365307,https://maps.app.goo.gl/71hBc7k6GVs3xX4N9
-MU,モーリシャス,モーリシャス,MUS,480,東アフリカ,英語,モーリシャス・ルピー,左,,,.mu,230,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%BC%E3%83%AA%E3%82%B7%E3%83%A3%E3%82%B9,https://en.wikipedia.org/wiki/Mauritius,,https://www.wikidata.org/wiki/Q1027,535670,https://maps.app.goo.gl/dCUBoe9pDuGF3usEA
-MV,モルディブ,モルディブ,MDV,462,南アジア,ディベヒ語,ルフィヤ,左,,,.mv,960,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%AB%E3%83%87%E3%82%A3%E3%83%96,https://en.wikipedia.org/wiki/Maldives,,https://www.wikidata.org/wiki/Q826,535671,https://maps.app.goo.gl/V1JL74NG2xGTkN7X7
-MW,マラウイ,マラウイ,MWI,454,東アフリカ,"チェワ語, 英語",マラウイ・クワチャ,左,,,.mw,265,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%A9%E3%82%A6%E3%82%A4,https://en.wikipedia.org/wiki/Malawi,,https://www.wikidata.org/wiki/Q1020,195266,https://maps.app.goo.gl/rhFmAJJcKjGfVKnk8
-MX,メキシコ,メキシコ,MEX,484,中央アメリカ,スペイン語,メキシコ・ペソ,右,,,.mx,52,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%AD%E3%82%B7%E3%82%B3,https://en.wikipedia.org/wiki/Mexico,,https://www.wikidata.org/wiki/Q96,114686,https://maps.app.goo.gl/hZv53JUQobJHjFRU7
-MY,マレーシア,マレーシア,MYS,458,東南アジア,"マレー語, 英語",リンギット,左,,,.my,60,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AC%E3%83%BC%E3%82%B7%E3%82%A2,https://en.wikipedia.org/wiki/Malaysia,,https://www.wikidata.org/wiki/Q833,2108121,https://maps.app.goo.gl/8CXRXH1pNip84S3Q6
-MZ,モザンビーク,モザンビーク,MOZ,508,東アフリカ,ポルトガル語,メティカル,左,,,.mz,258,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%82%B6%E3%83%B3%E3%83%93%E3%83%BC%E3%82%AF,https://en.wikipedia.org/wiki/Mozambique,,https://www.wikidata.org/wiki/Q1029,195270,https://maps.app.goo.gl/BucD2frAKNCuSf6s9
-NA,ナミビア,ナミビア,NAM,516,南部アフリカ,英語,ナミビア・ドル,左,,,.na,264,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8A%E3%83%9F%E3%83%93%E3%82%A2,https://en.wikipedia.org/wiki/Namibia,,https://www.wikidata.org/wiki/Q1030,195265,https://maps.app.goo.gl/5U8nUyh2F1Ba9Gzd6
-NC,ニューカレドニア,ニューカレドニア,NCL,540,オセアニア,フランス語,CFPフラン,右,,,.nc,687,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%AB%E3%83%AC%E3%83%89%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/New_Caledonia,,https://www.wikidata.org/wiki/Q33788,3407643,https://maps.app.goo.gl/FGdHYDNS4jp6N18m8
-NE,ニジェール,ニジェール,NER,562,西アフリカ,ハウサ語,CFAフラン,右,,,.ne,227,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B8%E3%82%A7%E3%83%BC%E3%83%AB,https://en.wikipedia.org/wiki/Niger,,https://www.wikidata.org/wiki/Q1032,192786,https://maps.app.goo.gl/tZSrU3iaadKJGp6e8
-NF,ノーフォーク島,ノーフォーク島,NFK,574,オセアニア,英語,オーストラリア・ドル,左,,,.nf,672,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E5%B3%B6,https://en.wikipedia.org/wiki/Norfolk_Island,,https://www.wikidata.org/wiki/Q31057,2322005,https://maps.app.goo.gl/4TPrGLhH7fsDL7xX7
-NG,ナイジェリア,ナイジェリア,NGA,566,西アフリカ,英語,ナイラ,右,,,.ng,234,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8A%E3%82%A4%E3%82%B8%E3%82%A7%E3%83%AA%E3%82%A2,https://en.wikipedia.org/wiki/Nigeria,,https://www.wikidata.org/wiki/Q1033,192787,https://maps.app.goo.gl/YifUTEkghunDAeNt9
-NI,ニカラグア,ニカラグア,NIC,558,中央アメリカ,スペイン語,コルドバ・オロ,右,,,.ni,505,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%AB%E3%83%A9%E3%82%B0%E3%82%A2,https://en.wikipedia.org/wiki/Nicaragua,,https://www.wikidata.org/wiki/Q811,287666,https://maps.app.goo.gl/1nSdTN7nJzbjhh2z7
-NL,オランダ,オランダ,NLD,528,西ヨーロッパ,オランダ語,ユーロ,右,,,.nl,31,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%A9%E3%83%B3%E3%83%80,https://en.wikipedia.org/wiki/Netherlands,,https://www.wikidata.org/wiki/Q55,47796,https://maps.app.goo.gl/6qipNAQv6zVhKVKv7
-NO,ノルウェー,ノルウェー,NOR,578,北ヨーロッパ,"ノルウェー語, ノルウェー語 (ニーノシュク)",ノルウェー・クローネ,右,,,.no,47,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%82%A6%E3%82%A7%E3%83%BC,https://en.wikipedia.org/wiki/Norway,,https://www.wikidata.org/wiki/Q20,2978650,https://maps.app.goo.gl/Yfdps2LpZAiCADwRA
-NP,ネパール,ネパール,NPL,524,南アジア,ネパール語,ネパール・ルピー,左,,,.np,977,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8D%E3%83%91%E3%83%BC%E3%83%AB,https://en.wikipedia.org/wiki/Nepal,,https://www.wikidata.org/wiki/Q837,184633,https://maps.app.goo.gl/dxGYEXPUsA1c9d7G8
-NR,ナウル,ナウル,NRU,520,オセアニア,"ナウル語, 英語",オーストラリア・ドル,左,,,.nr,674,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8A%E3%82%A6%E3%83%AB,https://en.wikipedia.org/wiki/Nauru,,https://www.wikidata.org/wiki/Q697,511018,https://maps.app.goo.gl/uTXfEGic9WbTbsPu9
-NU,ニウエ,ニウエ,NIU,570,オセアニア,英語,ニュージーランド・ドル,左,,,.nu,683,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%A6%E3%82%A8,https://en.wikipedia.org/wiki/Niue,,https://www.wikidata.org/wiki/Q34020,2185395,https://maps.app.goo.gl/zuv1RiG6WWVJyctf6
-NZ,ニュージーランド,ニュージーランド,NZL,554,オセアニア,英語,ニュージーランド・ドル,左,,,.nz,64,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89,https://en.wikipedia.org/wiki/New_Zealand,,https://www.wikidata.org/wiki/Q664,556706,https://maps.app.goo.gl/ovwcXYfPe5UDG1GL6
-OM,オマーン,オマーン,OMN,512,西アジア,アラビア語,オマーン・リアル,右,,,.om,968,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%9E%E3%83%BC%E3%83%B3,https://en.wikipedia.org/wiki/Oman,,https://www.wikidata.org/wiki/Q842,305138,https://maps.app.goo.gl/pEKLYHVinUsCEEBRA
-PA,パナマ,パナマ,PAN,591,中央アメリカ,スペイン語,バルボア,右,,,.pa,507,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%8A%E3%83%9E,https://en.wikipedia.org/wiki/Panama,,https://www.wikidata.org/wiki/Q804,287668,https://maps.app.goo.gl/aHmpBxzyjqHssnHUA
-PE,ペルー,ペルー,PER,604,南アメリカ,"スペイン語, ケチュア語, アイマラ語",ヌエボ・ソル,右,,,.pe,51,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%AB%E3%83%BC,https://en.wikipedia.org/wiki/Peru,,https://www.wikidata.org/wiki/Q419,288247,https://maps.app.goo.gl/EACpbVkjM5QP6MwR9
-PF,フランス領ポリネシア,フランス領ポリネシア,PYF,258,オセアニア,"フランス語, タヒチ語",CFPフラン,右,,,.pf,689,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%A0%98%E3%83%9D%E3%83%AA%E3%83%8D%E3%82%B7%E3%82%A2,https://en.wikipedia.org/wiki/French_Polynesia,,https://www.wikidata.org/wiki/Q30971,3407644,https://maps.app.goo.gl/WoN4vC1drA4Sp8x86
-PG,パプアニューギニア,パプアニューギニア,PNG,598,オセアニア,"英語, トク・ピシン, ヒリモツ語",キナ,左,,,.pg,675,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%97%E3%82%A2%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%AE%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Papua_New_Guinea,,https://www.wikidata.org/wiki/Q691,195272,https://maps.app.goo.gl/YucPQg1X9Q3tvuTF6
-PH,フィリピン,フィリピン,PHL,608,東南アジア,英語,フィリピン・ペソ,右,,,.ph,63,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3,https://en.wikipedia.org/wiki/Philippines,,https://www.wikidata.org/wiki/Q928,443174,https://maps.app.goo.gl/sULMEZjq5RsGy9Zz8
-PK,パキスタン,パキスタン,PAK,586,南アジア,"ウルドゥー語, 英語",パキスタン・ルピー,左,,,.pk,92,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%91%E3%82%AD%E3%82%B9%E3%82%BF%E3%83%B3,https://en.wikipedia.org/wiki/Pakistan,,https://www.wikidata.org/wiki/Q843,307741,https://maps.app.goo.gl/amGPcGBpDiB24mCT7
-PL,ポーランド,ポーランド,POL,616,東ヨーロッパ,ポーランド語,ズウォティ,右,,,.pl,48,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89,https://en.wikipedia.org/wiki/Poland,,https://www.wikidata.org/wiki/Q36,49715,https://maps.app.goo.gl/drCCocGcGhfeek898
-PM,サンピエール島・ミクロン島,サンピエール島・ミクロン島,SPM,666,北部アメリカ,フランス語,ユーロ,右,,,.pm,508,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%94%E3%82%A8%E3%83%BC%E3%83%AB%E5%B3%B6%E3%83%BB%E3%83%9F%E3%82%AF%E3%83%AD%E3%83%B3%E5%B3%B6,https://en.wikipedia.org/wiki/Saint_Pierre_and_Miquelon,,https://www.wikidata.org/wiki/Q34617,3407646,https://maps.app.goo.gl/QgLtU7NVpNpGaxki6
-PN,ピトケアン諸島,ピトケアン諸島,PCN,612,オセアニア,"ピトケアン語, 英語",ニュージーランド・ドル,左,,,.pn,64,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%94%E3%83%88%E3%82%B1%E3%82%A2%E3%83%B3%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Pitcairn_Islands,,https://www.wikidata.org/wiki/Q35672,2185375,https://maps.app.goo.gl/1Wq229iTQ2mDmhpi9
-PR,プエルトリコ,プエルトリコ,PRI,630,カリブ海地域,"スペイン語, 英語",アメリカ合衆国ドル,右,,,.pr,1-787,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%97%E3%82%A8%E3%83%AB%E3%83%88%E3%83%AA%E3%82%B3,https://en.wikipedia.org/wiki/Puerto_Rico,,https://www.wikidata.org/wiki/Q1183,4422604,https://maps.app.goo.gl/DnoMLnniab321prc7
-PS,パレスチナ,パレスチナ,PSE,275,西アジア,アラビア語,新シェケル,右,,,.ps,970,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%AC%E3%82%B9%E3%83%81%E3%83%8A%E5%9B%BD,https://en.wikipedia.org/wiki/State_of_Palestine,,https://www.wikidata.org/wiki/Q23792,1703814,https://maps.app.goo.gl/QYSbR1HeEqcDWe686
-PT,ポルトガル,ポルトガル,PRT,620,南ヨーロッパ,ポルトガル語,ユーロ,右,,,.pt,351,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%AB%E3%83%88%E3%82%AC%E3%83%AB,https://en.wikipedia.org/wiki/Portugal,,https://www.wikidata.org/wiki/Q45,295480,https://maps.app.goo.gl/LQvgB8o9zSVsruZE9
-PW,パラオ,パラオ,PLW,585,オセアニア,英語,アメリカ合衆国ドル,右,,,.pw,680,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%A9%E3%82%AA,https://en.wikipedia.org/wiki/Palau,,https://www.wikidata.org/wiki/Q695,571805,https://maps.app.goo.gl/Q7VBRcpjwaCg98iPA
-PY,パラグアイ,パラグアイ,PRY,600,南アメリカ,"スペイン語, グアラニー語",グアラニー,右,,,.py,595,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%A9%E3%82%B0%E3%82%A2%E3%82%A4,https://en.wikipedia.org/wiki/Paraguay,,https://www.wikidata.org/wiki/Q733,287077,https://maps.app.goo.gl/Gk4vUdHED1sscDAv7
-QA,カタール,カタール,QAT,634,西アジア,アラビア語,カタール・リヤル,右,,,.qa,974,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%BF%E3%83%BC%E3%83%AB,https://en.wikipedia.org/wiki/Qatar,,https://www.wikidata.org/wiki/Q846,305095,https://maps.app.goo.gl/F9aCBfVn3Bwbm18a6
-RE,レユニオン,レユニオン,REU,638,東アフリカ,フランス語,ユーロ,右,,,.re,262,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AC%E3%83%A6%E3%83%8B%E3%82%AA%E3%83%B3,https://en.wikipedia.org/wiki/R%C3%A9union,,https://www.wikidata.org/wiki/Q17070,2811721,https://maps.app.goo.gl/e7zruALTG73vEBPeA
-RO,ルーマニア,ルーマニア,ROU,642,東ヨーロッパ,ルーマニア語,ルーマニア・レウ,右,,,.ro,40,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%BC%E3%83%9E%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Romania,,https://www.wikidata.org/wiki/Q218,90689,https://maps.app.goo.gl/c9PCtasFuNBGU1CdA
-RS,セルビア,セルビア,SRB,688,南ヨーロッパ,セルビア語,セルビア・ディナール,右,,,.rs,381,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%AB%E3%83%93%E3%82%A2,https://en.wikipedia.org/wiki/Serbia,,https://www.wikidata.org/wiki/Q403,1741311,https://maps.app.goo.gl/6nu4ZmWTw8zZXCWo9
-RU,ロシア,ロシア,RUS,643,"北アジア,東ヨーロッパ",ロシア語,ロシア・ルーブル,右,,,.ru,7,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AD%E3%82%B7%E3%82%A2,https://en.wikipedia.org/wiki/Russia,,https://www.wikidata.org/wiki/Q159,60189,https://maps.app.goo.gl/DomYEU1MDjVgyiSz5
-RW,ルワンダ,ルワンダ,RWA,646,東アフリカ,"ルワンダ語, フランス語, 英語, スワヒリ語",ルワンダ・フラン,右,,,.rw,250,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%AF%E3%83%B3%E3%83%80,https://en.wikipedia.org/wiki/Rwanda,,https://www.wikidata.org/wiki/Q1037,171496,https://maps.app.goo.gl/D1s4Ca9y4xdmo6fw5
-SA,サウジアラビア,サウジアラビア,SAU,682,西アジア,アラビア語,サウジアラビア・リヤル,右,,,.sa,966,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%82%A6%E3%82%B8%E3%82%A2%E3%83%A9%E3%83%93%E3%82%A2,https://en.wikipedia.org/wiki/Saudi_Arabia,,https://www.wikidata.org/wiki/Q851,307584,https://maps.app.goo.gl/GHTPk21V7cZ1Z1RU7
-SB,ソロモン諸島,ソロモン諸島,SLB,90,オセアニア,英語,ソロモン諸島ドル,左,,,.sb,677,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%AD%E3%83%A2%E3%83%B3%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Solomon_Islands,,https://www.wikidata.org/wiki/Q685,1857436,https://maps.app.goo.gl/o5SBfbpsi3qsPvPK9
-SC,セーシェル,セーシェル,SYC,690,東アフリカ,"英語, フランス語",セーシェル・ルピー,左,,,.sc,248,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%BC%E3%82%B7%E3%82%A7%E3%83%AB,https://en.wikipedia.org/wiki/Seychelles,,https://www.wikidata.org/wiki/Q1042,536765,https://maps.app.goo.gl/esRugy3f7tWWYWvT7
-SD,スーダン,スーダン,SDN,729,北アフリカ,"アラビア語, 英語",スーダン・ポンド,右,,,.sd,249,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%BC%E3%83%80%E3%83%B3,https://en.wikipedia.org/wiki/Sudan,,https://www.wikidata.org/wiki/Q1049,192789,https://maps.app.goo.gl/27ux93AvsZaVKK9v9
-SE,スウェーデン,スウェーデン,SWE,752,北ヨーロッパ,スウェーデン語,スウェーデン・クローナ,右,,,.se,46,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%87%E3%83%B3,https://en.wikipedia.org/wiki/Sweden,,https://www.wikidata.org/wiki/Q34,52822,https://maps.app.goo.gl/dA7oce72PJXvit5cA
-SG,シンガポール,シンガポール,SGP,702,東南アジア,"英語, マレー語, 中国語, タミル語",シンガポール・ドル,左,,,.sg,65,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%B3%E3%82%AC%E3%83%9D%E3%83%BC%E3%83%AB,https://en.wikipedia.org/wiki/Singapore,,https://www.wikidata.org/wiki/Q334,536780,https://maps.app.goo.gl/zWnJfGAsNvawiKF58
-SH,セントヘレナ・アセンションおよびトリスタンダクーニャ,セントヘレナ・アセンションおよびトリスタンダクーニャ,SHN,654,西アフリカ,英語,セントヘレナ・ポンド,左,,,".sh,.ac","290,247",,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%83%98%E3%83%AC%E3%83%8A%E3%83%BB%E3%82%A2%E3%82%BB%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8A%E3%82%88%E3%81%B3%E3%83%88%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%80%E3%82%AF%E3%83%BC%E3%83%8B%E3%83%A3,https://en.wikipedia.org/wiki/Saint_Helena,,https://www.wikidata.org/wiki/Q192184,2185373,https://maps.app.goo.gl/6PyZmwEiKhtWWALW6
-SI,スロベニア,スロベニア,SVN,705,南ヨーロッパ,スロベニア語,ユーロ,右,,,.si,386,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AD%E3%83%99%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Slovenia,,https://www.wikidata.org/wiki/Q215,218657,https://maps.app.goo.gl/d2X5ZTQ464BBQ6Yy7
-SJ,スヴァールバル諸島およびヤンマイエン島,スヴァールバル諸島およびヤンマイエン島,SJM,744,北ヨーロッパ,ノルウェー語,ノルウェー・クローネ,右,,,.sj,,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%B4%E3%82%A1%E3%83%BC%E3%83%AB%E3%83%90%E3%83%AB%E8%AB%B8%E5%B3%B6%E3%81%8A%E3%82%88%E3%81%B3%E3%83%A4%E3%83%B3%E3%83%9E%E3%82%A4%E3%82%A8%E3%83%B3%E5%B3%B6,https://en.wikipedia.org/wiki/Svalbard_and_Jan_Mayen,,https://www.wikidata.org/wiki/Q842829,1337268,https://maps.app.goo.gl/fQR9xUHXZHnn2ARz9
-SK,スロバキア,スロバキア,SVK,703,東ヨーロッパ,スロバキア語,ユーロ,右,,,.sk,421,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AD%E3%83%90%E3%82%AD%E3%82%A2,https://en.wikipedia.org/wiki/Slovakia,,https://www.wikidata.org/wiki/Q214,14296,https://maps.app.goo.gl/75QBQ7vG2uev8Ne18
-SL,シエラレオネ,シエラレオネ,SLE,694,西アフリカ,英語,レオン,右,,,.sl,232,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%A8%E3%83%A9%E3%83%AC%E3%82%AA%E3%83%8D,https://en.wikipedia.org/wiki/Sierra_Leone,,https://www.wikidata.org/wiki/Q1044,192777,https://maps.app.goo.gl/3sUXnwKzZtaMgLDa6
-SM,サンマリノ,サンマリノ,SMR,674,南ヨーロッパ,イタリア語,ユーロ,右,,,.sm,378,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%9E%E3%83%AA%E3%83%8E,https://en.wikipedia.org/wiki/San_Marino,,https://www.wikidata.org/wiki/Q238,54624,https://maps.app.goo.gl/6nynEeugDNpop7Bb8
-SN,セネガル,セネガル,SEN,686,西アフリカ,フランス語,CFAフラン,右,,,.sn,221,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%8D%E3%82%AC%E3%83%AB,https://en.wikipedia.org/wiki/Senegal,,https://www.wikidata.org/wiki/Q1041,192773,https://maps.app.goo.gl/EjSKC9bff88Lg4xMA
-SO,ソマリア,ソマリア,SOM,706,東アフリカ,ソマリ語,ソマリア・シリング,右,,,.so,252,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%9E%E3%83%AA%E3%82%A2,https://en.wikipedia.org/wiki/Somalia,,https://www.wikidata.org/wiki/Q1045,192799,https://maps.app.goo.gl/hBbjoAe7gbd5vHYKA
-SR,スリナム,スリナム,SUR,740,南アメリカ,オランダ語,スリナム・ドル,左,,,.sr,597,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AA%E3%83%8A%E3%83%A0,https://en.wikipedia.org/wiki/Suriname,,https://www.wikidata.org/wiki/Q730,287082,https://maps.app.goo.gl/GcmbUVQWHWvtKJC46
-SS,南スーダン,南スーダン,SSD,728,東アフリカ,英語,南スーダン・ポンド,右,,,.ss,211,,,,,現存,https://ja.wikipedia.org/wiki/%E5%8D%97%E3%82%B9%E3%83%BC%E3%83%80%E3%83%B3,https://en.wikipedia.org/wiki/South_Sudan,,https://www.wikidata.org/wiki/Q958,1656678,https://maps.app.goo.gl/QCJfj8LF7SkVcH4V6
-ST,サントメ・プリンシペ,サントメ・プリンシペ,STP,678,中部アフリカ,ポルトガル語,ドブラ,右,,,.st,239,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%88%E3%83%A1%E3%83%BB%E3%83%97%E3%83%AA%E3%83%B3%E3%82%B7%E3%83%9A,https://en.wikipedia.org/wiki/Sao_Tome_and_Principe,,https://www.wikidata.org/wiki/Q1039,192792,https://maps.app.goo.gl/Uvzqt9UbLBAtdPMC8
-SV,エルサルバドル,エルサルバドル,SLV,222,中央アメリカ,スペイン語,"アメリカ合衆国ドル, ビットコイン",右,,,.sv,503,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%AB%E3%82%B5%E3%83%AB%E3%83%90%E3%83%89%E3%83%AB,https://en.wikipedia.org/wiki/El_Salvador,,https://www.wikidata.org/wiki/Q792,288226,https://maps.app.goo.gl/FdYCdqPYwTmiZDoP7
-SX,シント・マールテン,シント・マールテン,SXM,534,カリブ海地域,"オランダ語, 英語",カリブ・ギルダー,右,,,.sx,1-721,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%B3%E3%83%88%E3%83%BB%E3%83%9E%E3%83%BC%E3%83%AB%E3%83%86%E3%83%B3,https://en.wikipedia.org/wiki/Sint_Maarten,,https://www.wikidata.org/wiki/Q26273,1216717,https://maps.app.goo.gl/NNF766h9ADUqq66v7
-SY,シリア,シリア,SYR,760,西アジア,アラビア語,シリア・ポンド,右,,,.sy,963,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AA%E3%82%A2,https://en.wikipedia.org/wiki/Syria,,https://www.wikidata.org/wiki/Q858,270086,https://maps.app.goo.gl/ddwjYGpicYTDMHMa9
-SZ,エスワティニ,エスワティニ,SWZ,748,南部アフリカ,"スワジ語, 英語",リランゲニ,左,,,.sz,268,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%B9%E3%83%AF%E3%83%86%E3%82%A3%E3%83%8B,https://en.wikipedia.org/wiki/Eswatini,,https://www.wikidata.org/wiki/Q1050,195271,https://maps.app.goo.gl/T4fopVbN7Z29DQML8
-TC,タークス・カイコス諸島,タークス・カイコス諸島,TCA,796,カリブ海地域,英語,アメリカ合衆国ドル,左,,,.tc,1-649,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%BC%E3%82%AF%E3%82%B9%E3%83%BB%E3%82%AB%E3%82%A4%E3%82%B3%E3%82%B9%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/Turks_and_Caicos_Islands,,https://www.wikidata.org/wiki/Q18221,547479,https://maps.app.goo.gl/5fLq6BXhUM9XRbaJ9
-TD,チャド,チャド,TCD,148,中部アフリカ,"フランス語, アラビア語",CFAフラン,右,,,.td,235,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%A3%E3%83%89,https://en.wikipedia.org/wiki/Chad,,https://www.wikidata.org/wiki/Q657,192788,https://maps.app.goo.gl/AxiKHtZU7ZXNQhXb6
-TF,フランス領南方・南極地域,フランス領南方・南極地域,ATF,260,東アフリカ,フランス語,ユーロ,,,,.tf,,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%A0%98%E5%8D%97%E6%96%B9%E3%83%BB%E5%8D%97%E6%A5%B5%E5%9C%B0%E5%9F%9F,https://en.wikipedia.org/wiki/French_Southern_and_Antarctic_Lands,,https://www.wikidata.org/wiki/Q129003,2186647,https://maps.app.goo.gl/QmzCALS5Ahdth5Lr6
-TG,トーゴ,トーゴ,TGO,768,西アフリカ,フランス語,CFAフラン,右,,,.tg,228,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%BC%E3%82%B4,https://en.wikipedia.org/wiki/Togo,,https://www.wikidata.org/wiki/Q945,192782,https://maps.app.goo.gl/MoVcPgDmWmiWzRGj9
-TH,タイ,タイ,THA,764,東南アジア,タイ語,バーツ,左,,,.th,66,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%A4%E7%8E%8B%E5%9B%BD,https://en.wikipedia.org/wiki/Thailand,,https://www.wikidata.org/wiki/Q869,2067731,https://maps.app.goo.gl/hjgjJGuAkukDHzJe9
-TJ,タジキスタン,タジキスタン,TJK,762,中央アジア,タジク語,ソモニ,右,,,.tj,992,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%B8%E3%82%AD%E3%82%B9%E3%82%BF%E3%83%B3,https://en.wikipedia.org/wiki/Tajikistan,,https://www.wikidata.org/wiki/Q863,3210041,https://maps.app.goo.gl/PwHmsE3WnhAd6kQo7
-TK,トケラウ,トケラウ,TKL,772,オセアニア,英語,ニュージーランド・ドル,左,,,.tk,690,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%88%E3%82%B1%E3%83%A9%E3%82%A6,https://en.wikipedia.org/wiki/Tokelau,,https://www.wikidata.org/wiki/Q36823,2185394,https://maps.app.goo.gl/jdeTGJKYNrHV5Nz67
-TL,東ティモール,東ティモール,TLS,626,東南アジア,"ポルトガル語, テトゥン語",アメリカ合衆国ドル,左,,,.tl,670,,,,,現存,https://ja.wikipedia.org/wiki/%E6%9D%B1%E3%83%86%E3%82%A3%E3%83%A2%E3%83%BC%E3%83%AB,https://en.wikipedia.org/wiki/East_Timor,,https://www.wikidata.org/wiki/Q574,305093,https://maps.app.goo.gl/nh2yRaXHngJwToZN6
-TM,トルクメニスタン,トルクメニスタン,TKM,795,中央アジア,トルクメン語,トルクメニスタン・マナト,右,,,.tm,993,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AB%E3%82%AF%E3%83%A1%E3%83%8B%E3%82%B9%E3%82%BF%E3%83%B3,https://en.wikipedia.org/wiki/Turkmenistan,,https://www.wikidata.org/wiki/Q874,221764,https://maps.app.goo.gl/WGzCoonXRn5naaP27
-TN,チュニジア,チュニジア,TUN,788,北アフリカ,アラビア語,チュニジア・ディナール,右,,,.tn,216,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%A5%E3%83%8B%E3%82%B8%E3%82%A2,https://en.wikipedia.org/wiki/Tunisia,,https://www.wikidata.org/wiki/Q948,192757,https://maps.app.goo.gl/SauX9t6nh7gWEs1u8
-TO,トンガ,トンガ,TON,776,オセアニア,"トンガ語 (ポリネシア), 英語",パアンガ,左,,,.to,676,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%B3%E3%82%AC,https://en.wikipedia.org/wiki/Tonga,,https://www.wikidata.org/wiki/Q678,2185392,https://maps.app.goo.gl/TfqyN5GSCUYfuFYv5
-TR,トルコ,トルコ,TUR,792,西アジア,トルコ語,トルコリラ,右,,,.tr,90,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AB%E3%82%B3,https://en.wikipedia.org/wiki/Turkey,,https://www.wikidata.org/wiki/Q43,174737,https://maps.app.goo.gl/8RrSX7J2j2opFCfLA
-TT,トリニダード・トバゴ,トリニダード・トバゴ,TTO,780,カリブ海地域,英語,トリニダード・トバゴ・ドル,左,,,.tt,1-868,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AA%E3%83%8B%E3%83%80%E3%83%BC%E3%83%89%E3%83%BB%E3%83%88%E3%83%90%E3%82%B4,https://en.wikipedia.org/wiki/Trinidad_and_Tobago,,https://www.wikidata.org/wiki/Q754,555729,https://maps.app.goo.gl/rRYLNVjvKMM4ym4o6
-TV,ツバル,ツバル,TUV,798,オセアニア,英語,オーストラリア・ドル,左,,,.tv,688,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%84%E3%83%90%E3%83%AB,https://en.wikipedia.org/wiki/Tuvalu,,https://www.wikidata.org/wiki/Q672,2177266,https://maps.app.goo.gl/SH7EBf9kirPoXk7C6
-TW,台湾,台湾,TWN,158,東アジア,中国語,新台湾ドル,右,,,.tw,886,,,,,現存,https://ja.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9B%BD,https://en.wikipedia.org/wiki/Taiwan,,https://www.wikidata.org/wiki/Q865,449220,https://maps.app.goo.gl/4NNvZbCFRkVDsz2D6
-TZ,タンザニア,タンザニア,TZA,834,東アフリカ,"スワヒリ語, 英語",タンザニア・シリング,左,,,.tz,255,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%B3%E3%82%B6%E3%83%8B%E3%82%A2,https://en.wikipedia.org/wiki/Tanzania,,https://www.wikidata.org/wiki/Q924,195273,https://maps.app.goo.gl/idKPNXHjDL4ZjiV77
-UA,ウクライナ,ウクライナ,UKR,804,東ヨーロッパ,ウクライナ語,フリヴニャ,右,,,.ua,380,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%AF%E3%83%A9%E3%82%A4%E3%83%8A,https://en.wikipedia.org/wiki/Ukraine,,https://www.wikidata.org/wiki/Q212,60199,https://maps.app.goo.gl/zB6gy9v6RANqnWpA8
-UG,ウガンダ,ウガンダ,UGA,800,東アフリカ,"英語, スワヒリ語",ウガンダ・シリング,左,,,.ug,256,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%AC%E3%83%B3%E3%83%80,https://en.wikipedia.org/wiki/Uganda,,https://www.wikidata.org/wiki/Q1036,192796,https://maps.app.goo.gl/4J4Zyco1QsQy9q3eA
-UM,合衆国領有小離島,合衆国領有小離島,UMI,581,カリブ海地域,英語,アメリカ合衆国ドル,,,,.us,,,,,,現存,https://ja.wikipedia.org/wiki/%E5%90%88%E8%A1%86%E5%9B%BD%E9%A0%98%E6%9C%89%E5%B0%8F%E9%9B%A2%E5%B3%B6,https://en.wikipedia.org/wiki/United_States_Minor_Outlying_Islands,,https://www.wikidata.org/wiki/Q16645,2202162,https://maps.app.goo.gl/yuBUWfmNCzkUisp26
-US,アメリカ合衆国,アメリカ合衆国,USA,840,北部アメリカ,英語,アメリカ合衆国ドル,右,,,.us,1,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E5%90%88%E8%A1%86%E5%9B%BD,https://en.wikipedia.org/wiki/United_States,,https://www.wikidata.org/wiki/Q30,148838,https://maps.app.goo.gl/eXu1tRTvEhKY7yi67
-UY,ウルグアイ,ウルグアイ,URY,858,南アメリカ,スペイン語,ウルグアイ・ペソ,右,,,.uy,598,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A6%E3%83%AB%E3%82%B0%E3%82%A2%E3%82%A4,https://en.wikipedia.org/wiki/Uruguay,,https://www.wikidata.org/wiki/Q77,287072,https://maps.app.goo.gl/ajxfiDLQ4cz4eMez6
-UZ,ウズベキスタン,ウズベキスタン,UZB,860,中央アジア,ウズベク語,スム,右,,,.uz,998,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%BA%E3%83%99%E3%82%AD%E3%82%B9%E3%82%BF%E3%83%B3,https://en.wikipedia.org/wiki/Uzbekistan,,https://www.wikidata.org/wiki/Q265,215169,https://maps.app.goo.gl/VtJRZvhWAjxSx2gQ8
-VA,バチカン,バチカン,VAT,336,南ヨーロッパ,ラテン語,ユーロ,右,,,.va,379,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%81%E3%82%AB%E3%83%B3,https://en.wikipedia.org/wiki/Vatican_City,,https://www.wikidata.org/wiki/Q237,36989,https://maps.app.goo.gl/nNEe6Jt8neAMdtEw5
-VC,セントビンセント・グレナディーン,セントビンセント・グレナディーン,VCT,670,カリブ海地域,英語,東カリブ・ドル,左,,,.vc,1-784,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%83%93%E3%83%B3%E3%82%BB%E3%83%B3%E3%83%88%E3%83%BB%E3%82%B0%E3%83%AC%E3%83%8A%E3%83%87%E3%82%A3%E3%83%BC%E3%83%B3,https://en.wikipedia.org/wiki/Saint_Vincent_and_the_Grenadines,,https://www.wikidata.org/wiki/Q757,555724,https://maps.app.goo.gl/TSsXAhdqAkuA5kuQ7
-VE,ベネズエラ,ベネズエラ,VEN,862,南アメリカ,スペイン語,ボリバル・デジタル,右,,,.ve,58,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%8D%E3%82%BA%E3%82%A8%E3%83%A9,https://en.wikipedia.org/wiki/Venezuela,,https://www.wikidata.org/wiki/Q717,272644,https://maps.app.goo.gl/wB53rpNM1ySiiHqz6
-VG,イギリス領バージン諸島,イギリス領バージン諸島,VGB,92,カリブ海地域,英語,アメリカ合衆国ドル,左,,,.vg,1-284,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9%E9%A0%98%E3%83%B4%E3%82%A1%E3%83%BC%E3%82%B8%E3%83%B3%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/British_Virgin_Islands,,https://www.wikidata.org/wiki/Q25305,285454,https://maps.app.goo.gl/k1RS22nzjDBJiGwx9
-VI,アメリカ領バージン諸島,アメリカ領バージン諸島,VIR,850,カリブ海地域,英語,アメリカ合衆国ドル,左,,,.vi,1-340,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E9%A0%98%E3%83%B4%E3%82%A1%E3%83%BC%E3%82%B8%E3%83%B3%E8%AB%B8%E5%B3%B6,https://en.wikipedia.org/wiki/United_States_Virgin_Islands,,https://www.wikidata.org/wiki/Q20648959,285461,https://maps.app.goo.gl/BsLZNUBonLadTNuE6
-VN,ベトナム,ベトナム,VNM,704,東南アジア,ベトナム語,ドン,右,,,.vn,84,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%88%E3%83%8A%E3%83%A0,https://en.wikipedia.org/wiki/Vietnam,,https://www.wikidata.org/wiki/Q881,49915,https://maps.app.goo.gl/WsLswqmBS6brE9zS6
-VU,バヌアツ,バヌアツ,VUT,548,オセアニア,"ビスラマ語, 英語, フランス語",バツ,右,,,.vu,678,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%8C%E3%82%A2%E3%83%84,https://en.wikipedia.org/wiki/Vanuatu,,https://www.wikidata.org/wiki/Q686,2177246,https://maps.app.goo.gl/KVwsDqPPBNX6bCFZ6
-WF,ウォリス・フツナ,ウォリス・フツナ,WLF,876,オセアニア,フランス語,CFPフラン,右,,,.wf,681,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A9%E3%83%AA%E3%82%B9%E3%83%BB%E3%83%95%E3%83%84%E3%83%8A,https://en.wikipedia.org/wiki/Wallis_and_Futuna,,https://www.wikidata.org/wiki/Q35555,3407645,https://maps.app.goo.gl/pF1gRXMVjy4TRRKy7
-WS,サモア,サモア,WSM,882,オセアニア,"サモア語, 英語",タラ,左,,,.ws,685,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%A2%E3%82%A2,https://en.wikipedia.org/wiki/Samoa,,https://www.wikidata.org/wiki/Q683,2185391,https://maps.app.goo.gl/5vwsWMyuEKYvreyF8
-XK,コソボ,コソボ,XKX,,西アジア,"アルバニア語, セルビア語",ユーロ,右,,,,383,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%82%BD%E3%83%9C,https://en.wikipedia.org/wiki/Kosovo,,https://www.wikidata.org/wiki/Q1231,2088990,https://maps.app.goo.gl/WwfcQ2Jb8kLhS1t77
-YE,イエメン,イエメン,YEM,887,東アフリカ,アラビア語,イエメン・リアル,右,,,.ye,967,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%A8%E3%83%A1%E3%83%B3,https://en.wikipedia.org/wiki/Yemen,,https://www.wikidata.org/wiki/Q805,305092,https://maps.app.goo.gl/7N3nMg98zGzujZ6c9
-YT,マヨット,マヨット,MYT,175,南部アフリカ,フランス語,ユーロ,右,,,.yt,269,,,,,現存,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%A8%E3%83%83%E3%83%88,https://en.wikipedia.org/wiki/Mayotte,,https://www.wikidata.org/wiki/Q17063,2811723,https://maps.app.goo.gl/Hr42LSHDgcCd3swp7
-ZA,南アフリカ,南アフリカ,ZAF,710,東アフリカ,"アフリカーンス語, コサ語, ズールー語, スワジ語, ソト語, 北ソト語, ツワナ語",ランド,左,,,.za,27,,,,,現存,https://ja.wikipedia.org/wiki/%E5%8D%97%E3%82%A2%E3%83%95%E3%83%AA%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD,https://en.wikipedia.org/wiki/South_Africa,,https://www.wikidata.org/wiki/Q258,87565,https://maps.app.goo.gl/y7UnNMAeZ2bkMxKV9
-ZM,ザンビア,ザンビア,ZMB,894,東アフリカ,英語,ザンビア・クワチャ,左,,,.zm,260,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B6%E3%83%B3%E3%83%93%E3%82%A2,https://en.wikipedia.org/wiki/Zambia,,https://www.wikidata.org/wiki/Q953,195274,https://maps.app.goo.gl/SHdBu4C25oSAnnUC6
-ZW,ジンバブエ,ジンバブエ,ZWE,716,南ヨーロッパ,"英語, ツォンガ語, ショナ語, ソト語, ツワナ語, コサ語","アメリカ合衆国ドル, ジンバブエ・ゴールド",左,,,.zw,263,,,,,現存,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%B3%E3%83%90%E3%83%96%E3%82%A8,https://en.wikipedia.org/wiki/Zimbabwe,,https://www.wikidata.org/wiki/Q954,195275,https://maps.app.goo.gl/JqfGheUVDGNtaQaaA
+country_code,iso_alpha3,日本語名,公用語名,車両通行側,公式サイトURL,Wikipedia_ja,Wikidata_id
+INT,INT,"国際・多国籍","International",-,,https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E6%A9%9F%E9%96%A2,
+AD,AND,"アンドラ","Andorra",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%83%89%E3%83%A9,Q228
+AE,ARE,"アラブ首長国連邦","United Arab Emirates",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A9%E3%83%96%E9%A6%96%E9%95%B7%E5%9B%BD%E9%80%A3%E9%82%A6,Q878
+AF,AFG,"アフガニスタン","Afghanistan",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%95%E3%82%AC%E3%83%8B%E3%82%B9%E3%82%BF%E3%83%B3,Q889
+AG,ATG,"アンティグア・バーブーダ","Antigua and Barbuda",左,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%83%86%E3%82%A3%E3%82%B0%E3%82%A2%E3%83%BB%E3%83%90%E3%83%BC%E3%83%96%E3%83%BC%E3%83%80,Q781
+AI,AIA,"アンギラ","Anguilla",左,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%AE%E3%83%A9,Q25228
+AL,ALB,"アルバニア","Albania",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%90%E3%83%8B%E3%82%A2,Q222
+AM,ARM,"アルメニア","Armenia",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%A1%E3%83%8B%E3%82%A2,Q399
+AO,AGO,"アンゴラ","Angola",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%B4%E3%83%A9,Q916
+AQ,ATA,"南極","Antarctica",,,https://ja.wikipedia.org/wiki/%E5%8D%97%E6%A5%B5,Q1555938
+AR,ARG,"アルゼンチン","Argentina",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%82%BC%E3%83%B3%E3%83%81%E3%83%B3,Q414
+AS,ASM,"アメリカ領サモア","American Samoa",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E9%A0%98%E3%82%B5%E3%83%A2%E3%82%A2,Q16641
+AT,AUT,"オーストリア","Austria",右,,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%82%B9%E3%83%88%E3%83%AA%E3%82%A2,Q40
+AU,AUS,"オーストラリア","Australia",左,,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%AA%E3%82%A2,Q408
+AW,ABW,"アルバ","Aruba",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%90,Q21203
+AX,ALA,"オーランド諸島","Åland Islands",右,,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89%E8%AB%B8%E5%B3%B6,Q5689
+AZ,AZE,"アゼルバイジャン","Azerbaijan",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%BC%E3%83%AB%E3%83%90%E3%82%A4%E3%82%B8%E3%83%A3%E3%83%B3,Q227
+BA,BIH,"ボスニア・ヘルツェゴビナ","Bosnia and Herzegovina",右,,https://ja.wikipedia.org/wiki/%E3%83%9C%E3%82%B9%E3%83%8B%E3%82%A2%E3%83%BB%E3%83%98%E3%83%AB%E3%83%84%E3%82%A7%E3%82%B4%E3%83%93%E3%83%8A,Q225
+BB,BRB,"バルバドス","Barbados",左,,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%AB%E3%83%90%E3%83%89%E3%82%B9,Q244
+BD,BGD,"バングラデシュ","Bangladesh",左,,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%B3%E3%82%B0%E3%83%A9%E3%83%87%E3%82%B7%E3%83%A5,Q902
+BE,BEL,"ベルギー","Belgium",右,,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%AB%E3%82%AE%E3%83%BC,Q31
+BF,BFA,"ブルキナファソ","Burkina Faso",右,,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%82%AD%E3%83%8A%E3%83%95%E3%82%A1%E3%82%BD,Q965
+BG,BGR,"ブルガリア","Bulgaria",右,,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%82%AC%E3%83%AA%E3%82%A2,Q219
+BH,BHR,"バーレーン","Bahrain",右,,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%BC%E3%83%AC%E3%83%BC%E3%83%B3,Q398
+BI,BDI,"ブルンジ","Burundi",右,,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%B3%E3%82%B8,Q967
+BJ,BEN,"ベナン","Benin",右,,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%8A%E3%83%B3,Q962
+BL,BLM,"サン・バルテルミー","Saint Barthélemy",右,,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%BB%E3%83%90%E3%83%AB%E3%83%86%E3%83%AB%E3%83%9F%E3%83%BC%E5%B3%B6,Q25362
+BM,BMU,"バミューダ","Bermuda",左,,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%9F%E3%83%A5%E3%83%BC%E3%83%80%E8%AB%B8%E5%B3%B6,Q23635
+BN,BRN,"ブルネイ","Brunei",左,,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%8D%E3%82%A4,Q921
+BO,BOL,"ボリビア","Bolivia",右,,https://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%AA%E3%83%93%E3%82%A2,Q750
+BQ,BES,"ボネール、シント・ユースタティウス及びサバ","Q27565",右,,https://ja.wikipedia.org/wiki/BES%E8%AB%B8%E5%B3%B6,Q27561
+BR,BRA,"ブラジル","Brazil",右,,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%82%B8%E3%83%AB,Q155
+BS,BHS,"バハマ","Bahamas",左,,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%8F%E3%83%9E,Q778
+BT,BTN,"ブータン","Bhutan",左,,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%BC%E3%82%BF%E3%83%B3,Q917
+BV,BVT,"ブーベ島","Bouvet Island",,,https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%BC%E3%83%99%E5%B3%B6,Q23408
+BW,BWA,"ボツワナ","Botswana",左,,https://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%84%E3%83%AF%E3%83%8A,Q963
+BY,BLR,"ベラルーシ","Belarus",右,,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%A9%E3%83%AB%E3%83%BC%E3%82%B7,Q184
+BZ,BLZ,"ベリーズ","Belize",右,,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%AA%E3%83%BC%E3%82%BA,Q242
+CA,CAN,"カナダ","Canada",右,,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%8A%E3%83%80,Q16
+CC,CCK,"ココス（キーリング）諸島","Cocos (Keeling) Islands",左,,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%82%B3%E3%82%B9%E8%AB%B8%E5%B3%B6,Q36004
+CD,COD,"コンゴ民主共和国","Democratic Republic of the Congo",右,,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%B4%E6%B0%91%E4%B8%BB%E5%85%B1%E5%92%8C%E5%9B%BD,Q974
+CF,CAF,"中央アフリカ共和国","Central African Republic",右,,https://ja.wikipedia.org/wiki/%E4%B8%AD%E5%A4%AE%E3%82%A2%E3%83%95%E3%83%AA%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD,Q929
+CG,COG,"コンゴ","Republic of the Congo",右,,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%B4%E5%85%B1%E5%92%8C%E5%9B%BD,Q971
+CH,CHE,"スイス","Switzerland",右,,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%A4%E3%82%B9,Q39
+CI,CIV,"コートジボワール","Ivory Coast",右,,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%83%88%E3%82%B8%E3%83%9C%E3%83%AF%E3%83%BC%E3%83%AB,Q1008
+CK,COK,"クック諸島","Cook Islands",左,,https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%83%E3%82%AF%E8%AB%B8%E5%B3%B6,Q26988
+CL,CHL,"チリ","Chile",右,,https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%AA,Q298
+CM,CMR,"カメルーン","Cameroon",右,,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%A1%E3%83%AB%E3%83%BC%E3%83%B3,Q1009
+CN,CHN,"中国","China",右,,https://ja.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD,Q148
+CO,COL,"コロンビア","Colombia",右,,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%AD%E3%83%B3%E3%83%93%E3%82%A2,Q739
+CR,CRI,"コスタリカ","Costa Rica",右,,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%82%B9%E3%82%BF%E3%83%AA%E3%82%AB,Q800
+CU,CUB,"キューバ","Cuba",右,,https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%90,Q241
+CV,CPV,"カーボベルデ","Cape Verde",右,,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%BC%E3%83%9C%E3%83%99%E3%83%AB%E3%83%87,Q1011
+CW,CUW,"キュラソー","Curaçao",右,,https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A5%E3%83%A9%E3%82%BD%E3%83%BC%E5%B3%B6,Q25279
+CX,CXR,"クリスマス島","Christmas Island",左,,https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%E5%B3%B6_(%E3%82%AA%E3%83%BC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%AA%E3%82%A2),Q31063
+CY,CYP,"キプロス","Cyprus",左,,https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%97%E3%83%AD%E3%82%B9,Q229
+CZ,CZE,"チェコ","Czech Republic",右,,https://ja.wikipedia.org/wiki/%E3%83%81%E3%82%A7%E3%82%B3,Q213
+DE,DEU,"ドイツ","Germany",右,,https://ja.wikipedia.org/wiki/%E3%83%89%E3%82%A4%E3%83%84,Q183
+DJ,DJI,"ジブチ","Djibouti",右,,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%96%E3%83%81,Q977
+DK,DNK,"デンマーク","Denmark",右,,https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%B3%E3%83%9E%E3%83%BC%E3%82%AF,Q35
+DM,DMA,"ドミニカ","Dominica",左,,https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%9F%E3%83%8B%E3%82%AB%E5%9B%BD,Q784
+DO,DOM,"ドミニカ共和国","Dominican Republic",右,,https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%9F%E3%83%8B%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD,Q786
+DZ,DZA,"アルジェリア","Algeria",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%82%B8%E3%82%A7%E3%83%AA%E3%82%A2,Q262
+EC,ECU,"エクアドル","Ecuador",右,,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%AF%E3%82%A2%E3%83%89%E3%83%AB,Q736
+EE,EST,"エストニア","Estonia",右,,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%B9%E3%83%88%E3%83%8B%E3%82%A2,Q191
+EG,EGY,"エジプト","Egypt",右,,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%B8%E3%83%97%E3%83%88,Q79
+EH,ESH,"西サハラ","Western Sahara",右,,https://ja.wikipedia.org/wiki/%E8%A5%BF%E3%82%B5%E3%83%8F%E3%83%A9,Q6250
+ER,ERI,"エリトリア","Eritrea",右,,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%AA%E3%83%88%E3%83%AA%E3%82%A2,Q986
+ES,ESP,"スペイン","Spain",右,,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%9A%E3%82%A4%E3%83%B3,Q29
+ET,ETH,"エチオピア","Ethiopia",右,,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AA%E3%83%94%E3%82%A2,Q115
+FI,FIN,"フィンランド","Finland",右,,https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%B3%E3%83%A9%E3%83%B3%E3%83%89,Q33
+FJ,FJI,"フィジー","Fiji",左,,https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%82%B8%E3%83%BC,Q712
+FK,FLK,"フォークランド諸島","Falkland Islands",左,,https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E3%83%A9%E3%83%B3%E3%83%89%E8%AB%B8%E5%B3%B6,Q9648
+FM,FSM,"ミクロネシア","Federated States of Micronesia",右,,https://ja.wikipedia.org/wiki/%E3%83%9F%E3%82%AF%E3%83%AD%E3%83%8D%E3%82%B7%E3%82%A2%E9%80%A3%E9%82%A6,Q702
+FO,FRO,"フェロー諸島","Faroe Islands",右,,https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A7%E3%83%AD%E3%83%BC%E8%AB%B8%E5%B3%B6,Q4628
+FR,FRA,"フランス","France",右,,https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9,Q142
+GA,GAB,"ガボン","Gabon",右,,https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%9C%E3%83%B3,Q1000
+GB,GBR,"イギリス","United Kingdom",左,,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9,Q145
+GD,GRD,"グレナダ","Grenada",左,,https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%AC%E3%83%8A%E3%83%80,Q769
+GE,GEO,"ジョージア","Georgia (country)",右,,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A7%E3%83%BC%E3%82%B8%E3%82%A2_(%E5%9B%BD),Q230
+GF,GUF,"フランス領ギアナ","French Guiana",右,,https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%A0%98%E3%82%AE%E3%82%A2%E3%83%8A,Q3769
+GG,GGY,"ガーンジー","Guernsey",左,,https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%BC%E3%83%B3%E3%82%B8%E3%83%BC,Q25230
+GH,GHA,"ガーナ","Ghana",右,,https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%BC%E3%83%8A,Q117
+GI,GIB,"ジブラルタル","Gibraltar",右,,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%96%E3%83%A9%E3%83%AB%E3%82%BF%E3%83%AB,Q1410
+GL,GRL,"グリーンランド","Greenland",右,,https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%A9%E3%83%B3%E3%83%89,Q223
+GM,GMB,"ガンビア","The Gambia",右,,https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%B3%E3%83%93%E3%82%A2,Q1005
+GN,GIN,"ギニア","Guinea",右,,https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%8B%E3%82%A2,Q1006
+GP,GLP,"グアドループ","Guadeloupe",右,,https://ja.wikipedia.org/wiki/%E3%82%B0%E3%82%A2%E3%83%89%E3%83%AB%E3%83%BC%E3%83%97,Q17012
+GQ,GNQ,"赤道ギニア","Equatorial Guinea",右,,https://ja.wikipedia.org/wiki/%E8%B5%A4%E9%81%93%E3%82%AE%E3%83%8B%E3%82%A2,Q983
+GR,GRC,"ギリシャ","Greece",右,,https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%AA%E3%82%B7%E3%83%A3,Q41
+GS,SGS,"サウスジョージア・サウスサンドウィッチ諸島","South Georgia and the South Sandwich Islands",右,,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%82%A6%E3%82%B9%E3%82%B8%E3%83%A7%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%BB%E3%82%B5%E3%82%A6%E3%82%B9%E3%82%B5%E3%83%B3%E3%83%89%E3%82%A6%E3%82%A3%E3%83%83%E3%83%81%E8%AB%B8%E5%B3%B6,Q35086
+GT,GTM,"グアテマラ","Guatemala",右,,https://ja.wikipedia.org/wiki/%E3%82%B0%E3%82%A2%E3%83%86%E3%83%9E%E3%83%A9,Q774
+GU,GUM,"グアム","Guam",右,,https://ja.wikipedia.org/wiki/%E3%82%B0%E3%82%A2%E3%83%A0,Q16635
+GW,GNB,"ギニアビサウ","Guinea-Bissau",右,,https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%8B%E3%82%A2%E3%83%93%E3%82%B5%E3%82%A6,Q1007
+GY,GUY,"ガイアナ","Guyana",左,,https://ja.wikipedia.org/wiki/%E3%82%AC%E3%82%A4%E3%82%A2%E3%83%8A,Q734
+HK,HKG,"香港","Hong Kong",左,,https://ja.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF,Q8646
+HM,HMD,"ハード島とマクドナルド諸島","Heard Island and McDonald Islands",,,https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%BC%E3%83%89%E5%B3%B6%E3%81%A8%E3%83%9E%E3%82%AF%E3%83%89%E3%83%8A%E3%83%AB%E3%83%89%E8%AB%B8%E5%B3%B6,Q131198
+HN,HND,"ホンジュラス","Honduras",右,,https://ja.wikipedia.org/wiki/%E3%83%9B%E3%83%B3%E3%82%B8%E3%83%A5%E3%83%A9%E3%82%B9,Q783
+HR,HRV,"クロアチア","Croatia",右,,https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%A2%E3%83%81%E3%82%A2,Q224
+HT,HTI,"ハイチ","Haiti",右,,https://ja.wikipedia.org/wiki/%E3%83%8F%E3%82%A4%E3%83%81,Q790
+HU,HUN,"ハンガリー","Hungary",右,,https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%B3%E3%82%AC%E3%83%AA%E3%83%BC,Q28
+ID,IDN,"インドネシア","Indonesia",左,,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%83%89%E3%83%8D%E3%82%B7%E3%82%A2,Q252
+IE,IRL,"アイルランド","Republic of Ireland",左,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%A4%E3%83%AB%E3%83%A9%E3%83%B3%E3%83%89,Q27
+IL,ISR,"イスラエル","Israel",右,,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%B9%E3%83%A9%E3%82%A8%E3%83%AB,Q801
+IM,IMN,"マン島","Isle of Man",左,,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%B3%E5%B3%B6,Q9676
+IN,IND,"インド","India",左,,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%83%89,Q668
+IO,IOT,"イギリス領インド洋地域","British Indian Ocean Territory",右,,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9%E9%A0%98%E3%82%A4%E3%83%B3%E3%83%89%E6%B4%8B%E5%9C%B0%E5%9F%9F,Q43448
+IQ,IRQ,"イラク","Iraq",右,,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%A9%E3%82%AF,Q796
+IR,IRN,"イラン","Iran",右,,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%A9%E3%83%B3,Q794
+IS,ISL,"アイスランド","Iceland",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%A4%E3%82%B9%E3%83%A9%E3%83%B3%E3%83%89,Q189
+IT,ITA,"イタリア","Italy",右,,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%BF%E3%83%AA%E3%82%A2,Q38
+JE,JEY,"ジャージー","Jersey",左,,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A3%E3%83%BC%E3%82%B8%E3%83%BC,Q785
+JM,JAM,"ジャマイカ","Jamaica",左,,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A3%E3%83%9E%E3%82%A4%E3%82%AB,Q766
+JO,JOR,"ヨルダン","Jordan",右,,https://ja.wikipedia.org/wiki/%E3%83%A8%E3%83%AB%E3%83%80%E3%83%B3,Q810
+JP,JPN,"日本","日本国",左,https://www.e-gov.go.jp/,https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC,Q17
+KE,KEN,"ケニア","Kenya",左,,https://ja.wikipedia.org/wiki/%E3%82%B1%E3%83%8B%E3%82%A2,Q114
+KG,KGZ,"キルギス","Kyrgyzstan",右,,https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%AB%E3%82%AE%E3%82%B9,Q813
+KH,KHM,"カンボジア","Cambodia",右,,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%B3%E3%83%9C%E3%82%B8%E3%82%A2,Q424
+KI,KIR,"キリバス","Kiribati",左,,https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%AA%E3%83%90%E3%82%B9,Q710
+KM,COM,"コモロ","Comoros",右,,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%A2%E3%83%AD,Q970
+KN,KNA,"セントクリストファー・ネービス","Saint Kitts and Nevis",左,,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%83%BC%E3%83%BB%E3%83%8D%E3%82%A4%E3%83%93%E3%82%B9,Q763
+KP,PRK,"北朝鮮","North Korea",右,,https://ja.wikipedia.org/wiki/%E6%9C%9D%E9%AE%AE%E6%B0%91%E4%B8%BB%E4%B8%BB%E7%BE%A9%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD,Q423
+KR,KOR,"韓国","South Korea",右,,https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%9F%93%E6%B0%91%E5%9B%BD,Q884
+KW,KWT,"クウェート","Kuwait",右,,https://ja.wikipedia.org/wiki/%E3%82%AF%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%88,Q817
+KY,CYM,"ケイマン諸島","Cayman Islands",左,,https://ja.wikipedia.org/wiki/%E3%82%B1%E3%82%A4%E3%83%9E%E3%83%B3%E8%AB%B8%E5%B3%B6,Q5785
+KZ,KAZ,"カザフスタン","Kazakhstan",右,,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%B6%E3%83%95%E3%82%B9%E3%82%BF%E3%83%B3,Q232
+LA,LAO,"ラオス","Laos",右,,https://ja.wikipedia.org/wiki/%E3%83%A9%E3%82%AA%E3%82%B9,Q819
+LB,LBN,"レバノン","Lebanon",右,,https://ja.wikipedia.org/wiki/%E3%83%AC%E3%83%90%E3%83%8E%E3%83%B3,Q822
+LC,LCA,"セントルシア","Saint Lucia",左,,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%83%AB%E3%82%B7%E3%82%A2,Q760
+LI,LIE,"リヒテンシュタイン","Liechtenstein",右,,https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%92%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3,Q347
+LK,LKA,"スリランカ","Sri Lanka",左,,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AA%E3%83%A9%E3%83%B3%E3%82%AB,Q854
+LR,LBR,"リベリア","Liberia",右,,https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%99%E3%83%AA%E3%82%A2,Q1014
+LS,LSO,"レソト","Lesotho",左,,https://ja.wikipedia.org/wiki/%E3%83%AC%E3%82%BD%E3%83%88,Q1013
+LT,LTU,"リトアニア","Lithuania",右,,https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%88%E3%82%A2%E3%83%8B%E3%82%A2,Q37
+LU,LUX,"ルクセンブルク","Luxembourg",右,,https://ja.wikipedia.org/wiki/%E3%83%AB%E3%82%AF%E3%82%BB%E3%83%B3%E3%83%96%E3%83%AB%E3%82%AF,Q32
+LV,LVA,"ラトビア","Latvia",右,,https://ja.wikipedia.org/wiki/%E3%83%A9%E3%83%88%E3%83%93%E3%82%A2,Q211
+LY,LBY,"リビア","Libya",右,,https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%93%E3%82%A2,Q1016
+MA,MAR,"モロッコ","Morocco",右,,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%AD%E3%83%83%E3%82%B3,Q1028
+MC,MCO,"モナコ","Monaco",右,,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%8A%E3%82%B3,Q235
+MD,MDA,"モルドバ","Moldova",右,,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%AB%E3%83%89%E3%83%90,Q217
+ME,MNE,"モンテネグロ","Montenegro",右,,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%86%E3%83%8D%E3%82%B0%E3%83%AD,Q236
+MF,MAF,"サン・マルタン","Collectivity of Saint Martin",右,,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%BB%E3%83%9E%E3%83%AB%E3%82%BF%E3%83%B3_(%E8%A5%BF%E3%82%A4%E3%83%B3%E3%83%89%E8%AB%B8%E5%B3%B6),Q126125
+MG,MDG,"マダガスカル","Madagascar",右,,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%80%E3%82%AC%E3%82%B9%E3%82%AB%E3%83%AB,Q1019
+MH,MHL,"マーシャル諸島","Marshall Islands",右,,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB%E8%AB%B8%E5%B3%B6,Q709
+MK,MKD,"北マケドニア","North Macedonia",右,,https://ja.wikipedia.org/wiki/%E5%8C%97%E3%83%9E%E3%82%B1%E3%83%89%E3%83%8B%E3%82%A2,Q221
+ML,MLI,"マリ","Mali",右,,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AA%E5%85%B1%E5%92%8C%E5%9B%BD,Q912
+MM,MMR,"ミャンマー","Myanmar",右,,https://ja.wikipedia.org/wiki/%E3%83%9F%E3%83%A3%E3%83%B3%E3%83%9E%E3%83%BC,Q836
+MN,MNG,"モンゴル","Mongolia",右,,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%82%B4%E3%83%AB%E5%9B%BD,Q711
+MO,MAC,"マカオ","Macau",左,,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%AB%E3%82%AA,Q14773
+MP,MNP,"北マリアナ諸島","Northern Mariana Islands",右,,https://ja.wikipedia.org/wiki/%E5%8C%97%E3%83%9E%E3%83%AA%E3%82%A2%E3%83%8A%E8%AB%B8%E5%B3%B6,Q16644
+MQ,MTQ,"マルティニーク","Martinique",右,,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%83%86%E3%82%A3%E3%83%8B%E3%83%BC%E3%82%AF,Q17054
+MR,MRT,"モーリタニア","Mauritania",右,,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%BC%E3%83%AA%E3%82%BF%E3%83%8B%E3%82%A2,Q1025
+MS,MSR,"モントセラト","Montserrat",左,,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%88%E3%82%BB%E3%83%A9%E3%83%88,Q13353
+MT,MLT,"マルタ","Malta",左,,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%82%BF,Q233
+MU,MUS,"モーリシャス","Mauritius",左,,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%BC%E3%83%AA%E3%82%B7%E3%83%A3%E3%82%B9,Q1027
+MV,MDV,"モルディブ","Maldives",左,,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%AB%E3%83%87%E3%82%A3%E3%83%96,Q826
+MW,MWI,"マラウイ","Malawi",左,,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%A9%E3%82%A6%E3%82%A4,Q1020
+MX,MEX,"メキシコ","Mexico",右,,https://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%AD%E3%82%B7%E3%82%B3,Q96
+MY,MYS,"マレーシア","Malaysia",左,,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AC%E3%83%BC%E3%82%B7%E3%82%A2,Q833
+MZ,MOZ,"モザンビーク","Mozambique",左,,https://ja.wikipedia.org/wiki/%E3%83%A2%E3%82%B6%E3%83%B3%E3%83%93%E3%83%BC%E3%82%AF,Q1029
+NA,NAM,"ナミビア","Namibia",左,,https://ja.wikipedia.org/wiki/%E3%83%8A%E3%83%9F%E3%83%93%E3%82%A2,Q1030
+NC,NCL,"ニューカレドニア","New Caledonia",右,,https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%AB%E3%83%AC%E3%83%89%E3%83%8B%E3%82%A2,Q33788
+NE,NER,"ニジェール","Niger",右,,https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B8%E3%82%A7%E3%83%BC%E3%83%AB,Q1032
+NF,NFK,"ノーフォーク島","Norfolk Island",左,,https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E5%B3%B6,Q31057
+NG,NGA,"ナイジェリア","Nigeria",右,,https://ja.wikipedia.org/wiki/%E3%83%8A%E3%82%A4%E3%82%B8%E3%82%A7%E3%83%AA%E3%82%A2,Q1033
+NI,NIC,"ニカラグア","Nicaragua",右,,https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%AB%E3%83%A9%E3%82%B0%E3%82%A2,Q811
+NL,NLD,"オランダ","Netherlands",右,,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%A9%E3%83%B3%E3%83%80,Q55
+NO,NOR,"ノルウェー","Norway",右,,https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%AB%E3%82%A6%E3%82%A7%E3%83%BC,Q20
+NP,NPL,"ネパール","Nepal",左,,https://ja.wikipedia.org/wiki/%E3%83%8D%E3%83%91%E3%83%BC%E3%83%AB,Q837
+NR,NRU,"ナウル","Nauru",左,,https://ja.wikipedia.org/wiki/%E3%83%8A%E3%82%A6%E3%83%AB,Q697
+NU,NIU,"ニウエ","Niue",左,,https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%A6%E3%82%A8,Q34020
+NZ,NZL,"ニュージーランド","New Zealand",左,,https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89,Q664
+OM,OMN,"オマーン","Oman",右,,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%9E%E3%83%BC%E3%83%B3,Q842
+PA,PAN,"パナマ","Panama",右,,https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%8A%E3%83%9E,Q804
+PE,PER,"ペルー","Peru",右,,https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%AB%E3%83%BC,Q419
+PF,PYF,"フランス領ポリネシア","French Polynesia",右,,https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%A0%98%E3%83%9D%E3%83%AA%E3%83%8D%E3%82%B7%E3%82%A2,Q30971
+PG,PNG,"パプアニューギニア","Papua New Guinea",左,,https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%97%E3%82%A2%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%AE%E3%83%8B%E3%82%A2,Q691
+PH,PHL,"フィリピン","Philippines",右,,https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3,Q928
+PK,PAK,"パキスタン","Pakistan",左,,https://ja.wikipedia.org/wiki/%E3%83%91%E3%82%AD%E3%82%B9%E3%82%BF%E3%83%B3,Q843
+PL,POL,"ポーランド","Poland",右,,https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89,Q36
+PM,SPM,"サンピエール島・ミクロン島","Saint Pierre and Miquelon",右,,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%94%E3%82%A8%E3%83%BC%E3%83%AB%E5%B3%B6%E3%83%BB%E3%83%9F%E3%82%AF%E3%83%AD%E3%83%B3%E5%B3%B6,Q34617
+PN,PCN,"ピトケアン諸島","Pitcairn Islands",左,,https://ja.wikipedia.org/wiki/%E3%83%94%E3%83%88%E3%82%B1%E3%82%A2%E3%83%B3%E8%AB%B8%E5%B3%B6,Q35672
+PR,PRI,"プエルトリコ","Puerto Rico",右,,https://ja.wikipedia.org/wiki/%E3%83%97%E3%82%A8%E3%83%AB%E3%83%88%E3%83%AA%E3%82%B3,Q1183
+PS,PSE,"パレスチナ","State of Palestine",右,,https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%AC%E3%82%B9%E3%83%81%E3%83%8A%E5%9B%BD,Q23792
+PT,PRT,"ポルトガル","Portugal",右,,https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%AB%E3%83%88%E3%82%AC%E3%83%AB,Q45
+PW,PLW,"パラオ","Palau",右,,https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%A9%E3%82%AA,Q695
+PY,PRY,"パラグアイ","Paraguay",右,,https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%A9%E3%82%B0%E3%82%A2%E3%82%A4,Q733
+QA,QAT,"カタール","Qatar",右,,https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%BF%E3%83%BC%E3%83%AB,Q846
+RE,REU,"レユニオン","Réunion",右,,https://ja.wikipedia.org/wiki/%E3%83%AC%E3%83%A6%E3%83%8B%E3%82%AA%E3%83%B3,Q17070
+RO,ROU,"ルーマニア","Romania",右,,https://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%BC%E3%83%9E%E3%83%8B%E3%82%A2,Q218
+RS,SRB,"セルビア","Serbia",右,,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%AB%E3%83%93%E3%82%A2,Q403
+RU,RUS,"ロシア","Russia",右,,https://ja.wikipedia.org/wiki/%E3%83%AD%E3%82%B7%E3%82%A2,Q159
+RW,RWA,"ルワンダ","Rwanda",右,,https://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%AF%E3%83%B3%E3%83%80,Q1037
+SA,SAU,"サウジアラビア","Saudi Arabia",右,,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%82%A6%E3%82%B8%E3%82%A2%E3%83%A9%E3%83%93%E3%82%A2,Q851
+SB,SLB,"ソロモン諸島","Solomon Islands",左,,https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%AD%E3%83%A2%E3%83%B3%E8%AB%B8%E5%B3%B6,Q685
+SC,SYC,"セーシェル","Seychelles",左,,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%BC%E3%82%B7%E3%82%A7%E3%83%AB,Q1042
+SD,SDN,"スーダン","Sudan",右,,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%BC%E3%83%80%E3%83%B3,Q1049
+SE,SWE,"スウェーデン","Sweden",右,,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%87%E3%83%B3,Q34
+SG,SGP,"シンガポール","Singapore",左,,https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%B3%E3%82%AC%E3%83%9D%E3%83%BC%E3%83%AB,Q334
+SH,SHN,"セントヘレナ・アセンションおよびトリスタンダクーニャ","Saint Helena",左,,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%83%98%E3%83%AC%E3%83%8A%E3%83%BB%E3%82%A2%E3%82%BB%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8A%E3%82%88%E3%81%B3%E3%83%88%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%80%E3%82%AF%E3%83%BC%E3%83%8B%E3%83%A3,Q192184
+SI,SVN,"スロベニア","Slovenia",右,,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AD%E3%83%99%E3%83%8B%E3%82%A2,Q215
+SJ,SJM,"スヴァールバル諸島およびヤンマイエン島","Svalbard and Jan Mayen",右,,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%B4%E3%82%A1%E3%83%BC%E3%83%AB%E3%83%90%E3%83%AB%E8%AB%B8%E5%B3%B6%E3%81%8A%E3%82%88%E3%81%B3%E3%83%A4%E3%83%B3%E3%83%9E%E3%82%A4%E3%82%A8%E3%83%B3%E5%B3%B6,Q842829
+SK,SVK,"スロバキア","Slovakia",右,,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AD%E3%83%90%E3%82%AD%E3%82%A2,Q214
+SL,SLE,"シエラレオネ","Sierra Leone",右,,https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%A8%E3%83%A9%E3%83%AC%E3%82%AA%E3%83%8D,Q1044
+SM,SMR,"サンマリノ","San Marino",右,,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%9E%E3%83%AA%E3%83%8E,Q238
+SN,SEN,"セネガル","Senegal",右,,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%8D%E3%82%AC%E3%83%AB,Q1041
+SO,SOM,"ソマリア","Somalia",右,,https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%9E%E3%83%AA%E3%82%A2,Q1045
+SR,SUR,"スリナム","Suriname",左,,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%AA%E3%83%8A%E3%83%A0,Q730
+SS,SSD,"南スーダン","South Sudan",右,,https://ja.wikipedia.org/wiki/%E5%8D%97%E3%82%B9%E3%83%BC%E3%83%80%E3%83%B3,Q958
+ST,STP,"サントメ・プリンシペ","Sao Tome and Principe",右,,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%83%88%E3%83%A1%E3%83%BB%E3%83%97%E3%83%AA%E3%83%B3%E3%82%B7%E3%83%9A,Q1039
+SV,SLV,"エルサルバドル","El Salvador",右,,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%AB%E3%82%B5%E3%83%AB%E3%83%90%E3%83%89%E3%83%AB,Q792
+SX,SXM,"シント・マールテン","Sint Maarten",右,,https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%B3%E3%83%88%E3%83%BB%E3%83%9E%E3%83%BC%E3%83%AB%E3%83%86%E3%83%B3,Q26273
+SY,SYR,"シリア","Syria",右,,https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AA%E3%82%A2,Q858
+SZ,SWZ,"エスワティニ","Eswatini",左,,https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%B9%E3%83%AF%E3%83%86%E3%82%A3%E3%83%8B,Q1050
+TC,TCA,"タークス・カイコス諸島","Turks and Caicos Islands",左,,https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%BC%E3%82%AF%E3%82%B9%E3%83%BB%E3%82%AB%E3%82%A4%E3%82%B3%E3%82%B9%E8%AB%B8%E5%B3%B6,Q18221
+TD,TCD,"チャド","Chad",右,,https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%A3%E3%83%89,Q657
+TF,ATF,"フランス領南方・南極地域","French Southern and Antarctic Lands",,,https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%A0%98%E5%8D%97%E6%96%B9%E3%83%BB%E5%8D%97%E6%A5%B5%E5%9C%B0%E5%9F%9F,Q129003
+TG,TGO,"トーゴ","Togo",右,,https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%BC%E3%82%B4,Q945
+TH,THA,"タイ","Thailand",左,,https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%A4%E7%8E%8B%E5%9B%BD,Q869
+TJ,TJK,"タジキスタン","Tajikistan",右,,https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%B8%E3%82%AD%E3%82%B9%E3%82%BF%E3%83%B3,Q863
+TK,TKL,"トケラウ","Tokelau",左,,https://ja.wikipedia.org/wiki/%E3%83%88%E3%82%B1%E3%83%A9%E3%82%A6,Q36823
+TL,TLS,"東ティモール","East Timor",左,,https://ja.wikipedia.org/wiki/%E6%9D%B1%E3%83%86%E3%82%A3%E3%83%A2%E3%83%BC%E3%83%AB,Q574
+TM,TKM,"トルクメニスタン","Turkmenistan",右,,https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AB%E3%82%AF%E3%83%A1%E3%83%8B%E3%82%B9%E3%82%BF%E3%83%B3,Q874
+TN,TUN,"チュニジア","Tunisia",右,,https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%A5%E3%83%8B%E3%82%B8%E3%82%A2,Q948
+TO,TON,"トンガ","Tonga",左,,https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%B3%E3%82%AC,Q678
+TR,TUR,"トルコ","Turkey",右,,https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AB%E3%82%B3,Q43
+TT,TTO,"トリニダード・トバゴ","Trinidad and Tobago",左,,https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AA%E3%83%8B%E3%83%80%E3%83%BC%E3%83%89%E3%83%BB%E3%83%88%E3%83%90%E3%82%B4,Q754
+TV,TUV,"ツバル","Tuvalu",左,,https://ja.wikipedia.org/wiki/%E3%83%84%E3%83%90%E3%83%AB,Q672
+TW,TWN,"台湾","Taiwan",右,,https://ja.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9B%BD,Q865
+TZ,TZA,"タンザニア","Tanzania",左,,https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%B3%E3%82%B6%E3%83%8B%E3%82%A2,Q924
+UA,UKR,"ウクライナ","Ukraine",右,,https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%AF%E3%83%A9%E3%82%A4%E3%83%8A,Q212
+UG,UGA,"ウガンダ","Uganda",左,,https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%AC%E3%83%B3%E3%83%80,Q1036
+UM,UMI,"合衆国領有小離島","United States Minor Outlying Islands",,,https://ja.wikipedia.org/wiki/%E5%90%88%E8%A1%86%E5%9B%BD%E9%A0%98%E6%9C%89%E5%B0%8F%E9%9B%A2%E5%B3%B6,Q16645
+US,USA,"アメリカ合衆国","United States",右,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E5%90%88%E8%A1%86%E5%9B%BD,Q30
+UY,URY,"ウルグアイ","Uruguay",右,,https://ja.wikipedia.org/wiki/%E3%82%A6%E3%83%AB%E3%82%B0%E3%82%A2%E3%82%A4,Q77
+UZ,UZB,"ウズベキスタン","Uzbekistan",右,,https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%BA%E3%83%99%E3%82%AD%E3%82%B9%E3%82%BF%E3%83%B3,Q265
+VA,VAT,"バチカン","Vatican City",右,,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%81%E3%82%AB%E3%83%B3,Q237
+VC,VCT,"セントビンセント・グレナディーン","Saint Vincent and the Grenadines",左,,https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%83%93%E3%83%B3%E3%82%BB%E3%83%B3%E3%83%88%E3%83%BB%E3%82%B0%E3%83%AC%E3%83%8A%E3%83%87%E3%82%A3%E3%83%BC%E3%83%B3,Q757
+VE,VEN,"ベネズエラ","Venezuela",右,,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%8D%E3%82%BA%E3%82%A8%E3%83%A9,Q717
+VG,VGB,"イギリス領バージン諸島","British Virgin Islands",左,,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9%E9%A0%98%E3%83%B4%E3%82%A1%E3%83%BC%E3%82%B8%E3%83%B3%E8%AB%B8%E5%B3%B6,Q25305
+VI,VIR,"アメリカ領バージン諸島","United States Virgin Islands",左,,https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E9%A0%98%E3%83%B4%E3%82%A1%E3%83%BC%E3%82%B8%E3%83%B3%E8%AB%B8%E5%B3%B6,Q20648959
+VN,VNM,"ベトナム","Vietnam",右,,https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%88%E3%83%8A%E3%83%A0,Q881
+VU,VUT,"バヌアツ","Vanuatu",右,,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%8C%E3%82%A2%E3%83%84,Q686
+WF,WLF,"ウォリス・フツナ","Wallis and Futuna",右,,https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A9%E3%83%AA%E3%82%B9%E3%83%BB%E3%83%95%E3%83%84%E3%83%8A,Q35555
+WS,WSM,"サモア","Samoa",左,,https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%A2%E3%82%A2,Q683
+XK,XKX,"コソボ","Kosovo",右,,https://ja.wikipedia.org/wiki/%E3%82%B3%E3%82%BD%E3%83%9C,Q1231
+YE,YEM,"イエメン","Yemen",右,,https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%A8%E3%83%A1%E3%83%B3,Q805
+YT,MYT,"マヨット","Mayotte",右,,https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%A8%E3%83%83%E3%83%88,Q17063
+ZA,ZAF,"南アフリカ","South Africa",左,,https://ja.wikipedia.org/wiki/%E5%8D%97%E3%82%A2%E3%83%95%E3%83%AA%E3%82%AB%E5%85%B1%E5%92%8C%E5%9B%BD,Q258
+ZM,ZMB,"ザンビア","Zambia",左,,https://ja.wikipedia.org/wiki/%E3%82%B6%E3%83%B3%E3%83%93%E3%82%A2,Q953
+ZW,ZWE,"ジンバブエ","Zimbabwe",左,,https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%B3%E3%83%90%E3%83%96%E3%82%A8,Q954

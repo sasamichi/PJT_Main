@@ -21,22 +21,17 @@
         <span class="brand-badge">ARCHIVE</span>
       </a>
       
-      <!-- 表示モード切替（地図ビュー vs 階層ビュー） -->
+      <!-- 表示モード切替（ホーム vs 地図ビュー vs 階層ビュー） -->
       <div class="view-mode-switcher">
-        <button class="mode-btn active" id="btn-mode-map" title="連動地図を見ながら探索">🗺️ 地図ビュー</button>
-        <button class="mode-btn" id="btn-mode-tree" title="地図なしで国・ジャンル・名称を深く辿る">📖 階層ビュー (地図なし)</button>
+        <button class="mode-btn active" id="btn-mode-home" title="プロジェクト紹介・更新情報">🏠 ホーム</button>
+        <button class="mode-btn" id="btn-mode-map" title="地図から交通網・拠点を探索">🗺️ 地図ビュー</button>
+        <button class="mode-btn" id="btn-mode-tree" title="国・ジャンル・制度ガイドから探索">📖 階層ビュー</button>
       </div>
     </div>
 
     <div class="header-controls">
       <span class="stats-summary-pill" id="stats-pill">データを読み込み中...</span>
       <button class="btn-icon" id="theme-toggle-btn" title="黒/白テーマ切替">🌙 黒背景</button>
-      <a href="/?theme=light" class="btn-icon" title="管理者用: 机上探索 Web GIS へ" target="_blank" rel="noopener">
-        🗺️ 探索 GIS
-      </a>
-      <a href="http://localhost:8501" class="btn-icon" title="管理者用: データ管理画面へ" target="_blank" rel="noopener">
-        📊 データ管理
-      </a>
     </div>
   </header>
 
@@ -53,71 +48,158 @@
     </div>
   </nav>
 
-  <!-- メインコンテンツ（左右2カラム / 階層ビュー時全幅） -->
+  <!-- メインコンテンツ -->
   <main class="main-layout" id="main-layout">
     
-    <!-- 左ペイン：データ & 検索 & 階層 -->
-    <section class="data-panel" id="data-panel">
-      
-      <!-- 1. 地図モード時のヘッダー（検索バー ＋ 4大タブ） -->
-      <div id="map-mode-header">
-        <div class="search-filter-box">
-          <div class="search-input-wrapper">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="search-input" class="search-input" placeholder="国名・路線名・駅名・自治体名・事業者名を検索...">
-            <button id="search-clear-btn" class="search-clear-btn" title="クリア">✕</button>
+    <!-- ホーム画面専用全幅パネル (初期表示) -->
+    <section class="home-panel" id="home-panel">
+      <!-- ヒーローセクション -->
+      <div class="home-hero">
+        <div class="home-hero-badge">GLOBAL TRANSIT & TERRITORY ARCHIVE</div>
+        <h1 class="home-hero-title">世界交通網・地域データ基盤</h1>
+        <p class="home-hero-desc">
+          世界じゅうの過去から現在まで存在・計画された「交通網（鉄軌道・航空路・道路・航路）」と「国と地域・行政区域」のデータを収集・整理し、1つにまとめた統合データ基盤アーカイブです。
+        </p>
+        
+        <!-- 2大ビューへのナビゲーションカード -->
+        <div class="home-nav-cards">
+          <div class="home-nav-card" onclick="App.switchViewMode('map')">
+            <div class="home-nav-card-icon">🗺️</div>
+            <div class="home-nav-card-body">
+              <div class="home-nav-card-title">地図ビューで探索</div>
+              <div class="home-nav-card-desc">全画面Web GISで新幹線・航空路・鉄軌道ラインや交通拠点（駅・空港・港湾・IC）をインタラクティブに探索します。</div>
+              <div class="home-nav-card-action">地図を開く ➔</div>
+            </div>
           </div>
-        </div>
 
-        <div class="tabs-bar">
-          <button class="tab-btn" data-tab="countries">
-            🌍 国・地域
-            <span class="tab-count-badge" id="tab-count-countries">251</span>
-          </button>
-          <button class="tab-btn active" data-tab="routes">
-            🚆 路線・交通
-            <span class="tab-count-badge" id="tab-count-routes">0</span>
-          </button>
-          <button class="tab-btn" data-tab="muni">
-            🏛️ 行政区画・自治体
-            <span class="tab-count-badge" id="tab-count-muni">0</span>
-          </button>
-          <button class="tab-btn" data-tab="nodes">
-            📍 交通拠点
-            <span class="tab-count-badge" id="tab-count-nodes">0</span>
-          </button>
+          <div class="home-nav-card" onclick="App.switchViewMode('tree')">
+            <div class="home-nav-card-icon">📖</div>
+            <div class="home-nav-card-body">
+              <div class="home-nav-card-title">階層ビューで探索</div>
+              <div class="home-nav-card-desc">全251カ国の制度・インフラ解説ガイド（公式行政階層・気象観測網・交通体系）や詳細台帳から探索します。</div>
+              <div class="home-nav-card-action">階層一覧を開く ➔</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- 2. 階層ディレクトリビュー時のパンくずリスト（初期非表示） -->
-      <div id="tree-mode-header" style="display: none; padding: 12px 16px 0 16px;">
+      <!-- プロジェクトの特徴ハイライト -->
+      <div class="home-section">
+        <div class="home-section-title">✨ プロジェクトの特徴・収録データ</div>
+        <div class="home-features-grid">
+          <div class="home-feature-card">
+            <div class="home-feature-icon">🌐</div>
+            <div class="home-feature-title">全251カ国・地域を網羅</div>
+            <div class="home-feature-desc">ISO 3166準拠の世界全251カ国・地域の基礎データ、公的地域区分、主要拠点を収録。</div>
+          </div>
+          <div class="home-feature-card">
+            <div class="home-feature-icon">🚆</div>
+            <div class="home-feature-title">高精度交通ネットワーク</div>
+            <div class="home-feature-desc">全国新幹線全線および国内定期航空路（全298区間）の実形状エッジラインと駅順・接続関係を完全統合。</div>
+          </div>
+          <div class="home-feature-card">
+            <div class="home-feature-icon">📘</div>
+            <div class="home-feature-title">公式制度・インフラ解説ガイド</div>
+            <div class="home-feature-desc">公的法規・国家統計・気象機関の一次資料に基づく行政階層・気象警報網・交通体系の解説を収録。</div>
+          </div>
+          <div class="home-feature-card">
+            <div class="home-feature-icon">🏛️</div>
+            <div class="home-feature-title">基盤の基盤（統合スキーマ）</div>
+            <div class="home-feature-desc">行政区域と気象予報区を一元化した新スキーマ（areas / area_types）による一貫したデータ管理を実現。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 更新履歴 -->
+      <div class="home-section">
+        <div class="home-section-title">🕒 更新履歴 (Update History)</div>
+        <div class="home-history-list">
+          <div class="home-history-item">
+            <div class="home-history-date">2026-10-28</div>
+            <div class="home-history-content">
+              <b>📘 国・制度インフラ解説ガイドの公開</b><br>
+              日本（JP）、オーストリア（AT）、台湾（TW）、韓国（KR）、スイス（CH）、イタリア（IT）の6カ国について、公式法規・行政階層・気象観測網・交通インフラ体系をまとめた解説ガイドを公開しました。
+            </div>
+          </div>
+          <div class="home-history-item">
+            <div class="home-history-date">2026-10-28</div>
+            <div class="home-history-content">
+              <b>〰️ 路線区間エッジ（新幹線全線・国内定期航空路）の完全統合</b><br>
+              東海道・山陽・東北・上越・北陸・九州・西九州・北海道新幹線の実線路形状、および全国主要空港間を結ぶ国内航空路エッジ（全298区間）のWeb GIS描画に対応しました。
+            </div>
+          </div>
+          <div class="home-history-item">
+            <div class="home-history-date">2026-10-27</div>
+            <div class="home-history-content">
+              <b>🏛️ 新方針「基盤の基盤」統合スキーマへの完全準拠</b><br>
+              行政区域と気象予報区を一元化する新マスター体系（areas.csv / area_types.csv）へ移行し、全251カ国の公開用静的JSONエクスポートを最適化しました。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 注記・免責事項 -->
+      <div class="home-section">
+        <div class="home-disclaimer-box">
+          <div class="home-disclaimer-title">⚠️ ご利用上の注記・免責事項</div>
+          <div class="home-disclaimer-text">
+            ・本サイトに掲載されているデータおよび制度解説は、各国政府機関・公的機関・オープンデータ（国土地理院、気象庁、総務省統計局、BEV、GeoSphere Austria、NLSC、CWA、KMA、swisstopo、MeteoSwiss、ISTAT、OpenStreetMap等）の公表資料に基づき整理・構築されています。<br>
+            ・制度・インフラ解説コンテンツは公的資料に基づき生成AIを活用して要約・構成されたものであり、法改正・行政改編・運行ダイヤ改定等により実際の最新状況と異なる場合があります。重要な調査や実務においては各公式機関の一次情報をご確認ください。<br>
+            ・本サイト上のデータの利用により生じた直接的・間接的な損害について、当プロジェクトは一切の責任を負いかねます。
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 階層ビュー専用全幅パネル (初期非表示) -->
+    <section class="tree-panel" id="tree-panel" style="display: none;">
+      <!-- パンくずナビゲーション ＆ 検索バー -->
+      <div class="tree-header-bar">
         <nav class="breadcrumb-nav" id="tree-breadcrumb">
           <span class="breadcrumb-item" data-level="world">🌍 世界</span>
           <span class="breadcrumb-separator">›</span>
           <span class="breadcrumb-current" id="bc-country">国を選択</span>
         </nav>
+        <div class="tree-search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="tree-search-input" class="tree-search-input" placeholder="この階層内を検索...">
+          <button id="tree-search-clear-btn" class="tree-search-clear-btn" title="クリア">✕</button>
+        </div>
       </div>
 
-      <!-- メインコンテンツ描画エリア -->
-      <div class="tab-content-container" id="tab-content">
+      <!-- 階層メインコンテンツエリア -->
+      <div class="tree-content-container" id="tree-content">
         <div class="loading-box">
           <div class="spinner"></div>
           <div>データを読み込んでいます...</div>
         </div>
       </div>
-
     </section>
 
-    <!-- 右ペイン：連動地図 -->
-    <section class="map-panel" id="map-panel">
+    <!-- 地図ビュー専用フルスクリーンパネル (初期非表示) -->
+    <section class="map-panel" id="map-panel" style="display: none;">
       <div id="map"></div>
+
+      <!-- 地図上ジャンル別レイヤ切替バー (フロート) -->
+      <div class="map-layer-quick-bar" id="map-layer-quick-bar">
+        <button class="layer-pill active" data-layer="railways" title="鉄道駅・新幹線">🚆 鉄道</button>
+        <button class="layer-pill active" data-layer="airSea" title="空港・港湾">✈️ 航空・港湾</button>
+        <button class="layer-pill active" data-layer="municipalities" title="役所・自治体代表点">🏛️ 行政</button>
+        <button class="layer-pill active" data-layer="amedas" title="気象庁アメダス観測点">🌡️ 気象</button>
+        <button class="layer-pill active" data-layer="highways" title="高速道路IC/JCT・道の駅">🛣️ 道路</button>
+        <button class="layer-pill active" data-layer="edgesRail" title="鉄道路線ライン（新幹線等）">🚆 鉄道ライン</button>
+        <button class="layer-pill active" data-layer="edgesAir" title="国内定期航空路ライン">✈️ 航空路ライン</button>
+      </div>
+
+      <!-- 地図情報オーバーレイ (拠点数 & 全体表示ボタン & 制度解説ボタン) -->
       <div class="map-overlay-info">
         <span id="map-marker-count">拠点を読み込み中</span>
+        <button class="map-reset-btn" id="map-guide-btn" title="この国の制度・インフラ解説を見る" style="background:var(--primary-color); color:#fff; border-color:var(--primary-color);">📘 制度解説</button>
         <button class="map-reset-btn" id="map-reset-btn" title="国の全体表示に戻す">全体表示に戻す</button>
       </div>
     </section>
 
-    <!-- ナレッジパネル（詳細ドロワー / オーバーレイ） -->
+    <!-- ナレッジパネル（地図上フロート表示 / 階層ビュー時もスライドイン表示） -->
     <aside class="knowledge-drawer" id="knowledge-drawer">
       <div class="knowledge-header">
         <span style="font-size:12px; font-weight:700; color:var(--text-secondary);">📋 詳細ナレッジパネル</span>

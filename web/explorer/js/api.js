@@ -33,16 +33,23 @@ const jsonRequest = (method, body) => ({
 // --- マスタ ---
 const apiFetchNodes = (lat, lon, radiusKm = 35) =>
   apiJson(`/api/nodes?lat=${lat}&lon=${lon}&radius_km=${radiusKm}`);
+const apiFetchNodesByIds = (ids) =>
+  apiJson(`/api/nodes?ids=${encodeURIComponent(Array.isArray(ids) ? ids.join(",") : ids)}`);
 const apiFetchRoutes = (cc) => apiJson(`/api/routes?country_code=${cc}`);
 const apiFetchEdges = (routeId = "") =>
   apiJson(routeId ? `/api/edges?route_id=${encodeURIComponent(routeId)}` : "/api/edges");
 const apiFetchMunicipalities = (cc) => apiJson(`/api/municipalities?country_code=${cc}`);
+const apiFetchAreas = (cc = "") => apiJson(cc ? `/api/areas?country_code=${encodeURIComponent(cc)}` : "/api/areas");
 
 // --- 探索ログ（ポイント／ルート） ---
 const apiFetchLogs = () => apiJson("/api/logs");
 const apiSaveLog = (log) => apiJson("/api/logs", jsonRequest("POST", log));
 const apiUpdateLog = (logId, fields) => apiJson("/api/logs", jsonRequest("PUT", { log_id: logId, ...fields }));
 const apiDeleteLog = (logId) => apiJson(`/api/logs?log_id=${encodeURIComponent(logId)}`, { method: "DELETE" });
+
+// --- テーマ別スポット (中世史跡等) ---
+const apiFetchThemeSpots = () => apiJson("/api/theme_spots");
+const apiSaveThemeSpot = (spot) => apiJson("/api/theme_spots", jsonRequest("POST", spot));
 
 // --- 外部サービス（サーバー経由） ---
 const apiSearchLocation = (q) => apiJson(`/api/search?q=${encodeURIComponent(q)}`);

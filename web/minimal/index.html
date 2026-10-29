@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界交通網・地域データ基盤 (軽量版)</title>
+  <link rel="stylesheet" href="css/minimal.css">
+</head>
+<body>
+
+  <!-- サイト共通ヘッダー -->
+  <header class="site-header">
+    <a href="index.html" class="brand-title">
+      🌐 <span>世界交通網・地域データ基盤</span>
+      <span class="brand-badge">LITE</span>
+    </a>
+
+    <nav class="header-nav">
+      <a href="index.html" class="nav-tab-btn active">📖 階層・一覧検索</a>
+      <a href="map.html" class="nav-tab-btn">🗺️ 地図ビュー</a>
+    </nav>
+  </header>
+
+  <main class="main-container">
+
+    <!-- パンくずナビゲーション -->
+    <div class="breadcrumb-bar" id="breadcrumb-bar">
+      <span class="bc-item active" id="bc-world" onclick="window.showWorldView()">🌍 世界の国一覧</span>
+      <span class="bc-sep" id="bc-sep" style="display:none;">›</span>
+      <span class="bc-item" id="bc-country" style="display:none;">🇯🇵 日本</span>
+    </div>
+
+    <!-- Top画面：世界全カ国一覧ビュー (初期表示) -->
+    <div id="view-world-area">
+      <!-- 国検索バー -->
+      <div class="search-box-card">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="world-search-input" class="search-input" placeholder="国名または国コードを入力して検索 (例: 日本、JP、アメリカ、フランス)...">
+          <button id="world-search-clear-btn" class="search-clear-btn">✕</button>
+        </div>
+      </div>
+
+      <div class="tree-results-card">
+        <div class="card-title">
+          <span>🌍 世界全251カ国・地域 (行をタップすると詳細を展開)</span>
+          <span id="world-count-badge" style="font-size: 11px; font-weight: normal; color: var(--text-muted);">250カ国収録</span>
+        </div>
+        <div id="world-country-grid">
+          <!-- 国一覧テーブルが動的に生成されます -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 日本詳細画面：多層ツリー構造 (初期非表示) -->
+    <div id="view-japan-area" style="display: none;">
+      <!-- 上部戻るボタン ＆ 検索バー -->
+      <div style="display: flex; gap: 8px; margin-bottom: 12px; align-items: center; flex-wrap: wrap;">
+        <button class="nav-tab-btn" onclick="window.showWorldView()" style="padding: 6px 12px;">◀ 世界の国一覧に戻る</button>
+        <div class="search-input-wrapper" style="flex: 1; min-width: 240px;">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="全国の駅名・空港・港湾・自治体名を検索 (例: 新宿、羽田、博多)...">
+          <button id="search-clear-btn" class="search-clear-btn">✕</button>
+        </div>
+      </div>
+
+      <!-- 多層ツリー展開コンテナ -->
+      <div class="tree-results-card">
+        <div class="card-title">
+          <span id="japan-tree-title">🏛️ 日本の行政・交通 多層ツリー (地方 ➔ 都道府県 ➔ 市区町村 ➔ 拠点)</span>
+          <span id="result-stats" style="font-size: 11px; font-weight: normal; color: var(--text-muted);"></span>
+        </div>
+        <div id="tree-container" class="tree-container">
+          <!-- 地方 ➔ 都道府県 ➔ 市区町村 ➔ 交通拠点 の多層アコーディオンが動的に展開されます -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- データとスクリプト（CORSフリー・ローカル起動可能） -->
+  <script src="js/data.js"></script>
+  <script src="js/tree.js"></script>
+</body>
+</html>

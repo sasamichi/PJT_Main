@@ -1,30 +1,103 @@
 country_code,分野_種別,公的基準件数,許容誤差_最小,許容誤差_最大,判定ルール,出典名,出典URL,確認日,備考
-JP,都道府県,47,47,47,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-22,47都道府県（1都1道2府43県）
-JP,政令指定都市,20,20,20,完全一致,総務省「指定都市一覧」,https://www.soumu.go.jp/main_sosiki/jichi_gyousei/bunken/chihou-koukyoudantai_kubun.html,2026-10-22,地方自治法第252条の19に基づく20指定都市
-JP,政令指定都市_行政区,171,171,171,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-22,2024年1月1日浜松市3区再編反映後
-JP,中核市,62,62,62,完全一致,総務省「中核市一覧」,https://www.soumu.go.jp/main_sosiki/jichi_gyousei/bunken/chihou-koukyoudantai_kubun.html,2026-10-22,地方自治法第252条の22に基づく62中核市
-JP,施行時特例市,23,23,23,完全一致,総務省「施行時特例市一覧」,https://www.soumu.go.jp/main_sosiki/jichi_gyousei/bunken/chihou-koukyoudantai_kubun.html,2026-10-22,茅ヶ崎市・加古川市を含む全23市
-JP,一般市,687,687,687,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-22,政令市20・中核市62・施行時特例市23を除く市
-JP,市,772,772,772,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-22,政令市を除く市合計（中核62＋特例23＋一般687＝772市、政令市含め792市）
-JP,特別区,23,23,23,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-22,東京都特別区（23区）
-JP,町,743,743,743,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-22,全国の町
-JP,村,189,183,189,許容範囲内,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-22,実効支配内183村＋北方領土6村＝189村
-JP,気象予報区_一次細分区域,142,142,142,完全一致,気象庁予報業務規則別表（area.json class10s）,https://www.jma.go.jp/bosai/common/const/area.json,2026-10-22,全国一次細分区域数（地方11・府県58・一次142）
-JP,気象庁アメダス観測所,1286,1280,1320,許容範囲内,気象庁「地域気象観測所一覧（amedastable.json）」,https://www.jma.go.jp/bosai/amedas/const/amedastable.json,2026-10-22,全国地上気象観測網（官署・特別56＋一般1230）
-JP,一般国道,459,459,459,完全一致,一般国道の路線を指定する政令（1号〜507号・欠番48）,https://www.mlit.go.jp/road/,2026-10-22,欠番48（59〜100の42本＋109/110/111/214/215/216の6本）を除く実在459路線
-JP,主要地方道,2584,2500,3100,許容範囲内,道路法第56条（国土交通大臣指定主要地方道）,https://www.mlit.go.jp/road/ir/ir-data/tokei-nen/index.html,2026-10-22,都道府県道・指定市道の主要地方道（北海道1〜151号、東京都1〜68・301〜319号の例外含む）
-JP,高速道路・都市高速,220,180,250,許容範囲内,国土交通省道路局・高速道路各社,https://www.mlit.go.jp/road/sign/numbering/,2026-10-22,高規格幹線道路（A路線42・B路線22・A'路線・本四3）＋都市高速約83路線
-JP,道の駅,1234,1210,1250,許容範囲内,国土交通省道路局「道の駅案内（第65回登録）」,https://www.mlit.go.jp/road/Michi-no-Eki/list.html,2026-10-22,2026年9月4日第65回登録時点の公式1234駅
-JP,旅客空港,97,90,100,許容範囲内,国土交通省航空局「空港一覧（空港法97空港）」,https://www.mlit.go.jp/koku/15_bf_000310.html,2026-10-22,拠点28（会社4・国19・特定地方5）＋地方管理54＋その他7＋共用8＝97空港
-JP,主要港湾,325,125,350,許容範囲内,国土交通省港湾局「港湾管理者一覧（港湾法）」,https://www.mlit.go.jp/kowan/kowan_fr1_000073.html,2026-10-22,重要港湾以上125港＋定期旅客フェリー発着地方港湾（実数約326港）
-JP,鉄軌道事業者,210,190,230,許容範囲内,国土交通省鉄道局『鉄道要覧』,https://www.mlit.go.jp/tetudo/,2026-10-22,JR7社＋大手私鉄16社＋準大手3社（2025年4月新京成・泉北合併反映）＋公営・三セク・中小・鋼索・索道
-JP,鉄軌道路線,850,800,950,許容範囲内,国土交通省鉄道局『鉄道要覧』・国土数値情報（N02）,https://www.mlit.go.jp/tetudo/,2026-10-22,現行運行中の新幹線・JR在来線・私鉄・地下鉄・路面電車・モノレール・AGT・鋼索鉄道（ケーブルカー）
-JP,現行鉄道駅,9300,8800,9600,許容範囲内,国土交通省「国土数値情報 鉄道データ（N02）」,https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-v3_1.html,2026-10-22,JR・民鉄・公営・三セク・路面電車・モノレール・AGT・鋼索の旅客駅・停留場
-AT,連邦州,9,9,9,完全一致,オーストリア連邦憲法 (B-VG),https://www.ris.bka.gv.at/,2026-10-15,Burgenland〜Wien全9州
-AT,郡,79,79,79,完全一致,Statistik Austria (Politische Bezirke),https://www.statistik.at/,2026-10-15,79郡（旧郡除外）
-AT,憲章都市,15,15,15,完全一致,Statistik Austria (Statutarstädte),https://www.statistik.at/,2026-10-15,15憲章都市
-AT,基礎自治体,2093,2093,2093,完全一致,Statistik Austria (Gemeindeverzeichnis),https://www.statistik.at/,2026-10-15,現行2093自治体
-AT,主要旅客空港,6,6,6,完全一致,Austro Control,https://www.austrocontrol.at/,2026-10-15,"VIE, SZG, INN, GRZ, KLU, LNZ"
-AT,高速道路,18,18,19,許容範囲内,ASFINAG (Autobahnen),https://www.asfinag.at/,2026-10-15,現行供用路線
-AT,自動車専用道,14,14,17,許容範囲内,ASFINAG (Schnellstraßen),https://www.asfinag.at/,2026-10-15,現行供用路線
-AT,主要州道,271,260,285,許容範囲内,各州道路法 (Landesstraße B),https://www.ris.bka.gv.at/,2026-10-15,B1〜B320番台
+JP,都道府県,47,47,47,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-25,47都道府県（1都1道2府43県）
+JP,総合振興局・振興局,14,14,14,完全一致,北海道総合振興局及び振興局の設置に関する条例,https://www.pref.hokkaido.lg.jp/,2026-10-25,北海道の9総合振興局＋5振興局＝14局
+JP,支庁,10,8,12,許容範囲内,地方自治法第155条・各都県支庁設置条例,https://www.soumu.go.jp/,2026-10-25,東京都4支庁・島根県隠岐支庁・鹿児島県2支庁・山形県・長崎県等の離島等支庁
+JP,郡,379,374,379,許容範囲内,総務省「全国地方公共団体コード」・国土地理院面積調,https://www.soumu.go.jp/denshijiti/code.html,2026-10-25,実効支配下374郡＋北方領土5郡＝379郡
+JP,政令指定都市,20,20,20,完全一致,総務省「指定都市一覧」,https://www.soumu.go.jp/main_sosiki/jichi_gyousei/bunken/chihou-koukyoudantai_kubun.html,2026-10-25,地方自治法第252条の19に基づく20指定都市
+JP,政令指定都市_行政区,171,171,171,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-25,政令指定都市20市の内部組織たる171行政区
+JP,中核市,62,62,62,完全一致,総務省「中核市一覧」,https://www.soumu.go.jp/main_sosiki/jichi_gyousei/bunken/chihou-koukyoudantai_kubun.html,2026-10-25,地方自治法第252条の22に基づく62中核市
+JP,施行時特例市,23,23,23,完全一致,総務省「施行時特例市一覧」,https://www.soumu.go.jp/main_sosiki/jichi_gyousei/bunken/chihou-koukyoudantai_kubun.html,2026-10-25,地方自治法附則に基づく23施行時特例市
+JP,一般市,687,687,687,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-25,政令市20・中核市62・施行時特例市23を除く市
+JP,市,772,772,772,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-25,政令市を除く市合計（中核62＋特例23＋一般687＝772市、政令市含め792市）
+JP,特別区,23,23,23,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-25,東京都特別区（23区）
+JP,町,743,743,743,完全一致,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-25,全国の町
+JP,村,189,183,189,許容範囲内,総務省「全国地方公共団体コード」,https://www.soumu.go.jp/denshijiti/code.html,2026-10-25,実効支配内183村＋北方領土6村＝189村（基礎自治体総数1747・実効支配下1741）
+JP,気象予報区_地方予報区,11,11,11,完全一致,気象庁予報業務規則（area.json centers）,https://www.jma.go.jp/bosai/common/const/area.json,2026-10-25,全国11地方予報区
+JP,気象予報区_府県予報区,58,58,58,完全一致,気象庁予報業務規則（area.json offices）,https://www.jma.go.jp/bosai/common/const/area.json,2026-10-25,全国58府県予報区（北海道8・鹿児島2・沖縄4・他44都府県）
+JP,気象予報区_一次細分区域,142,142,142,完全一致,気象庁予報業務規則（area.json class10s）,https://www.jma.go.jp/bosai/common/const/area.json,2026-10-25,全国一次細分区域数（142区域）
+JP,気象予報区_二次細分区域,1805,1800,1810,許容範囲内,気象庁予報業務規則（area.json class20s）,https://www.jma.go.jp/bosai/common/const/area.json,2026-10-25,気象警報・注意報発表最小単位（原則市区町村単位・計1805区域）
+JP,気象庁アメダス観測所,1286,1280,1300,許容範囲内,気象庁「地域気象観測所一覧（amedastable.json）」,https://www.jma.go.jp/bosai/amedas/const/amedastable.json,2026-10-25,全国地上気象観測網（官署・特別56＋一般1230＝1286）
+JP,一般国道,459,459,459,完全一致,一般国道の路線を指定する政令（1号〜507号・欠番48）,https://www.mlit.go.jp/road/,2026-10-25,欠番48（59〜100の42本＋109/110/111/214/215/216の6本）を除く実在459路線
+JP,主要地方道,2584,2584,2584,完全一致,道路法第56条（国土交通大臣指定主要地方道）,https://www.mlit.go.jp/road/ir/ir-data/tokei-nen/index.html,2026-10-25,都道府県道・指定市道の主要地方道（北海道1〜151号、東京都1〜68・301〜319号の例外含む）
+JP,高速道路・都市高速,220,200,230,許容範囲内,国土交通省道路局・高速道路各社,https://www.mlit.go.jp/road/sign/numbering/,2026-10-25,高規格幹線道路（A路線42・B路線22・A'路線・本四3）＋都市高速約83路線
+JP,高速道路IC・施設,2483,2400,2550,許容範囲内,国土交通省国土数値情報（高速道路時系列N06）・高速各社,https://nlftp.mlit.go.jp/ksj/,2026-10-25,供用中のIC・JCT・PA・SA・スマートIC・本線料金所等
+JP,道の駅,1234,1234,1234,完全一致,国土交通省道路局「道の駅案内（第65回登録）」,https://www.mlit.go.jp/road/Michi-no-Eki/list.html,2026-10-25,第65回登録時点の公式1234駅
+JP,旅客空港,97,97,97,完全一致,国土交通省航空局「空港一覧（空港法97空港）」,https://www.mlit.go.jp/koku/15_bf_000310.html,2026-10-25,拠点28（会社4・国19・特定地方5）＋地方管理54＋その他7＋共用8＝97空港
+JP,重要港湾以上,125,125,125,完全一致,国土交通省港湾局「港湾管理者一覧（港湾法）」,https://www.mlit.go.jp/kowan/kowan_fr1_000073.html,2026-10-25,国際戦略港湾5港＋国際拠点港湾18港＋重要港湾102港＝計125港
+JP,地方港湾_フェリー発着,201,180,220,許容範囲内,国土交通省港湾局・旅客フェリー各社,https://www.mlit.go.jp/kowan/,2026-10-25,定期旅客フェリーが就航している地方港湾
+JP,鉄軌道事業者,215,200,225,許容範囲内,国土交通省鉄道局『鉄道要覧』,https://www.mlit.go.jp/tetudo/,2026-10-25,JR7社＋大手民鉄16社＋準大手3社＋公営11団体＋三セク・中小・鋼索・索道
+JP,鉄軌道路線,850,800,900,許容範囲内,国土交通省鉄道局『鉄道要覧』・国土数値情報（N02）,https://www.mlit.go.jp/tetudo/,2026-10-25,現行運行中の新幹線・JR在来線・私鉄・地下鉄・路面電車・モノレール・AGT・鋼索鉄道
+JP,現行鉄道駅,9300,9100,9500,許容範囲内,国土交通省「国土数値情報 鉄道データ（N02）」,https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-v3_1.html,2026-10-25,JR・民鉄・公営・三セク・路面電車・モノレール・AGT・鋼索の現行旅客駅・停留場
+JP,普通索道,150,130,170,許容範囲内,国土交通省鉄道局『鉄道要覧』・索道事業者一覧,https://www.mlit.go.jp/tetudo/,2026-10-25,全国のロープウェイ・ゴンドラリフト（旅客輸送普通索道）
+JP,高速バス・連絡バス路線,1000,800,1500,許容範囲内,国土交通省自動車局・日本バス協会,https://www.bus.or.jp/,2026-10-25,主要都市間高速バス・空港連絡バス・BRT路線網
+AT,連邦州,9,9,9,完全一致,オーストリア連邦憲法 (B-VG Art. 2),https://www.ris.bka.gv.at/,2026-10-25,Burgenland〜Wien全9連邦州（AT-1〜AT-9）
+AT,郡,79,79,79,完全一致,Statistik Austria (Politische Bezirke),https://www.statistik.at/services/tools/services/regionales/regionale-gliederungen,2026-10-25,79政治郡（憲章都市15と合わせ第2階層は94区画）
+AT,憲章都市,15,15,15,完全一致,Statistik Austria (Statutarstädte),https://www.statistik.at/services/tools/services/regionales/regionale-gliederungen,2026-10-25,連邦憲法第116条第3項に基づく15憲章都市（郡と基礎自治体を兼務）
+AT,一般市,188,186,190,許容範囲内,Statistik Austria (Stadtgemeinden),https://www.statistik.at/services/tools/services/regionales/regionale-gliederungen,2026-10-25,憲章都市15市を除く市（15＋188＝全203市）
+AT,市場町,771,770,773,許容範囲内,Statistik Austria (Marktgemeinden),https://www.statistik.at/services/tools/services/regionales/regionale-gliederungen,2026-10-25,市場開催権の称号を持つ基礎自治体（771町）
+AT,一般基礎自治体,1118,1118,1120,許容範囲内,Statistik Austria (Ortsgemeinden),https://www.statistik.at/services/tools/services/regionales/regionale-gliederungen,2026-10-25,市・市場町以外の一般基礎自治体（2025/2026基準1118・2024基準1119）
+AT,基礎自治体,2092,2092,2093,許容範囲内,Statistik Austria (Gemeindeverzeichnis),https://www.statistik.at/verzeichnis/reglisten/gemliste_knz.xls,2026-10-25,憲章都市15＋一般市188＋市場町771＋一般1118＝2092自治体（2024基準は2093）
+AT,ウィーン市行政区,23,23,23,完全一致,ウィーン都市憲章 (Wiener Gemeindebezirke),https://www.wien.gv.at/,2026-10-25,第1区(90101)〜第23区(92301)の23区
+AT,気象警報区域,94,94,116,許容範囲内,GeoSphere Austria (Warnregionen),https://warnungen.zamg.at/,2026-10-25,79政治郡＋15憲章都市＝94区域（ウィーン23区細分時は116区域）
+AT,TAWES気象観測所,280,260,300,許容範囲内,GeoSphere Austria Data Hub (TAWES Metadata),https://dataset.api.hub.geosphere.at/v1/station/current/tawes-v1-10min/metadata,2026-10-25,全国地上自動気象観測網TAWES稼働地点
+AT,高速道路,18,18,19,許容範囲内,連邦道路法 (BStG 1971 Verzeichnis 1) / ASFINAG,https://www.asfinag.at/,2026-10-25,A1〜A26のうち現行供用18〜19路線（法定19路線）
+AT,自動車専用道,14,14,17,許容範囲内,連邦道路法 (BStG 1971 Verzeichnis 2) / ASFINAG,https://www.asfinag.at/,2026-10-25,S1〜S37のうち現行供用14路線（計画含め法定17路線）
+AT,高速道路IC・JCT,385,365,400,許容範囲内,ASFINAG (Anschlussstellen & Knoten),https://www.asfinag.at/,2026-10-25,Knoten（JCT約41）＋Anschlussstellen（IC約344）＝385箇所
+AT,主要州道,271,260,285,許容範囲内,各連邦州道路法 (Landesstraße B),https://www.gip.gv.at/,2026-10-25,B1〜B320番台の主要州道
+AT,主要旅客空港,6,6,6,完全一致,Austro Control (AIP Austria),https://www.austrocontrol.at/,2026-10-25,"定期便就航6国際空港（VIE, SZG, INN, GRZ, LNZ, KLU）"
+AT,主要河川港湾,4,4,8,許容範囲内,viadonau (Öffentliche Donauhäfen),https://www.viadonau.org/,2026-10-25,"ドナウ川4大公共港湾（ウィーン港, リンツ港, エンス港, クレムス港）"
+AT,鉄軌道事業者,25,20,35,許容範囲内,BMK「Eisenbahn- und Seilbahnstatistik」,https://www.bmk.gv.at/themen/verkehrsplanung/statistik/eisenbahn.html,2026-10-25,ÖBB・WESTbahn・各州地方鉄道・都市交通局（トラム・U-Bahn・Obus）
+AT,鉄軌道路線,140,120,170,許容範囲内,ÖBB-Infrastruktur「Streckenverzeichnis」・BMK統計,https://infrastruktur.oebb.at/,2026-10-25,ÖBB幹線・支線・私鉄線・ウィーンU-Bahn5路線・トラム・Obus・ケーブルカー
+AT,現行鉄道駅,1650,1500,1750,許容範囲内,ÖBB Open Data / MobilityData Austria,https://data.oebb.at/,2026-10-25,ÖBB管理駅1056駅＋私鉄・地方鉄道・ウィーン地下鉄駅（UIC駅コード81*****）
+TW,直轄市,6,6,6,完全一致,内政部戸政司「全国行政区域代碼」（地方制度法第4条）,https://www.ris.gov.tw/app/portal/3053,2026-10-25,"臺北市, 新北市, 桃園市, 臺中市, 臺南市, 高雄市の6直轄市"
+TW,県,13,13,13,完全一致,内政部戸政司「全国行政区域代碼」（地方制度法第3条）,https://www.ris.gov.tw/app/portal/3053,2026-10-25,台湾省11県＋福建省2県（金門・連江）＝13県
+TW,市_省轄市,3,3,3,完全一致,内政部戸政司「全国行政区域代碼」（地方制度法第4条）,https://www.ris.gov.tw/app/portal/3053,2026-10-25,"基隆市, 新竹市, 嘉義市の3市（直轄市6＋県13＋市3＝全22県市）"
+TW,区_一般区,164,164,164,完全一致,内政部戸政司「全国行政区域代碼」,https://www.ris.gov.tw/app/portal/3053,2026-10-25,6直轄市の一般区152＋3省轄市の区12＝164区
+TW,直轄市山地原住民区,6,6,6,完全一致,地方制度法第83条の2・内政部戸政司,https://www.ris.gov.tw/app/portal/3053,2026-10-25,"烏來, 復興, 和平, 茂林, 桃源, 那瑪夏の6区（一般区164＋山地原住民区6＝170区）"
+TW,県轄市,14,14,14,完全一致,内政部戸政司「全国行政区域代碼」,https://www.ris.gov.tw/app/portal/3053,2026-10-25,13県下の14県轄市（宜蘭・竹北・苗栗・頭份・彰化・員林・南投・斗六・太保・朴子・屏東・臺東・花蓮・馬公）
+TW,鎮,38,38,38,完全一致,内政部戸政司「全国行政区域代碼」,https://www.ris.gov.tw/app/portal/3053,2026-10-25,13県下の38鎮
+TW,郷_一般郷,122,122,122,完全一致,内政部戸政司「全国行政区域代碼」,https://www.ris.gov.tw/app/portal/3053,2026-10-25,13県下の一般郷122郷
+TW,山地郷,24,24,24,完全一致,地方制度法第57条第2項・内政部戸政司,https://www.ris.gov.tw/app/portal/3053,2026-10-25,13県下の24山地郷（一般郷122＋山地郷24＝146郷）
+TW,郷鎮市区_総数,368,368,368,完全一致,内政部戸政司「全国行政区域代碼」,https://www.ris.gov.tw/app/portal/3053,2026-10-25,区170（164＋6）＋県轄市14＋鎮38＋郷146（122＋24）＝368郷鎮市区
+TW,気象予報区_郷鎮市区預報区,368,368,368,完全一致,交通部中央気象署（CWA）「郷鎮天気預報」,https://opendata.cwa.gov.tw/,2026-10-25,368郷鎮市区と1対1対応（県市預報区は22区域）
+TW,中央気象署気象・雨量観測所,720,680,780,許容範囲内,交通部中央気象署「現有測站基本資料表」,https://e-service.cwa.gov.tw/wdps/obs/state.htm,2026-10-25,有人綜観気象站約28＋自動気象站約450＋自動雨量站約250
+TW,国道_高速道路,10,10,12,許容範囲内,交通部高速公路局「國道路線一覽表」,https://www.freeway.gov.tw/,2026-10-25,國道1號〜10號（未開通7・9號除き開通10路線、國道3甲および高架別線含め12路線）
+TW,国道服務区_SA,15,15,15,完全一致,交通部高速公路局「國道服務區一覽」,https://www.freeway.gov.tw/,2026-10-25,國道1號6箇所＋國道3號7箇所＋國道5號1箇所＋國道6號1箇所＝15箇所
+TW,省道_快速公路及一般省道,97,94,100,許容範囲内,交通部公路局「省道公路路線表」,https://www.thb.gov.tw/,2026-10-25,省道快速公路18路線（本線14・支線4）＋一般省道79路線（本線47・支線32）＝計97路線
+TW,市道・県道,160,155,165,許容範囲内,交通部公路局「市道及縣道公路路線表」,https://www.thb.gov.tw/,2026-10-25,101號〜205號の本線132路線＋支線28路線＝計160路線
+TW,旅客空港,17,17,17,完全一致,交通部民用航空局（CAA）「民用機場一覽」,https://www.caa.gov.tw/,2026-10-25,国際空港4（TPE/TSA/RMQ/KHH）＋本島国内空港5＋離島空港8＝17空港
+TW,国際商港・国内商港,12,12,17,許容範囲内,交通部航港局・台湾港務(株)（商港法）,https://www.twport.com.tw/,2026-10-25,国際商港7港（基隆・台北・蘇澳・台中・高雄・安平・花蓮）＋国内商港5港群＝12商港
+TW,鉄軌道事業者,9,8,12,許容範囲内,交通部鉄路局・TDXプラットフォーム,https://tdx.transportdata.tw/,2026-10-25,台鉄(TRA)・台湾高鉄(THSR)・5大捷運公司(台北/新北/桃園/台中/高雄)・阿里山林鉄・台糖等
+TW,鉄軌道路線,35,30,45,許容範囲内,交通部TDX「軌道運輸資料」,https://tdx.transportdata.tw/,2026-10-25,台湾高鉄1＋台鉄16＋台北MRT8＋新北LRT2＋桃園MRT1＋台中MRT1＋高雄MRT/LRT3＋阿里山林鉄等
+TW,現行鉄道・MRT駅,500,470,540,許容範囲内,交通部TDX「軌道運輸車站資料」,https://tdx.transportdata.tw/,2026-10-25,台湾高鉄12駅＋台鉄241駅＋台北MRT117駅＋新北LRT23駅＋桃園MRT22駅＋台中MRT18駅＋高雄MRT/LRT77駅等
+KR,広域自治団体_総数,17,17,17,完全一致,行政安全部「地方自治団体行政区域現況」（地方自治法第2条）,https://www.code.go.kr/,2026-10-25,特別市1（ソウル）＋広域市6＋特別自治市1（世宗）＋道6＋特別自治道3（済州・江原・全北）＝17団体
+KR,市_基礎自治体,75,75,75,完全一致,行政安全部「地方自治団体行政区域現況」,https://www.code.go.kr/,2026-10-25,特例市5（水原・高陽・龍仁・昌原・華城）＋一般基礎市70＝75市
+KR,郡,82,82,82,完全一致,行政安全部「地方自治団体行政区域現況」,https://www.code.go.kr/,2026-10-25,広域市管轄5郡（機張・達城・軍威・江華・甕津）＋道・特別自治道管轄77郡＝82郡
+KR,自治区,69,69,69,完全一致,行政安全部「地方自治団体行政区域現況」,https://www.code.go.kr/,2026-10-25,ソウル25区＋釜山15区＋大邱7区＋仁川8区＋光州5区＋大田5区＋蔚山4区＝69自治区
+KR,基礎自治団体_総数,226,226,226,完全一致,行政安全部「地方自治団体行政区域現況」,https://www.code.go.kr/,2026-10-25,市75＋郡82＋自治区69＝226基礎自治団体
+KR,行政市_済州特別自治道,2,2,2,完全一致,済州特別法第10条・行政安全部,https://www.code.go.kr/,2026-10-25,済州市・西帰浦市の2行政市（基礎自治団体226と合わせ228市郡区）
+KR,一般区_特定市行政区,35,35,35,完全一致,地方自治法第3条第3項・行政安全部,https://www.code.go.kr/,2026-10-25,人口50万以上の12市（水原4・城南3・安養2・安山2・高陽3・龍仁3・富川3・清州4・天安2・全州2・浦項2・昌原5）の35一般区
+KR,気象特報区域,183,180,190,許容範囲内,気象庁（KMA）「気象特報区域」,https://data.kma.go.kr/,2026-10-25,全国の市・郡・広域市・山岳・島嶼細分の陸上気象特報区域
+KR,気象庁ASOS・AWS観測所,653,630,680,許容範囲内,気象庁「気象資料開放ポータル（観測地点情報）」,https://data.kma.go.kr/tmeta/stn/selectStnList.do,2026-10-25,綜観気象観測所（ASOS約103）＋防災自動気象観測所（AWS約550）＝約653地点
+KR,高速国道,52,48,70,許容範囲内,国土交通部『道路現況調書』・韓国道路公社,http://data.ex.co.kr/,2026-10-25,京釜高速道路(1号線)〜600号線の供用中約52路線（計画・支線含め約70路線）
+KR,高速道路SA_休憩所,208,200,220,許容範囲内,韓国道路公社「高速道路公共データポータル」,http://data.ex.co.kr/,2026-10-25,韓国道路公社および民資高速道路上の休憩所（SA）
+KR,一般国道,51,51,51,完全一致,国土交通部『道路現況調書』（一般国道路線指定令）,http://www.rsis.kr/,2026-10-25,南北軸27路線（奇数）＋東西軸24路線（偶数）＝実在51路線
+KR,国家支援地方道,30,28,33,許容範囲内,国土交通部『道路現況調書』,http://www.rsis.kr/,2026-10-25,2桁番号（13号〜98号）の主要地方幹線道路
+KR,旅客空港,15,15,15,完全一致,国土交通部・韓国空港公社・仁川国際空港公社,https://www.airportal.go.kr/,2026-10-25,仁川国際空港1＋韓国空港公社管理14空港（金浦・金海・済州・大邱・清州・務安・襄陽・光州・麗水・蔚山・浦項慶州・泗川・群山・原州）＝15空港
+KR,貿易港,31,31,31,完全一致,海洋水産部（港湾法第3条）,https://new.portmis.go.kr/,2026-10-25,国家管理貿易港14港（釜山・仁川・平沢唐津・蔚山・光陽・木浦・浦項・群山・東海墨湖・馬山・大山・麗水・長項・済州）＋地方管理貿易港17港＝31港
+KR,鉄軌道事業者,22,18,28,許容範囲内,国土交通部「鉄道産業情報センター（KRIC）」,https://data.kric.go.kr/,2026-10-25,国家鉄道公団・KORAIL・SR・ソウル交通公社・釜山/大邱/仁川/光州/大田交通公社・AREX・新盆唐線・GTX-A・各軽電鉄運営社
+KR,鉄軌道路線,150,135,170,許容範囲内,国土交通部「鉄道距離表」・KRIC統計,https://data.kric.go.kr/,2026-10-25,高速鉄道3線＋一般・広域鉄道約108線＋都市鉄道（地下鉄・軽電鉄・モノレール）約40線
+KR,現行鉄道・都市鉄道駅,1850,1750,1950,許容範囲内,国土交通部 KRIC・TAGO駅情報,https://data.kric.go.kr/,2026-10-25,KORAIL・SR駅約700駅＋全国都市鉄道・広域電鉄駅約1150駅
+CH,州_カントン,26,26,26,完全一致,スイス連邦憲法第1条（BFS Amtliches Gemeindeverzeichnis）,https://www.bfs.admin.ch/bfs/de/home/grundlagen/agvch.html,2026-10-25,完全州20＋半州6（OW/NW/BS/BL/AR/AI）＝26カントン（CH-ZH〜CH-JU）
+CH,郡_Bezirk,144,134,144,許容範囲内,連邦統計局（BFS）「Raumgliederungen der Schweiz 2026」,https://www.bfs.admin.ch/bfs/de/home/grundlagen/agvch.html,2026-10-25,2026年1月1日ムティエ郡（District de Moutier）新設後のBFS公式144単位（分割16州の実質郡は134郡・2025年基準は143単位）
+CH,基礎自治体_Gemeinde,2110,2105,2135,許容範囲内,連邦統計局（BFS）「Amtliches Gemeindeverzeichnis 2026」,https://www.agvchapp.bfs.admin.ch/de/state/results/init,2026-10-25,2026年1月1日基準2110自治体（2025年基準2121・2024年基準2131自治体）
+CH,気象警報区域,172,170,175,許容範囲内,MeteoSchweiz「Warnregionen」,https://data.geo.admin.ch/ch.meteoschweiz.uki-warnregionen/,2026-10-25,連邦気象地球物理局（MeteoSchweiz）の自然災害・気象警報172細分区域
+CH,SwissMetNet気象・雨量観測所,260,240,280,許容範囲内,MeteoSchweiz「Automatische Messstationen (SwissMetNet)」,https://data.geo.admin.ch/ch.meteoschweiz.messnetz-automatisch/,2026-10-25,総合自動気象観測所約160地点＋自動降水量観測所約100地点＝約260地点
+CH,国民道路_高速道路・自専道,22,20,25,許容範囲内,連邦道路局（ASTRA）・国民道路法（NSG）,https://www.astra.admin.ch/,2026-10-25,A1〜A28の連邦国民道路（Autobahn / Autostrasse）
+CH,主要道路_1・2桁幹線,29,29,29,完全一致,主幹道路政令（Durchgangsstrassenverordnung SR 741.272 Anhang 2A）,https://www.fedlex.admin.ch/eli/cc/1992/341_341_341/de,2026-10-25,青標識の1号〜30号主要道路（欠番26号を除く29路線）
+CH,主要道路_3桁幹線,120,110,130,許容範囲内,主幹道路政令（SR 741.272 Anhang 2B）,https://www.fedlex.admin.ch/eli/cc/1992/341_341_341/de,2026-10-25,101号〜567号の2級主要道路（アルプス峠路線含む）
+CH,旅客空港,7,6,7,許容範囲内,連邦民間航空局（BAZL / FOCA）,https://www.bazl.admin.ch/,2026-10-25,"国立3空港（ZRH, GVA, BSL［仏瑞共同］）＋地域4空港（BRN, ACH, LUG, SIR）＝7空港"
+CH,主要河川・湖上港湾,10,8,15,許容範囲内,スイス・ライン港湾公社およびBAV免許湖上汽船各社,https://www.port-of-switzerland.ch/,2026-10-25,バーゼル・ライン港湾群（CHBSL）＋主要湖上定期船拠点港（レマン湖・ルツェルン湖・チューリッヒ湖・トゥーン/ブリエンツ湖・ボーデン湖等）
+CH,鉄軌道事業者,75,65,85,許容範囲内,連邦交通局（BAV）「TU-Verzeichnis（公認交通事業者台帳）」,https://www.bav.admin.ch/,2026-10-25,SBB・BLS・RhB・MGB・SOB・zb・MOB・AB・登山鉄道・都市トラム・トロリーバス運営社
+CH,鉄軌道・ケーブルカー路線,250,220,280,許容範囲内,BAV / opentransportdata.swiss（公式時刻表Kursbuch）,https://opentransportdata.swiss/,2026-10-25,標準軌・狭軌・ラック鉄道・ローザンヌメトロ2線・5都市トラム・12都市トロリーバス・ケーブルカー約55線
+CH,現行鉄道駅,1800,1700,1900,許容範囲内,連邦交通局（BAV）「DIDOK（Haltestellen des öffentlichen Verkehrs）」,https://data.geo.admin.ch/ch.bav.haltestellen-oev/,2026-10-25,DIDOK（85*****）登録のSBB・私鉄・登山鉄道・メトロ駅（トラム・バス停除く鉄道駅）

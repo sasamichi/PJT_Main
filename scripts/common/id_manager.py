@@ -96,6 +96,10 @@ class IdManager:
                 # 3. 日本語名 / 公用語名
                 name_ja = str(row.get('日本語名', '')).strip()
                 name_local = str(row.get('公用語名', '')).strip()
+                if name_ja:
+                    self.key_to_id[(table_name, cc, f"name_ja:{kind}:{name_ja}")] = current_id
+                if name_local:
+                    self.key_to_id[(table_name, cc, f"name_local:{kind}:{name_local}")] = current_id
                 # 4. edges / route_nodes 用照合キー
                 if table_name == 'edges':
                     r_id = str(row.get('route_id', '')).strip()
@@ -211,7 +215,7 @@ class IdManager:
                 return f"{cc}-{kind}-{num:06d}"
             return re.sub(r"([A-Z]+)-([A-Z]+)-(\d{1,5})\b", repl, str(val))
 
-        for col in ['log_id', '対象路線_ids', '対象拠点_ids', '対象自治体_ids']:
+        for col in ['log_id', '対象路線_ids', '対象ノード_ids', '対象自治体_ids']:
             if col in df.columns:
                 df[col] = df[col].apply(expand_id)
 
