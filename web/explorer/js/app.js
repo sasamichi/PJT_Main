@@ -379,11 +379,27 @@ function draftChanged() {
 }
 
 // ---------------------------------------------------------------
+// アイコンキャッシュ（L.icon プーリングによるパフォーマンス最適化）
+// ---------------------------------------------------------------
+const explorerIconCache = {};
+function getExplorerIcon(file, size = 22) {
+  const key = `${file}_${size}`;
+  if (!explorerIconCache[key]) {
+    explorerIconCache[key] = L.icon({
+      iconUrl: `assets/icons/${file}`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+      popupAnchor: [0, -Math.round(size / 2)],
+      className: "custom-map-icon",
+    });
+  }
+  return explorerIconCache[key];
+}
+
+// ---------------------------------------------------------------
 // 描画：追加データ（オレンジ点・赤線）／入力中データ
 // ---------------------------------------------------------------
-const pinIcon = (isDraft) => L.divIcon({
-  className: "", html: `<div class="pin-dot${isDraft ? " draft" : ""}"></div>`, iconSize: [18, 18], iconAnchor: [9, 9]
-});
+const pinIcon = (isDraft) => getExplorerIcon(isDraft ? "pin-draft.svg" : "pin-saved.svg", 22);
 const vertexIcon = L.divIcon({ className: "", html: '<div class="vertex-dot"></div>', iconSize: [12, 12], iconAnchor: [6, 6] });
 
 function drawSavedLog(pane, log) {
@@ -443,9 +459,27 @@ function drawNodes() {
     nearNodes.forEach((nd) => {
       const lat = parseFloat(nd["緯度"]), lon = parseFloat(nd["経度"]);
       if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
-      const name = nd["日本語名"] || nd["公用語名"] || nd["名称"] || nd.node_id;
-      L.circleMarker([lat, lon], { radius: 5, color: "#1d4ed8", fillColor: COLORS.node, fillOpacity: 0.85, weight: 1.5 })
-        .bindPopup(`<strong>${esc(name)}</strong><br>種別: ${esc(nd["種別"] || "")}<br>ID: ${esc(nd.node_id)}`)
+      const name = nd["名称"] || nd["日本語名"] || nd["公用語名"] || nd.node_id;
+      const cat = String(nd["種別"] || "");
+      const sub = String(nd["大分類"] || nd["細品種別"] || "");
+
+      let iconFile = "train-station.svg";
+      if (cat.includes("道の駅") || sub.includes("道の駅")) iconFile = "roadside-station.svg";
+      else if (cat.includes("SA") || cat.includes("PA")) iconFile = "highway-sa.svg";
+      else if (cat.includes("IC") || cat.includes("JCT") || cat.includes("高速")) iconFile = "highway-ic.svg";
+      else if (sub.includes("新幹線") || cat.includes("新幹線")) iconFile = "train-shinkansen.svg";
+      else if (cat.includes("地下鉄")) iconFile = "subway.svg";
+      else if (cat.includes("電停")) iconFile = "tram.svg";
+      else if (cat.includes("駅") || cat.includes("鉄道")) iconFile = "train-station.svg";
+      else if (cat.includes("空港") || sub.includes("空港")) iconFile = "airport.svg";
+      else if (cat.includes("港") || sub.includes("港")) iconFile = "port.svg";
+      else if (cat.includes("気象観測点") || sub.includes("アメダス")) iconFile = "weather.svg";
+      else if (cat.includes("トンネル") || cat.includes("橋梁") || cat.includes("峠")) iconFile = "structure.svg";
+
+      const nodeIcon = getExplorerIcon(iconFile, 22);
+
+      L.marker([lat, lon], { icon: nodeIcon })
+        .bindPopup(`<strong>${esc(name)}</strong><br>種別: ${esc(cat)}<br>ID: ${esc(nd.node_id)}`)
         .addTo(p.layers.nodes);
     });
   });
@@ -491,15 +525,13 @@ function drawThemeSpots() {
     themeSpots.forEach((s) => {
       const lat = parseFloat(s["緯度"]), lon = parseFloat(s["経度"]);
       if (isNaN(lat) || isNaN(lon)) return;
-      L.circleMarker([lat, lon], {
-        radius: 6,
-        color: "#991b1b",
-        fillColor: COLORS.spot,
-        fillOpacity: 0.9,
-        weight: 1.5
-      })
-      .bindPopup(`<strong>${esc(s["日本語名"] || s["公用語名"])}</strong><br>時代: ${esc(s["時代区分"])}<br>種別: ${esc(s["種別"])}`)
-      .addTo(pane.layers.spots);
+      const name = s["名称"] || s["日本語名"] || s["公用語名"] || "史跡";
+      
+      const spotIcon = getExplorerIcon("spot-castle.svg", 24);
+
+      L.marker([lat, lon], { icon: spotIcon })
+        .bindPopup(`<strong>${esc(name)}</strong><br>時代: ${esc(s["時代区分"] || "")}<br>種別: ${esc(s["種別"] || "")}`)
+        .addTo(pane.layers.spots);
     });
   });
 }

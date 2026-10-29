@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
+  <defs>
+    <filter id="badge-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35" />
+    </filter>
+  </defs>
+  <!-- 円形バッジ本体（外枠＋背景色） -->
+  <circle cx="18" cy="18" r="17.0" fill="#78350f" stroke="#ffffff" stroke-width="2" filter="url(#badge-shadow)" />
+  
+  <!-- 独自デザインピクトグラム -->
+  <g>
+    
+          <!-- ウィーン道路標識条約 トンネル坑門シンボル (E, 11a) -->
+          <path d="M9 11 L27 11 L27 25 L23 25 L23 18 C23 15 21 14 18 14 C15 14 13 15 13 18 L13 25 L9 25 Z" fill="#ffffff" />
+          <polygon points="14.5,25 21.5,25 19.5,19 16.5,19" fill="#ffffff" />
+          <line x1="18" y1="20" x2="18" y2="24" stroke="#78350f" stroke-width="1" stroke-linecap="round" />
+        
+  </g>
+</svg>

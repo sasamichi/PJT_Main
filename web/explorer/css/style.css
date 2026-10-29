@@ -901,3 +901,31 @@ textarea.form-control {
   flex: 1;
   background: #000;
 }
+
+/* ==========================================================================
+   高精細SVG円形バッジアイコン スタイル
+   ========================================================================== */
+.custom-node-badge,
+.custom-pin-icon {
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-badge-icon,
+.custom-map-icon {
+  display: block;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+.map-badge-icon:hover,
+.custom-map-icon:hover {
+  transform: scale(1.18);
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+}
+

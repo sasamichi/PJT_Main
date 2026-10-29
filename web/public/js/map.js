@@ -28,8 +28,43 @@ const PublicMap = {
   currentRouteLayers: null, // 単一路線表示用の一時レイヤー
   allNodes: [],             // 全ノードキャッシュ (ビューポート連動描画用)
   _renderTimer: null,
+  _iconCache: {},           // L.icon インスタンスキャッシュ（パフォーマンス最適化）
+
+  // L.icon プーリングキャッシュ取得
+  getBadgeIcon: function (iconFile, size) {
+    const key = `${iconFile}_${size}`;
+    if (!this._iconCache[key]) {
+      this._iconCache[key] = L.icon({
+        iconUrl: `assets/icons/${iconFile}`,
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size / 2],
+        popupAnchor: [0, -Math.round(size / 2)],
+        className: "custom-map-icon",
+      });
+    }
+    return this._iconCache[key];
+  },
+
+  // アイコンキャッシュの事前生成（全16種 × 各種サイズ）
+  initIconCache: function () {
+    const iconFiles = [
+      "train-shinkansen.svg", "train-station.svg", "subway.svg", "tram.svg",
+      "highway-ic.svg", "highway-sa.svg", "roadside-station.svg", "airport.svg",
+      "port.svg", "structure.svg", "gov-pref.svg", "gov-muni.svg", "weather.svg",
+      "spot-castle.svg", "pin-saved.svg", "pin-draft.svg"
+    ];
+    const sizes = [18, 20, 22, 24, 25, 26, 28, 30, 32];
+    iconFiles.forEach((file) => {
+      sizes.forEach((s) => {
+        this.getBadgeIcon(file, s);
+      });
+    });
+  },
 
   init: function (containerId) {
+    // 0. アイコンキャッシュの事前生成（高パフォーマンス描画用）
+    this.initIconCache();
+
     // 1. ベースタイルレイヤーの定義
     const osmLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
@@ -266,13 +301,11 @@ const PublicMap = {
       if (m.lat == null || m.lon == null) return;
 
       const isPref = m.level === 1;
-      const marker = L.circleMarker([m.lat, m.lon], {
-        radius: isPref ? 6 : 4,
-        fillColor: isPref ? "#be123c" : "#475569",
-        color: "#ffffff",
-        weight: 1.5,
-        opacity: 0.9,
-        fillOpacity: 0.85,
+      const iconFile = isPref ? "gov-pref.svg" : "gov-muni.svg";
+      const iconSize = isPref ? 26 : 20;
+      const muniIcon = this.getBadgeIcon(iconFile, iconSize);
+      const marker = L.marker([m.lat, m.lon], {
+        icon: muniIcon,
         zIndexOffset: isPref ? 200 : 50,
       });
 
@@ -432,8 +465,8 @@ const PublicMap = {
       structure: 0,
     };
 
-    // ズームに応じたカテゴリ上限数
-    const categoryLimit = zoom <= 7 ? 80 : (zoom <= 9 ? 300 : 800);
+    // ズームに応じたカテゴリ上限数（低ズーム時は大幅に絞り込み、高ズーム時は余裕を持たせる）
+    const categoryLimit = zoom <= 7 ? 50 : (zoom <= 9 ? 150 : (zoom <= 11 ? 400 : 1200));
 
     for (let i = 0; i < this.allNodes.length; i++) {
       const node = this.allNodes[i];
@@ -471,11 +504,11 @@ const PublicMap = {
         if (isAmedas || isRoadStation || isStructure) {
           continue;
         }
-        if (isRailStation && !isShinkansen && (i % 2 !== 0)) {
-          continue; // 在来線駅は適度に間引き
+        if (isRailStation && !isShinkansen && (i % 3 !== 0)) {
+          continue; // 在来線駅は1/3に間引き
         }
-        if (isHighway && (cat === "PA" || cat === "SA" || cat === "都市高速出入口")) {
-          continue;
+        if (isHighway && (cat === "PA" || cat === "SA" || cat === "都市高速出入口" || (i % 2 !== 0))) {
+          continue; // 高速も主要ICに絞る
         }
       }
       // 段階3: zoom 10〜11（都市圏・中縮尺）
@@ -599,7 +632,7 @@ const PublicMap = {
     return totalPlotted;
   },
 
-  // 軽量なバッジアイコンの生成
+  // 高精細SVG円形バッジアイコンの取得（プールからキャッシュ再利用）
   _createBadgeIcon: function (node, isOverview, zoom) {
     const cat = String(node.category || "");
     const sub = String(node.sub_category || "");
@@ -610,75 +643,37 @@ const PublicMap = {
     const isSubway = isRailStation && cat.includes("地下鉄");
     const isTram = isRailStation && cat.includes("電停");
 
-    let emoji = "📍";
-    let bg = "#2563eb";
-    let size = isOverview ? 20 : (zoom >= 12 ? 26 : 22);
-    let fontSize = isOverview ? "10px" : (zoom >= 12 ? "13px" : "11px");
+    let iconFile = "train-station.svg";
+    let size = isOverview ? 20 : (zoom >= 12 ? 30 : 25);
 
     if (isRoadStation) {
-      emoji = "🚗";
-      bg = "#ea580c"; // 橙
+      iconFile = "roadside-station.svg";
     } else if (isHighway) {
       const isSAPA = cat.includes("SA") || cat.includes("PA");
-      emoji = isSAPA ? "🅿️" : "🛣️";
-      bg = "#15803d"; // 深緑
+      iconFile = isSAPA ? "highway-sa.svg" : "highway-ic.svg";
     } else if (isShinkansen) {
-      emoji = "🚄";
-      bg = "#7c3aed"; // 紫
-      size = isOverview ? 24 : 28;
-      fontSize = isOverview ? "12px" : "14px";
+      iconFile = "train-shinkansen.svg";
+      size = isOverview ? 24 : 32;
     } else if (isSubway) {
-      emoji = "🚇";
-      bg = "#2563eb"; // 青
+      iconFile = "subway.svg";
     } else if (isTram) {
-      emoji = "🚊";
-      bg = "#0284c7"; // 水色
+      iconFile = "tram.svg";
     } else if (isRailStation) {
-      emoji = "🚆";
-      bg = "#2563eb"; // 青
+      iconFile = "train-station.svg";
     } else if (cat.includes("空港") || sub.includes("空港")) {
-      emoji = "✈️";
-      bg = "#0284c7";
-      size = isOverview ? 24 : 28;
-      fontSize = isOverview ? "12px" : "14px";
+      iconFile = "airport.svg";
+      size = isOverview ? 24 : 32;
     } else if (cat.includes("港") || sub.includes("港")) {
-      emoji = "⚓";
-      bg = "#0d9488";
-      size = isOverview ? 22 : 26;
+      iconFile = "port.svg";
+      size = isOverview ? 22 : 28;
     } else if (cat.includes("気象観測点") || sub.includes("アメダス")) {
-      emoji = "🌡️";
-      bg = "#dc2626";
-      size = isOverview ? 16 : 20;
-      fontSize = isOverview ? "8px" : "10px";
+      iconFile = "weather.svg";
+      size = isOverview ? 18 : 24;
     } else if (cat.includes("トンネル") || cat.includes("橋梁") || cat.includes("峠")) {
-      emoji = "🌉";
-      bg = "#78350f";
+      iconFile = "structure.svg";
     }
 
-    const html = `<div style="
-      background: ${bg};
-      width: ${size}px;
-      height: ${size}px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: ${fontSize};
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-      border: 1.5px solid #ffffff;
-      cursor: pointer;
-      user-select: none;
-      line-height: 1;
-    ">${emoji}</div>`;
-
-    return L.divIcon({
-      html: html,
-      className: "custom-node-badge",
-      iconSize: [size, size],
-      iconAnchor: [size / 2, size / 2],
-      popupAnchor: [0, -size / 2],
-    });
+    return this.getBadgeIcon(iconFile, size);
   },
 
   // =========================================================================

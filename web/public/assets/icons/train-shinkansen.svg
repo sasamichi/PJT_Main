@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
+  <defs>
+    <filter id="badge-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35" />
+    </filter>
+  </defs>
+  <!-- 円形バッジ本体（外枠＋背景色） -->
+  <circle cx="18" cy="18" r="17.0" fill="#7c3aed" stroke="#ffffff" stroke-width="2" filter="url(#badge-shadow)" />
+  
+  <!-- 独自デザインピクトグラム -->
+  <g>
+    
+          <!-- 国際高速列車（流線型ノーズ＋スピードライン） -->
+          <path d="M8.5 22 L11 17 C13 11.5 18 9 27.5 9 L27.5 22 Z" fill="#ffffff" />
+          <path d="M15 15.5 C17 13 20 11.5 24.5 11.5 L24.5 14.5 C20 14.5 17.5 15.5 15 16.5 Z" fill="#7c3aed" />
+          <line x1="7" y1="24" x2="28" y2="24" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+          <line x1="12" y1="26" x2="26" y2="26" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" />
+          <path d="M12 19.5 L16 19.5" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" />
+        
+  </g>
+</svg>
