@@ -1,0 +1,6 @@
+[out:json][timeout:25];
+(
+  node["highway"~"services|rest_area"](41.5,139.5,44.5,143.5);
+  way["highway"~"services|rest_area"](41.5,139.5,44.5,143.5);
+);
+out center tags;

@@ -41,8 +41,8 @@ const App = {
     // サマリーデータの読み込み
     await this.loadSummary();
 
-    // 初期の国（日本 JP）の読み込み
-    await this.selectCountry("JP");
+    // 初期の国（日本 JP）の読み込み（初期ロード時は画面切り替えを抑止）
+    await this.selectCountry("JP", false);
 
     // 初回表示はオープニング画面（ホーム）を明示的に維持
     this.switchViewMode("home");
@@ -98,11 +98,18 @@ const App = {
       });
     }
 
-    // 全251カ国セレクトボックス
-    document.getElementById("country-quick-select").addEventListener("change", (e) => {
-      const code = e.target.value;
-      if (code) this.selectCountry(code);
-    });
+    // 全251カ国セレクトボックス（選択すると対象国の階層ビュー画面へジャンプ）
+    const countryQuickSelect = document.getElementById("country-quick-select");
+    if (countryQuickSelect) {
+      countryQuickSelect.addEventListener("change", async (e) => {
+        const code = e.target.value;
+        if (!code) return;
+        await this.selectCountry(code, false);
+        this.switchViewMode("tree");
+        this.navTreeCountry(code);
+        e.target.value = "";
+      });
+    }
 
     // 地図リセットボタン
     document.getElementById("map-reset-btn").addEventListener("click", () => {
@@ -116,9 +123,13 @@ const App = {
         this.switchViewMode("tree");
         this.navTreeCountry(this.activeCountryCode);
         setTimeout(() => {
+          const overviewEl = document.getElementById("country-overview-collapsible");
+          const toggleBtn = document.getElementById("btn-toggle-country-overview");
+          if (overviewEl) overviewEl.style.display = "block";
+          if (toggleBtn) toggleBtn.innerHTML = "📘 国概要・制度解説を隠す ▲";
           const el = document.getElementById("country-guide-section");
           if (el) el.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        }, 80);
       });
     }
 
@@ -155,7 +166,8 @@ const App = {
       if (homePanel) homePanel.style.display = "none";
       if (mapPanel) mapPanel.style.display = "none";
       if (treePanel) treePanel.style.display = "flex";
-      this.navTreeCountry(this.activeCountryCode);
+      // 階層ビューを開いた際は、常に世界の国一覧テーブルをトップ画面として表示
+      this.navTreeWorld();
     } else { // mode === "map"
       document.body.classList.remove("tree-mode-active");
       if (homePanel) homePanel.style.display = "none";
@@ -176,11 +188,11 @@ const App = {
       if (!res.ok) throw new Error("summary.json の読み込みに失敗しました");
       this.summaryData = await res.json();
 
-      // ヘッダーの統計ピル更新
+      // ヘッダーの統計ピル更新 (開設当初は国・自治体データおよび気象観測点)
       const stats = this.summaryData.total_stats || {};
       const statsEl = document.getElementById("stats-pill");
       if (statsEl) {
-        statsEl.innerText = `全${stats.registered_countries || 251}カ国 | 路線 ${(stats.routes || 0).toLocaleString()} | 自治体 ${(stats.municipalities || 0).toLocaleString()} | 拠点 ${(stats.nodes || 0).toLocaleString()}`;
+        statsEl.innerText = `全${stats.registered_countries || 251}カ国・地域 | 自治体・行政区画 1,965件 | 気象観測地点 1,286件`;
       }
 
       // 国セレクターバーの構築
@@ -190,14 +202,12 @@ const App = {
     }
   },
 
-  // 国セレクターバーの構築
+  // 国セレクターバーの構築 (ドロップダウン選択窓のみ)
   buildCountryBar: function () {
     const selectEl = document.getElementById("country-quick-select");
-    const container = document.getElementById("country-selector-container");
-    if (!this.summaryData || !this.summaryData.countries) return;
+    if (!selectEl || !this.summaryData || !this.summaryData.countries) return;
 
     selectEl.innerHTML = '<option value="">🔍 全251カ国から選ぶ...</option>';
-    container.innerHTML = "";
 
     // 地域別にグループ化してセレクトボックスに分類表示
     const regions = {};
@@ -213,48 +223,27 @@ const App = {
       regions[reg].forEach((c) => {
         const opt = document.createElement("option");
         opt.value = c.code;
-        const countTxt = c.counts.routes > 0 ? ` (${c.counts.routes}路線)` : (c.counts.municipalities > 0 ? ` (${c.counts.municipalities}地域)` : "");
+        const countTxt = c.code === "JP" ? " (1,965地域)" : (c.counts.municipalities > 0 ? ` (${c.counts.municipalities}地域)` : "");
         const guideMark = (c.has_guide || ["JP","AT","TW","KR","CH","IT"].includes(c.code)) ? " 📘解説" : "";
         opt.innerText = `${c.flag || "🌐"} ${c.name} [${c.code}]${countTxt}${guideMark}`;
-        if (c.code === this.activeCountryCode) opt.selected = true;
         optgroup.appendChild(opt);
       });
       selectEl.appendChild(optgroup);
     });
-
-    // 主要国ピル群（登録データ件数の多い上位12カ国を優先表示）
-    const sortedCountries = [...this.summaryData.countries].sort((a, b) => {
-      return (b.counts.routes + b.counts.nodes + b.counts.municipalities) - (a.counts.routes + a.counts.nodes + a.counts.municipalities);
-    });
-
-    const topCountries = sortedCountries.slice(0, 12);
-    topCountries.forEach((c) => {
-      const pill = document.createElement("div");
-      pill.className = `country-pill ${c.code === this.activeCountryCode ? "active" : ""}`;
-      pill.setAttribute("data-cc", c.code);
-      const countLabel = c.counts.routes > 0 ? `${c.counts.routes}路線` : `${c.counts.municipalities}地域`;
-      pill.innerHTML = `
-        <span>${c.flag || "🌐"}</span>
-        <span>${c.name}</span>
-        <span class="pill-count">${countLabel}</span>
-      `;
-      pill.addEventListener("click", () => this.selectCountry(c.code));
-      container.appendChild(pill);
-    });
   },
 
   // 国の選択
-  selectCountry: async function (countryCode) {
+  selectCountry: async function (countryCode, autoSwitch = true) {
     if (!countryCode) return;
     this.activeCountryCode = countryCode;
-    // ホーム表示中に国が選ばれた場合は地図ビューへ遷移
-    if (this.viewMode === "home") {
+    // autoSwitchが有効かつホーム表示中に国が選ばれた場合は地図ビューへ遷移
+    if (autoSwitch && this.viewMode === "home") {
       this.switchViewMode("map");
     }
 
     // セレクトボックスとピルの選択状態更新
     const selectEl = document.getElementById("country-quick-select");
-    if (selectEl) selectEl.value = countryCode;
+    if (selectEl && autoSwitch) selectEl.value = countryCode;
 
     document.querySelectorAll(".country-pill").forEach((p) => {
       p.classList.toggle("active", p.getAttribute("data-cc") === countryCode);
@@ -306,22 +295,25 @@ const App = {
     const d = this.currentCountryData;
     if (!d) return;
 
-    // 1. 地図ビューの描画更新
+    // 1. 地図ビューの描画更新 (自治体ノードおよび気象観測点アメダス)
     if (PublicMap && PublicMap.map) {
       PublicMap.setCountryView(d.map_meta, d.country_code);
       PublicMap.clearAllOverlays();
 
-      const edgeCount = PublicMap.plotEdges(d.edges || []);
-      const nodeCount = PublicMap.plotNodesCategorized(d.nodes || []);
       const muniCount = PublicMap.plotMunicipalities(d.municipalities || []);
+      const amedasCount = PublicMap.plotAmedas(d.nodes || []);
 
       const countEl = document.getElementById("map-marker-count");
       if (countEl) {
-        countEl.innerText = `${d.name}: 路線区間 ${edgeCount}件 | 拠点 ${nodeCount}件 | 自治体 ${muniCount}件`;
+        if (amedasCount > 0) {
+          countEl.innerText = `${d.name}: 自治体 ${muniCount.toLocaleString()} 件 / 気象観測地点 (アメダス) ${amedasCount.toLocaleString()} 件`;
+        } else {
+          countEl.innerText = `${d.name}: 自治体代表点 ${muniCount.toLocaleString()} 件`;
+        }
       }
     }
 
-    // 2. 階層ビューの描画更新（階層モードがアクティブな場合）
+    // 2. 階層ビューの描画更新（階層ビュー表示中は、選択された国のページを表示）
     if (this.viewMode === "tree") {
       this.navTreeCountry(d.country_code);
     }
@@ -742,123 +734,106 @@ const App = {
     else if (this.treeState.level === "genre") this.renderTreeLevelGenre();
   },
 
-  // 1. 世界レベル（全251カ国カード一覧）
+  // 地方区分定義 (8地方)
+  regionDefs: [
+    { name: "北海道地方", prefs: ["北海道"] },
+    { name: "東北地方", prefs: ["青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県"] },
+    { name: "関東地方", prefs: ["茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県"] },
+    { name: "中部地方", prefs: ["新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県", "静岡県", "愛知県"] },
+    { name: "近畿地方", prefs: ["三重県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"] },
+    { name: "中国地方", prefs: ["鳥取県", "島根県", "岡山県", "広島県", "山口県"] },
+    { name: "四国地方", prefs: ["徳島県", "香川県", "愛媛県", "高知県"] },
+    { name: "九州・沖縄地方", prefs: ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"] },
+  ],
+
+  // 1. 世界レベル（全251カ国テーブル一覧: 仮サイト仕様）
   renderTreeLevelWorld: function () {
     const container = document.getElementById("tree-content");
     if (!container) return;
     let countries = (this.summaryData && this.summaryData.countries) || [];
 
     if (this.treeSearchQuery) {
-      countries = countries.filter((c) => (c.name || "").toLowerCase().includes(this.treeSearchQuery) || (c.code || "").toLowerCase().includes(this.treeSearchQuery));
+      const q = this.treeSearchQuery.toLowerCase();
+      countries = countries.filter(
+        (c) =>
+          (c.name || "").toLowerCase().includes(q) ||
+          (c.code || "").toLowerCase().includes(q) ||
+          (c.official_lang || "").toLowerCase().includes(q) ||
+          (c.region || "").toLowerCase().includes(q)
+      );
     }
 
-    let html = `
-      <div class="tree-view-container" style="max-width:1200px; margin:0 auto;">
-        <div style="margin-bottom:16px;">
-          <h2 style="font-size:20px; font-weight:700;">🌍 世界251カ国・地域 ディレクトリ</h2>
-          <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">国を選択すると、その国の行政区画・交通網・気象予報区の階層を閲覧できます。</p>
-        </div>
-        <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:14px;">
-    `;
-
-    countries.forEach((c) => {
-      html += `
-        <div class="tree-country-card" onclick="App.selectCountry('${c.code}'); App.navTreeCountry('${c.code}')" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:8px; padding:14px; cursor:pointer; transition:all 0.15s ease;">
-          <div style="font-size:28px; margin-bottom:6px;">${c.flag || "🌐"}</div>
-          <div style="font-weight:700; font-size:15px; color:var(--text-primary);">${c.name} [${c.code}]</div>
-          <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">地域: ${c.region || "その他"}</div>
-          <div style="margin-top:10px; font-size:12px; color:var(--text-secondary); border-top:1px dashed var(--border-color); padding-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
-            ${c.counts.routes > 0 ? `<span class="stat-pill">🚆 ${c.counts.routes} 路線</span>` : ""}
-            ${c.counts.municipalities > 0 ? `<span class="stat-pill">🏛️ ${c.counts.municipalities} 地域</span>` : ""}
-            ${c.counts.nodes > 0 ? `<span class="stat-pill">📍 ${c.counts.nodes} 拠点</span>` : ""}
-          </div>
-        </div>
-      `;
+    // 日本を最上部に固定し、残りは五十音順
+    const sorted = [...countries].sort((a, b) => {
+      if (a.code === "JP") return -1;
+      if (b.code === "JP") return 1;
+      return (a.name || "").localeCompare(b.name || "", "ja");
     });
 
-    html += `</div></div>`;
-    container.innerHTML = html;
-  },
-
-  // 2. 国レベル（国概要 ＆ 5大ジャンル選択カード）
-  renderTreeLevelCountry: function () {
-    const container = document.getElementById("tree-content");
-    const d = this.currentCountryData;
-    if (!container || !d) return;
-
     let html = `
       <div class="tree-view-container" style="max-width:1200px; margin:0 auto;">
-        <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:10px; padding:20px; margin-bottom:20px; box-shadow:var(--shadow-sm);">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
-            <div>
-              <h2 style="font-size:24px; font-weight:700; display:flex; align-items:center; gap:10px;">
-                <span>${d.flag || "🌐"}</span>
-                <span>${d.name}</span>
-                <span style="font-size:14px; color:var(--text-muted); font-weight:400;">(${d.country_code})</span>
-              </h2>
-              ${d.name_official ? `<div style="font-size:13px; color:var(--text-secondary); margin-top:4px;">正式名: ${d.name_official}</div>` : ""}
-            </div>
-            <button class="btn-icon" onclick="App.navTreeWorld()" style="font-size:12px;">🌍 世界一覧に戻る</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+          <div>
+            <h2 style="font-size:18px; font-weight:700;">🌍 世界251カ国・地域 自治体データ一覧</h2>
+            <p style="font-size:12px; color:var(--text-muted); margin-top:2px;">国を選択すると、その国の行政区画・自治体階層や公的制度解説ガイドを閲覧できます。</p>
           </div>
-
-          <div style="margin-top:12px; font-size:13px; color:var(--text-secondary); display:flex; gap:16px; flex-wrap:wrap; border-top:1px solid var(--border-color); padding-top:12px;">
-            ${d.info && d.info.official_lang ? `<span>公用語: <b>${d.info.official_lang}</b></span>` : ""}
-            ${d.info && d.info.currency ? `<span>通貨: <b>${d.info.currency}</b></span>` : ""}
-            ${d.info && d.info.drive_side ? `<span>車両通行側: <b>${d.info.drive_side}</b></span>` : ""}
-            ${d.info && d.info.pop ? `<span>推計人口: <b>${d.info.pop.toLocaleString()} 人</b></span>` : ""}
+          <div style="font-size:12px; font-weight:600; color:var(--text-secondary); background:var(--bg-surface-alt); padding:4px 10px; border-radius:12px;">
+            ${sorted.length} カ国・地域表示中
           </div>
         </div>
 
-        <!-- 📘 国・制度インフラ解説ガイド -->
-        ${this.buildCountryGuideHTML(d.guide, d.country_code, d.name, d.flag)}
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="min-width:160px;">国・地域名</th>
+                <th style="min-width:120px;">公用語表記</th>
+                <th style="width:65px; text-align:center;">コード</th>
+                <th style="width:65px; text-align:center;">通行側</th>
+                <th style="min-width:110px; text-align:center;">自治体データ</th>
+                <th style="width:85px; text-align:center;">詳細</th>
+              </tr>
+            </thead>
+            <tbody>
+    `;
 
-        <h3 style="font-size:17px; font-weight:700; margin-bottom:14px; color:var(--text-primary);">探索するジャンルを選択してください</h3>
+    if (sorted.length === 0) {
+      html += `<tr><td colspan="6" style="text-align:center; padding:24px; color:var(--text-muted);">該当する国が見つかりませんでした。</td></tr>`;
+    } else {
+      sorted.forEach((c) => {
+        const isJapan = c.code === "JP";
+        const hasData = (c.counts && c.counts.municipalities > 0) || isJapan;
+        const rowClass = `clickable-row ${isJapan ? "japan-row" : ""}`;
+        html += `
+          <tr class="${rowClass}" onclick="App.selectCountry('${c.code}'); App.navTreeCountry('${c.code}')">
+            <td>
+              <span style="font-size:16px; margin-right:6px; vertical-align:middle;">${c.flag || "🌐"}</span>
+              <span style="font-weight:${isJapan ? "700" : "600"}; color:${isJapan ? "var(--primary-color)" : "inherit"};">${c.name}</span>
+              ${isJapan ? '<span class="table-badge table-badge-pref" style="margin-left:6px;">先行公開中</span>' : ""}
+            </td>
+            <td style="color:var(--text-secondary); font-size:12px;">${c.official_lang || c.name_official || "-"}</td>
+            <td style="font-family:monospace; font-size:12px; text-align:center; color:var(--text-secondary);">${c.code}</td>
+            <td style="font-size:12px; text-align:center; color:var(--text-secondary);">${c.drive_side || "-"}</td>
+            <td style="text-align:center; font-size:12px;">
+              ${
+                hasData
+                  ? `<span style="font-weight:700; color:var(--primary-color);">🏛️ ${c.code === "JP" ? "1,965" : (c.counts.municipalities || 0).toLocaleString()} 自治体</span>`
+                  : '<span style="color:var(--text-muted); font-size:11px;">準備中</span>'
+              }
+            </td>
+            <td style="text-align:center;">
+              <button class="table-action-btn" onclick="event.stopPropagation(); App.selectCountry('${c.code}'); App.navTreeCountry('${c.code}')">
+                開く ›
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+    }
 
-        <div class="tree-genre-cards" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
-          <div class="tree-genre-card" onclick="App.navTreeGenre('${d.country_code}', 'muni')" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:8px; padding:20px; cursor:pointer; transition:all 0.15s ease;">
-            <div class="tree-genre-icon" style="font-size:36px; margin-bottom:8px;">🏛️</div>
-            <div class="tree-genre-title" style="font-size:17px; font-weight:700;">行政区画・自治体</div>
-            <div class="tree-genre-desc" style="font-size:12px; color:var(--text-muted); margin-top:4px;">都道府県・市町村・政庁代表点・天気予報4社リンク</div>
-            <div style="margin-top:12px; font-size:13px; font-weight:700; color:var(--primary-color);">
-              登録件数: ${(d.counts.municipalities || 0).toLocaleString()} 地域
-            </div>
-          </div>
-
-          <div class="tree-genre-card" onclick="App.navTreeGenre('${d.country_code}', 'routes')" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:8px; padding:20px; cursor:pointer; transition:all 0.15s ease;">
-            <div class="tree-genre-icon" style="font-size:36px; margin-bottom:8px;">🚆</div>
-            <div class="tree-genre-title" style="font-size:17px; font-weight:700;">交通路線</div>
-            <div class="tree-genre-desc" style="font-size:12px; color:var(--text-muted); margin-top:4px;">新幹線・在来線・地下鉄・国内航空路・高速道路</div>
-            <div style="margin-top:12px; font-size:13px; font-weight:700; color:var(--primary-color);">
-              登録件数: ${(d.counts.routes || 0).toLocaleString()} 路線
-            </div>
-          </div>
-
-          <div class="tree-genre-card" onclick="App.navTreeGenre('${d.country_code}', 'nodes')" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:8px; padding:20px; cursor:pointer; transition:all 0.15s ease;">
-            <div class="tree-genre-icon" style="font-size:36px; margin-bottom:8px;">📍</div>
-            <div class="tree-genre-title" style="font-size:17px; font-weight:700;">交通拠点・施設</div>
-            <div class="tree-genre-desc" style="font-size:12px; color:var(--text-muted); margin-top:4px;">鉄道駅・空港・港湾・高速IC・道の駅・トンネル/橋</div>
-            <div style="margin-top:12px; font-size:13px; font-weight:700; color:var(--primary-color);">
-              登録件数: ${(d.counts.nodes || 0).toLocaleString()} 拠点
-            </div>
-          </div>
-
-          <div class="tree-genre-card" onclick="App.navTreeGenre('${d.country_code}', 'weather')" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:8px; padding:20px; cursor:pointer; transition:all 0.15s ease;">
-            <div class="tree-genre-icon" style="font-size:36px; margin-bottom:8px;">🌡️</div>
-            <div class="tree-genre-title" style="font-size:17px; font-weight:700;">気象予報区</div>
-            <div class="tree-genre-desc" style="font-size:12px; color:var(--text-muted); margin-top:4px;">気象庁地方予報区・府県予報区・一次細分区域・担当気象台</div>
-            <div style="margin-top:12px; font-size:13px; font-weight:700; color:var(--primary-color);">
-              登録件数: ${(d.counts.weather_zones || 0).toLocaleString()} 予報区
-            </div>
-          </div>
-
-          <div class="tree-genre-card" onclick="App.navTreeGenre('${d.country_code}', 'operators')" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:8px; padding:20px; cursor:pointer; transition:all 0.15s ease;">
-            <div class="tree-genre-icon" style="font-size:36px; margin-bottom:8px;">🏢</div>
-            <div class="tree-genre-title" style="font-size:17px; font-weight:700;">運行事業者・管理者</div>
-            <div class="tree-genre-desc" style="font-size:12px; color:var(--text-muted); margin-top:4px;">JR各社・大手私鉄・地下鉄公営・航空海運各社</div>
-            <div style="margin-top:12px; font-size:13px; font-weight:700; color:var(--primary-color);">
-              登録件数: ${(d.counts.operators || 0).toLocaleString()} 社
-            </div>
-          </div>
+    html += `
+            </tbody>
+          </table>
         </div>
       </div>
     `;
@@ -866,92 +841,397 @@ const App = {
     container.innerHTML = html;
   },
 
-  // 3. ジャンルレベル（詳細一覧・検索フィルター）
-  renderTreeLevelGenre: function () {
+  // 2. 国レベル（制度解説ガイド ＆ 行政区画・自治体多層ツリー/テーブル）
+  renderTreeLevelCountry: function () {
     const container = document.getElementById("tree-content");
     const d = this.currentCountryData;
-    const genre = this.treeState.genre;
     if (!container || !d) return;
 
-    let items = [];
-    let itemType = "";
-    let genreTitle = "";
-
-    if (genre === "routes") {
-      items = d.routes || [];
-      itemType = "route";
-      genreTitle = "交通路線";
-    } else if (genre === "muni") {
-      items = d.municipalities || [];
-      itemType = "muni";
-      genreTitle = "行政区画・自治体";
-    } else if (genre === "nodes") {
-      items = d.nodes || [];
-      itemType = "node";
-      genreTitle = "交通拠点・施設";
-    } else if (genre === "weather") {
-      items = d.weather_zones || [];
-      itemType = "weather";
-      genreTitle = "気象予報区";
-    } else if (genre === "operators") {
-      items = d.operators || [];
-      itemType = "operator";
-      genreTitle = "運行事業者";
-    }
-
-    if (this.treeSearchQuery) {
-      items = items.filter((it) => (it.name || "").toLowerCase().includes(this.treeSearchQuery) || (it.name_official || "").toLowerCase().includes(this.treeSearchQuery) || (it.code || "").toLowerCase().includes(this.treeSearchQuery) || (it.category || "").toLowerCase().includes(this.treeSearchQuery));
-    }
+    const isJapan = d.country_code === "JP";
+    const rawMunis = d.municipalities || [];
+    // 郡・支庁・振興局は今回の公開時点では非公開
+    const munis = isJapan
+      ? rawMunis.filter((m) => m.category !== "郡" && m.category !== "支庁・総合振興局・振興局")
+      : rawMunis;
 
     let html = `
       <div class="tree-view-container" style="max-width:1200px; margin:0 auto;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
-          <div>
-            <h2 style="font-size:20px; font-weight:700;">${genreTitle} 一覧 (${items.length.toLocaleString()} 件)</h2>
-            <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">項目をクリックすると、右サイドに詳細ナレッジパネルが表示されます。</div>
+        <!-- 国ヘッダーバー（コンパクト表示＆表示切替トグル） -->
+        <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:10px; padding:12px 16px; margin-bottom:12px; box-shadow:var(--shadow-sm); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:24px;">${d.flag || "🌐"}</span>
+            <h2 style="font-size:18px; font-weight:700; margin:0; display:flex; align-items:center; gap:6px;">
+              <span>${d.name}</span>
+              <span style="font-size:12px; color:var(--text-muted); font-weight:normal;">(${d.country_code})</span>
+            </h2>
+            <span style="font-size:11px; color:var(--primary-color); background:rgba(30,58,138,0.08); padding:2px 8px; border-radius:10px; font-weight:600;">収録: ${munis.length.toLocaleString()} 件</span>
           </div>
-          <button class="btn-icon" onclick="App.navTreeCountry('${d.country_code}')">&laquo; ジャンル選択に戻る</button>
+          <div style="display:flex; gap:8px;">
+            <button id="btn-toggle-country-overview" class="table-action-btn" onclick="App.toggleCountryOverview()" style="padding:6px 12px; font-size:12px; font-weight:600;">
+              ${munis.length === 0 ? "📘 国概要・制度解説を隠す ▲" : "📘 国概要・制度解説を表示 ▼"}
+            </button>
+            <button class="table-action-btn" onclick="App.navTreeWorld()" style="padding:6px 12px; font-size:12px;">◀ 世界一覧テーブルに戻る</button>
+          </div>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:12px;">
+        <!-- 折りたたみ可能な国概要＆制度解説ブロック (自治体データが0件の国は初期表示、データがある国は初期非表示) -->
+        <div id="country-overview-collapsible" style="display:${munis.length === 0 ? "block" : "none"}; margin-bottom:16px;">
+          <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:10px; padding:14px 16px; margin-bottom:12px; box-shadow:var(--shadow-sm);">
+            ${d.name_official ? `<div style="font-size:12px; color:var(--text-secondary); margin-bottom:6px;">正式名: <b>${d.name_official}</b></div>` : ""}
+            <div style="font-size:12px; color:var(--text-secondary); display:flex; gap:16px; flex-wrap:wrap;">
+              ${d.info && d.info.official_lang ? `<span>公用語: <b>${d.info.official_lang}</b></span>` : ""}
+              ${d.info && d.info.currency ? `<span>通貨: <b>${d.info.currency}</b></span>` : ""}
+              ${d.info && d.info.drive_side ? `<span>車両通行側: <b>${d.info.drive_side}</b></span>` : ""}
+              ${d.info && d.info.pop ? `<span>推計人口: <b>${d.info.pop.toLocaleString()} 人</b></span>` : ""}
+            </div>
+          </div>
+          <!-- 📘 国・制度インフラ解説ガイド (アコーディオン) -->
+          ${this.buildCountryGuideHTML(d.guide, d.country_code, d.name, d.flag)}
+        </div>
     `;
 
-    if (items.length === 0) {
-      html += '<div class="empty-box" style="grid-column:1/-1;">該当するデータが見つかりませんでした</div>';
-    } else {
-      const displayItems = items.slice(0, 200);
-      displayItems.forEach((it) => {
-        html += `
-          <div class="data-list-item" onclick="App.openKnowledgeDrawerById('${it.id}', '${itemType}')" style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:8px; padding:12px; cursor:pointer; transition:all 0.15s ease;">
-            <div class="item-main">
-              <div class="item-name" style="font-weight:700; font-size:14px; display:flex; align-items:center; gap:6px;">
-                <span>${it.name}</span>
-                ${it.name_official ? `<span class="item-sub" style="font-size:11px; color:var(--text-muted);">(${it.name_official})</span>` : ""}
-                <span class="item-badge" style="font-size:10px;">${it.mode || it.category || it.type || ""}</span>
+    if (!isJapan && munis.length === 0) {
+      html += `
+        <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:8px; padding:24px; text-align:center; color:var(--text-muted); margin-top:16px;">
+          <div style="font-size:24px; margin-bottom:8px;">🏛️</div>
+          <div style="font-size:15px; font-weight:600; color:var(--text-primary);">自治体データの公開準備中</div>
+          <div style="font-size:13px; margin-top:6px;">現在、国・地域・自治体データを準備中です。先行して上部の「公式制度・インフラ解説ガイド」をご覧いただけます。</div>
+        </div>
+      </div>
+      `;
+      container.innerHTML = html;
+      return;
+    }
+
+    // 検索クエリが存在する場合は、該当自治体をフラットなテーブルで即時表示
+    if (this.treeSearchQuery) {
+      const q = this.treeSearchQuery.toLowerCase();
+      const matchedMunis = munis.filter(
+        (m) =>
+          (m.name || "").toLowerCase().includes(q) ||
+          (m.name_official || "").toLowerCase().includes(q) ||
+          (m.code || "").toLowerCase().includes(q) ||
+          (m.category || "").toLowerCase().includes(q) ||
+          (m.parent_name || "").toLowerCase().includes(q)
+      );
+
+      html += `
+        <div style="margin-top:16px;">
+          <div style="font-weight:700; font-size:15px; margin-bottom:8px;">
+            🔍 検索結果: ${matchedMunis.length} 件の自治体
+          </div>
+          ${this.buildMuniTableHTML(matchedMunis)}
+        </div>
+      </div>
+      `;
+      container.innerHTML = html;
+      return;
+    }
+
+    // 検索クエリがない場合は、地方 ➔ 都道府県 ➔ 市区町村の多層ツリー＆テーブル構造
+    html += `
+        <div style="margin-top:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+            <div style="font-weight:700; font-size:16px; color:var(--text-primary);">
+              🏛️ 日本の行政区画 多層ツリー (地方 ➔ 都道府県 ➔ 市区町村)
+            </div>
+            <div style="display:flex; gap:6px;">
+              <button type="button" class="table-action-btn" onclick="App.expandAllRegions(true)">▼ 全地方を展開</button>
+              <button type="button" class="table-action-btn" onclick="App.expandAllRegions(false)">▶ 全地方を折りたたむ</button>
+            </div>
+          </div>
+
+          <div class="tree-container" id="muni-tree-container">
+            <!-- 動的多層ツリーが挿入されます -->
+          </div>
+        </div>
+      </div>
+    `;
+
+    container.innerHTML = html;
+    this.renderJapanMultiLevelTree(munis);
+  },
+
+  // 日本の多層ツリーレンダリング (地方 ➔ 都道府県 ➔ 市区町村テーブル)
+  renderJapanMultiLevelTree: function (munis) {
+    const container = document.getElementById("muni-tree-container");
+    if (!container) return;
+
+    // 1. レベル別に分類 (郡・支庁・振興局は今回の公開時点では非公開)
+    const prefs = munis.filter((m) => m.level === 1);
+    const dCities = munis.filter((m) => m.category === "政令指定都市");
+    const wards = munis.filter((m) => m.level === 4);
+    const localMunis = munis.filter(
+      (m) => m.level === 3 && m.category !== "政令指定都市" && m.category !== "郡" && m.category !== "支庁・総合振興局・振興局"
+    );
+
+    // 都道府県名からオブジェクトへのマップ
+    const prefMap = {};
+    prefs.forEach((p) => {
+      prefMap[p.name] = {
+        pref: p,
+        dCities: [],
+        cities: [],
+      };
+    });
+
+    // 政令指定都市と区の紐付け
+    const dCityWardsMap = {};
+    dCities.forEach((dc) => {
+      dCityWardsMap[dc.name] = [];
+    });
+    wards.forEach((w) => {
+      if (dCityWardsMap[w.parent_name]) {
+        dCityWardsMap[w.parent_name].push(w);
+      }
+    });
+
+    // 各都道府県へ政令市と一般自治体を振り分け
+    dCities.forEach((dc) => {
+      if (prefMap[dc.parent_name]) {
+        prefMap[dc.parent_name].dCities.push({
+          dCity: dc,
+          wards: dCityWardsMap[dc.name] || [],
+        });
+      }
+    });
+    localMunis.forEach((m) => {
+      if (prefMap[m.parent_name]) {
+        prefMap[m.parent_name].cities.push(m);
+      }
+    });
+
+    let treeHtml = "";
+
+    this.regionDefs.forEach((reg, rIdx) => {
+      const regId = `reg-branch-${rIdx}`;
+      const regArrowId = `reg-arrow-${rIdx}`;
+
+      let prefItemsHtml = "";
+      reg.prefs.forEach((pName, pIdx) => {
+        const pObj = prefMap[pName];
+        if (!pObj) return;
+
+        const p = pObj.pref;
+        const pBranchId = `pref-branch-${rIdx}-${pIdx}`;
+        const pArrowId = `pref-arrow-${rIdx}-${pIdx}`;
+
+        // 都道府県配下のコンテンツ
+        let prefContentHtml = "";
+
+        // 政令指定都市がある場合
+        pObj.dCities.forEach((dcItem, dcIdx) => {
+          const dc = dcItem.dCity;
+          const dcWards = dcItem.wards;
+          const dcBranchId = `dc-branch-${rIdx}-${pIdx}-${dcIdx}`;
+          const dcArrowId = `dc-arrow-${rIdx}-${pIdx}-${dcIdx}`;
+
+          prefContentHtml += `
+            <div style="margin-bottom:6px;">
+              <div class="tree-row tree-row-l3-desig" onclick="App.toggleTreeNode('${dcBranchId}', '${dcArrowId}')">
+                <div class="tree-label">
+                  <span class="tree-arrow" id="${dcArrowId}">▶</span>
+                  <span>🏙️ <b>${dc.name}</b> <small style="font-weight:normal;">(政令指定都市)</small></span>
+                </div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span class="tree-count">${dcWards.length} 区</span>
+                </div>
               </div>
-              <div class="item-sub" style="font-size:12px; color:var(--text-secondary); margin-top:4px;">
-                ${it.operator_name ? `<span>事業者: ${it.operator_name}</span> | ` : ""}
-                ${it.parent_name ? `<span>親区画: ${it.parent_name}</span> | ` : ""}
-                ${it.office ? `<span>担当: ${it.office}</span> | ` : ""}
-                ${it.km != null ? `<span>${it.km} km</span> | ` : ""}
-                ${it.code ? `<span>コード: ${it.code}</span>` : ""}
+              <div class="tree-branch" id="${dcBranchId}" style="display:none;">
+                <div class="tree-table-box">
+                  ${App.buildMuniTableHTML(dcWards)}
+                </div>
               </div>
+            </div>
+          `;
+        });
+
+        // 一般市区町村（特別区・市・町・村）のテーブル
+        if (pObj.cities.length > 0) {
+          prefContentHtml += `
+            <div class="tree-table-box">
+              ${App.buildMuniTableHTML(pObj.cities)}
+            </div>
+          `;
+        }
+
+        const totalMunisInPref = pObj.dCities.length + pObj.cities.length;
+
+        prefItemsHtml += `
+          <div style="margin-bottom:4px;">
+            <div class="tree-row tree-row-l2" onclick="App.toggleTreeNode('${pBranchId}', '${pArrowId}')">
+              <div class="tree-label">
+                <span class="tree-arrow" id="${pArrowId}">▶</span>
+                <span>🏛️ <b>${p.name}</b></span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span class="tree-count">${totalMunisInPref} 自治体</span>
+              </div>
+            </div>
+            <div class="tree-branch" id="${pBranchId}" style="display:none;">
+              ${prefContentHtml}
             </div>
           </div>
         `;
       });
-    }
 
-    if (items.length > 200) {
-      html += `
-        <div style="grid-column:1/-1; text-align:center; padding:16px; font-size:12px; color:var(--text-muted);">
-          全 ${items.length.toLocaleString()} 件中 200 件を表示しています。上部の検索バーで絞り込んでください。
+      treeHtml += `
+        <div style="margin-bottom:6px;">
+          <div class="tree-row tree-row-l1" onclick="App.toggleTreeNode('${regId}', '${regArrowId}')">
+            <div class="tree-label">
+              <span class="tree-arrow region-arrow open" id="${regArrowId}">▶</span>
+              <span>📁 <b>${reg.name}</b></span>
+            </div>
+            <span class="tree-count">${reg.prefs.length} 都道県</span>
+          </div>
+          <div class="tree-branch region-branch" id="${regId}" style="display:block;">
+            ${prefItemsHtml}
+          </div>
         </div>
       `;
+    });
+
+    container.innerHTML = treeHtml;
+  },
+
+  // 自治体テーブルHTML生成 (仮サイト仕様の data-table)
+  buildMuniTableHTML: function (munis) {
+    if (!munis || munis.length === 0) {
+      return '<div style="padding:12px; text-align:center; color:var(--text-muted); font-size:12px;">登録されている自治体データはありません。</div>';
     }
 
-    html += `</div></div>`;
-    container.innerHTML = html;
+    let rowsHtml = "";
+    munis.forEach((m) => {
+      const isPref = m.level === 1;
+      let badgeClass = "table-badge-city";
+      if (isPref) badgeClass = "table-badge-pref";
+      else if (m.category === "町" || m.category === "村") badgeClass = "table-badge-town";
+      else if (m.category === "郡" || m.category === "支庁・総合振興局・振興局") badgeClass = "table-badge-pref";
+
+      const hasCoords = m.lat != null && m.lon != null;
+      const coordsText = hasCoords ? `${m.lat.toFixed(4)}, ${m.lon.toFixed(4)}` : "-";
+
+      rowsHtml += `
+        <tr id="muni-row-${m.id}">
+          <td style="width:70px;">
+            <span class="table-badge ${badgeClass}">${m.category || "自治体"}</span>
+          </td>
+          <td style="font-weight:700;">
+            ${m.name}
+            ${m.parent_name && !isPref ? `<span style="font-size:11px; font-weight:normal; color:var(--text-muted); margin-left:4px;">(${m.parent_name})</span>` : ""}
+          </td>
+          <td style="font-family:monospace; font-size:12px; color:var(--text-secondary); width:75px;">${m.code || "-"}</td>
+          <td style="font-size:12px; color:var(--text-secondary); font-family:monospace;">${coordsText}</td>
+          <td style="width:75px; text-align:center;">
+            ${
+              hasCoords
+                ? `<button class="table-action-btn" onclick="App.viewOnMap(${m.lat}, ${m.lon}, '${m.id}')">
+                    🗺️ 地図
+                  </button>`
+                : '<span style="color:var(--text-muted); font-size:11px;">-</span>'
+            }
+          </td>
+        </tr>
+      `;
+    });
+
+    return `
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:70px;">種別</th>
+              <th>自治体名</th>
+              <th style="width:75px;">コード</th>
+              <th>代表点座標</th>
+              <th style="width:75px; text-align:center;">地図</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rowsHtml}
+          </tbody>
+        </table>
+      </div>
+    `;
+  },
+
+  // 地図ビューに切り替えて対象座標へ移動＆ポップアップを自動表示
+  viewOnMap: function (lat, lon, muniId) {
+    this.switchViewMode("map");
+    setTimeout(() => {
+      if (PublicMap && PublicMap.map) {
+        if (muniId && PublicMap.focusMuni) {
+          PublicMap.focusMuni(muniId);
+        } else {
+          PublicMap.flyToLocation(lat, lon, 14);
+        }
+      }
+    }, 120);
+  },
+
+  // ツリーノードのトグル展開・折りたたみ
+  toggleTreeNode: function (branchId, arrowId) {
+    const branch = document.getElementById(branchId);
+    const arrow = document.getElementById(arrowId);
+    if (!branch) return;
+    const isClosed = branch.style.display === "none";
+    branch.style.display = isClosed ? "block" : "none";
+    if (arrow) arrow.classList.toggle("open", isClosed);
+  },
+
+  // 全地方の一括展開・折りたたみ
+  expandAllRegions: function (expand) {
+    document.querySelectorAll(".region-branch").forEach((el) => {
+      el.style.display = expand ? "block" : "none";
+    });
+    document.querySelectorAll(".region-arrow").forEach((el) => {
+      el.classList.toggle("open", expand);
+    });
+  },
+
+  // 国概要＆制度解説の表示/非表示トグル
+  toggleCountryOverview: function () {
+    const el = document.getElementById("country-overview-collapsible");
+    const btn = document.getElementById("btn-toggle-country-overview");
+    if (!el || !btn) return;
+    const isHidden = el.style.display === "none";
+    el.style.display = isHidden ? "block" : "none";
+    btn.innerHTML = isHidden ? "📘 国概要・制度解説を隠す ▲" : "📘 国概要・制度解説を表示 ▼";
+  },
+
+  // 地図ポップアップから階層ビューの対象自治体へ復帰・ハイライト
+  returnToTreeFromMap: function (muniId) {
+    this.switchViewMode("tree");
+
+    // 対象の国（日本）の階層画面へ確実に遷移
+    const cc = this.activeCountryCode || "JP";
+    this.navTreeCountry(cc);
+
+    setTimeout(() => {
+      const targetRow = document.getElementById(`muni-row-${muniId}`);
+      if (targetRow) {
+        // 親のツリーブランチ（.tree-branch）をすべて展開
+        let parent = targetRow.closest(".tree-branch");
+        while (parent) {
+          parent.style.display = "block";
+          const branchId = parent.id;
+          if (branchId) {
+            const arrowId = branchId.replace("branch", "arrow");
+            const arrow = document.getElementById(arrowId);
+            if (arrow) arrow.classList.add("open");
+          }
+          parent = parent.parentElement ? parent.parentElement.closest(".tree-branch") : null;
+        }
+
+        // スクロールとハイライト
+        targetRow.scrollIntoView({ behavior: "smooth", block: "center" });
+        targetRow.style.transition = "background-color 0.4s ease";
+        targetRow.style.backgroundColor = "rgba(59, 130, 246, 0.35)";
+        setTimeout(() => {
+          targetRow.style.backgroundColor = "";
+        }, 2500);
+      }
+    }, 150);
   },
 
   // =========================================================================

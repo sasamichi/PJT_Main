@@ -15,17 +15,20 @@ STAGING_JP_DIR = os.path.join(BASE_DIR, "data", "staging", "JP")
 BACKUP_DIR = os.path.join(BASE_DIR, "data", "backup")
 EXPLORER_URL = "http://localhost:8080"
 
-# 新方針「基盤の基盤」確定10テーブル体系
+# 確定マスターテーブル体系（全13テーブル）
 MASTER_TABLES = [
-    "areas.csv",
-    "area_types.csv",
     "countries.csv",
     "country_progress.csv",
+    "area_types.csv",
+    "municipalities.csv",
+    "weather_zones.csv",
+    "statistical_areas.csv",
     "data_sources.csv",
     "operators.csv",
     "transport_routes.csv",
     "nodes.csv",
     "edges.csv",
+    "relations.csv",
     "exploration_logs.csv",
 ]
 
@@ -241,7 +244,8 @@ def load_all_data():
     tables = load_all_master_tables()
     return (
         tables.get("countries.csv", pd.DataFrame()),
-        tables.get("areas.csv", pd.DataFrame()),
+        tables.get("municipalities.csv", pd.DataFrame()),
+        tables.get("weather_zones.csv", pd.DataFrame()),
         tables.get("area_types.csv", pd.DataFrame()),
         tables.get("operators.csv", pd.DataFrame()),
         tables.get("transport_routes.csv", pd.DataFrame()),

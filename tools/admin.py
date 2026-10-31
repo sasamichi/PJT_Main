@@ -57,16 +57,19 @@ COUNTRY_CENTERS = {
 # ヘッダー描画（デフォルト白背景）
 render_header("データ管理 & 品質保証 — 進捗ダッシュボード・地図データエディタ・正本台帳")
 
-# 全10テーブルの読み込み
+# 全13テーブルの読み込み
 tables = load_all_master_tables()
 df_countries = tables.get("countries.csv", pd.DataFrame())
 df_prog = tables.get("country_progress.csv", pd.DataFrame())
-df_areas = tables.get("areas.csv", pd.DataFrame())
+df_muni = tables.get("municipalities.csv", pd.DataFrame())
+df_weather = tables.get("weather_zones.csv", pd.DataFrame())
+df_stats = tables.get("statistical_areas.csv", pd.DataFrame())
 df_area_types = tables.get("area_types.csv", pd.DataFrame())
 df_operators = tables.get("operators.csv", pd.DataFrame())
 df_routes = tables.get("transport_routes.csv", pd.DataFrame())
 df_nodes = tables.get("nodes.csv", pd.DataFrame())
 df_edges = tables.get("edges.csv", pd.DataFrame())
+df_relations = tables.get("relations.csv", pd.DataFrame())
 df_sources = tables.get("data_sources.csv", pd.DataFrame())
 df_logs = tables.get("exploration_logs.csv", pd.DataFrame())
 
@@ -74,7 +77,7 @@ df_logs = tables.get("exploration_logs.csv", pd.DataFrame())
 tab1, tab2, tab3 = st.tabs([
     "📈 収集進捗ダッシュボード",
     "🗺️ 地図データエディタ（点・路線修正）",
-    "📚 正本台帳ビューア（全10テーブル）"
+    "📚 正本台帳ビューア（全13テーブル）"
 ])
 
 # ==========================================================
@@ -152,13 +155,15 @@ with tab1:
     # ------------------------------------------------------
     # 下段: 主要分野別データ件数一覧 ＆ 連動一括更新セクション
     # ------------------------------------------------------
-    st.write("##### 📊 主要分野別データ件数一覧（新10テーブル集計）")
+    st.write("##### 📊 主要分野別データ件数一覧（確定13テーブル集計）")
     
-    cnt_areas = df_areas["country_code"].value_counts().to_dict() if len(df_areas) > 0 and "country_code" in df_areas.columns else {}
+    cnt_muni = df_muni["country_code"].value_counts().to_dict() if len(df_muni) > 0 and "country_code" in df_muni.columns else {}
+    cnt_weather = df_weather["country_code"].value_counts().to_dict() if len(df_weather) > 0 and "country_code" in df_weather.columns else {}
     cnt_types = df_area_types["country_code"].value_counts().to_dict() if len(df_area_types) > 0 and "country_code" in df_area_types.columns else {}
     cnt_ops = df_operators["country_code"].value_counts().to_dict() if len(df_operators) > 0 and "country_code" in df_operators.columns else {}
     cnt_routes = df_routes["country_code"].value_counts().to_dict() if len(df_routes) > 0 and "country_code" in df_routes.columns else {}
     cnt_nodes = df_nodes["country_code"].value_counts().to_dict() if len(df_nodes) > 0 and "country_code" in df_nodes.columns else {}
+    cnt_edges = df_edges["route_id"].map(lambda r: r.split("-")[0] if isinstance(r, str) and "-" in r else "").value_counts().to_dict() if len(df_edges) > 0 else {}
     
     summary_rows = []
     for _, r in df_prog.iterrows():
@@ -168,9 +173,10 @@ with tab1:
             "国名": r.get("国名", ""),
             "段階区分": r.get("段階区分", ""),
             "ステータス": r.get("ステータス", ""),
-            "区域(areas)": cnt_areas.get(cc, 0),
-            "種別(area_types)": cnt_types.get(cc, 0),
-            "事業者(operators)": cnt_ops.get(cc, 0),
+            "自治体(muni)": cnt_muni.get(cc, 0),
+            "気象区(weather)": cnt_weather.get(cc, 0),
+            "種別(types)": cnt_types.get(cc, 0),
+            "事業者(ops)": cnt_ops.get(cc, 0),
             "路線(routes)": cnt_routes.get(cc, 0),
             "拠点(nodes)": cnt_nodes.get(cc, 0),
             "更新日": r.get("更新日", ""),
@@ -190,7 +196,7 @@ with tab1:
     elif view_filter == "作業順設定済みの国のみ":
         df_summary_show = df_summary[df_summary["備考・作業順"].str.contains("作業順", na=False)]
     elif view_filter == "データ格納済みの国のみ (件数 > 0)":
-        df_summary_show = df_summary[(df_summary["区域(areas)"] > 0) | (df_summary["拠点(nodes)"] > 0)]
+        df_summary_show = df_summary[(df_summary["自治体(muni)"] > 0) | (df_summary["拠点(nodes)"] > 0)]
     else:
         df_summary_show = df_summary
 
@@ -213,12 +219,13 @@ with tab1:
     c_prog_row = df_prog[df_prog["country_code"] == sel_cc].iloc[0] if len(df_prog[df_prog["country_code"] == sel_cc]) > 0 else {}
     
     # 選択国の現在の実データ件数サマリー
-    m1, m2, m3, m4, m5 = st.columns(5)
-    m1.metric("区域 (areas)", f"{cnt_areas.get(sel_cc, 0):,} 件")
-    m2.metric("区域種別 (types)", f"{cnt_types.get(sel_cc, 0):,} 件")
-    m3.metric("事業者 (operators)", f"{cnt_ops.get(sel_cc, 0):,} 件")
-    m4.metric("交通路線 (routes)", f"{cnt_routes.get(sel_cc, 0):,} 件")
-    m5.metric("交通拠点 (nodes)", f"{cnt_nodes.get(sel_cc, 0):,} 件")
+    m1, m2, m3, m4, m5, m6 = st.columns(6)
+    m1.metric("自治体 (muni)", f"{cnt_muni.get(sel_cc, 0):,} 件")
+    m2.metric("気象区 (weather)", f"{cnt_weather.get(sel_cc, 0):,} 件")
+    m3.metric("種別 (types)", f"{cnt_types.get(sel_cc, 0):,} 件")
+    m4.metric("事業者 (operators)", f"{cnt_ops.get(sel_cc, 0):,} 件")
+    m5.metric("交通路線 (routes)", f"{cnt_routes.get(sel_cc, 0):,} 件")
+    m6.metric("交通拠点 (nodes)", f"{cnt_nodes.get(sel_cc, 0):,} 件")
 
     with st.form("form_integrated_country_update"):
         u_row1_col1, u_row1_col2 = st.columns([1.5, 2.5])
@@ -271,10 +278,22 @@ with tab2:
 
     edit_t_choice = st.radio(
         "編集対象テーブルを選択",
-        ["📍 nodes.csv (交通拠点・駅・IC・空港・港湾)", "🏛️ areas.csv (区域代表点・行政自治体・気象予報区)", "🚆 transport_routes.csv (交通路線マスタ)"],
+        [
+            "📍 nodes.csv (交通拠点・駅・IC・空港・港湾)",
+            "🏛️ municipalities.csv (行政区画・自治体代表点)",
+            "🌦️ weather_zones.csv (気象予報区代表点)",
+            "🚆 transport_routes.csv (交通路線マスタ)"
+        ],
         horizontal=True
     )
-    target_csv = "nodes.csv" if "nodes" in edit_t_choice else ("areas.csv" if "areas" in edit_t_choice else "transport_routes.csv")
+    if "municipalities" in edit_t_choice:
+        target_csv = "municipalities.csv"
+    elif "weather_zones" in edit_t_choice:
+        target_csv = "weather_zones.csv"
+    elif "nodes" in edit_t_choice:
+        target_csv = "nodes.csv"
+    else:
+        target_csv = "transport_routes.csv"
     cur_df = tables[target_csv].copy()
 
     # 選択中地物IDのセッション管理
@@ -331,7 +350,8 @@ with tab2:
                     if -90 <= lat_v <= 90 and -180 <= lon_v <= 180:
                         name_v = r.get("名称", r.get("日本語名", r.get("路線名", str(idx))))
                         type_v = r.get("種別", r.get("大分類", ""))
-                        id_v = r.get("node_id", r.get("area_id", r.get("route_id", str(idx))))
+                        id_candidates = ["node_id", "municipality_id", "zone_id", "statistical_area_id", "route_id", "operator_id", "edge_id", "relation_id"]
+                        id_v = next((str(r[c]) for c in id_candidates if c in r and pd.notna(r[c]) and str(r[c]).strip()), str(idx))
                         valid_coords.append({
                             "id": id_v,
                             "name": name_v,
@@ -407,8 +427,9 @@ with tab2:
     with col_editor_form:
         st.write("##### ✏️ 地物属性の編集（縦1列）")
 
-        id_field = "node_id" if "node_id" in cur_df.columns else ("area_id" if "area_id" in cur_df.columns else "route_id")
-        name_field = "名称" if "名称" in cur_df.columns else ("路線名" if "路線名" in cur_df.columns else id_field)
+        id_candidates = ["node_id", "municipality_id", "zone_id", "statistical_area_id", "route_id", "operator_id", "edge_id", "relation_id"]
+        id_field = next((col for col in id_candidates if col in cur_df.columns), cur_df.columns[0])
+        name_field = "名称" if "名称" in cur_df.columns else ("路線名" if "路線名" in cur_df.columns else ("事業者名" if "事業者名" in cur_df.columns else id_field))
 
         active_id = st.session_state.get("selected_feature_id")
 
@@ -446,7 +467,7 @@ with tab2:
 
                 for c in cols:
                     val = str(row_data.get(c, ""))
-                    if c in ["node_id", "area_id", "route_id"]:
+                    if c in ["node_id", "municipality_id", "zone_id", "statistical_area_id", "route_id", "operator_id", "edge_id", "relation_id", "country_code"]:
                         st.text_input(f"{c} (変更不可)", value=val, disabled=True)
                         inputs[c] = val
                     else:
@@ -520,22 +541,25 @@ with tab2:
 
 
 # ==========================================================
-# タブ3: 📚 正本台帳ビューア（全10テーブル）
+# タブ3: 📚 正本台帳ビューア（全13テーブル）
 # ==========================================================
 with tab3:
-    st.subheader("📚 正本台帳ビューア（確定10テーブル体系）")
-    st.caption("新方針「基盤の基盤」の全10テーブルを安全に高速閲覧・検索・CSVダウンロードできます（閲覧専用）。")
+    st.subheader("📚 正本台帳ビューア（確定13テーブル体系）")
+    st.caption("確定13テーブル体系の正本データを安全に高速閲覧・検索・CSVダウンロードできます（閲覧専用）。")
 
     table_descriptions = [
-        "areas.csv (区域・自治体・気象予報区マスタ)",
-        "area_types.csv (区域種別マスタ・階層定義)",
         "countries.csv (国・地域マスタ)",
         "country_progress.csv (国別進捗管理)",
+        "area_types.csv (区域種別マスタ・階層定義)",
+        "municipalities.csv (行政区画・自治体マスタ)",
+        "weather_zones.csv (気象予報区マスタ)",
+        "statistical_areas.csv (統計調査区マスタ)",
         "data_sources.csv (データソース・ライセンス)",
         "operators.csv (交通・行政事業者マスタ)",
         "transport_routes.csv (交通路線マスタ)",
         "nodes.csv (交通拠点・駅・IC・空港・港湾)",
-        "edges.csv (交通網区間エッジ・接続)",
+        "edges.csv (物理交通区間エッジ・接続)",
+        "relations.csv (意味関係エッジ・知識グラフ)",
         "exploration_logs.csv (机上探索記録ログ)"
     ]
 

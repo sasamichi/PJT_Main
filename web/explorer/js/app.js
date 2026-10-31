@@ -465,8 +465,9 @@ function drawNodes() {
 
       let iconFile = "train-station.svg";
       if (cat.includes("道の駅") || sub.includes("道の駅")) iconFile = "roadside-station.svg";
-      else if (cat.includes("SA") || cat.includes("PA")) iconFile = "highway-sa.svg";
+      else if (cat.includes("SA") || cat.includes("PA") || cat.includes("展望所")) iconFile = "highway-sa.svg";
       else if (cat.includes("IC") || cat.includes("JCT") || cat.includes("高速")) iconFile = "highway-ic.svg";
+      else if (cat.includes("バス") || sub.includes("バス")) iconFile = "roadside-station.svg";
       else if (sub.includes("新幹線") || cat.includes("新幹線")) iconFile = "train-shinkansen.svg";
       else if (cat.includes("地下鉄")) iconFile = "subway.svg";
       else if (cat.includes("電停")) iconFile = "tram.svg";
@@ -625,8 +626,9 @@ async function loadTourRouteOptions() {
     const rData = await apiFetchRoutes("JP");
     const routes = rData.routes || [];
 
-    // 新幹線全線 & 国内主要航空路のroute_idを優先
+    // 新幹線全線 & 国内主要航空路 & 【検証】道央自動車道のroute_idを優先
     const featuredRids = [
+      "TEST-RT-DOUO-EXP-ALL", // 【検証】道央自動車道（全70拠点網羅）
       "JP-RT-001127", // 東海道新幹線
       "JP-RT-001028", // 山陽新幹線
       "JP-RT-001208", // 東北新幹線

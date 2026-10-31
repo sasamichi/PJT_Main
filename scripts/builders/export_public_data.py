@@ -5,11 +5,10 @@
 統合新スキーマ (data/master/*.csv) から、
 一般公開Webサイト (web/public/) 用の最適化JSONを出力する。
 
-【新方針「基盤の基盤」完全準拠】:
-1. 旧スキーマ (municipalities.csv, weather_zones.csv) の直接読み込みを廃止し、
-   統合された areas.csv および area_types.csv からデータを抽出・リレーション構築。
+【確定13テーブル体系完全準拠】:
+1. 分割された municipalities.csv, weather_zones.csv, statistical_areas.csv および area_types.csv からデータを抽出・リレーション構築。
 2. area_types.csv の type_id リレーションにより、種別名（日本語・公用語）、大分類（行政/気象）、階層レベルを取得。
-3. areas.csv の「親区域ID」「気象予報区ID」「公的コード」「代表緯度/経度」を反映。
+3. municipalities.csv の「よみ_かな」「親自治体ID」「気象予報区ID」「公的コード」「代表緯度/経度」を反映。
 4. 拡充された新幹線全線（上越・北陸・九州・西九州・北海道・東海道・山陽・東北）および
    国内航空路のエッジ（edges.csv 全298件）がWeb用JSONに完全反映される。
 5. 全251カ国の summary.json および各国JSON (web/public/data/*.json) を出力。
@@ -173,7 +172,9 @@ def export_public_data():
     # 1. CSV読み込み
     print("[1/5] CSVマスタ読み込み中...")
     df_countries = read_csv_clean("countries.csv")
-    df_areas = read_csv_clean("areas.csv")
+    df_muni = read_csv_clean("municipalities.csv")
+    df_weather = read_csv_clean("weather_zones.csv")
+    df_stat = read_csv_clean("statistical_areas.csv")
     df_area_types = read_csv_clean("area_types.csv")
     df_op = read_csv_clean("operators.csv")
     df_routes = read_csv_clean("transport_routes.csv")
@@ -181,7 +182,9 @@ def export_public_data():
     df_edges = read_csv_clean("edges.csv")
 
     print(f" - 国: {len(df_countries)} 件")
-    print(f" - エリア（統合）: {len(df_areas)} 件")
+    print(f" - 自治体・行政区画: {len(df_muni)} 件")
+    print(f" - 気象予報区: {len(df_weather)} 件")
+    print(f" - 統計調査区: {len(df_stat)} 件")
     print(f" - エリア種別定義: {len(df_area_types)} 件")
     print(f" - 事業者: {len(df_op)} 件")
     print(f" - 路線: {len(df_routes)} 件")
@@ -239,19 +242,16 @@ def export_public_data():
             "wiki_url": "",
         }
 
-    # (B) areas ルックアップと分類
-    # area_lookup: area_id -> area基本情報
+    # (B) 自治体および気象予報区のルックアップ構築
     area_lookup = {}
-    # weather_zone_lookup: area_id -> 気象予報区情報
     weather_zone_lookup = {}
-    # weather_zone_list_by_country: cc -> [気象予報区リスト]
     weather_zone_list_by_country = {}
-    # admin_areas_by_country: cc -> [行政エリア行リスト]
     admin_areas_by_country = {}
 
-    for _, row in df_areas.iterrows():
-        aid = row.get("area_id", "")
-        if not aid:
+    # 1. 自治体・行政区画 (municipalities.csv)
+    for _, row in df_muni.iterrows():
+        mid = row.get("municipality_id", "")
+        if not mid:
             continue
         cc = row.get("country_code", "JP")
         tid = row.get("type_id", "")
@@ -261,19 +261,21 @@ def export_public_data():
         name = row.get("名称", "") or row.get("名称_公用語", "")
         name_official = row.get("名称_公用語", "")
         code = row.get("公的コード", "")
-        parent_id = row.get("親区域ID", "")
+        parent_id = row.get("親自治体ID", "")
         weather_zone_id = row.get("気象予報区ID", "")
         lat = parse_float(row.get("代表緯度", ""))
         lon = parse_float(row.get("代表経度", ""))
+        yomi = row.get("よみ_かな", "")
 
         a_obj = {
-            "id": aid,
+            "id": mid,
             "country_code": cc,
             "type_id": tid,
             "major_category": major,
             "name": name,
             "name_official": name_official,
-            "category": t_info.get("name_ja", "") or ("気象予報区" if "気象" in major else "自治体"),
+            "yomi": yomi,
+            "category": t_info.get("name_ja", "") or "自治体",
             "category_official": t_info.get("name_local", ""),
             "level": t_info.get("level", 1),
             "code": code,
@@ -286,31 +288,54 @@ def export_public_data():
             "wikidata": row.get("Wikidata_id", ""),
             "verification": t_info.get("verification", "現存"),
         }
-        area_lookup[aid] = a_obj
+        area_lookup[mid] = a_obj
 
-        # 気象予報区判定
-        is_weather = "気象" in major or aid.startswith("JP-WZ-") or "MET" in tid.upper() or "WEATHER" in tid.upper()
-        if is_weather:
-            if cc not in weather_zone_list_by_country:
-                weather_zone_list_by_country[cc] = []
-            w_obj = {
-                "id": aid,
-                "code": code,
-                "name": name,
-                "type_id": tid,
-                "type": t_info.get("name_ja", "予報区"),
-                "parent_id": parent_id,
-                "office": "",  # 後で親情報とともに決定
-                "lat": lat,
-                "lon": lon,
-                "muni_count": 0,
-            }
-            weather_zone_lookup[aid] = w_obj
-            weather_zone_list_by_country[cc].append(w_obj)
-        else:
-            if cc not in admin_areas_by_country:
-                admin_areas_by_country[cc] = []
-            admin_areas_by_country[cc].append(a_obj)
+        if cc not in admin_areas_by_country:
+            admin_areas_by_country[cc] = []
+        admin_areas_by_country[cc].append(a_obj)
+
+    # 2. 気象予報区 (weather_zones.csv)
+    for _, row in df_weather.iterrows():
+        zid = row.get("zone_id", "")
+        if not zid:
+            continue
+        cc = row.get("country_code", "JP")
+        tid = row.get("type_id", "")
+        t_info = get_type_info(tid, cc)
+
+        name = row.get("名称", "") or row.get("名称_公用語", "")
+        code = row.get("気象庁コード", "")
+        parent_id = row.get("親予報区ID", "")
+        lat = parse_float(row.get("代表緯度", ""))
+        lon = parse_float(row.get("代表経度", ""))
+        office = row.get("管轄気象台", "")
+
+        if cc not in weather_zone_list_by_country:
+            weather_zone_list_by_country[cc] = []
+
+        w_obj = {
+            "id": zid,
+            "code": code,
+            "name": name,
+            "type_id": tid,
+            "type": t_info.get("name_ja", "予報区"),
+            "parent_id": parent_id,
+            "office": office,
+            "lat": lat,
+            "lon": lon,
+            "muni_count": 0,
+        }
+        weather_zone_lookup[zid] = w_obj
+        area_lookup[zid] = {
+            "id": zid,
+            "country_code": cc,
+            "type_id": tid,
+            "major_category": "気象",
+            "name": name,
+            "lat": lat,
+            "lon": lon,
+        }
+        weather_zone_list_by_country[cc].append(w_obj)
 
     # 気象予報区の office（担当気象台）の解決
     for aid, w_obj in weather_zone_lookup.items():
@@ -678,7 +703,7 @@ def export_public_data():
                 "id": mid,
                 "name": m_name,
                 "name_official": a_obj.get("name_official", ""),
-                "yomi": "",  # areas.csv には yomi 列がないため互換性維持
+                "yomi": a_obj.get("yomi", ""),
                 "type_id": a_obj.get("type_id", ""),
                 "category": a_obj.get("category", "自治体"),
                 "category_official": a_obj.get("category_official", ""),

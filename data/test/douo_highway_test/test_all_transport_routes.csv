@@ -1,0 +1,2 @@
+route_id,country_code,operator_id,路線名,路線名_公用語,よみ_かな,交通種別,路線記号,起点ノード_id,終点ノード_id,全長_km,状態,Wikipedia_url,Wikidata_id,備考
+TEST-RT-DOUO-EXP-ALL,JP,JP-OP-000002,道央自動車道,道央自動車道,どうおうじどうしゃどう,高速道路,E5,TEST-ALL-ND-000001,TEST-ALL-ND-000070,423.1,供用中,https://ja.wikipedia.org/wiki/%E9%81%93%E5%A4%AE%E8%87%AA%E5%8B%95%E8%BB%8A%E9%81%93,Q867982,道央自動車道（IC/JCT/SA/PA/SIC/TB/BS 全拠点網羅エッジ接続検証データ）

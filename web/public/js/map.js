@@ -27,6 +27,8 @@ const PublicMap = {
   layerControl: null,
   currentRouteLayers: null, // 単一路線表示用の一時レイヤー
   allNodes: [],             // 全ノードキャッシュ (ビューポート連動描画用)
+  muniMarkersMap: {},       // 自治体ID -> L.marker キャッシュ (リストからの直接フォーカス用)
+  nodeMarkersMap: {},       // 観測所・拠点ID -> L.marker キャッシュ
   _renderTimer: null,
   _iconCache: {},           // L.icon インスタンスキャッシュ（パフォーマンス最適化）
 
@@ -99,42 +101,56 @@ const PublicMap = {
       "🛰️ グローバル衛星写真 (Esri)": esriSatLayer,
     };
 
-    // 2. オーバーレイレイヤーグループの生成
+    // 2. オーバーレイレイヤーグループの生成 (都道府県庁は通常レイヤー、市区町村役場は件数クラスタ化で超高速化)
+    this.overlayLayers.prefGov = L.layerGroup();
+    if (typeof L.markerClusterGroup === "function") {
+      this.overlayLayers.muniGov = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius: 45,
+        spiderfyOnMaxZoom: true,
+        disableClusteringAtZoom: 13,
+        chunkedLoading: true,
+        chunkInterval: 50,
+        chunkDelay: 20,
+      });
+      // 気象観測地点（アメダス）用クラスタグループ
+      this.overlayLayers.amedas = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius: 45,
+        spiderfyOnMaxZoom: true,
+        disableClusteringAtZoom: 13,
+        chunkedLoading: true,
+        chunkInterval: 50,
+        chunkDelay: 20,
+      });
+    } else {
+      this.overlayLayers.muniGov = L.layerGroup();
+      this.overlayLayers.amedas = L.layerGroup();
+    }
+    this.overlayLayers.municipalities = L.layerGroup();
     this.overlayLayers.edgesRail = L.layerGroup();
     this.overlayLayers.edgesAir = L.layerGroup();
     this.overlayLayers.railways = L.layerGroup();
     this.overlayLayers.highways = L.layerGroup();
     this.overlayLayers.roadStations = L.layerGroup();
     this.overlayLayers.airSea = L.layerGroup();
-    this.overlayLayers.amedas = L.layerGroup();
     this.overlayLayers.structures = L.layerGroup();
-    this.overlayLayers.municipalities = L.layerGroup();
 
     const overlayMapControls = {
-      "🚆 鉄道路線ライン (線)": this.overlayLayers.edgesRail,
-      "✈️ 航空路ライン (破線)": this.overlayLayers.edgesAir,
-      "🚆 鉄道駅": this.overlayLayers.railways,
-      "🛣️ 高速道路施設 (IC/JCT/SA)": this.overlayLayers.highways,
-      "🚗 道の駅・一般道": this.overlayLayers.roadStations,
-      "✈️/⚓ 空港・港湾": this.overlayLayers.airSea,
-      "🌡️ 気象観測点 (アメダス)": this.overlayLayers.amedas,
-      "🏛️ 役所・自治体": this.overlayLayers.municipalities,
-      "🌉 構造物 (トンネル/橋/峠)": this.overlayLayers.structures,
+      "🏛️ 都道府県庁代表点": this.overlayLayers.prefGov,
+      "🏛️ 市区町村役場代表点": this.overlayLayers.muniGov,
+      "🌡️ 気象観測地点 (アメダス)": this.overlayLayers.amedas,
     };
 
-    // 3. 地図の初期化 (デフォルト日本中心)
+    // 3. 地図の初期化 (デフォルト日本中心・国土地理院淡色地図・自治体ノード・アメダス初期表示)
     this.map = L.map(containerId, {
       center: [36.2048, 138.2529],
       zoom: 6,
       layers: [
-        gsiStdLayer, // 日本の初期表示は地理院標準地図をデフォルトに
-        this.overlayLayers.edgesRail,
-        this.overlayLayers.edgesAir,
-        this.overlayLayers.railways,
-        this.overlayLayers.airSea,
-        this.overlayLayers.municipalities,
+        gsiPaleLayer, // 背景地図のデフォルトを「国土地理院淡色地図」に設定
+        this.overlayLayers.prefGov,
+        this.overlayLayers.muniGov,
         this.overlayLayers.amedas,
-        this.overlayLayers.highways,
       ],
       zoomControl: true,
     });
@@ -194,13 +210,9 @@ const PublicMap = {
     if (!quickBar) return;
 
     const layerMap = {
-      edgesRail: this.overlayLayers.edgesRail,
-      edgesAir: this.overlayLayers.edgesAir,
-      railways: this.overlayLayers.railways,
-      airSea: this.overlayLayers.airSea,
-      municipalities: this.overlayLayers.municipalities,
+      prefGov: this.overlayLayers.prefGov,
+      muniGov: this.overlayLayers.muniGov,
       amedas: this.overlayLayers.amedas,
-      highways: this.overlayLayers.highways,
     };
 
     quickBar.querySelectorAll(".layer-pill").forEach((btn) => {
@@ -249,10 +261,14 @@ const PublicMap = {
     if (mapMeta && mapMeta.center && mapMeta.center[0] !== 0) {
       this.map.setView(mapMeta.center, mapMeta.zoom || 6);
     }
-    // 日本以外の場合は OSM を初期ベースレイヤーに切替
+    // 日本以外の場合は OSM を初期ベースレイヤーに切替、日本の場合は淡色地図
     if (countryCode && countryCode !== "JP") {
+      this.map.removeLayer(this.baseTileLayers["📄 国土地理院 淡色地図 (日本)"]);
       this.map.removeLayer(this.baseTileLayers["🗾 国土地理院 標準地図 (日本)"]);
       this.map.addLayer(this.baseTileLayers["🌐 OpenStreetMap (世界標準)"]);
+    } else {
+      this.map.removeLayer(this.baseTileLayers["🌐 OpenStreetMap (世界標準)"]);
+      this.map.addLayer(this.baseTileLayers["📄 国土地理院 淡色地図 (日本)"]);
     }
   },
 
@@ -291,157 +307,234 @@ const PublicMap = {
   // 1. エッジ（路線区間ライン）の描画
   // =========================================================================
   
-  // 自治体（役所・政庁代表点）のプロット
+  // 自治体（役所・政庁代表点）のプロット (都道府県庁と市区町村役場を別レイヤー化・件数クラスタリング)
+  // ※ 役所がある自治体のみを表示対象とするため、郡等は地図上から除外（リスト側には残存）
   plotMunicipalities: function (munis) {
+    this.overlayLayers.prefGov.clearLayers();
+    this.overlayLayers.muniGov.clearLayers();
     this.overlayLayers.municipalities.clearLayers();
+    this.muniMarkersMap = {};
     if (!munis || munis.length === 0) return 0;
 
-    let count = 0;
+    let prefCount = 0;
+    const muniMarkers = [];
+
     munis.forEach((m) => {
       if (m.lat == null || m.lon == null) return;
+      // 郡・支庁・振興局は非公開
+      if (m.category === "郡" || m.category === "支庁・総合振興局・振興局") return;
 
       const isPref = m.level === 1;
       const iconFile = isPref ? "gov-pref.svg" : "gov-muni.svg";
-      const iconSize = isPref ? 26 : 20;
+      const iconSize = isPref ? 28 : 22;
       const muniIcon = this.getBadgeIcon(iconFile, iconSize);
       const marker = L.marker([m.lat, m.lon], {
         icon: muniIcon,
-        zIndexOffset: isPref ? 200 : 50,
+        zIndexOffset: isPref ? 500 : 100,
       });
+
+      // 各種URL項目の生成
+      const urlLinks = [];
+      if (m.website) {
+        urlLinks.push(`<a href="${m.website}" target="_blank" rel="noopener" class="popup-url-btn">🔗 公式サイト</a>`);
+      }
+      if (m.wiki_ja) {
+        urlLinks.push(`<a href="${m.wiki_ja}" target="_blank" rel="noopener" class="popup-url-btn">🌐 Wikipedia</a>`);
+      }
+      urlLinks.push(`<a href="https://www.google.com/maps/search/?api=1&query=${m.lat},${m.lon}" target="_blank" rel="noopener" class="popup-url-btn">🗺️ Google Maps</a>`);
+
+      // 外部天気予報リンク（気象庁公式のみ）
+      let weatherHtml = "";
+      if (m.weather_urls && m.weather_urls.jma) {
+        weatherHtml = `
+          <div style="margin-top:6px; font-size:11px; color:var(--text-muted); font-weight:600;">天気予報リンク:</div>
+          <div style="display:flex; gap:4px; flex-wrap:wrap; margin-top:3px;">
+            <a href="${m.weather_urls.jma}" target="_blank" rel="noopener" class="popup-weather-btn">🌦️ 気象庁公式天気予報</a>
+          </div>
+        `;
+      }
 
       const popupContent = `
         <div class="popup-title">🏛️ ${m.name}</div>
         <div class="popup-sub">${m.category || "自治体"} ${m.parent_name ? `(${m.parent_name})` : ""}</div>
-        <div style="font-size:12px; margin:4px 0;">
-          ${m.code ? `<span>コード: ${m.code}</span>` : ""}
-          ${m.pop ? `<span> | 人口: ${m.pop.toLocaleString()}人</span>` : ""}
+        <div style="font-size:12px; margin:4px 0; color:var(--text-secondary);">
+          ${m.code ? `<span>コード: <b>${m.code}</b></span>` : ""}
+          ${m.pop ? `<span> | 人口: <b>${m.pop.toLocaleString()}人</b></span>` : ""}
         </div>
-        <div style="margin-top:6px;">
-          <button class="btn-icon" style="padding:3px 8px; font-size:11px; width:100%; justify-content:center;" onclick="window.App && window.App.openKnowledgeDrawerById('${m.id}', 'muni')">
-            📋 自治体ナレッジを開く
+        <div style="display:flex; gap:4px; flex-wrap:wrap; margin-top:6px;">
+          ${urlLinks.join("")}
+        </div>
+        ${weatherHtml}
+        <div style="margin-top:8px; border-top:1px solid var(--border-color); padding-top:6px;">
+          <button class="popup-return-btn" onclick="window.App && window.App.returnToTreeFromMap('${m.id}')">
+            📖 階層ビューに戻る
           </button>
         </div>
       `;
-      marker.bindPopup(popupContent);
-      marker.on("click", () => {
-        if (window.App && window.App.openKnowledgeDrawer) {
-          window.App.openKnowledgeDrawer(m, "muni", true);
-        }
-      });
+      marker.bindPopup(popupContent, { maxWidth: 280 });
+      this.muniMarkersMap[m.id] = marker;
 
+      if (isPref) {
+        this.overlayLayers.prefGov.addLayer(marker);
+        prefCount++;
+      } else {
+        muniMarkers.push(marker);
+      }
       this.overlayLayers.municipalities.addLayer(marker);
-      count++;
     });
 
-    return count;
+    // 市区町村マーカーを一括追加（クラスタ対応時は超高速バッチ処理）
+    if (typeof this.overlayLayers.muniGov.addLayers === "function") {
+      this.overlayLayers.muniGov.addLayers(muniMarkers);
+    } else {
+      muniMarkers.forEach((m) => this.overlayLayers.muniGov.addLayer(m));
+    }
+
+    return prefCount + muniMarkers.length;
+  },
+
+  // 気象観測地点（アメダス）のプロット（件数クラスタリング）
+  plotAmedas: function (nodes) {
+    this.overlayLayers.amedas.clearLayers();
+    this.nodeMarkersMap = {};
+    if (!nodes || nodes.length === 0) return 0;
+
+    const amedasNodes = nodes.filter(
+      (n) =>
+        (n.category === "気象観測点" ||
+          (n.category && n.category.includes("気象")) ||
+          n.sub_category === "気象") &&
+        n.lat != null &&
+        n.lon != null
+    );
+
+    const amedasMarkers = [];
+    const amedasIcon = this.getBadgeIcon("weather.svg", 22);
+
+    amedasNodes.forEach((node) => {
+      const marker = L.marker([node.lat, node.lon], {
+        icon: amedasIcon,
+        zIndexOffset: 150,
+      });
+
+      const urlLinks = [];
+      if (node.obs_url) {
+        urlLinks.push(`<a href="${node.obs_url}" target="_blank" rel="noopener" class="popup-weather-btn" style="background:#fee2e2; color:#991b1b; border-color:#fecaca;">🌡️ 気象庁公式実況データ ↗</a>`);
+      }
+      if (node.wiki_ja) {
+        urlLinks.push(`<a href="${node.wiki_ja}" target="_blank" rel="noopener" class="popup-url-btn">🌐 Wikipedia</a>`);
+      }
+      urlLinks.push(`<a href="https://www.google.com/maps/search/?api=1&query=${node.lat},${node.lon}" target="_blank" rel="noopener" class="popup-url-btn">🗺️ Google Maps</a>`);
+      if (node.sv_url) {
+        urlLinks.push(`<a href="${node.sv_url}" target="_blank" rel="noopener" class="popup-url-btn">👀 ストリートビュー</a>`);
+      }
+
+      // 所在自治体へのリンクボタン
+      let returnBtnHtml = "";
+      const muniId = (node.muni_ids && node.muni_ids[0]) || node.muni_id;
+      if (muniId) {
+        returnBtnHtml = `
+          <div style="margin-top:8px; border-top:1px solid var(--border-color); padding-top:6px;">
+            <button class="popup-return-btn" onclick="window.App && window.App.returnToTreeFromMap('${muniId}')">
+              📖 所在自治体 (${node.muni_name || "一覧"}) を開く
+            </button>
+          </div>
+        `;
+      }
+
+      const popupContent = `
+        <div class="popup-title">🌡️ ${node.name}</div>
+        <div class="popup-sub">気象庁 地上気象観測所 (AMeDAS) ${node.muni_name ? `(${node.muni_name})` : ""}</div>
+        <div style="font-size:12px; margin:4px 0; color:var(--text-secondary);">
+          ${node.code ? `<span>観測所番号: <b>${node.code}</b></span>` : ""}
+          ${node.elevation != null ? `<span> | 標高: <b>${node.elevation}m</b></span>` : ""}
+        </div>
+        <div style="display:flex; gap:4px; flex-wrap:wrap; margin-top:6px;">
+          ${urlLinks.join("")}
+        </div>
+        ${returnBtnHtml}
+      `;
+
+      marker.bindPopup(popupContent, { maxWidth: 280 });
+      this.nodeMarkersMap[node.id] = marker;
+      amedasMarkers.push(marker);
+    });
+
+    if (typeof this.overlayLayers.amedas.addLayers === "function") {
+      this.overlayLayers.amedas.addLayers(amedasMarkers);
+    } else {
+      amedasMarkers.forEach((m) => this.overlayLayers.amedas.addLayer(m));
+    }
+
+    return amedasMarkers.length;
+  },
+
+  // 指定自治体へ地図を移動し、自動でポップアップを表示（クラスタ展開対応）
+  focusMuni: function (muniId) {
+    if (!muniId) return;
+
+    // 自治体レイヤーが非表示の場合は表示する
+    if (this.overlayLayers.prefGov && !this.map.hasLayer(this.overlayLayers.prefGov)) {
+      this.map.addLayer(this.overlayLayers.prefGov);
+    }
+    if (this.overlayLayers.muniGov && !this.map.hasLayer(this.overlayLayers.muniGov)) {
+      this.map.addLayer(this.overlayLayers.muniGov);
+    }
+
+    const quickBar = document.getElementById("map-layer-quick-bar");
+    if (quickBar) {
+      const prefBtn = quickBar.querySelector('.layer-pill[data-layer="prefGov"]');
+      const muniBtn = quickBar.querySelector('.layer-pill[data-layer="muniGov"]');
+      if (prefBtn) prefBtn.classList.add("active");
+      if (muniBtn) muniBtn.classList.add("active");
+    }
+
+    const marker = this.muniMarkersMap[muniId];
+    if (!marker) return;
+
+    // 市区町村マーカークラスタの場合、zoomToShowLayer で自動ズーム展開してポップアップを開く
+    if (
+      this.overlayLayers.muniGov &&
+      typeof this.overlayLayers.muniGov.zoomToShowLayer === "function" &&
+      this.overlayLayers.muniGov.hasLayer(marker)
+    ) {
+      this.overlayLayers.muniGov.zoomToShowLayer(marker, () => {
+        setTimeout(() => {
+          marker.openPopup();
+        }, 100);
+      });
+    } else {
+      // 都道府県庁などの通常レイヤーの場合
+      const latLng = marker.getLatLng();
+      this.map.flyTo(latLng, 14, { duration: 0.8 });
+      setTimeout(() => {
+        marker.openPopup();
+      }, 850);
+    }
   },
   plotEdges: function (edges) {
     this.overlayLayers.edgesRail.clearLayers();
     this.overlayLayers.edgesAir.clearLayers();
-    if (!edges || edges.length === 0) return 0;
-
-    let count = 0;
-    edges.forEach((edge) => {
-      let lineObj = null;
-      const mode = String(edge.mode || "");
-      const category = String(edge.category || "");
-      const rName = String(edge.route_name || "");
-      const rid = String(edge.route_id || "");
-      const isAir = mode.includes("航空") || category.includes("航空") || rName.includes("航空") || rid.includes("AIR");
-
-      // 色とスタイルの決定
-      let color = edge.color || "#1d4ed8";
-      let weight = 3.5;
-      let dashArray = null;
-      let targetLayer = this.overlayLayers.edgesRail;
-
-      if (isAir) {
-        color = "#0284c7"; // スカイブルー（航空路）
-        weight = 2.5;
-        dashArray = "6, 8"; // 航空路用破線
-        targetLayer = this.overlayLayers.edgesAir;
-      } else {
-        const isDouble = edge.tracks && edge.tracks.includes("複線");
-        weight = isDouble ? 4.5 : 3.5;
-      }
-
-      // GeoJSON実形状が存在する場合
-      if (edge.geojson) {
-        try {
-          const geo = typeof edge.geojson === "string" ? JSON.parse(edge.geojson) : edge.geojson;
-          lineObj = L.geoJSON(geo, {
-            style: {
-              color: color,
-              weight: weight,
-              opacity: 0.85,
-              dashArray: dashArray,
-            },
-          });
-        } catch (e) {
-          // パース失敗時は直線にフォールバック
-        }
-      }
-
-      // GeoJSONがない場合は始点・終点の直線補完
-      if (!lineObj && edge.from_coord && edge.to_coord) {
-        lineObj = L.polyline([edge.from_coord, edge.to_coord], {
-          color: color,
-          weight: weight,
-          opacity: 0.85,
-          dashArray: dashArray,
-        });
-      }
-
-      if (lineObj) {
-        const badgeText = isAir ? "✈️ 国内定期航空路" : "🚆 鉄道路線（新幹線・本線）";
-        const badgeBg = isAir ? "#0284c7" : "#1d4ed8";
-        const popupContent = `
-          <div class="popup-title">${edge.route_name || "路線区間"}</div>
-          <div style="margin:2px 0 6px 0;">
-            <span class="popup-tag" style="background:${badgeBg}; color:#fff;">${badgeText}</span>
-          </div>
-          <div class="popup-sub">${edge.from_name || "起点"} ➔ ${edge.to_name || "終点"}</div>
-          <div style="font-size:12px; margin:4px 0;">
-            ${edge.km ? `<span>距離: ${edge.km} km</span>` : ""}
-            ${edge.tracks ? `<span class="popup-tag">${edge.tracks}</span>` : ""}
-            ${edge.electrified ? `<span class="popup-tag">${edge.electrified}</span>` : ""}
-          </div>
-          <div style="margin-top:6px;">
-            <button class="btn-icon" style="padding:3px 8px; font-size:11px; width:100%; justify-content:center;" onclick="window.App && window.App.openKnowledgeDrawerById('${edge.route_id}', 'route')">
-              📋 路線詳細ナレッジを開く
-            </button>
-          </div>
-        `;
-        lineObj.bindPopup(popupContent);
-        lineObj.on("click", () => {
-          if (window.App && window.App.openKnowledgeDrawerById) {
-            window.App.openKnowledgeDrawerById(edge.route_id, "route");
-          }
-        });
-        targetLayer.addLayer(lineObj);
-        count++;
-      }
-    });
-
-    return count;
+    return 0; // 開設当初はエッジ非公開
   },
-
-  // =========================================================================
-  // 2. ノードの種別別分類プロット
-  // =========================================================================
   plotNodesCategorized: function (nodes) {
-    this.allNodes = Array.isArray(nodes) ? nodes : [];
-    return this.renderViewportNodes();
-  },
-
-  // 現在表示中の地図領域（ビューポート）およびズームレベルに連動して拠点を描画
-  renderViewportNodes: function () {
-    // レイヤーのクリア
+    // 開設当初は交通拠点ノードは非公開（自治体ノード・気象観測点のみ公開）
     this.overlayLayers.railways.clearLayers();
     this.overlayLayers.highways.clearLayers();
     this.overlayLayers.roadStations.clearLayers();
     this.overlayLayers.airSea.clearLayers();
-    this.overlayLayers.amedas.clearLayers();
+    this.overlayLayers.structures.clearLayers();
+    this.allNodes = [];
+    return 0;
+  },
+
+  // 現在表示中の地図領域（ビューポート）およびズームレベルに連動して拠点を描画
+  renderViewportNodes: function () {
+    // レイヤーのクリア（交通拠点ノードのみ。アメダスはMarkerClusterで独立管理）
+    this.overlayLayers.railways.clearLayers();
+    this.overlayLayers.highways.clearLayers();
+    this.overlayLayers.roadStations.clearLayers();
+    this.overlayLayers.airSea.clearLayers();
     this.overlayLayers.structures.clearLayers();
 
     if (!this.allNodes || this.allNodes.length === 0 || !this.map) return 0;

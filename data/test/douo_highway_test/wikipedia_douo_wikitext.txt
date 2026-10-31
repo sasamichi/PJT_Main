@@ -1,0 +1,1439 @@
+﻿{{Infobox_road
+|種別・系統 = [[高速自動車国道]]<br />([[有料道路|有料]])
+|アイコン = [[File:DO-O EXP(E5).svg|130px|道央自動車道]]
+|地図画像 = {{Highway system OSM map|zoom=7|frame=yes|plain=yes|frame-align=center|frame-width=300|frame-height=300|frame-lat=43.059083|frame-long=141.354389}}
+|名前 = {{Ja Exp Route Sign|E5}} 道央自動車道
+|総距離 = 443.5 [[キロメートル|km]]
+|開通年 = [[1971年]]（[[昭和]]46年）-
+|起点 = [[大沼公園インターチェンジ|大沼公園IC]]
+|主な経由都市 = [[室蘭市]]、[[苫小牧市]]、[[千歳市]]、[[札幌市]]<br />[[岩見沢市]]、[[滝川市]]、[[深川市]]、[[旭川市]]
+|終点 = [[士別剣淵インターチェンジ|士別剣淵IC]]
+|接続する主な道路 = {{Ja Exp Route Sign|E5A}} [[黒松内新道]]<br/>{{Ja Exp Route Sign|E63}} [[日高自動車道]]<br />{{Ja Exp Route Sign|E38}} [[道東自動車道]]<br />{{Ja Exp Route Sign|E5A}} [[札樽自動車道]]<br />{{Ja Exp Route Sign|E62}} [[深川留萌自動車道]]<br />{{Ja Exp Route Sign|E39}} [[旭川紋別自動車道]]
+}}
+[[ファイル:DO-O EXPRESSWAY numbering Sign Naie-Sunagawa IC.jpg|thumb|道央自動車道・高速道路名及び高速道路番号標識。英文表記が“DO-O EXP”となっている。（奈井江砂川インターチェンジ付近）]]
+[[ファイル:高速道路ナンバリング表記を含む案内（苫小牧東IC出口・室蘭方面・2019年1月）.jpg|thumb|高速道路ナンバリング表記を含む案内（苫小牧東IC出口・室蘭方面・2019年1月）]]
+
+'''道央自動車道'''（どうおうじどうしゃどう、{{Lang-en|HOKKAIDO EXPWY<ref>{{Cite web|url=https://www.mlit.go.jp/road/sign/numbering/en/file/numbering_leaflet_en.pdf|title=Japan's Expressway Numbering System|accessdate=2022-04-04|publisher=Ministry of Land, Infrastructure, Transport and Tourism|format=PDF}}</ref>}}、{{Lang-en|DO-O EXPRESSWAY}}）は、[[北海道]][[茅部郡]][[森町 (北海道)|森町]]の[[大沼公園インターチェンジ|大沼公園IC]]から、[[札幌市]]を[[経由]]して[[士別市]]の[[士別剣淵インターチェンジ|士別剣淵IC]]に至る[[日本の高速道路|高速道路]]である。[[略語|略称]]は'''道央道'''（どうおうどう）{{sfn|東日本高速道路株式会社・中日本高速道路株式会社・西日本高速道路株式会社|2017|p=標識編4-12}}。
+
+[[高速道路ナンバリング]]による路線番号は、「'''E5'''」が割り振られている{{sfn|東日本高速道路株式会社・中日本高速道路株式会社・西日本高速道路株式会社|2017|p=標識編4-15}}。
+
+== 概要 ==
+[[国土開発幹線自動車道]]及び[[高速自動車国道]]である'''[[北海道縦貫自動車道]]'''の一部であり、[[高速自動車国道の路線を指定する政令|政令]]による正式な路線名は'''北海道縦貫自動車道 函館名寄線'''（ほっかいどうじゅうかんじどうしゃどう はこだてなよろせん）である。なお、[[千歳恵庭ジャンクション|千歳恵庭JCT]] - [[札幌ジャンクション|札幌JCT]]間は'''[[北海道横断自動車道]]'''（ほっかいどうおうだんじどうしゃどう）の'''根室線'''（ねむろせん、政令による正式路線名は'''黒松内釧路線'''〈くろまつないくしろせん〉）及び同'''網走線'''（あばしりせん、政令による正式路線名は'''黒松内北見線'''〈くろまつないきたみせん〉）との[[重用区間|重複区間]]となっている。[[大沼公園インターチェンジ|大沼公園IC]]より南の区間については「[[北海道縦貫自動車道]]」の項目を参照。
+
+英文名称は'''HOKKAIDO EXPWY'''であり、日本の高速自動車国道で唯一日本語と英語の名称が異なっていた<ref>{{Cite web|和書|url=https://www.driveplaza.com/area/haikara/hokkaido/pdf/hokkaido_06_trivia.pdf|title=高速道路トリビア 北海道|accessdate=2018-10-07|publisher=NEXCO東日本}}</ref>。但し、ナンバリング併記の標識より'''DO-O EXP'''表記のものが順次導入されている。
+
+== インターチェンジなど ==
+<!--函館を起点としている旨の記述は現段階では独自研究に該当するため、信頼できる情報源がない限り記載しないでください-->
+* 全区間[[北海道]]内に所在。
+* IC番号欄の背景色が{{color|#bfb|■}}である部分については道路が供用済みの区間を示している。また、施設名欄の背景色が{{color|#ccc|■}}である部分は施設が供用されていない、または完成していない事を示す。未開通区間の名称は仮称。
+* [[スマートインターチェンジ]] (SIC) は背景色{{color|#eda5ff|■}}で示す。<!--また、[[社会実験|社会実験中]]のスマートICが設置されているSA, PAは''斜体'' で示す。-->
+* 略語として、ICは[[インターチェンジ]]、SAは[[サービスエリア]]、PAは[[パーキングエリア]]、JCTは[[ジャンクション (道路)|ジャンクション]]、<!--TNは[[トンネル]]、BRは[[橋]]・[[高架橋]]、-->TBは[[本線料金所]]をそれぞれ示す。
+* [[バス停留所|バスストップ]] (BS) のうち、○は運用中、◆は休止・廃止、無印はBSなし。
+* [[ガソリンスタンド]] (GS) の記号は、●=あり（24時間営業）、○=あり（8:00 - 20:00営業）、無印=なし、を示す。
+* 表の距離はキロポストに準拠し[[札幌ジャンクション|札幌JCT]]を起点として記載<ref>{{Cite web|和書|url=https://www.driveplaza.com/sapa/hw/pdf/201902_hokkaido_sapamap.pdf|title=2019年『Highway Walker』北海道版 2月号(No.41) SA・PA MAP 道央自動車道・道東自動車道・札樽自動車道|publisher=NEXCO東日本|format=PDF|accessdate=2019-02-24|archive-url=https://web.archive.org/web/20190224173925/https://www.driveplaza.com/sapa/hw/pdf/201902_hokkaido_sapamap.pdf |archive-date=2019-02-24 |url-status=dead |url-status-date=2024-09-17}}</ref>し、便宜的に[[七飯インターチェンジ|七飯IC]]を起点としたもの{{要出典|date=2019年2月}}も記載する。
+* 本線上におけるキロポストの距離数には札幌JCT以南に「'''S'''」、以北に「'''N'''」という表記が数字の前に存在する。
+{{-}}
+{| class="wikitable"
+|-
+!style="border-bottom:3px solid green; white-space:nowrap;"|IC<br>番号
+!style="border-bottom:3px solid green;"|施設名
+!style="border-bottom:3px solid green;"|接続路線名
+!style="border-bottom:3px solid green;"|札幌JCT<br><small>から（[[キロメートル|km]]）</small>
+!style="border-bottom:3px solid green;"|七飯IC<br><small>から（[[キロメートル|km]]）</small>
+!style="border-bottom:3px solid green;"|[[バス停留所|BS]]
+!style="border-bottom:3px solid green;"|[[ガソリンスタンド|GS]]
+!style="border-bottom:3px solid green;"|備考
+!style="border-bottom:3px solid green;"|{{縦書き|振興局}}
+!colspan="2" style="border-bottom:3px solid green;"|所在地
+|-
+|colspan="11" style="text-align:center"|{{Ja Exp Route Sign|E5}} [[北海道縦貫自動車道]] [[函館新道]]<ref group="注" name="北海道縦貫自動車道に並行する一般国道の自動車専用道路">高速自動車国道（北海道縦貫自動車道）に[[高速自動車国道に並行する一般国道自動車専用道路|並行する一般国道の自動車専用道路]]。</ref>
+|-
+!style="background-color: #BFB;"|4
+|[[七飯藤城インターチェンジ|七飯藤城IC]]
+|[[国道5号]]（現道〈赤松街道〉）
+|style="text-align: right"|
+|style="text-align: right"|
+|style="text-align: center;"|
+|style="text-align: center;"|
+|style="text-align: center;"|
+|rowspan="14" style="width:1em;text-align:center;"|{{縦書き|[[渡島総合振興局]]}}
+|rowspan="4" colspan="2"|[[亀田郡]]<br>[[七飯町]]
+|-
+!style="background-color:#CCC; text-align:center;" colspan="8" |{{Ja Exp Route Sign|E5}} [[北海道縦貫自動車道]] 七飯藤城 - 七飯 （基本計画区間）
+|-
+!style="background-color: #CCC;"|-
+|style="background-color: #CCC;"|[[七飯インターチェンジ|七飯IC]]（仮称）
+|style="background-color: #CCC;"|国道5号（現道）<br>[[北海道道96号上磯峠下線|道道96号上磯峠下線]]<ref>{{Cite web|和書|url=https://www.mlit.go.jp/road/ir/ir-council/kansen/20060207/sanko2.pdf|title=第2回国土開発幹線自動車道建設会議 参考資料2|year=2006-02-07|accessdate=2014-06-13|publisher=国土交通省道路局|format=PDF}}</ref>
+|style="background-color:#CCC; text-align:right;"|
+|style="background-color:#CCC; text-align:right;"|0.0
+|style="background-color: #CCC;"|
+|style="background-color: #CCC;"|
+|style="background-color: #CCC;"|事業中<ref name="nanae-oonuma">{{Cite web|和書|url=https://www.hkd.mlit.go.jp/hk/douro/mt6nfj000000egeh.html|title=北海道縦貫自動車道 七飯〜大沼（延長10.0キロメートル）|accessdate=2021-12-07|publisher=国土交通省北海道開発局 函館開発建設部}}</ref>
+|-
+!style="background-color:#CCC; text-align:center;" colspan="8" |{{Ja Exp Route Sign|E5}} 北海道縦貫自動車道 七飯 - 大沼 （事業中<ref name="nanae-oonuma" />）
+|-
+!style="background-color: #BFB;"|6
+|[[大沼公園インターチェンジ|大沼公園IC/TB]]
+|[[北海道道149号大沼公園インター線|道道149号大沼公園インター線]]<br>[[北海道道843号宿野辺保養基地線|道道843号宿野辺保養基地線]]
+|style="text-align: right"|272.4
+|style="text-align: right"|10.0
+|style="text-align: center;"|
+|style="text-align: center;"|
+|[[本線料金所]]併設
+|rowspan="3" colspan="2"|[[茅部郡]]<br>[[森町 (北海道)|森町]]
+|-
+!style="background-color: #BFB;"|-
+|style="background-color: #CCC;"|駒ケ岳PA
+|style="background-color: #CCC;"|
+|style="background-color: #CCC; text-align: right"|
+|style="background-color: #CCC; text-align: right"|
+|style="text-align: center;"|
+|style="text-align: center;"|
+|計画中<ref name="jbaudit2012" /><ref>{{PDFlink|[https://www.jehdra.go.jp/pdf/1203.pdf 北海道縦貫自動車道（落部IC～八雲IC）の早期供用]}}</ref>
+|-
+!style="background-color: #BFB;"|7
+|[[森インターチェンジ|森IC]]
+|[[北海道道1156号森インター線|道道1156号森インター線]]
+|style="text-align: right"|262.7
+|style="text-align: right"|19.7
+|style="text-align: center;"|
+|style="text-align: center;"|
+|style="text-align: center;"|
+|-
+!style="background-color: #BFB;"|8
+|[[落部インターチェンジ|落部IC]]
+|[[北海道道1155号落部インター線|道道1155号落部インター線]]
+|style="text-align: right"|242.5
+|style="text-align: right"|39.9
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="3" colspan="2"|[[二海郡]]<br>[[八雲町]]
+|-
+!style="background-color: #BFB;"|-
+|[[八雲パーキングエリア|八雲PA]]
+|
+|style="text-align: right"|234.9
+|style="text-align: right"|47.5
+|style="text-align: center;"|
+|style="text-align: center;"|
+|ハイウェイオアシス併設
+|-
+!style="background-color: #BFB;"|9
+|[[八雲インターチェンジ|八雲IC]]
+|[[国道277号]]
+|style="text-align: right"|226.5
+|style="text-align: right"|55.9
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|-
+|style="background-color: #CCC;"|国縫PA
+|style="background-color: #CCC;"|
+|style="background-color: #CCC; text-align: right"|
+|style="background-color: #CCC; text-align: right"|
+|style="text-align: center;"|
+|style="text-align: center;"|
+|計画中<ref name="jbaudit2012">[https://report.jbaudit.go.jp/org/h24/2012-h24-0788-0.htm サービスエリア等の施設を整備するために取得した用地並びに用途を廃止した高速道路本線及びサービスエリア等の施設の用地のうち、施設の具体的な整備予定がなく、有効利用もされていないものについて把握し、これらの用地について今後も保有し続ける必要性を検証するとともに有効利用することについて検討する体制を道路会社との間で整備するよう改善の処置を要求したもの] - 会計検査院</ref>
+|rowspan="4" colspan="2"|[[山越郡]]<br>[[長万部町]]
+|-
+!style="background-color: #BFB;"|10
+|[[国縫インターチェンジ|国縫IC]]
+|[[国道230号]]<br>（[[渡島半島横断道路]]）
+|style="text-align: right"|204.8
+|style="text-align: right"|77.6
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|11
+|[[長万部インターチェンジ|長万部IC]]
+|国道5号（現道）
+|style="text-align: right"|193.7
+|style="text-align: right"|88.7
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|-
+|[[静狩パーキングエリア|静狩PA]]
+|
+|style="text-align: right"|188.4
+|style="text-align: right"|94.0
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|12
+|[[黒松内ジャンクション|黒松内JCT]]
+|国道5号（{{Ja Exp Route Sign|E5A}} [[黒松内新道]]）<ref group="注" name="北海道横断自動車道に並行する一般国道自動車専用道路">高速自動車国道（北海道横断自動車道根室線及び同網走線）に並行する一般国道の自動車専用道路。</ref>
+|style="text-align: right"|178.1
+|style="text-align: right"|104.3
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|style="text-align:center;"|{{縦書き|[[後志総合振興局]]|height=7.5em}}
+|colspan="2"|[[寿都郡]]<br>[[黒松内町]]
+|-
+!style="background-color: #BFB;"|13
+|[[豊浦インターチェンジ|豊浦IC]]
+|[[国道37号]]
+|style="text-align: right"|159.9
+|style="text-align: right"|122.5
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="21" style="width:1em;text-align:center;"|{{縦書き|[[胆振総合振興局]]}}
+|rowspan="5" style="width:1em;text-align:center;"|{{縦書き|[[虻田郡]]}}
+|rowspan="2"|[[豊浦町]]
+|-
+!style="background-color: #BFB;"|-
+|[[豊浦噴火湾パーキングエリア|豊浦噴火湾PA]]
+|
+|style="text-align: right"|154.8
+|style="text-align: right"|127.6
+|style="text-align: center;"|
+|style="text-align: center;"|
+|[[ハイウェイオアシス]]併設
+|-
+!style="background-color: #BFB;"|14
+|[[虻田洞爺湖インターチェンジ|虻田洞爺湖IC]]
+|国道230号<br>[[北海道道578号洞爺虻田線|道道578号洞爺虻田線]]
+|style="text-align: right"|146.7
+|style="text-align: right"|135.7
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="3" style="white-space:nowrap;"|[[洞爺湖町]]
+|-
+!style="background-color: #BFB;"|-
+|[[緊急進入路|北有珠緊急避難路]]
+|
+|style="text-align: right"|
+|style="text-align: right"|
+|style="text-align: center;"|
+|style="text-align: center;"|
+|一般車進入禁止
+|-
+!style="background-color: #BFB;"|-
+|[[緊急進入路|東有珠緊急避難路]]
+|
+|style="text-align: right"|
+|style="text-align: right"|
+|style="text-align: center;"|
+|style="text-align: center;"|
+|一般車進入禁止
+|-
+!style="background-color: #BFB;"|15
+|[[伊達インターチェンジ|伊達IC]]
+|[[北海道道145号伊達インター線|道道145号伊達インター線]]<br>[[北海道道519号滝之町伊達線|道道519号滝之町伊達線]]
+|style="text-align: right"|133.1
+|style="text-align: right"|149.3
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="2" colspan="2"|[[伊達市 (北海道)|伊達市]]
+|-
+!style="background-color: #BFB;"|-
+|[[有珠山サービスエリア|有珠山SA]]
+|
+|style="text-align: right"|130.7
+|style="text-align: right"|151.7
+|style="text-align: center;"|
+|style="text-align: center;"|○
+|
+|-
+!style="background-color: #BFB;"|16
+|[[室蘭インターチェンジ|室蘭IC]]
+|[[北海道道107号室蘭環状線|道道107号室蘭環状線]]<br>[[北海道道127号室蘭インター線|道道127号室蘭インター線]]
+|style="text-align: right"|120.2
+|style="text-align: right"|162.2
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="2" colspan="2"|[[室蘭市]]
+|-
+!style="background-color: #BFB;"|-
+|[[本輪西展望所]]
+|
+|style="text-align: right"|118.7
+|style="text-align: right"|163.7
+|style="text-align: center;"|
+|style="text-align: center;"|
+|函館・長万部方面のみ
+|-
+!style="background-color: #BFB;"|17
+|[[登別室蘭インターチェンジ|登別室蘭IC]]
+|[[国道36号]]<br>[[北海道道144号登別室蘭インター線|道道144号登別室蘭インター線]]
+|style="text-align: right"|110.6
+|style="text-align: right"|171.8
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="3" colspan="2"|[[登別市]]
+|-
+!style="background-color: #BFB;"|-
+|[[富浦パーキングエリア|富浦PA]]
+|
+|style="text-align: right"|102.2
+|style="text-align: right"|180.2
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|18
+|[[登別東インターチェンジ|登別東IC]]
+|[[北海道道2号洞爺湖登別線|道道2号洞爺湖登別線]]
+|style="text-align: right"|99.2
+|style="text-align: right"|183.2
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|-
+|[[竹浦バスストップ|竹浦BS]]
+|
+|style="text-align: right"|
+|style="text-align: right"|192.2
+|style="text-align: center;"|○
+|style="text-align: center;"|
+|
+|rowspan="3" colspan="2"|[[白老郡]]<br>[[白老町]]
+|-
+!style="background-color: #BFB;"|-
+|[[萩野パーキングエリア|萩野PA]]
+|
+|style="text-align: right"|85.4
+|style="text-align: right"|197.0
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|19
+|[[白老インターチェンジ|白老IC]]
+|[[北海道道86号白老大滝線|道道86号白老大滝線]]
+|style="text-align: right"|80.6
+|style="text-align: right"|201.8
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|-
+|[[樽前サービスエリア|樽前SA]]/[[緊急進入路]]
+|
+|style="text-align: right"|67.9
+|style="text-align: right"|214.5
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="6" colspan="2"|[[苫小牧市]]
+|-
+!style="background-color: #BFB;"|20
+|[[苫小牧西インターチェンジ|苫小牧西IC]]
+|[[北海道道141号樽前錦岡線|道道141号樽前錦岡線]]
+|style="text-align: right"|64.8
+|style="text-align: right"|217.6
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|21
+|[[苫小牧中央インターチェンジ|苫小牧中央IC]]
+|[[北海道道1179号苫小牧中央インター線|道道1179号苫小牧中央インター線]]
+|style="text-align: right"|56.2
+|style="text-align: right"|226.2
+|
+|
+|
+|-
+!style="background-color: #BFB;"|-
+|style="background-color: #CCC;"|[[高丘バスストップ|高丘BS]]
+|style="background-color: #CCC;"|
+|style="text-align: right"|
+|style="text-align: right"|226.7
+|style="background-color: #CCC;text-align: center;"|◆
+|style="background-color: #CCC;text-align: center;"|
+|style="background-color: #CCC;"|[[2018年]][[3月31日]]をもって廃止
+|-
+!style="background-color: #BFB;"|22
+|[[苫小牧東インターチェンジ|苫小牧東IC/JCT]]
+|[[国道235号]]（{{Ja Exp Route Sign|E63}} [[日高自動車道]]）<ref group="注" name="国土交通大臣指定に基づく高規格幹線道路">[[国土交通大臣指定に基づく高規格幹線道路（一般国道の自動車専用道路）|国土交通大臣指定に基づく高規格幹線道路]]（[[一般国道]]の[[自動車専用道路]]）。</ref><br>[[北海道道91号苫小牧東インター線|道道91号苫小牧東インター線]]
+|style="text-align: right"|47.2
+|style="text-align: right"|235.2
+|style="text-align: center;"|
+|style="text-align: center;"|
+|一般道と日高自動車道間での出入りは不可
+|-
+!style="background-color: #BFB;"|-
+|[[美沢パーキングエリア|美沢PA]]
+|
+|style="text-align: right"|41.9
+|style="text-align: right"|240.5
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|23
+|[[新千歳空港インターチェンジ|新千歳空港IC]]
+|[[北海道道1175号新千歳空港インター線|道道1175号新千歳空港インター線]]
+|style="text-align: right"|39.3
+|style="text-align: right"|243.1
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="15" style="width:1em;text-align:center;"|{{縦書き|[[石狩振興局]]}}
+|rowspan="3" colspan="2"|[[千歳市]]
+|-
+!style="background-color: #BFB;"|24
+|[[千歳インターチェンジ (北海道)|千歳IC]]
+|[[北海道道77号千歳インター線|道道77号千歳インター線]]
+|style="text-align: right"|35.3
+|style="text-align: right"|247.1
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|25
+|[[千歳恵庭ジャンクション|千歳恵庭JCT]]
+|[[北海道横断自動車道]]（{{Ja Exp Route Sign|E38}} [[道東自動車道]]）<ref group="注" name="北海道横断自動車道">国土開発幹線自動車道及び高速自動車国道である北海道横断自動車道根室線及び同網走線の一部区間。</ref>
+|style="text-align: right"|30.3
+|style="text-align: right"|252.1
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|26
+|[[恵庭インターチェンジ|恵庭IC/BS]]
+|[[北海道道117号恵庭岳公園線|道道117号恵庭岳公園線]]
+|style="text-align: right"|26.3
+|style="text-align: right"|256.1
+|style="text-align: center;"|○
+|style="text-align: center;"|
+|
+|rowspan="2" colspan="2"|[[恵庭市]]
+|-
+!style="background-color: #BFB;"|-
+|style="background-color: #CCC;"|[[北恵庭バスストップ|北恵庭BS]]
+|style="background-color: #CCC;"|
+|style="text-align: right"|
+|style="text-align: right"|259.8
+|style="background-color: #CCC;text-align: center;"|◆
+|style="background-color: #CCC;text-align: center;"|
+|style="background-color: #CCC;"|[[2012年]][[3月31日]]をもって休止
+|-
+!style="background-color: #BFB;"|27
+|style="background-color:#eda5ff"|[[輪厚パーキングエリア|輪厚PA/SIC/BS]]
+|style="background-color:#eda5ff"|市道広島輪厚線
+|style="text-align: right"|16.3
+|style="text-align: right"|266.1
+|style="text-align: center;"|○
+|style="text-align: center;"|●
+|スマートICは24時間利用可
+|rowspan="2" colspan="2"|[[北広島市]]
+|-
+!style="background-color: #BFB;"|28
+|[[北広島インターチェンジ|北広島IC]]
+|国道36号<br>市道[[大曲幸通]]
+|style="text-align: right"|12.4
+|style="text-align: right"|270.0
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|29
+|[[札幌南インターチェンジ|札幌南IC/TB]]
+|[[札幌新道]]（市道）
+|style="text-align: right"|7.9
+|style="text-align: right"|274.5
+|style="text-align:center;"|
+|style="text-align:center;"|
+|本線料金所併設
+|rowspan="5" style="width:1em;text-align:center;"|{{縦書き|[[札幌市]]}}
+|[[厚別区]]
+|-
+!style="background-color: #BFB;"|30
+|[[大谷地インターチェンジ|大谷地IC]]
+|[[国道274号]]（札幌新道）
+|style="text-align: right"|4.1
+|style="text-align: right"|278.3
+|style="text-align: center;"|
+|style="text-align: center;"|
+|旭川・小樽方面出入口のみ
+|rowspan="4"|[[白石区]]
+|-
+!style="background-color: #BFB;"|31
+|[[北郷インターチェンジ|北郷IC]]
+|国道274号（札幌新道）
+|style="text-align: right"|2.1
+|style="text-align: right"|280.3
+|style="text-align: center;"|
+|style="text-align: center;"|
+|苫小牧・千歳方面出入口のみ
+|-
+!style="background-color: #BFB;"|32
+|[[札幌ジャンクション|札幌JCT]]
+|北海道横断自動車道（{{Ja Exp Route Sign|E5A}} [[札樽自動車道]]）<ref group="注" name="北海道横断自動車道" />
+|style="text-align: right"|0.0
+|style="text-align: right"|282.4
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|33
+|[[札幌インターチェンジ|札幌IC/TB]]
+|国道274号（札幌新道）
+|style="text-align: right"|0.0
+|style="text-align: right"|282.4
+|style="text-align: center;"|
+|style="text-align: center;"|
+|旭川・岩見沢方面出入口<br>本線料金所併設
+|-
+!style="background-color: #BFB;"|34
+|[[江別西インターチェンジ|江別西IC]]
+|[[北海道道110号江別インター線|道道110号江別インター線]]
+|style="text-align: right"|6.6
+|style="text-align: right"|289.0
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="3" colspan="2"|[[江別市]]
+|-
+!style="background-color: #BFB;"|-
+|[[野幌パーキングエリア|野幌PA/BS]]
+|
+|style="text-align: right"|9.8
+|style="text-align: right"|292.2
+|style="text-align: center;"|○
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|35
+|[[江別東インターチェンジ|江別東IC]]
+|[[国道337号]]<br>（[[道央圏連絡道路]]）
+|style="text-align: right"|16.2
+|style="text-align: right"|298.6
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|-
+|[[栗沢バスストップ|栗沢BS]]
+|
+|style="text-align: right"|
+|style="text-align: right"|306.2
+|style="text-align: center;"|○
+|style="text-align: center;"|
+|
+|rowspan="15" style="width:1em;text-align:center;"|{{縦書き|[[空知総合振興局]]}}
+|rowspan="3" colspan="2"|[[岩見沢市]]
+|-
+!style="background-color: #BFB;"|36
+|[[岩見沢インターチェンジ|岩見沢IC]]
+|[[国道234号]]
+|style="text-align: right"|31.9
+|style="text-align: right"|314.3
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|-
+|[[岩見沢サービスエリア|岩見沢SA/東山BS<span style="background-color:#CCC">/SIC</span>]]
+|
+|style="text-align: right"|35.6
+|style="text-align: right"|318.0
+|style="text-align: center;"|○
+|style="text-align: center;"|
+|SICは準備段階調査<ref>{{Cite web|和書|url=https://www.mlit.go.jp/report/press/content/002027962.pdf|title=スマートインターチェンジの高速道路会社への事業許可および準備段階調査着手について 〜スマートインターチェンジの新規事業化箇所を決定しました〜|date=2026-10-23|accessdate=2026-10-23|publisher=国土交通省道路局|format=PDF}}</ref>
+|-
+!style="background-color: #BFB;"|37
+|[[三笠インターチェンジ|三笠IC]]
+|[[北海道道116号岩見沢三笠線|道道116号岩見沢三笠線]]
+|style="text-align: right"|41.8
+|style="text-align: right"|324.2
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|colspan="2"|[[三笠市]]
+|-
+!style="background-color: #BFB;"|38
+|[[美唄インターチェンジ|美唄IC]]
+|[[北海道道135号美唄富良野線|道道135号美唄富良野線]]
+|style="text-align: right"|53.1
+|style="text-align: right"|335.5
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="2" colspan="2"|[[美唄市]]
+|-
+!style="background-color: #BFB;"|-
+|[[茶志内パーキングエリア|茶志内PA/BS]]
+|
+|style="text-align: right"|58.5
+|style="text-align: right"|340.9
+|style="text-align: center;"|○
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|39
+|[[奈井江砂川インターチェンジ|奈井江砂川IC]]
+|[[北海道道114号赤平奈井江線|道道114号赤平奈井江線]]
+|style="text-align: right"|66.7
+|style="text-align: right"|349.1
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|colspan="2"|[[空知郡]]<br>[[奈井江町]]
+|-
+!style="background-color: #BFB;"|-
+|[[砂川吉野バスストップ|砂川吉野BS]]
+|
+|style="text-align: right"|
+|style="text-align: right"|353.0
+|style="text-align: center;"|○
+|style="text-align: center;"|
+|
+|rowspan="2" colspan="2"|[[砂川市]]
+|-
+!style="background-color: #BFB;"|40
+|style="background-color:#eda5ff"|[[砂川サービスエリア|砂川SA/SIC/砂川石山BS]]
+|style="background-color:#eda5ff"|市道砂川SAスマートインター線<ref>[http://www.city.sunagawa.hokkaido.jp/modules/pico1/index.php/content1665.html （仮称）砂川SAスマートインターチェンジ整備事業本格スタート] - 砂川市</ref>
+|style="text-align: right"|75.6
+|style="text-align: right"|358.0
+|text-align: center;"|○
+|text-align: center;"|○
+|ハイウェイオアシス併設<br>スマートICは6:00-22:00のみ利用可
+|-
+!style="background-color: #BFB;"|41
+|[[滝川インターチェンジ|滝川IC]]
+|[[国道38号]]
+|style="text-align: right"|80.7
+|style="text-align: right"|363.1
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="2" colspan="2"|[[滝川市]]
+|-
+!style="background-color: #BFB;"|-
+|[[江部乙バスストップ|江部乙BS]]
+|
+|style="text-align: right"|
+|style="text-align: right"|368.5
+|style="text-align: center;"|○
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|42
+|[[深川ジャンクション|深川JCT]]
+|[[国道233号]]（{{Ja Exp Route Sign|E62}} [[深川留萌自動車道]]）<ref group="注" name="国土交通大臣指定に基づく高規格幹線道路" />
+|style="text-align: right"|93.5
+|style="text-align: right"|375.9
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="4" colspan="2"|[[深川市]]
+|-
+!style="background-color: #BFB;"|43
+|[[深川インターチェンジ|深川IC]]
+|[[北海道道79号深川豊里線|道道79号深川豊里線]]
+|style="text-align: right"|98.6
+|style="text-align: right"|381.0
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|-
+|[[音江パーキングエリア|音江PA]]
+|
+|style="text-align: right"|104.4
+|style="text-align: right"|386.8
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|-
+|[[納内バスストップ|納内BS]]
+|
+|style="text-align: right"|
+|style="text-align: right"|391.0
+|style="text-align: center;"|○
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|44
+|[[旭川鷹栖インターチェンジ|旭川鷹栖IC]]
+|[[北海道道146号旭川鷹栖インター線|道道146号旭川鷹栖インター線]]<br>[[北海道道1125号嵐山公園線|道道1125号嵐山公園線]]
+|style="text-align: right"|125.3
+|style="text-align: right"|407.7
+|style="text-align:center;"|
+|style="text-align:center;"|
+|
+|rowspan="9" style="width:1em;text-align:center;"|{{縦書き|[[上川総合振興局]]}}
+|colspan="2"|[[上川郡 (石狩国)|上川郡]]<ref group="注" name="上川郡">北海道には旧・[[石狩国]]の[[上川郡 (石狩国)|上川郡]]（鷹栖町・比布町が属する）、旧・[[天塩国]]の[[上川郡 (天塩国)|上川郡]]（和寒町・剣淵町が属する）、旧・[[十勝国]]の[[上川郡 (十勝国)|上川郡]]の3種類の[[上川郡 (曖昧さ回避)|上川郡]]が存在する。これらは境界を接しているが由来が異なり、全く同名の別の郡である。</ref><br>[[鷹栖町]]
+|-
+!style="background-color: #BFB;"|45
+|[[旭川北インターチェンジ|旭川北IC]]
+|[[北海道道1150号旭川北インター線|道道1150号旭川北インター線]]<br>（[[旭川十勝道路]]：予定）
+|style="text-align: right"|133.8
+|style="text-align: right"|416.2
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|colspan="2"|[[旭川市]]
+|-
+!style="background-color: #BFB;"|-
+|[[比布大雪パーキングエリア|比布大雪PA]]
+|
+|style="text-align: right"|141.1
+|style="text-align: right"|423.5
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="2" colspan="2"|上川郡<ref group="注" name="上川郡"/><br>[[比布町]]
+|-
+!style="background-color: #BFB;"|46
+|[[比布ジャンクション|比布JCT]]
+|[[国道450号]]（{{Ja Exp Route Sign|E39}} [[旭川紋別自動車道]]）<ref group="注" name="国土交通大臣指定に基づく高規格幹線道路" />
+|style="text-align: right"|144.5
+|style="text-align: right"|426.9
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|-
+!style="background-color: #BFB;"|47
+|[[和寒インターチェンジ|和寒IC]]
+|[[国道40号]]（現道）
+|style="text-align: right"|155.1
+|style="text-align: right"|437.5
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|rowspan="3" style="text-align:center;"|{{縦書き|[[上川郡 (天塩国)|上川郡]]|height=3.5em}}<ref group="注" name="上川郡"/>
+|[[和寒町]]
+|-
+!style="background-color: #BFB;height:1em;"|-
+|style="background-color: #CCC;"|[[剣淵パーキングエリア|剣淵PA]]
+|style="background-color: #CCC;"|
+|style="background-color: #CCC; text-align: right"|
+|style="background-color: #CCC; text-align: right"|
+|style="text-align: center;"|
+|style="text-align: center;"|
+|[[2030年]]度開設予定<ref name="jehdra-pa">{{Cite web|和書 |url=https://www.jehdra.go.jp/pdf/torikumipdf/sapajyouhouteikyou_ne1.pdf |title=高速道路利便施設の連結に関する情報提供（東日本高速道路株式会社） |accessdate=2025-01-17 |publisher=独立行政法人日本高速道路保有・債務返済機構}}</ref>
+|rowspan="2"|[[剣淵町]]
+|-
+!style="background-color: #BFB;"|48
+|[[士別剣淵インターチェンジ|士別剣淵IC/TB]]
+|[[北海道道1161号士別剣淵インター線|道道1161号士別剣淵インター線]]
+|style="text-align: right"|171.1
+|style="text-align: right"|453.5
+|style="text-align: center;"|
+|style="text-align: center;"|
+|本線料金所併設
+|-
+!style="background-color:#CCC; text-align:center;" colspan="8" |{{Ja Exp Route Sign|E5}} 北海道縦貫自動車道 士別剣淵 - 名寄 （事業中<ref name="sibetukennbuti-tayoro">{{Cite web|和書|url=https://www.hkd.mlit.go.jp/as/douro_keikaku/vkvvn80000000q8s.html|title=士別剣淵〜名寄間|accessdate=2021-12-07|publisher=国土交通省北海道開発局 旭川開発建設部}}</ref>）
+|colspan="2"|[[士別市]]
+|-
+!style="background-color: #BFB;"|-
+|[[名寄インターチェンジ|名寄IC]]
+|国道40号（現道）
+|style="text-align: right"|
+|style="text-align: right"|477.5
+|style="text-align: center;"|
+|style="text-align: center;"|
+|
+|colspan="2"|[[名寄市]]
+|-
+|colspan="11" style="text-align: center;"|{{Ja Exp Route Sign|E5}} 北海道縦貫自動車道 [[名寄美深道路]]<ref group="注" name="北海道縦貫自動車道に並行する一般国道の自動車専用道路" />
+|}
+以前はインターチェンジ番号の付け方が他の高速道路とは全く異なり全線通しで付けられておらず、札幌ジャンクションを基準にして南北に番号が大きくなっていく形だったが、2018年（平成30年）12月までに現在の番号に変更された（[[#歴史]]参照）。新しく付されたインター番号は、同じナンバリングを持ち将来直結の計画がある[[函館新道]]からの連番である。
+
+== 歴史 ==
+=== 計画と整備 ===
+道央自動車道の計画は、[[1957年]]（昭和32年）に制定された国土開発縦貫自動車道建設法にさかのぼる。同法では、国土を縦貫する高速幹線自動車道の予定路線を定める際の基準として、函館市から札幌市付近を経て稚内市・釧路市に至る「北海道自動車道」が別表に掲げられた。その後、[[1966年]]（昭和41年）の同法改正により、[[函館市]]を起点、[[稚内市]]を終点とし、[[室蘭市]]・[[札幌市]]・[[岩見沢市]]・[[旭川市]]付近を経由する[[北海道縦貫自動車道]]が、[[国土開発幹線自動車道]]の予定路線として規定された。
+
+建設は千歳 - 札幌間から進められた。この区間に並行する[[国道36号]]は、札幌と千歳・苫小牧方面を結ぶ幹線道路であったが、交通量の増加による混雑が生じていたほか、冬期には急勾配区間で積雪や路面凍結による交通上の問題があった{{Sfn|鎌田哲|1972|p=50}}。[[1963年]]（昭和38年）から[[北海道開発局]]による調査が進められ、[[1967年]]（昭和42年）に基本計画、翌年に整備計画が決定された{{Sfn|鎌田哲|1972|p=50}}。建設に当たっては、[[1972年札幌オリンピック]]の開催に間に合わせるため、当初は暫定2車線での供用を目指す方針が採られた。道路用地の取得に際しては、沿線の市町村ごとに協議会を設け、土地所有者との交渉が進められた{{Sfn|鎌田哲|1972|pp=50–51}}。こうした工事を経て、[[1971年]]（昭和46年）12月に[[千歳インターチェンジ (北海道)|千歳IC]] - [[北広島インターチェンジ|北広島IC]]間が開通し、同時に開通した[[札樽自動車道]]とともに北海道で最初の高速道路となった{{Sfn|鎌田哲|1972|p=50}}。
+
+その後、整備の対象は札幌周辺から道内の各地域へと広がった。札幌 - 岩見沢間の建設によって札幌市と空知地方が高速道路で結ばれ、さらに札樽自動車道との接続によって、札幌・小樽・旭川・室蘭・苫小牧などの主要都市を結ぶ道央圏の高速道路網が形成された<ref>{{Cite web|和書|title=開通50周年を迎える北海道の高速道路の整備効果をとりまとめました|url=https://www.e-nexco.co.jp/pressroom/hokkaido/2021/1115/00010501.html|publisher=東日本高速道路株式会社北海道支社|date=2021-11-15|access-date=2026-10-28}}</ref>。また、道北方面への延伸については、道北地域と道央・道南地域との連絡を強化することが建設目的として掲げられた{{Sfn|開発行政懇話会|1997|p=77}}。
+
+=== 建設の課題 ===
+道路建設に際しては、北海道の多様な地形・地質や気象条件への対応が必要となった。初期に建設された千歳 - 北広島間では、沿線に火山噴出物を主体とする地盤が広がり、とりわけ火山灰を含む土質の施工性や、降雨による路床の状態悪化が問題となった{{Sfn|鎌田哲|1972|p=51}}。
+
+札幌 - 岩見沢間では、[[石狩平野]]に分布する[[泥炭]]性軟弱地盤が大きな技術的課題となった。同区間の大部分は石狩川とその支流によって形成された沖積平野を通過しており、地表付近には厚さ5～6m程度の泥炭層、その下には厚い粘土・砂層が分布していた。こうした地盤上に盛土を築く場合、地盤の支持力不足による盛土の不安定化に加え、完成後も長期間にわたる沈下が懸念された{{Sfn|栗原則夫|1978|p=49}}{{Sfn|開発行政懇話会|1981|p=38}}。そのため、本格的な施工に先立って岩見沢市内で試験盛土工事が実施され、盛土の施工に伴う地盤の変形や沈下を観測しながら、安定性を確保するための施工方法が検討された。また泥炭地盤では、盛土による荷重を受けて大きな圧密沈下が生じ、施工中の地盤の破壊を防ぐことに加えて、供用後の沈下を見込んだ盛土高さの設定も必要であった。そのため、押え盛土や[[サンドドレーン工法]]などを用いた地盤改良、段階的な盛土施工によって、地盤の安定と沈下への対応が図られた{{Sfn|栗原則夫|1978|pp=49–51}}。こうした地盤沈下の問題は開通後も継続し、舗装の維持管理に必要な資料を得るため、盛土施工時に設置された沈下計による観測が続けられた。供用開始から20年を経過した段階でも、沈下状況や維持管理費用を含めた施工方法の評価が行われている<ref>{{Cite web|和書|title=道央自動車道（札幌～岩見沢間）軟弱地盤長期沈下と維持管理―供用開始20年後の評価まとめ―|url=https://thesis.ceri.go.jp/db/documents/public_detail/24296/|publisher=土木研究所寒地土木研究所|date=2005-02-01|access-date=2026-10-28}}</ref>。
+
+胆振地方の建設区間では、これとは異なる地形・地質上の問題が生じた。登別室蘭 - 伊達間は火山活動によって形成された丘陵地帯などを通過するため、起伏の大きい地形に対応してトンネルや高盛土を設ける必要があった。特に高盛土を伴う工事では、土砂の流出や周辺の水質への影響を防ぐため、沈砂池の設置などの対策が採られた{{Sfn|小野正二|三戸博|1990|pp=46–47}}。また、空知地方の奈井江 - 滝川間では、年間の累積降雪量が約7mに達する積雪条件が工事の進行を制約した。同区間の土工は盛土を主体としていたが、積雪期には施工を中断せざるを得ず、限られた施工可能期間の中で工事を進める必要があった{{Sfn|開発行政懇話会|1986|p=44}}。
+
+積雪や寒冷な気象条件は、供用後の道路管理にとっても重要な課題であった。最初の区間の開通に際しては、降雪による視界不良や路面凍結、事故多発などを原因とする通行止めを防ぎ、冬期にも安定した交通を確保することが維持管理上の目標とされた。そのため、道路の設計段階から除雪作業に必要な路肩の余裕や堆雪場所の確保が考慮されたほか、橋梁や道路の立体交差部では除雪した雪が下方の道路などに落下することを防ぐ設備が設けられた{{Sfn|内藤寛|1971|pp=82–83}}。また、降雪量や積雪の性質は地域によって異なり、当初の開通区間でも札幌側と千歳側では気象条件に差があったことから、それぞれの地域の条件に応じた除雪・維持管理が検討された{{Sfn|内藤寛|1971|p=83}}。
+
+自然災害による大規模な被害も発生している。[[2000年]]（平成12年）の[[有珠山]]噴火では、火山活動に伴う地殻変動によって道路やインターチェンジが被災し、豊浦IC - 伊達IC間の通行止めが長期化した。被災した虻田洞爺湖IC付近では大きな地盤変動が発生し、道路の復旧には線形の変更や構造物の修復が必要となった。通行規制の長期化に対応するため、緊急輸送路の確保と一般車両の利便性向上を目的として豊浦町内に虻田洞爺湖仮出入口が設置され、これを利用して一部区間の通行が再開された。その後も復旧工事と安全確認が進められ、[[2001年]]（平成13年）6月に通行止めが全面的に解除された<ref>{{Cite web|和書|title=04.道路公団は道央自動車道に虻田洞爺湖仮出入口設置を決定した。|url=https://www.bousai.go.jp/kyoiku/kyokun/usuzan/database/04/06/03/uzn040603_04.htm|publisher=内閣府|access-date=2026-10-28}}</ref>。
+
+=== 年表 ===
+* [[1957年]]（[[昭和]]32年）[[4月16日]] : 国土開発縦貫自動車道建設法（昭和32年法律第68号）において、北海道自動車道（起点：[[函館市]]、終点：[[稚内市]]、主たる経過地：[[札幌市]]附近）が国土開発縦貫自動車道の予定路線の基準として規定<ref>{{Cite web|和書|title=法律第六十八号（昭三二・四・一六）|url=https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/02619570416068.htm|publisher=衆議院|access-date=2026-10-28}}</ref>。
+* [[1966年]]（昭和41年）
+** [[7月1日]]：国土開発縦貫自動車道建設法の一部を改正する法律（昭和41年法律第107号）が公布され、改正後の別表において[[北海道縦貫自動車道]]（起点：函館市、終点：稚内市、主たる経過地：[[室蘭市]]附近 札幌市附近 [[岩見沢市]]附近 [[旭川市]]附近）が[[国土開発幹線自動車道|国幹道]]の予定路線として規定<ref>{{Cite web|和書|title=法律第百七号（昭四一・七・一）|url=https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/05119660701107.htm|publisher=衆議院|access-date=2026-10-28}}</ref>。
+** [[7月31日]]：同改正法が施行され、国土開発縦貫自動車道建設法が[[s:国土開発幹線自動車道建設法|国土開発幹線自動車道建設法]]に改称。
+* [[1967年]]（昭和42年）
+** [[11月9日]]：第17回[[国土開発幹線自動車道建設会議#国土開発幹線自動車道建設審議会|国土開発幹線自動車道建設審議会]]（以下国幹審）において、千歳 - 札幌間（延長：24km、事業費：130億円、連結地：[[千歳市]] 北海道[[千歳郡]][[恵庭町]] 札幌市 付近）の基本計画が策定<ref>{{Cite journal| 和書| date=1967-12| title=道路関係ニュース：幹線自動車道建設審議会| journal=道路| publisher=日本道路協会| volume=322| pages=101–103| issn=0012-5571| doi=10.11501/3309000| id={{国立国会図書館デジタルコレクション|3309000/54|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| date=1967-12| title=幹線自動車道基本計画および整備計画（追加）きまる| journal=建設月報| publisher=建設広報協議会| volume=20| issue=12| page=77| issn=0917-1304| doi=10.11501/3361370| id={{国立国会図書館デジタルコレクション|3361370/40|format=NDLJP}} }}</ref>。
+** [[11月22日]]：千歳 - 札幌間の基本計画が告示。同日、[[高速自動車国道の路線を指定する政令]]（第2次改正）において、北海道縦貫自動車道千歳札幌線（起点：千歳市、終点：札幌市）が[[高速自動車国道]]の路線として指定される。
+* [[1968年]]（昭和43年）
+** [[3月6日]]：第18回国幹審において、千歳 - 札幌間（延長：24.0km、事業費：130億円、連結地：千歳市 北海道千歳郡恵庭町 北海道[[札幌郡]]広島村）の整備計画が策定<ref>{{Cite journal| 和書| date=1968-04| title=ニュース特報：国土開発幹線自動車道建設審議会開催| journal=道路建設| publisher=日本道路建設業協会| volume=243| pages=118–120| issn=0287-2595| doi=10.11501/3309589| id={{国立国会図書館デジタルコレクション|3309589/61|format=NDLJP}} }}</ref>。
+** [[4月1日]]：千歳 - 札幌間の施行命令が交付<ref>{{Cite journal| 和書| date=1968-04| title=建設のうごき：日本道路公団に施行命令| journal=建設月報| publisher=建設広報協議会| volume=21| issue=4| page=70| issn=0917-1304| doi=10.11501/3361374| id={{国立国会図書館デジタルコレクション|3361374/37|format=NDLJP}} }}</ref>。同日路線発表。
+** [[12月27日]]：第19回国幹審において、苫小牧 - 千歳間（延長：24km、事業費：140億円、連結地：[[苫小牧市]]付近）、札幌 - 岩見沢間（延長：43km、事業費：450億円、連結地：札幌市 [[江別市]] 岩見沢市 付近）の基本計画が策定<ref>{{Cite journal| 和書| date=1969-02| title=道路関係ニュース：第19回国土開発幹線自動車道建設審議会| journal=道路| publisher=日本道路協会| volume=336| pages=87–88| issn=0012-5571| doi=10.11501/3309014| id={{国立国会図書館デジタルコレクション|3309014/50|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| author=松崎彬麿| date=1969-04| title=高速道路の基本計画，整備計画の追加| journal=高速道路と自動車| publisher=高速道路調査会| volume=12| issue=4| pages=35–38| issn=0287-2587| doi=10.11501/2688618| id={{国立国会図書館デジタルコレクション|2688618/24|format=NDLJP}} }}</ref>。
+* [[1969年]]（昭和44年）
+** [[1月20日]]：高速自動車国道の路線を指定する政令（第4次改正）において、北海道縦貫自動車道千歳札幌線に代わり、北海道縦貫自動車道苫小牧岩見沢線（起点：苫小牧市、終点：岩見沢市、重要な経過地：千歳市 札幌市 江別市）が高速自動車国道の路線として指定される。
+** [[1月22日]]：苫小牧 - 千歳間、札幌 - 岩見沢間の基本計画が告示。
+* [[1970年]]（昭和45年）
+** [[5月12日]]：札幌 - 千歳間の起工式が挙行<ref>{{Cite journal| 和書| date=1970-07| title=土木施工ニュース：北海道縦貫道札幌～千歳間起工式行なわれる| journal=土木施工| publisher=オフィス・スペース| volume=11| issue=7| page=78| issn=0387-0790| doi=10.11501/3308261| id={{国立国会図書館デジタルコレクション|3308261/67|format=NDLJP}} }}</ref>。
+** [[6月9日]]：第20回国幹審において、室蘭 - 苫小牧間（延長：58km、事業費：470億円、連結地：室蘭市 [[登別町]] [[白老町]] 付近）の基本計画と、苫小牧 - 千歳間（延長：25km、事業費：140億円、連結地：苫小牧市2箇所）の整備計画が策定。整備計画区間については同日施行命令が交付<ref>{{Cite journal| 和書| author=松崎彬麿| date=1970-08| title=新しい高速道路の建設計画| journal=高速道路と自動車| publisher=高速道路調査会| volume=13| issue=8| pages=41–44| issn=0287-2587| doi=10.11501/2688634| id={{国立国会図書館デジタルコレクション|2688634/27|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| author=住友栄吉| date=1970-09| title=国土開発幹線自動車道の新しい計画| journal=道路| publisher=日本道路協会| volume=355| pages=2–7| issn=0012-5571| doi=10.11501/3309033| id={{国立国会図書館デジタルコレクション|3309033/3|format=NDLJP}} }}</ref>。
+** [[6月18日]]：高速自動車国道の路線を指定する政令（第5次改正）において、北海道縦貫自動車道苫小牧岩見沢線に代わり、北海道縦貫自動車道室蘭岩見沢線（起点：室蘭市、終点：岩見沢市、重要な経過地：北海道[[幌別郡]]登別町 苫小牧市 千歳市 札幌市 江別市）が高速自動車国道の路線として指定される。
+* [[1971年]]（昭和46年）
+** [[6月1日]]：第21回国幹審において、岩見沢 - 旭川間（延長：91km、事業費：900億円、連結地：[[美唄市]] [[砂川市]] [[滝川市]] [[深川市]] 旭川市 付近）の基本計画と、札幌 - 岩見沢間（延長：43km、事業費：450億円、連結地：札幌市2箇所 江別市 岩見沢市）の整備計画が策定。整備計画区間については同日施行命令が交付<ref>{{Cite journal| 和書| author=浅井新一郎| date=1971-08| title=高速国道の新規計画| journal=高速道路と自動車| publisher=高速道路調査会| volume=14| issue=8| pages=51–54| issn=0287-2587| doi=10.11501/2688646| id={{国立国会図書館デジタルコレクション|2688646/32|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| author=浅井新一郎| date=1971-09| title=高速自動車国道の新規計画| journal=道路| publisher=日本道路協会| volume=367| pages=2–7| issn=0012-5571| doi=10.11501/3309045| id={{国立国会図書館デジタルコレクション|3309045/5|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| author=建設省道路局| date=1971-08| title=国土開発幹線自動車道の新規計画| journal=建設月報| publisher=建設広報協議会| volume=24| issue=8| pages=4–7| issn=0917-1304| doi=10.11501/3361414| id={{国立国会図書館デジタルコレクション|3361414/4|format=NDLJP}} }}</ref>。
+** [[6月8日]]：高速自動車国道の路線を指定する政令（第6次改正）において、北海道縦貫自動車道室蘭岩見沢線に代わり、北海道縦貫自動車道室蘭旭川線（起点：室蘭市、終点：旭川市、重要な経過地：[[登別市]] 苫小牧市 千歳市 [[恵庭市]] 札幌市 江別市 岩見沢市 [[三笠市]] 美唄市 砂川市 滝川市 深川市）が高速自動車国道の路線として指定される。
+** [[12月4日]]：[[千歳インターチェンジ (北海道)|千歳IC]] - [[北広島インターチェンジ|北広島IC]]間（23.3km、暫定2車線、事業費160億円）が開通<ref>{{Cite journal| 和書| date=1972-01| title=国内ニュース：道央自動車道，札樽自動車道開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=15| issue=1| page=141| issn=0287-2587| doi=10.11501/2688651| id={{国立国会図書館デジタルコレクション|2688651/79|format=NDLJP}} }}</ref>。
+* [[1972年]]（昭和47年）
+** [[6月20日]]：第22回国幹審において、函館 - 室蘭間（延長：166km、事業費：1,820億円、連結地：函館市 [[大野町 (北海道)|大野町]] [[七飯町]] [[森町 (北海道)|森町]] [[八雲町]] [[長万部町]] [[豊浦町]] [[虻田町]] [[伊達市 (北海道)|伊達市]] 付近）の基本計画と、登別 - 苫小牧間（延長：49km、事業費：450億円、連結地：登別市2箇所 白老町）の整備計画が策定。整備計画区間については同日施行命令が交付<ref>{{Cite journal| 和書| author=建設省道路局高速国道課| date=1972-08| title=高速自動車国道の新規計画| journal=道路| publisher=日本道路協会| volume=378| pages=39–44| issn=0012-5571| doi=10.11501/3309056| id={{国立国会図書館デジタルコレクション|3309056/23|format=NDLJP}} }}</ref>。
+** [[6月30日]]：高速自動車国道の路線を指定する政令（第7次改正）において、北海道縦貫自動車道室蘭旭川線に代わり、北海道縦貫自動車道函館旭川線（起点：函館市、終点：旭川市、重要な経過地：北海道[[茅部郡]]森町 同道[[山越郡]]長万部町 伊達市 室蘭市 登別市 苫小牧市 千歳市 恵庭市 札幌市 江別市 岩見沢市 三笠市 美唄市 砂川市 滝川市 深川市）が高速自動車国道の路線として指定される。
+** [[9月19日]]：千歳IC - 北広島IC間が4車線化<ref>{{Cite journal| 和書| date=1972-11| title=土木日誌| journal=土木施工| publisher=オフィス・スペース| volume=13| issue=12| page=95| issn=0387-0790| doi=10.11501/3308292| id={{国立国会図書館デジタルコレクション|3308292/71|format=NDLJP}} }}</ref>。
+** [[10月17日]]：苫小牧東 - 千歳間（11.9km）の路線発表{{Sfn|中村直衛|1975|p=4}}。
+* [[1973年]]（昭和48年）
+** [[4月20日]]：北広島 - 札幌間の路線発表{{Sfn|開発行政懇話会|1979|p=41}}{{Sfn|三和久勝|酒井康雄|1984|p=75}}。
+** [[10月19日]]：第23回国幹審において、旭川 - 名寄間（延長：68km、連結地：[[和寒町]] [[士別市]] [[名寄市]] 付近）の基本計画と、岩見沢 - 旭川間（延長：92km、事業費：1,120億円、連結地：美唄市 [[奈井江町]] 滝川市 深川市 旭川市）の整備計画が策定。整備計画区間については同日施行命令が交付<ref>{{Cite journal| 和書| author=建設省道路局高速国道課| date=1974-01| title=高速自動車国道の新規計画| journal=道路| publisher=日本道路協会| volume=395| pages=18–23| issn=0012-5571| doi=10.11501/3309073| id={{国立国会図書館デジタルコレクション|3309073/14|format=NDLJP}} }}</ref>。
+** [[11月1日]]：旭川 - 名寄間の基本計画が告示。
+* [[1974年]]（昭和49年）
+** [[6月20日]]：札幌 - 岩見沢間の路線発表{{Sfn|開発行政懇話会|1979|p=41}}{{Sfn|三和久勝|酒井康雄|1984|p=75}}{{Sfn|中村直衛|1975|p=14}}。
+* [[1976年]]（昭和51年）
+** [[3月30日]]：登別 - 苫小牧東間の路線発表{{Sfn|札幌建設局|1978|p=359}}{{Sfn|三和久勝|1984|p=66}}{{Sfn|三和久勝|酒井康雄|1984|p=75}}。
+** [[7月20日]]：第24回国幹審において、江別東IC・三笠IC（いずれも仮称）の追加により既存整備計画の一部を変更<ref>{{Cite journal| 和書| author=荒川正一| date=1976-10| title=高速自動車国道の整備計画等の一部変更| journal=道路| publisher=日本道路協会| issue=428| pages=9–12| issn=0012-5571| doi=10.11501/3309106| id={{国立国会図書館デジタルコレクション|3309106/6|format=NDLJP}} }}</ref>。
+* [[1978年]]（昭和53年）
+** [[3月17日]]：江別東IC・三笠ICの施行命令が交付<ref>{{Cite book| 和書| author=日本道路公団| date=1978-08| title=日本道路公団年報 : 事業の概要と道路統計 昭和52年度| publisher=日本道路公団| doi=10.11501/11953874| page=9| id={{国立国会図書館デジタルコレクション|11953874/9|format=NDLJP}} }}</ref>。
+** [[4月28日]]：岩見沢 - 滝川間（46.9km）の路線発表{{Sfn|三和久勝|酒井康雄|1984|p=75}}<ref>{{Cite book| 和書| author=日本道路公団| date=1979-09| title=日本道路公団年報 : 事業の概要と道路統計 昭和54年| publisher=日本道路公団| doi=10.11501/11953870| page=7| id={{国立国会図書館デジタルコレクション|11953870/8|format=NDLJP}} }}</ref>。
+** [[10月24日]]：[[苫小牧東インターチェンジ|苫小牧東IC]] - 千歳IC間（11.6km、4車線、事業費111億円）が開通<ref name="hokkaido-np-1978-10-21">{{Cite news |和書 |title=道縦貫自動車道 千歳－苫小牧間が完成 |date=1978-10-21 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1978-11| title=国内ニュース：中国道（北房～三次）などが開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=21| issue=11| pages=71–72| issn=0287-2587| doi=10.11501/2688733| id={{国立国会図書館デジタルコレクション|2688733/44|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| date=1978-11| title=道路関係ニュース：北海道縦貫自動車道苫小牧東～千歳間開通| journal=道路| publisher=日本道路協会| issue=453| page=93| issn=0012-5571| doi=10.11501/3309131| id={{国立国会図書館デジタルコレクション|3309131/48|format=NDLJP}} }}</ref>。
+** [[11月6日]]：高速自動車国道の路線を指定する政令（第8次改正）において、北海道縦貫自動車道函館旭川線に代わり、北海道縦貫自動車道函館名寄線（起点：函館市、終点：名寄市、重要な経過地：北海道茅部郡森町 同道山越郡長万部町 伊達市 室蘭市 登別市 苫小牧市 千歳市 恵庭市 札幌市 江別市 岩見沢市 三笠市 美唄市 砂川市 滝川市 深川市 旭川市 士別市）が高速自動車国道の路線として指定される。
+** [[11月21日]]：第25回国幹審において、虻田 - 登別間（延長：34km、事業費：740億円、連結地：虻田町 伊達市 室蘭市）の整備計画が策定。同日施行命令が交付<ref>{{Cite journal| 和書| date=1979-01| title=道路関係ニュース：国土開発幹線自動車道建設審議会開催| journal=道路| publisher=日本道路協会| issue=455| page=89| issn=0012-5571| doi=10.11501/3309133| id={{国立国会図書館デジタルコレクション|3309133/89|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| author=市川義博| date=1979-02| title=高速自動車国道新規整備計画の概要| journal=道路| publisher=日本道路協会| issue=456| pages=54–60| issn=0012-5571| doi=10.11501/3309134| id={{国立国会図書館デジタルコレクション|3309134/31|format=NDLJP}} }}</ref>。
+* [[1979年]]（昭和54年）[[10月29日]]：北広島IC - [[札幌南インターチェンジ|札幌南IC]]間（5.0km、4車線、事業費93億円）が開通<ref name="hokkaido-np-1979-10-29">{{Cite news |和書 |title=北広島－札幌南が開通 |date=1979-10-29 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1979-11| title=国内ニュース：高速道路延長2,500キロを突破 ——東北道など3道路4区間が開通——| journal=高速道路と自動車| publisher=高速道路調査会| volume=22| issue=11| page=73| issn=0287-2587| doi=10.11501/2688745| id={{国立国会図書館デジタルコレクション|2688745/45|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| date=1979-12| title=道路関係ニュース：道央自動車道の北広島～札幌南間および中央自動車道の小牧東IC開通| journal=道路| publisher=日本道路協会| issue=466| page=81| issn=0012-5571| doi=10.11501/3309144| id={{国立国会図書館デジタルコレクション|3309144/42|format=NDLJP}} }}</ref>。
+* [[1980年]]（昭和55年）
+** [[9月24日]]：滝川 - 鷹栖間（43.5km）の路線発表{{Sfn|三和久勝|酒井康雄|1984|p=75}}<ref>{{Cite book| 和書| author=日本道路公団| date=1981-09| title=日本道路公団年報 : 事業の概要と道路統計 昭和56年| publisher=日本道路公団| doi=10.11501/11953933| page=8| id={{国立国会図書館デジタルコレクション|11953933/9|format=NDLJP}} }}</ref>。
+** [[10月29日]]：[[苫小牧西インターチェンジ|苫小牧西IC]] - 苫小牧東IC間（17.6km、4車線、事業費294億円）が開通<ref name="hokkaido-np-1980-10-29">{{Cite news |和書 |title=華やかに開通式 道央自動車道苫小牧東－西 100台がパレード |date=1980-10-29 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1980-11| title=国内ニュース：中国道，東北道など4道路4区間が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=23| issue=11| pages=76–77| issn=0287-2587| doi=10.11501/2688757| id={{国立国会図書館デジタルコレクション|2688757/47|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| date=1980-11| title=道路関係ニュース：道央自動車道（苫小牧西～苫小牧東）および東北自動車道（碇ヶ関～大鰐弘前）開通| journal=道路| publisher=日本道路協会| issue=477| pages=100–101| issn=0012-5571| doi=10.11501/3309155| id={{国立国会図書館デジタルコレクション|3309155/53|format=NDLJP}} }}</ref>。
+* [[1983年]]（昭和58年）
+** [[3月12日]]：虻田 - 登別間（31.9km）の路線発表{{Sfn|三和久勝|酒井康雄|1984|p=75}}{{Sfn|三和久勝|1984|p=66}}。
+** [[11月9日]]：[[札幌インターチェンジ|札幌IC]] - [[岩見沢インターチェンジ|岩見沢IC]]間（31.9km、4車線、事業費1,434億円）が開通<ref name="hokkaido-np-1983-11-9">{{Cite news |和書 |title=ハイウエー北海道幕開け 札幌－岩見沢31・9キロが開通 今月末には白老まで直通 |date=1983-11-9 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref name="高速道路調査会1983">{{Cite journal| 和書| date=1983-12| title=国内ニュース：北陸道米山～上越，道央道札幌～岩見沢，白老～苫小牧西が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=26| issue=12| pages=84–85| issn=0287-2587| doi=10.11501/2688794| id={{国立国会図書館デジタルコレクション|2688794/49|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| date=1984-02| title=道路関係ニュース：道央自動車道札幌～岩見沢間開通| journal=道路| publisher=日本道路協会| issue=516| page=91| issn=0012-5571| doi=10.11501/3309194| id={{国立国会図書館デジタルコレクション|3309194/50|format=NDLJP}} }}</ref>。
+** [[11月30日]]：[[白老インターチェンジ|白老IC]] - 苫小牧西IC間（15.8km、4車線、事業費397億円）が開通<ref name="高速道路調査会1983" /><ref name="hokkaido-np-1983-11-30">{{Cite news |和書 |title=札幌－白老 1時間時代に 道央自動車道 苫西－白老間が開通 |date=1983-11-30 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref>。
+* [[1985年]]（昭和60年）
+** [[10月18日]]：[[登別東インターチェンジ|登別東IC]] - 白老IC間（18.6km、4車線、事業費503億円）が開通<ref name="hokkaido-np-1985-10-18">{{Cite news |和書 |title=道縦貫道 登別東 白老18.6キロ 期待集めて華やか開通 |date=1985-10-18 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref name="高速道路調査会1985">{{Cite journal| 和書| date=1985-11| title=国内ニュース：道央自動車道登別東～白老，札幌南～札幌が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=28| issue=11| pages=80–81| issn=0287-2587| doi=10.11501/2688817| id={{国立国会図書館デジタルコレクション|2688817/48|format=NDLJP}} }}</ref>
+** [[10月25日]]：札幌南IC - 札幌IC間（7.9km、4車線、事業費467億円）が開通<ref name="hokkaido-np-1985-10-25">{{Cite news |和書 |title=岩見沢－登別ノンストップ 道央自動車道 札幌南－札幌 華やかに開通式 |date=1985-10-25 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref name="高速道路調査会1985" />。
+* [[1986年]]（昭和61年）
+** [[1月21日]]：第27回国幹審において、長万部 - 虻田間（延長：49km、事業費：940億円）の整備計画が策定<ref>{{Cite journal| 和書| author=中島英輔| date=1986-03| title=第27回国土開発幹線自動車道建設審議会について| journal=高速道路と自動車| publisher=高速道路調査会| volume=29| issue=3| pages=49–54| issn=0287-2587| doi=10.11501/2688821| id={{国立国会図書館デジタルコレクション|2688821/30|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| author=建設省道路局高速国道課| date=1986-04| title=第27回国土開発幹線自動車道建設審議会について| journal=道路| publisher=日本道路協会| issue=542| pages=85–91| issn=0012-5571| doi=10.11501/3309220| id={{国立国会図書館デジタルコレクション|3309220/44|format=NDLJP}} }}</ref>。
+** [[10月9日]]：[[登別室蘭インターチェンジ|登別室蘭IC]] - 登別東IC間（11.4km、4車線、事業費434億円）が開通<ref>{{Cite journal| 和書| date=1986-11| title=国内ニュース：道央自動車道登別室蘭～登別東間が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=29| issue=11| page=88| issn=0287-2587| doi=10.11501/2688829| id={{国立国会図書館デジタルコレクション|2688829/51|format=NDLJP}} }}</ref>。
+* [[1987年]]（昭和62年）[[9月18日]]：岩見沢IC - [[美唄インターチェンジ|美唄IC]]間（21.2km、4車線、事業費484億円）が開通。三笠IC及び美唄ICに、全国に先駆けて自動発券機を設置<ref name="hokkaido-np-1987-9-18">{{Cite news |和書 |title=出来秋貫き21.2キロ 岩見沢－美唄 高速道が開通 |date=1987-9-18 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1987-10| title=国内ニュース：道央自動車道岩見沢〜美唄間が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=30| issue=10| pages=92–93| issn=0287-2587| doi=10.11501/2688840| id={{国立国会図書館デジタルコレクション|2688840/53|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| date=1987-11| title=高速道路供用延長4,000km突破| journal=土木技術| publisher=土木技術社| volume=42| issue=11| pages=78–82| doi=10.11501/3228227| id={{国立国会図書館デジタルコレクション|3228227/41|format=NDLJP}} }}</ref>。
+* [[1988年]]（昭和63年）
+** [[10月8日]]：美唄IC - [[滝川インターチェンジ|滝川IC]]間（27.6km、4車線、事業費625億円）が開通<ref name="hokkaido-np-1988-10-8">{{Cite news |和書 |title=お待たせ 新ルート開通 |date=1988-10-8 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1988-11| title=国内ニュース：道央自動車道美唄～滝川間が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=31| issue=11| pages=75–76| issn=0287-2587| doi=10.11501/2688853| id={{国立国会図書館デジタルコレクション|2688853/45|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| date=1988-11| title=道路関係ニュース：北海道縦貫自動車道美唄～滝川間開通| journal=道路| publisher=日本道路協会| issue=573| page=90| issn=0012-5571| doi=10.11501/3309251| id={{国立国会図書館デジタルコレクション|3309251/49|format=NDLJP}} }}</ref>。
+** [[11月11日]]：長万部 - 虻田間の施行命令が交付<ref name="日本道路公団1997-08-05" />。
+** [[12月21日]]：長万部 - 虻田間（49.5km）の路線発表<ref name="日本道路公団1997-08-05" /><ref>{{Cite news |和書 |title=長万部－虻田　千歳－夕張など自動車道ルートを発表。６７、６８年に着工、７０年代初めに供用 |date=1988-12-22 |newspaper=北海道新聞| edition=朝刊| page=4| url=https://db.hokkaido-np.co.jp/article_detail?kijiid=881222M40085}}</ref>。
+* [[1989年]]（[[平成]]元年）
+** [[1月31日]]：第28回国幹審において、七飯 - 長万部間（延長：89km、連結地：七飯町 森町2箇所 八雲町2箇所 長万部町）、鷹栖 - 士別間（延長：45km、連結地：旭川市 比布町 和寒町 士別市）の整備計画が策定<ref>{{Cite news |和書 |title=高速道路、整備計画区間に道内から一気に４ルートが昇格－国幹審決定。４、５年後に着工が確実 |date=1989-02-01 |newspaper=北海道新聞| edition=朝刊| page=1| url=https://db.hokkaido-np.co.jp/article_detail?kijiid=890201M10128}}</ref><ref>{{Cite journal| 和書| author=建設省道路局高速国道課| date=1989-02| title=第28回国土開発幹線自動車道建設審議会について| journal=道路| publisher=日本道路協会| issue=576| pages=76–79| issn=0012-5571| doi=10.11501/3309254| id={{国立国会図書館デジタルコレクション|3309254/43|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| author=井上啓一| date=1989-03| title=第28回国土開発幹線自動車道建設審議会| journal=高速道路と自動車| publisher=高速道路調査会| volume=32| issue=3| pages=31–33| issn=0287-2587| doi=10.11501/2688857| id={{国立国会図書館デジタルコレクション|2688857/21|format=NDLJP}} }}</ref>。
+** [[3月29日]]：鷹栖 - 士別間の整備計画が決定。
+** [[9月12日]]：滝川IC - [[深川インターチェンジ|深川IC]]間（17.9km、4車線、事業費273億円）が開通<ref>{{Cite journal| 和書| date=1989-08| title=国内ニュース：道央自動車道滝川～深川が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=32| issue=8| pages=72–73| issn=0287-2587| doi=10.11501/2688862| id={{国立国会図書館デジタルコレクション|2688862/43|format=NDLJP}} }}</ref>。
+* [[1990年]]（平成2年）
+** [[10月30日]]：深川IC - [[旭川鷹栖インターチェンジ|旭川鷹栖IC]]間（27.2km、暫定2車線、事業費666億円）が開通<ref name="hokkaido-np-1990-10-30">{{Cite news |和書 |title=深川－旭川鷹栖間が開通 道央自動車道 「道北」と札幌直結 |date=1990-10-30 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1990-11| title=国内ニュース：道央自動車道 深川～旭川鷹栖 が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=33| issue=11| pages=90–91| issn=0287-2587| doi=10.11501/2688877| id={{国立国会図書館デジタルコレクション|2688877/52|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| date=1990-11| title=道路関係ニュース：北海道縦貫自動車道深川～旭川鷹栖の開通| journal=道路| publisher=日本道路協会| issue=597| page=80| issn=0012-5571| doi=10.11501/3309275| id={{国立国会図書館デジタルコレクション|3309275/42|format=NDLJP}} }}</ref>。
+** [[12月6日]]：鷹栖 - 和寒間の施行命令が交付<ref name="日本道路公団2000-07-07" />。
+* [[1991年]]（平成3年）
+** [[4月26日]]：[[砂川サービスエリア|砂川SA]]に全国で2番目、北海道内で初の[[ハイウェイオアシス]]が開設<ref name="hokkaido-np-1991-4-26">“高速道路、UターンOK－全国初、砂川サービスエリアで”. [[北海道新聞]] (北海道新聞社). (1991年4月26日)</ref><ref name="hokkaido-np-1991-4-30">{{Cite news |和書 |title=砂川のハイウェイ・オアシスが完成－子どもの国と直結祝う |date=1991-4-30 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1991-06| title=国内ニュース：道央自動車道に“砂川ハイウェイ・オアシス”が開設| journal=高速道路と自動車| publisher=高速道路調査会| volume=34| issue=6| pages=80–81| issn=0287-2587| doi=10.11501/2688884| id={{国立国会図書館デジタルコレクション|2688884/47|format=NDLJP}} }}</ref>
+** [[10月25日]]：[[室蘭インターチェンジ|室蘭IC]] - 登別室蘭IC間（9.6km、暫定2車線、事業費262億円）が開通<ref name="hokkaido-np-1991-10-25">{{Cite news |和書 |title=道央圏の動脈充実－道央自動車道、登別室蘭～室蘭間が開通。9.6キロ、暫定2車線で |date=1991-10-25 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1991-11| title=国内ニュース：道央自動車道 室蘭～登別室蘭が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=34| issue=11| page=73| issn=0287-2587| doi=10.11501/2688889| id={{国立国会図書館デジタルコレクション|2688889/44|format=NDLJP}} }}</ref>。
+** [[12月3日]]：第29回国幹審において、士別 - 名寄間（延長：23km）の整備計画が策定<ref>{{Cite news |和書 |title=幹線自動車道、整備計画に道内３区間。士別～名寄、阿寒～釧路市、訓子府～北見－国幹審決定、基本計画４区間も |date=1991-12-03 |newspaper=北海道新聞| edition=夕刊| page=1| url=https://db.hokkaido-np.co.jp/article_detail?kijiid=911203E10187}}</ref><ref>{{Cite journal| 和書| author=建設省道路局高速国道課| date=1992-01| title=第29回国土開発幹線自動車道建設審議会の概要| journal=道路| publisher=日本道路協会| issue=611| pages=32–37| issn=0012-5571| doi=10.11501/3309289| id={{国立国会図書館デジタルコレクション|3309289/22|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| author=久保田荘一| date=1992-02| title=第29回国土開発幹線自動車道建設審議会の概要| journal=高速道路と自動車| publisher=高速道路調査会| volume=35| issue=2| pages=45–49| issn=0287-2587| doi=10.11501/2688892| id={{国立国会図書館デジタルコレクション|2688892/28|format=NDLJP}} }}</ref>。
+* [[1992年]]（平成4年）
+** [[3月17日]]：千歳IC - 恵庭IC間上り線（苫小牧方向）で[[関係車両186台による多重事故]]が発生<ref>{{Cite journal| 和書| date=1992-04| title=史上最大の道央高速多重事故を探る！| journal=シグナル| publisher=シグナル| volume=22| issue=4| pages=2–16| doi=10.11501/2885938| id={{国立国会図書館デジタルコレクション|2885938/3|format=NDLJP}} }}</ref><ref>{{Cite web|和書|url=http://www.e-nexco.co.jp/pressroom/press_release/hokkaido/h19/0314/pdfs/siryo.pdf |title=“ノーモア”多重事故 |format=PDF |publisher=[[東日本高速道路北海道支社]] 北海道警察本部 [[高速道路交通警察隊]] |access-date=2014-09-09|archiveurl=https://web.archive.org/web/20160304101655/http://www.e-nexco.co.jp/pressroom/press_release/hokkaido/h19/0314/pdfs/siryo.pdf|archivedate=2016-03-04}}</ref>。
+** [[9月30日]]：[[札樽自動車道]] [[札幌西インターチェンジ|札幌西IC]] - [[札幌ジャンクション|札幌JCT]]間開通により、札幌JCTで札樽自動車道と接続<ref name="hokkaido-np-1992-9-27">{{Cite news |和書 |title=視角触角 本道高速道延長300キロに。「札樽」「道央」3日後にドッキング－観光、物流は歓迎。未開通地域はいらだちも |date=1992-9-27 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1992-11| title=国内ニュース：札樽自動車道 札幌西～札幌JCT が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=35| issue=11| pages=92–93| issn=0287-2587| doi=10.11501/2688901| id={{国立国会図書館デジタルコレクション|2688901/55|format=NDLJP}} }}</ref>。
+** [[10月27日]]：[[伊達インターチェンジ|伊達IC]] - 室蘭IC間（12.9km、暫定2車線、事業費284億円）が開通<ref name="hokkaido-np-1992-10-27">{{Cite news |和書 |title=道央道、室蘭～伊達間が開通－暫定2車線、12・9キロ。西胆振観光地と札幌、旭川が直結 |date=1992-10-27 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1992-11| title=国内ニュース：道央自動車道 伊達～室蘭 が開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=35| issue=11| page=93| issn=0287-2587| doi=10.11501/2688901| id={{国立国会図書館デジタルコレクション|2688901/55|format=NDLJP}} }}</ref>。
+* [[1993年]]（平成5年）
+** [[2月8日]]：鷹栖 - 和寒間（29.9km）の路線発表{{Sfn|開発行政懇話会|1997|p=77}}。
+** [[6月12日]]：長万部 - 虻田間の工事開始<ref name="日本道路公団1997-08-05" />。
+** [[11月19日]]：七飯 - 長万部間、和寒 - 名寄間の施行命令が交付<ref>{{Cite journal| 和書| date=1994-01| title=国内ニュース：高速自動車国道の施行命令| journal=高速道路と自動車| publisher=高速道路調査会| volume=37| issue=1| pages=76–80| issn=0287-2587| doi=10.11501/2688915| id={{国立国会図書館デジタルコレクション|2688915/46|format=NDLJP}} }}</ref><ref name="日本道路公団2001-09-12" />。
+* [[1994年]]（平成6年）
+** [[3月30日]]：[[虻田洞爺湖インターチェンジ|虻田洞爺湖IC]] - 伊達IC間（11.3km、暫定2車線、事業費311億円）が開通<ref name="hokkaido-np-1994-3-30">{{Cite news |和書 |title=胆振の観光 より身近に 道央道の伊達－虻田洞爺湖開通 |date=1994-3-30 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1994-04| title=国内ニュース：道央自動車道 虻田洞爺湖～伊達 の開通| journal=高速道路と自動車| publisher=高速道路調査会| volume=37| issue=4| pages=100–101| issn=0287-2587| doi=10.11501/2688918| id={{国立国会図書館デジタルコレクション|2688918/57|format=NDLJP}} }}</ref>。
+** [[5月31日]]：国縫 - 長万部間の路線発表<ref name="日本道路公団2001-09-12" />。
+* [[1995年]]（平成7年）[[8月29日]]：鷹栖 - 和寒間の工事開始<ref name="日本道路公団2000-07-07" />。
+* [[1996年]]（平成8年）[[12月27日]]：第30回国幹審において、国縫IC（仮称）の追加により既存整備計画の一部を変更<ref>{{Cite journal| 和書| author=建設省道路局高速国道課| date=1997-02| title=第30回国土開発幹線自動車道建設審議会について| journal=高速道路と自動車| publisher=高速道路調査会| volume=40| issue=2| pages=32–37| issn=0287-2587| doi=10.11501/2688952| id={{国立国会図書館デジタルコレクション|2688952/22|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| author=近藤清久| date=1997-02| title=第30回国土開発幹線自動車道建設審議会について| journal=道路| publisher=日本道路協会| issue=672| pages=71–76| issn=0012-5571| doi=10.11501/3309350| id={{国立国会図書館デジタルコレクション|3309350/40|format=NDLJP}} }}</ref>。
+* [[1997年]]（平成9年）
+** [[5月31日]]：国縫 - 長万部間の工事開始<ref name="日本道路公団2001-09-12" />。
+** [[10月22日]]：[[長万部インターチェンジ|長万部IC]] - 虻田洞爺湖IC間（49.3km、暫定2車線、事業費1,097億円）が開通<ref name="日本道路公団1997-08-05">{{Cite press release| 和書| publisher=日本道路公団| date=1997-08-05| title=道央自動車道（虻田洞爺湖～長万部）の開通について| url=http://www.japan-highway.go.jp/network/hw/p11.html| archive-url=https://web.archive.org/web/19971010204248/http://www.japan-highway.go.jp/network/hw/p11.html| archive-date=1997-10-10| access-date=2026-09-28}}</ref><ref name="hokkaido-np-1997-10-22">{{Cite news |和書 |title=長万部ICが開通 道央自動車道、道南へ |date=1997-10-22 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref><ref>{{Cite journal| 和書| date=1997-12| title=時・時・時| journal=道路行政セミナー| publisher=道路広報センター| volume=8| issue=9| page=54| doi=10.11501/3313931| id={{国立国会図書館デジタルコレクション|3313931/29|format=NDLJP}} }}</ref>。
+* [[1998年]]（平成10年）
+** [[3月23日]]：[[日高自動車道]]（苫東道路） 苫小牧東IC - [[沼ノ端西インターチェンジ|沼ノ端西IC]]間開通により、苫小牧東ICで日高自動車道と接続<ref>{{Cite press release| 和書| publisher=日本道路公団| date=1998-02-06| title=日高自動車道［苫東道路］（苫小牧東～沼ノ端西）の開通について| url=http://www.japan-highway.go.jp/network/hw/p32.html| archive-url=https://web.archive.org/web/19981202071227/http://www.japan-highway.go.jp/network/hw/p32.html| archive-date=1998-12-02| access-date=2026-09-28}}</ref>。
+** [[4月11日]]：[[深川留萌自動車道]]（深川沼田道路） [[深川ジャンクション|深川JCT]] - [[深川西インターチェンジ|深川西IC]]間開通により、深川JCTが供用<ref>{{Cite press release| 和書| publisher=日本道路公団| date=1998-02-06| title=深川留萌自動車道［深川沼田道路］（深川ＪＣＴ～深川西） の開通について| url=http://www.japan-highway.go.jp/network/hw/p31.html| archive-url=https://web.archive.org/web/19981202013447/http://www.japan-highway.go.jp/network/hw/p31.html| archive-date=1998-12-02| access-date=2026-09-28}}</ref><ref name="hokkaido-np-1998-4-11">{{Cite news |和書 |title=深川留萌道 深川－深川西が開通 4.4キロ暫定片側1車線 |date=1998-4-11 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref>。
+** [[12月25日]]：第31回国幹審において、深川 - 旭川鷹栖間（延長：27km、事業費：420億円）の4車線化整備計画が策定<ref>{{Cite journal| 和書| author=道路局高速国道課| date=1999-01| title=21世紀社会に向けた高速自動車国道の整備 ——第三一回国幹審の開催と高速自動車国道の施行命令等について——| journal=道路行政セミナー| publisher=道路広報センター| volume=9| issue=10| pages=19–27| doi=10.11501/3313944| id={{国立国会図書館デジタルコレクション|3313944/12|format=NDLJP}} }}</ref><ref>{{Cite journal| 和書| author=建設省道路局高速国道課| date=1999-02| title=21世紀社会に向けた高速自動車国道の整備 ——第31回国幹審の開催と高速自動車国道の施行命令等について——| journal=建設月報| publisher=建設広報協議会| volume=52| issue=2| pages=16–19| issn=0917-1304| doi=10.11501/3361743| id={{国立国会図書館デジタルコレクション|3361743/10|format=NDLJP}} }}</ref>。
+* [[1999年]]（平成11年）
+** [[1月8日]]：深川IC - 音江PA間の4車線化事業着手<ref name="日本道路公団2001-09-12" />。
+** [[3月25日]]：深川IC - 音江PA間の4車線化工事開始<ref name="日本道路公団2001-09-12" />。
+** [[10月7日]]：[[道東自動車道]] [[千歳恵庭ジャンクション|千歳恵庭JCT]] - [[夕張インターチェンジ|夕張IC]]間開通により、千歳恵庭JCTが供用<ref>{{Cite press release| 和書| publisher=日本道路公団| date=1999-07-30| title=道東自動車道（千歳恵庭ＪＣＴ～夕張）の開通について| url=http://www.japan-highway.go.jp/press/rel/1999/07/19990730b.html| archive-url=https://web.archive.org/web/20010210233232/http://www.japan-highway.go.jp/press/rel/1999/07/19990730b.html| archive-date=2001-02-10| access-date=2026-09-28}}</ref><ref>{{Cite journal| 和書| date=1999-10| title=道東自動車道 千歳恵庭JCT～夕張間が開通| journal=道路建設| publisher=日本道路建設業協会| issue=621| page=64| doi=10.11501/3309967| id={{国立国会図書館デジタルコレクション|3309967/36|format=NDLJP}} }}</ref>。
+** [[10月19日]]：音江PA - 旭川鷹栖IC間のうち深川市納内町内の区間（4.6km）が4車線化<ref group="注">対象区間の下り線には登坂車線があり既に片側2車線となっていたが、上り線も片側2車線化された。</ref><ref>{{Cite news |和書 |title=道央道　深川－旭川鷹栖４車線化　一部完成区間を公開 |date=1999-10-15 |newspaper=北海道新聞| edition=朝刊 地方（旭川・上川）| page=27| url=https://db.hokkaido-np.co.jp/article_detail?kijiid=19991015J1HCMATE100030}}</ref><ref>{{Cite news |和書 |title=深川－鷹栖の一部 １９日から４車線化　道央道 |date=1999-10-15 |newspaper=北海道新聞| edition=朝刊| page=31| url=https://db.hokkaido-np.co.jp/article_detail?kijiid=19991015J1HAMMCG010090}}</ref>。
+** [[11月12日]]：札幌南ICの上り線出口（小樽・旭川方面からの出口）が供用<ref>{{Cite journal| 和書| author=元重浩| date=2000-04| title=北の渋滞解消を目指して| journal=ハイウェイ技術| editor=日本道路公団試験研究所技術情報課| publisher=日本道路公団試験研究所| issue=16| page=209| doi=10.11501/3331860| id={{国立国会図書館デジタルコレクション|3331860/106|format=NDLJP}} }}</ref>。
+* [[2000年]]（平成12年）
+** [[3月29日]]：[[有珠山]]に噴火の恐れが高まったため、豊浦IC - 伊達IC間が通行止。
+** [[7月13日]]：豊浦町内の虻田洞爺湖仮出入口が供用され、豊浦IC - 虻田洞爺湖仮出入口間（8.0km）の通行止解除<ref>{{Cite press release| 和書| publisher=日本道路公団北海道支社| date=2000-07-14| title=道央自動車道"虻田洞爺湖仮出入口"の完成について| url=http://www.japan-highway.go.jp/hokkaido/topics/information04.htm| archive-url=https://web.archive.org/web/20010701134736/http://www.japan-highway.go.jp/hokkaido/topics/information04.htm| archive-date=2001-07-01| access-date=2026-09-28}}</ref><ref>{{Cite journal| 和書| date=2000-08| title=時・時・時| journal=道路行政セミナー| publisher=道路広報センター| volume=11| issue=5| page=76| doi=10.11501/3313963| id={{国立国会図書館デジタルコレクション|3313963/40|format=NDLJP}} }}</ref>。
+** [[10月4日]]：旭川鷹栖IC - [[和寒インターチェンジ|和寒IC]]間（29.3km、暫定2車線、事業費520億円）が開通<ref name="日本道路公団2000-07-07">{{Cite press release| 和書| publisher=日本道路公団| date=2000-07-07| title=道央自動車道（旭川鷹栖IC～和寒IC）の開通について| url=http://www.japan-highway.go.jp/press/rel/2000/07/07-2/index.html| archive-url=https://web.archive.org/web/20001203063300/http://www.japan-highway.go.jp/press/rel/2000/07/07-2/index.html| archive-date=2000-12-03| access-date=2026-09-28}}</ref><ref>{{Cite press release| 和書| publisher=日本道路公団北海道支社| date=2000-10-04| title=道央自動車道（旭川鷹栖IC～和寒IC）の開通について| url=http://www.jhnet.go.jp/hokkaido/topics/10.4kaitu2.htm| archive-url=https://web.archive.org/web/20011230102523/http://www.jhnet.go.jp/hokkaido/topics/10.4kaitu2.htm| archive-date=2001-12-30| access-date=2026-09-28}}</ref><ref name="hokkaido-np-2000-10-4">{{Cite news |和書 |title=道縦貫道 旭川鷹栖－和寒が開通 29.3キロ、暫定2車線で |date=2000-10-4 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref>。
+* [[2001年]]（平成13年）
+** [[2月9日]]：虻田洞爺湖IC - 伊達IC間（11.3km）の通行止解除<ref>{{Cite press release| 和書| publisher=日本道路公団北海道支社| date=2001-02-01| title=道央自動車道の一部区間が開通| url=http://www.jhnet.go.jp/hokkaido/topics/2.1abuta-datekaitu.htm| archive-url=https://web.archive.org/web/20011230104308/http://www.jhnet.go.jp/hokkaido/topics/2.1abuta-datekaitu.htm| archive-date=2001-12-30| access-date=2026-09-28}}</ref>。
+** [[4月18日]]：札幌南ICの下り出口が300m南側に移設<ref>{{Cite press release| 和書| publisher=日本道路公団北海道支社| date=2001-04-05| title=札幌南インターチェンジ札幌方向出口の移設について| url=http://www.jhnet.go.jp/hokkaido/topics-h13/4.5satunanisetu.htm| archive-url=https://web.archive.org/web/20020217202511/http://www.jhnet.go.jp/hokkaido/topics-h13/4.5satunanisetu.htm| archive-date=2002-02-17| access-date=2026-09-28}}</ref>。
+** [[6月30日]]：虻田洞爺湖仮出入口 - 虻田洞爺湖IC間（7.5km）の通行止解除に伴い、虻田洞爺湖仮出入口と豊浦本線料金所を廃止<ref>{{Cite press release| 和書| publisher=日本道路公団| date=2001-06-15| title=有珠山噴火災害に伴う道央自動車道の通行止め区間（虻田洞爺湖仮出入口～虻田洞爺湖インターチェンジ）の復旧について| url=http://www.jhnet.go.jp/press/rel/2001/06/15/index.html| archive-url=https://web.archive.org/web/20020602132644/http://www.jhnet.go.jp/press/rel/2001/06/15/index.html| archive-date=2002-06-02| access-date=2026-09-28}}</ref><ref name="hokkaido-np-2001-6-30">{{Cite news |和書 |title=道央道が全線開通 有珠噴火から15カ月ぶり 虻田 |date=2001-6-30 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref>。
+** [[9月10日]]：札幌南ICの下り線入口（小樽・旭川方面への入口）が供用<ref>{{Cite press release| 和書| publisher=日本道路公団北海道支社| date=2001-08-30| title=札幌南インターチェンジ　旭川・小樽方向への新しい入口が開通| url=http://www.jhnet.go.jp/hokkaido/topics-h13/8.30satunanirigutikansei.htm| archive-url=https://web.archive.org/web/20011202021859/http://www.jhnet.go.jp/hokkaido/topics-h13/8.30satunanirigutikansei.htm| archive-date=2001-12-02| access-date=2026-09-28}}</ref><ref name="hokkaido-np-2001-8-19">{{Cite news |和書 |title=改修中の札幌南インター 来月10日全面供用 小樽・旭川方面へ入り口 |date=2001-8-19 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref>。
+** [[10月5日]]：旭川鷹栖IC - 深川IC間のうち江丹別工区（3.5km）が4車線化<ref>{{Cite news |和書 |title=道央道　旭川鷹栖－深川の一部　きょうから４車線に |date=2001-10-05 |newspaper=北海道新聞| edition=朝刊 地方（旭川・上川）| page=21| url=https://db.hokkaido-np.co.jp/article_detail?kijiid=20011005J1HCMAB0000060}}</ref>。
+** [[10月17日]]：深川IC - 音江PA間（暫定2車線区間4.8km、事業費25億円）、音江PA - 旭川鷹栖ICのうち納内工区（4.8km）が4車線化<ref name="日本道路公団2001-09-12">{{Cite press release| 和書| publisher=日本道路公団| date=2001-09-12| title=道央自動車道国縫インターチェンジ～長万部インターチェンジの開通及び深川インターチェンジ～音江パーキングエリアの４車線化工事の完成について| url=http://www.jhnet.go.jp/press/rel/2001/09/12/index.html| archive-url=https://web.archive.org/web/20020210092005/http://www.jhnet.go.jp/press/rel/2001/09/12/index.html| archive-date=2002-02-10| access-date=2026-09-28}}</ref><ref>{{Cite news |和書 |title=道央道深川－音江間が４車線化　大動脈の高速化前進　地元住民ら「走り」満喫 |date=2001-10-18 |newspaper=北海道新聞| edition=朝刊 地方（空知）| page=23| url=https://db.hokkaido-np.co.jp/article_detail?kijiid=20011018J1HCMSH0010020}}</ref>。
+** [[11月19日]]：[[国縫インターチェンジ|国縫IC]] - 長万部IC間（11.1km、暫定2車線、事業費190億円）が開通。あわせて[[静狩パーキングエリア|静狩PA]]が供用<ref name="日本道路公団2001-09-12" /><ref name="hokkaido-np-2001-11-19">{{Cite news |和書 |title=長万部－国縫開通 道央道 |date=2001-11-19 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref>。
+* [[2003年]]（平成15年）
+** [[7月24日]]：音江PA - 旭川鷹栖IC間の下り線が片側2車線化<ref>{{Cite news |和書 |title=深川－旭川鷹栖間 旭川方向２車線化　道央道、きょう正午 |date=2003-07-24 |newspaper=北海道新聞| edition=朝刊| page=30| url=https://db.hokkaido-np.co.jp/article_detail?kijiid=20030724J1HAMMEG000110}}</ref>。
+** [[9月30日]]：音江PA - 旭川鷹栖IC間のうち残る暫定2車線区間（6.4km）が4車線化され、深川IC - 旭川鷹栖ICの4車線化が完了<ref name="日本道路公団2003-08-08">{{Cite press release| 和書| publisher=日本道路公団| date=2003-08-08| title=道央自動車道 和寒インターチェンジ～士別剣淵インターチェンジの開通及び深川インターチェンジ～旭川鷹栖インターチェンジの４車線化の完成について| url=http://www.jhnet.go.jp/press/rel/2003/08/08a/index.html| archive-url=https://web.archive.org/web/20030813160147/http://www.jhnet.go.jp/press/rel/2003/08/08a/index.html| archive-date=2003-08-13| access-date=2026-09-28}}</ref>。
+** [[10月4日]]：和寒IC - [[士別剣淵インターチェンジ|士別剣淵IC]]（16.0km、暫定2車線）が開通<ref name="日本道路公団2003-08-08" /><ref name="hokkaido-np-2003-10-5">{{Cite news |和書 |title=道央自動車道 「名寄まで開通願う」 地元、祝賀ムードに沸く |date=2003-10-5 |newspaper=北海道新聞| publisher=北海道新聞社}}</ref>。
+* [[2004年]]（平成16年）3月27日：比布JCT開通により旭川紋別自動車道と接続。
+* [[2006年]]（平成18年）
+** 2月3日：[[国土交通省]]が士別剣淵IC - 名寄IC（仮称）間について、士別剣淵ICから士別市多寄町までの区間を整備し、残り区間を当面着工しない区間とし、並行する国道40号を利用すると発表。
+** 2月7日：七飯IC（仮称） - 大沼公園IC（仮称）間が[[新直轄方式]]に変更。
+** 11月18日：[[八雲インターチェンジ|八雲IC]] - 国縫IC間（21.7km、暫定2車線、事業費328億円）が開通<ref>{{Cite press release| 和書| publisher=東日本高速道路株式会社| date=2006-10-13| title=道央自動車道 八雲IC～国縫ICの開通について| url=https://www.e-nexco.co.jp/pressroom/head_office/2006/1013/00006104.html| access-date=2026-10-07}}</ref><ref name="hokkaido-np-2006-11-19">“札幌－八雲一直線 道央道でIC開通”. [[北海道新聞]] (北海道新聞社). (2006年11月19日)</ref>。
+* [[2007年]]（平成19年）12月21日：虻田洞爺湖ICを、同年3月28日に開通した[[国道230号]]の新ルートに接続する位置へ移設<ref>{{Cite press release| 和書| title=道央自動車道 虻田洞爺湖ICを移設します| publisher=東日本高速道路株式会社北海道支社| date=2007-11-22| url=https://www.e-nexco.co.jp/pressroom/hokkaido/2007/1122/00006851.html| access-date=2026-10-26}}</ref><ref>{{Cite news| 和書| title=虻田洞爺湖ＩＣ完成　きょうから供用開始| newspaper=北海道新聞| publisher=北海道新聞社| date=2007-12-21| edition=朝刊| page=29| url=https://db.hokkaido-np.co.jp/article_detail?kijiid=0030263461}}</ref>。
+* [[2009年]]（平成21年）
+** [[6月29日]]：[[輪厚パーキングエリア#輪厚スマートインターチェンジ|輪厚スマートIC]]（利用可能時間：6時 - 22時）が供用開始<ref>{{Cite press release| 和書| title=北海道初！道央道 輪厚スマートICが開通します| publisher=東日本高速道路株式会社北海道支社| date=2009-05-28| url=https://www.e-nexco.co.jp/pressroom/hokkaido/2009/0528/00006936.html| access-date=2026-10-26}}</ref><ref name="hokkaido-np-2009-6-29">{{Cite news| 和書| title=ＥＴＣ限定 輪厚にＩＣ　北広島の道央道| newspaper=北海道新聞| publisher=北海道新聞社| date=2009-06-29| edition=夕刊| page=1| url=https://db.hokkaido-np.co.jp/article_detail?kijiid=0030412919}}</ref>。
+** 10月10日：落部IC - 八雲IC間開通<ref name="hokkaido-np-2009-10-11">“道央道 八雲－落部IC開通 札幌－函館が5分短縮”. [[北海道新聞]] (北海道新聞社). (2009年10月11日)</ref>。
+** 11月7日：黒松内JCT開通により黒松内新道（北海道横断自動車道）と接続<ref name="hokkaido-np-2009-11-5">“救急搬送に利用／観光客増加見込みイベント 黒松内新道 開通に期待 7日 商店街は客流出懸念”. [[北海道新聞]] (北海道新聞社). (2009年11月5日)</ref>。
+* [[2010年]]（平成22年）
+** [[2月2日]]：岩見沢IC - 士別剣淵IC間が[[高速道路無料化]][[社会実験]]の対象区間に指定される<ref name="hokkaido-np-2010-2-3">“帰省にレジャー 利用者歓迎／国道沿い店舗 来客減を危ぐ 高速無料化 悲喜こもごも 管内”. [[北海道新聞]] (北海道新聞社). (2010年2月3日)</ref>。
+** 6月28日：岩見沢IC - 士別剣淵IC間で高速道路無料化社会実験の運用が開始される<ref name="hokkaido-np-2010-6-29" />。
+* [[2011年]]（平成23年）
+** [[6月19日]]：政府が[[3月11日]]に発生した[[東日本大震災]]の復興費用確保のため、岩見沢IC - 士別剣淵IC間で行っていた[[高速道路無料化#高速道路無料化社会実験|無料化社会実験]]を一旦終了させ、以降の社会実験を一時凍結<ref name="mlit" />。これに伴い6月20日以降、この区間の通行料金が再び有料となる。
+** [[11月26日]]：森IC - 落部IC間開通。
+* [[2012年]]（平成24年）[[11月10日]]：大沼公園IC - 森IC間開通<ref>[https://www.e-nexco.co.jp/pressroom/head_office/2012/0726/00006511.html NEXCO東日本 プレスリリース　道央自動車道の開通について]</ref><ref name="hokkaido-np-2012-11-10">“森－大沼公園が開通 道央道”. [[北海道新聞]] (北海道新聞社). (2012年11月10日)</ref>。
+* [[2013年]]（平成25年）[[8月3日]]：新千歳空港ICが供用開始<ref>[https://www.e-nexco.co.jp/pressroom/hokkaido/2013/0419/00007162.html 道央自動車道　新千歳空港インターチェンジ（IC）の開通について] （NEXCO東日本、2013年4月19日 閲覧）</ref><ref name="hokkaido-np-2013-8-3">“新千歳空港IC開通”. [[北海道新聞]] (北海道新聞社). (2013年8月3日)</ref>。
+* [[2014年]]（平成26年）[[5月28日]]：士別市多寄町から名寄ICまでの区間を事業凍結解除すると発表。
+* [[2015年]]（平成27年）[[8月8日]]：砂川SAスマートICが供用開始<ref>[https://www.e-nexco.co.jp/pressroom/hokkaido/2015/0618/00007269.html 道央自動車道 砂川SAスマートICが8月8日（土）に開通! 〜ハイウェイオアシスに砂川の新たな玄関口が誕生!〜] 砂川市・東日本高速道路株式会社北海道支社　2015年6月18日掲載・閲覧</ref>。
+* [[2016年]]（平成28年）[[9月9日]]：輪厚スマートICの利用可能時間が24時間に拡大<ref>{{Cite web| 和書| title=輪厚スマートICの24時間運用について| url=https://www.city.kitahiroshima.hokkaido.jp/hotnews/detail/00003346.html| publisher=都市計画課| website=北海道北広島市| date=2016-08-10| access-date=2026-10-26}}</ref>。
+* [[2018年]]（平成30年）12月ごろ：IC番号を、札幌JCTを境として南北それぞれに1・2・…と増やす方式から、全区間での通し番号（南から北に向かって増加。当時の最南端である大沼公園ICは「6」、当時の最北端である士別剣淵ICは「48」）に変更{{Refnest|group="注"|「[[ネクスコ東日本エリアトラクト#ハイウェイウォーカー|ハイウェイウォーカー]]」北海道版2018年11月号においては従来の方式で記載されている<ref>{{Cite web|和書|url=https://www.driveplaza.com/sapa/hw/pdf/201811_hokkaido_areamap.pdf|title=2018年度『Highway Walker』北海道版 11月号(No.38) 北海道エリアマップ|access-date=2019-01-10|publisher=NEXCO東日本|archiveurl=https://web.archive.org/web/20190110183600/https://www.driveplaza.com/sapa/hw/pdf/201811_hokkaido_areamap.pdf|archivedate=2019-01-10}}</ref>のに対し、同2018年12月号においては新しい方式で記載されている<ref>{{Cite web|和書|url=https://www.driveplaza.com/sapa/hw/pdf/201812_hokkaido_areamap.pdf|title=2018年度『Highway Walker』北海道版 12月号(No.39) 北海道エリアマップ|access-date=2019-01-10|publisher=NEXCO東日本|archiveurl=https://web.archive.org/web/20181217021853/https://www.driveplaza.com/sapa/hw/pdf/201812_hokkaido_areamap.pdf|archivedate=2018-12-17}}</ref>}}。
+* [[2019年]]（平成31年/[[令和]]元年）[[9月4日]]：国土交通省が道央道の暫定2車線区間のうち、八雲IC - 国縫IC間と伊達IC - 登別室蘭IC間と和寒IC - 士別剣淵IC間を10 - 15年後を目処に4車線化する優先整備区間に選定する方針を発表<ref name="press20190904-1">{{Cite web|和書|url=https://www.mlit.go.jp/policy/shingikai/content/001305885.pdf|title=暫定2車線区間における優先整備区間選定について|access-date=2020-12-15|publisher=国土交通省|format=PDF|date=2019-09-04}}</ref><ref name="press20190904-2">{{Cite web|和書|url=https://www.mlit.go.jp/policy/shingikai/content/001305887.pdf|title=各IC間の課題の評価一覧|access-date=2020-12-15|publisher=国土交通省|format=PDF|month=2019-9-4}}</ref><ref name="toraberu20190906">{{Cite web|和書|url=https://travel.watch.impress.co.jp/docs/news/1205656.html|title=国交省、「暫定2車線」を「4車線化」する優先整備区間。道東道、秋田道、常磐道、東海北陸道、東九州道など約880km|date=2019-09-06|access-date=2021-03-18|publisher=トラベル Watch}}</ref>。
+* [[2020年]]（[[令和]]2年）[[12月13日]]：苫小牧中央ICが供用開始<ref>{{Cite web|和書|url=https://www.e-nexco.co.jp/pressroom/cms_assets/pressroom/2020/11/05b/pdf.pdf|title=E5道央自動車道『苫小牧中央インターチェンジ』が令和2年12月13日（日）15時に開通します|date=2020-11-05|access-date=2020-11-05|publisher=北海道・東日本高速道路株式会社|format=PDF}}</ref>。
+
+==== 開通予定年度 ====
+* 未定 : 七飯IC - 大沼公園IC
+* 未定 : 士別剣淵IC - 名寄IC
+
+== 路線状況 ==
+=== 車線・最高速度 ===
+{| class="wikitable" style="text-align:center"
+|-
+! rowspan="2" |区間!! colspan="3" |[[車線]]!! rowspan="2" |[[最高速度]]
+! rowspan="2" |設計速度!! rowspan="2" |備考
+|-
+!上下線
+!上り線
+!下り線
+|-
+|大沼公園IC - 大沼公園TB
+|4
+|2
+|2
+| rowspan="4" |70 [[キロメートル毎時|km/h]]
+| rowspan="2" |100 km/h
+|
+|-
+| 大沼公園TB - 長万部IC|| rowspan="3" |2<br /> ([[暫定2車線]])
+| rowspan="3" |1
+| rowspan="3" |1|| rowspan="3" |※1 ※2
+|-
+|長万部IC - 虹田洞爺湖IC
+|80 km/h
+|-
+|虹田洞爺湖IC - 登別室蘭IC
+|100 km/h
+|-
+| 登別室蘭IC - 札幌南IC/TB|| rowspan="5" |4
+| rowspan="5" |2
+| rowspan="5" |2
+|100 km/h
+|120 km/h||
+|-
+| 札幌南IC/TB - 札幌IC/TB
+|{{0}}80 km/h
+|80 km/h||
+|-
+| 札幌IC/TB - 岩見沢IC
+| rowspan="2" |100 km/h
+|120 km/h||
+|-
+|岩見沢IC - 深川IC
+|100 km/h
+|
+|-
+| 深川IC - 旭川鷹栖IC
+|{{0}}80 km/h
+|80 km/h||
+|-
+| 旭川鷹栖IC - 士別剣淵IC||2<br /> (暫定2車線)
+|1
+|1
+|{{0}}70 km/h
+|100 km/h||※1 ※3
+
+|}
+* ※1 : 一部、4車線や80 km/hの区間あり
+* ※2 : 八雲IC - 国縫ICと伊達IC - 登別室蘭IC間は[[暫定2車線#4車線化優先整備区間|4車線化優先整備区間]]<ref name="press20190904-1" /><ref name="press20190904-2" /><ref name="toraberu20190906" />
+* ※3 : 和寒IC - 士別剣淵IC間は4車線化優先整備区間<ref name="press20190904-1" /><ref name="press20190904-2" /><ref name="toraberu20190906" />
+
+=== 道路施設 ===
+==== サービスエリア・パーキングエリア ====
+; 売店
+: 全ての[[サービスエリア]] (SA) と[[輪厚パーキングエリア]] (PA)、[[野幌パーキングエリア|野幌PA]]にある。それ以外のPAはすべて[[便所|トイレ]]と[[自動販売機]]のみとなっている。[[美沢パーキングエリア|美沢PA]]では、夏 - 秋限定で上り線のみ軽食等の販売が行われる。
+; [[ハイウェイオアシス]]
+: [[豊浦噴火湾パーキングエリア|豊浦噴火湾PA]]・[[八雲パーキングエリア|八雲PA]]・[[砂川サービスエリア|砂川SA]]に併設されている。
+; レストラン・フードコート
+: レストランとしての営業形態は当線SA・PAにはなし。フードコートは[[有珠山サービスエリア|有珠山SA]]・[[岩見沢サービスエリア|岩見沢SA]]・砂川SAと輪厚PAにあり。
+; ガソリンスタンド
+: 有珠山SA・砂川SA・輪厚PAの3カ所にある。輪厚PAのみ24時間営業。
+
+==== 主なトンネルと橋 ====
+[[File:washinoki-iseki tunnel.JPG|thumb|鷲ノ木遺跡トンネル（下り線）（2012年）]]
+[[File:Osarugawa Brg 2.JPG|thumb|長流川橋の橋梁標識（上り線）（2012年7月）]]
+
+'''札幌JCT以南（札幌JCT - 七飯IC間）'''
+{| class="wikitable"
+|-
+!style="width: 9em;"|トンネル・橋梁名称
+!style="width: 5em;"|延長
+!style="width: 8em;"|区間
+!備考
+|-
+|[[鷲ノ木遺跡]]トンネル
+|style="text-align:right"|85 m
+|rowspan = '3'|落部IC - 森IC
+|道路予定地の鷲ノ木遺跡より縄文時代後期前半（約4,000年前）の北海道内では最大規模の[[ストーンサークル|環状列石]]と竪穴墓域が発掘されたため、遺跡の保存のため「R&C工法」を用いたトンネル構造へ変更した<ref>[http://www.e-nexco.co.jp/road_info/open_schedule/hokkaido/hokkaido03dig.html 高速道路の建設と鷲ノ木遺跡の保存について] nexco東日本</ref><ref>[http://www.hokkaido-np.co.jp/cont/video-archive/?k=2009050801.html 鷲ノ木遺跡でトンネル工事] 北海道新聞動画ニュース （2009年5月8日）</ref>
+|-
+|森トンネル
+|style="text-align:right"|431 m
+|
+|-
+|八雲トンネル
+|style="text-align:right"|569 m
+|
+|-
+|金山トンネル
+|style="text-align:right"|2,177 m
+|豊浦IC - 黒松内JCT
+|
+|-
+|高岡トンネル
+|style="text-align:right"|1,499 m
+|豊浦噴火湾PA - 豊浦IC
+|
+|-
+|豊浦トンネル
+|style="text-align:right"|1,495 m
+|rowspan = '5'|虻田洞爺湖IC - 豊浦噴火湾PA
+|
+|-
+|東雲トンネル
+|style="text-align:right"|600 m
+|
+|-
+|清水トンネル
+|style="text-align:right"|855 m
+|
+|-
+|虻田トンネル
+|style="text-align:right"|569 m
+|
+|-
+|青葉トンネル
+|style="text-align:right"|365 m
+|
+|-
+|洞爺トンネル
+|style="text-align:right"|1,070 m
+|rowspan = '2'|伊達IC - 虻田洞爺湖IC
+|
+|-
+|[[長流川橋]]
+|style="text-align:right"|1,773 m
+|高速道路の橋の長さとしては日本一
+|-
+|神代トンネル
+|style="text-align:right"|939 m
+|rowspan = '3'|登別室蘭IC - 室蘭IC
+|
+|-
+|天神トンネル
+|style="text-align:right"|846 m
+|
+|-
+|鷲別トンネル
+|style="text-align:right"|1,798 m
+|
+|-
+|幌別トンネル
+|上り線：470 m 下り線：490 m
+|富浦PA - 登別室蘭IC
+|
+|-
+|虎杖浜トンネル
+|上り線：392 m 下り線：419 m
+|萩野PA - 登別東IC
+|
+|-
+|白老トンネル
+|上り線：458 m 下り線：453 m
+|rowspan = '2'|樽前SA - 白老IC
+|
+|-
+|ポロトトンネル
+|上り線：508 m 下り線：521 m
+|
+|-
+|小糸魚川橋
+|style="text-align:right"|81 m
+|rowspan = '5'|苫小牧東IC - 苫小牧西IC
+|
+|-
+|新有珠川橋
+|style="text-align:right"|116 m
+|
+|-
+|苫小牧川橋
+|style="text-align:right"|53 m
+|
+|-
+|高丘橋
+|style="text-align:right"|81 m
+|
+|-
+|勇払川橋
+|style="text-align:right"|146 m
+|
+|-
+|ママチ川橋
+|style="text-align:right"|336 m
+|新千歳空港IC - 千歳IC
+|
+|-
+|千歳川橋
+|上り線：545 m 下り線：551 m
+|千歳恵庭JCT - 千歳IC
+|
+|-
+|}
+※ 登別室蘭IC - 七飯IC間は対面通行（暫定2車線）
+
+'''札幌JCT以北（札幌JCT - 名寄IC間）'''
+{| class="wikitable"
+|-
+!トンネル・橋梁名称
+!style="width: 5em;"|延長
+!区間
+!備考
+|-
+|光珠内トンネル
+|style="text-align:right"|上り線＋下り線：250 m
+|rowspan = '2'|三笠IC - 美唄IC
+|
+|-
+|美唄トンネル
+|style="text-align:right"|上り線：1,018 m 下り線：1,001 m
+|
+|-
+|[[石狩川橋 (道央自動車道)|石狩川橋]]
+|style="text-align:right"|543 m
+|rowspan = '4'|音江PA - 旭川鷹栖IC
+|
+|-
+|常盤トンネル
+|style="text-align:right"|上り線：1,843 m 下り線：1,779 m
+|
+|-
+|江丹別トンネル
+|style="text-align:right"|上り線：1,896 m 下り線：1,962 m
+|
+|-
+|嵐山トンネル
+|style="text-align:right"|上り線：1,434 m 下り線：1,416 m
+|
+|-
+|}
+※ 旭川鷹栖IC - 名寄IC間は対面通行（暫定2車線）
+
+=== トンネルの数 ===
+{| class="wikitable" style="text-align: center"
+!区間!!上り線!!下り線!!備考
+|-
+|大沼公園IC - 森IC||colspan="2" |0||rowspan="9"| ※
+|-
+|森IC - 落部IC||colspan="2" |3
+|-
+|落部IC - 黒松内JCT||colspan="2" |0
+|-
+|黒松内JCT - 豊浦IC||colspan="2" |1
+|-
+|豊浦IC - 豊浦噴火湾PA||colspan="2" |1
+|-
+|豊浦噴火湾PA - 虻田洞爺湖IC||colspan="2" |5
+|-
+|虻田洞爺湖IC - 伊達IC||colspan="2" |1
+|-
+|伊達IC - 本輪西展望所||colspan="2" |0
+|-
+|本輪西展望所 - 登別室蘭IC||colspan="2" |3
+|-
+|登別室蘭IC - 富浦PA||1||1||
+|-
+|富浦PA - 登別東IC||0||0||
+|-
+|登別東IC - 萩野PA||1||1||
+|-
+|萩野PA - 白老IC||0||0||
+|-
+|白老IC - 樽前SA||2||2||
+|-
+|樽前SA - 三笠IC||0||0||
+|-
+|三笠IC - 美唄IC||2||2||
+|-
+|美唄IC - 音江PA||0||0||
+|-
+|音江PA - 旭川鷹栖IC||3||3||
+|-
+|旭川鷹栖IC - 士別剣淵IC||colspan="2" |0||※
+|-
+!合計!!23!!23!!
+|}
+※大沼公園IC - 登別室蘭IC間と旭川鷹栖IC - 士別剣淵IC間のトンネルは[[暫定2車線]]の対面通行であるため、上下線合わせて1本となる。
+
+=== 道路管理者 ===
+* [[東日本高速道路|NEXCO東日本]] [[東日本高速道路北海道支社|北海道支社]]
+** 室蘭管理事務所：大沼公園IC - 登別室蘭IC
+** 北広島管理事務所：登別室蘭IC - 札幌南IC
+** 札幌管理事務所：札幌南IC - 美唄IC
+** 旭川管理事務所：美唄IC - 士別剣淵IC
+
+==== ハイウェイラジオ ====
+* 長万部（静狩PA - 黒松内JCT）
+* 室蘭（本輪西PA - 登別室蘭IC）
+* 白老（白老IC - 樽前SA）
+* 恵庭（恵庭IC - 輪厚PA）
+* 野幌（江別西IC - 江別東IC）
+
+=== 交通量 ===
+'''24時間交通量'''（台）　[[道路交通センサス]]
+
+{| class="wikitable" style="text-align:center"
+|-
+! 区間 !! 平成17年（2005年）度 !! 平成22年（2010年）度 !! 平成27年（2015年）度!!令和3（2021）年度
+|-
+| style="background-color:#CCC;" | 七飯藤城IC - 大沼公園IC間 || colspan="4" style="background-color:#CCC;" | 未開通
+|-
+| 大沼公園IC - 森IC || rowspan="2" colspan="2"|調査当時未開通 || {{0}}3,515 || {{0}}2,453
+|-
+| 森IC - 落部IC || {{0}}3,812 || {{0}}2,665
+|-
+| 落部IC - 八雲IC || rowspan="2"|調査当時未開通 || {{0}}2,478 || {{0}}3,864 || {{0}}2,740
+|-
+| 八雲IC - 国縫IC || {{0}}2,925 || {{0}}4,012 || {{0}}2,781
+|-
+| 国縫IC - 長万部IC || {{0}}2,120 || {{0}}3,073 || {{0}}4,100 || {{0}}2,792
+|-
+| 長万部IC - 黒松内JCT || {{0}}2,432 || {{0}}3,133 || {{0}}4,079 || {{0}}2,741
+|-
+| 黒松内JCT - 豊浦IC || {{0}}2,432 || {{0}}2,317 || {{0}}3,908 || {{0}}2,654
+|-
+| 豊浦IC - 虻田洞爺湖IC || {{0}}2,263 || {{0}}2,076 || {{0}}3,730 || {{0}}2,503
+|-
+| 虻田洞爺湖IC - 伊達IC || {{0}}2,712 || {{0}}2,452 || {{0}}4,190 || {{0}}2,923
+|-
+| 伊達IC - 室蘭IC || {{0}}4,365 || {{0}}4,024 || {{0}}5,867 || {{0}}4,114
+|-
+| 室蘭IC - 登別室蘭IC || {{0}}4,937 || {{0}}5,540 || {{0}}6,243 || {{0}}4,492
+|-
+| 登別室蘭IC - 登別東IC || {{0}}7,283 || {{0}}8,291 || {{0}}9,269 || {{0}}6,827
+|-
+| 登別東IC - 白老IC || {{0}}8,039 || {{0}}8,995 || 10,062 || {{0}}7,351
+|-
+| 白老IC - 苫小牧西IC || {{0}}8,633 || {{0}}9,858 || 10,904 || {{0}}8,236
+|-
+| 苫小牧西IC - 苫小牧中央IC || rowspan="2"| {{0}}9,196 || rowspan="2"| 10,608 || rowspan="2"| 11,584 || {{0}}9,358
+|-
+| 苫小牧中央IC - 苫小牧東IC || 11,312
+|-
+| 苫小牧東IC - 新千歳空港IC || rowspan="2"| 16,814 || rowspan="2"| 19,234 || 21,360 || 18,569
+|-
+| 新千歳空港IC - 千歳IC || 22,620 || 19,267
+|-
+| 千歳IC - 千歳恵庭JCT || 26,424 || 29,955 || 32,835 || 25,267
+|-
+| 千歳恵庭JCT - 恵庭IC || 28,261 || 33,235 || 36,276 || 28,289
+|-
+| 恵庭IC - 輪厚PASIC  || 32,526 || 36,548 || 40,091 || 32,093
+|-
+| 輪厚PASIC - 北広島IC ||32,526 || 37,217 || 41,041 || 32,919
+|-
+| 北広島IC - 札幌南IC || 29,304 || 34,310 || 37,945 || 31,247
+|-
+| 札幌南IC - 大谷地IC || 28,864 || 36,006 || 38,958 || 30,973
+|-
+| 大谷地IC - 北郷IC || 38,652 || 48,200 || 51,690 || 41,927
+|-
+| 北郷IC - 札幌JCT || 35,277 || 40,973 || 46,258 || 36,400
+|-
+| 札幌JCT - 札幌IC || 14,057 || {{0}}9,411 || 42,269 || 31,720
+|-
+| 札幌IC - 江別西IC || 19,410 || 21,799 || 20,769 || 17,377
+|-
+| 江別西IC - 江別東IC || 16,648 || 19,266 || 17,987 || 14,844
+|-
+| 江別東IC - 岩見沢IC || 16,014 || 18,786 || 17,662 || 14,578
+|-
+| 岩見沢IC - 三笠IC || 13,413 || 22,917 || 15,111 || 12,389
+|-
+| 三笠IC - 美唄IC || 12,749 || 23,978 || 14,490 || 11,839
+|-
+| 美唄IC - 奈井江砂川IC || 11,995 || 22,665 || 13,683 || 11,045
+|-
+| 奈井江砂川IC - 砂川SASIC || rowspan="2"| 10,975 || rowspan="2"| 21,224 || 12,620 || 10,315
+|-
+| 砂川SASIC - 滝川IC || 12,549 || 10,189
+|-
+| 滝川IC - 深川JCT || {{0}}9,636 || 19,658 || 11,267 || {{0}}9,266
+|-
+| 深川JCT - 深川IC || {{0}}8,664 || 17,998 || 10,052 || {{0}}8,264
+|-
+| 深川IC - 旭川鷹栖IC || {{0}}7,744 || 17,115 || {{0}}9,368 || {{0}}7,713
+|-
+| 旭川鷹栖IC - 旭川北IC || {{0}}4,141 || 10,485 || {{0}}5,039 || {{0}}4,578
+|-
+| 旭川北IC - 比布JCT || {{0}}4,350 || 13,695 || {{0}}5,370 || {{0}}4,760
+|-
+| 比布JCT - 和寒IC || {{0}}2,412 || {{0}}8,940 || {{0}}3,000 || {{0}}2,660
+|-
+| 和寒IC - 士別剣淵IC || {{0}}2,123 || {{0}}7,577 || {{0}}2,732 || {{0}}2,378
+|-
+| style="background-color:#CCC;" | 士別剣淵IC - 名寄IC間 || colspan="4" style="background-color:#CCC;" | 未開通
+|}
+<small>（出典：「[https://www.mlit.go.jp/road/census/h22-1/ 平成22年度道路交通センサス]」・「[https://www.mlit.go.jp/road/census/h27/index.html 平成27年度全国道路・街路交通情勢調査]」・「[https://www.mlit.go.jp/road/census/r3/index.html 令和3年度全国道路・街路交通情勢調査]」（[[国土交通省]]ホームページ）より一部データを抜粋して作成）</small>
+
+* 2010年度（平成22年）調査期間中において岩見沢IC - 士別剣淵IC間では、[[高速道路無料化#高速道路無料化社会実験|高速道路無料化社会実験]]が行われていた。
+* 2020年度（令和2年度）に実施予定だった交通量調査は、[[新型コロナウイルス感染症 (2019年)|新型コロナウイルス]]の[[日本における2019年コロナウイルス感染症による社会・経済的影響|影響]]で延期された<ref>{{Cite web|和書|url=https://www.mlit.go.jp/road/ir/ir-council/ict/pdf04/01.pdf|title=令和2年度全国道路・街路交通情勢調査の延期について|date=2020-10-14|accessdate=2021-04-04|publisher=国土交通省 道路局|format=PDF}}</ref>。
+* [[虻田洞爺湖インターチェンジ|虻田洞爺湖IC]]は[[有珠山]]の噴火復興事業に伴い、2007年度（平成19年度）に位置が変わっている。
+
+==== その他 ====
+* 日平均交通量（[[2003年]]度JH年報より）
+** 国縫IC - 札幌南IC（区間平均）：9,354台（前年度比95.5%）
+** 札幌南IC - 札幌IC（総交通量）：26,261台（99.9 %）
+** 札幌IC - 和寒IC（区間平均）：9,939台（97.8 %）
+** 最大：恵庭IC - 北広島IC 30,760台（97.1 %）
+** 最小：旭川北IC - 和寒IC 1,567台（102.6 %）
+* 料金収入
+** 年間：352億2665万2000円（98.0 %）
+** 日平均：9651万1000円
+
+=== 料金 ===
+[[大沼公園インターチェンジ|大沼公園IC]] - [[札幌南インターチェンジ|札幌南IC]]間、[[札幌ジャンクション|札幌JCT]] - [[士別剣淵インターチェンジ|士別剣淵IC]]間がそれぞれ対距離制、[[札幌南インターチェンジ|札幌南IC]] - [[札幌ジャンクション|札幌JCT]] - [[札樽自動車道|札樽道]][[札幌西インターチェンジ|札幌西IC]]間は均一料金区間となっている<ref>[http://www.driveplaza.com/travel/area/hokkaido/guide_h26/ 高速道路料金ガイド【北海道版】]</ref>。
+
+==== 高速道路無料化社会実験 ====
+2010年（平成22年）6月28日より一部区間の無料化社会実験が実施されたが、[[2011年]]（平成23年）[[3月11日]]に発生した[[東日本大震災]]の復興費用確保のため、同年6月19日をもって凍結された<ref name=mlit>{{PDFlink|[https://www.mlit.go.jp/common/000146807.pdf 国土交通省 1次補正を踏まえた高速道路の料金について]}}</ref>。制度の詳細や経緯は[[高速道路無料化]]を参照。
+
+===== 全車種を対象とした終日無料化社会実験 =====
+2010年（平成22年）6月28日より実施され<ref name="hokkaido-np-2010-6-29">“そろり無料高速 初日の管内 交通量やや増”. [[北海道新聞]] (北海道新聞社). (2010年6月29日)</ref>、2012年（平成24年）3月まで継続実施されることが公表されていた<ref name=mlit1>{{PDFlink|[https://www.mlit.go.jp/common/000135200.pdf 国土交通省 平成23年度高速道路の原則無料化社会実験計画（案）]}}</ref>が、東日本大震災の復興費用確保のため2011年（平成23年）6月19日をもって凍結された。
+;区間:岩見沢IC - 士別剣淵IC<ref name="hokkaido-np-2010-6-29" />
+;時間と対象:終日、全車種（ETC搭載車、非搭載車ともに対象）<ref name="hokkaido-np-2010-6-29" />
+
+===== 中型車以上を対象とした夜間無料化社会実験 =====
+2011年（平成23年）6月頃から2011年（平成23年）12月まで実施されることが公表されていた<ref name="mlit1" />が、東日本大震災の復興費用確保のため実施されることなく凍結された。
+;予定されていた区間:千歳恵庭JCT - 落部IC
+;時間と対象:22時 - 翌日6時、ETCを搭載した中型車・大型車・特大車
+
+=== 新直轄方式 ===
+本道路に接続する北海道縦貫自動車道の以下の2区間については、[[新直轄方式]]により[[国土交通省]][[北海道開発局]]が整備を進めている。
+* [[七飯インターチェンジ|七飯IC]] - [[大沼公園インターチェンジ|大沼公園IC]]
+* [[士別剣淵インターチェンジ|士別剣淵IC]] - [[名寄インターチェンジ|名寄IC]]
+
+士別剣淵IC - 名寄IC間については、[[2003年]]（平成15年）12月25日の第1回[[国土開発幹線自動車道建設会議]]（国幹会議）にて新直轄方式に切り替えられ<ref>[https://www.mlit.go.jp/road/ir/ir-council/kansen/20031225.html 第1回国土開発幹線道路建設会議]</ref>、[[2006年]]（[[平成]]18年）2月7日の第2回国幹会議で、士別剣淵IC - 士別市多寄町間を「緊急に整備すべき区間」、残りの区間を「当面着工しない区間」とし、当面は並行する[[国道40号]]を利用することとされた。また、同日、大沼公園IC - 七飯IC間についても新直轄方式に切り替えられた<ref>[https://www.mlit.go.jp/road/ir/ir-council/kansen/20060207.html 第2回国土開発幹線道路建設会議]</ref>。
+
+[[2014年]]（平成26年）5月28日の北海道開発局事業審議委員会にて、士別市多寄町 - 名寄IC間の凍結を解除する方針が示され、妥当と判断された<ref>[http://www.hkd.mlit.go.jp/topics/singi/h26_1/h260528_2_3_1.pdf 北海道縦貫自動車道士別剣淵～名寄 再評価準備書説明資料]北海道開発局事業審議委員会</ref><ref>[http://www.hokkaido-np.co.jp/news/donai/542041.html 建設凍結の高速道２区間着工へ 士別市多寄町-名寄、足寄-陸別町小利別] 北海道新聞（2014年5月29日）</ref><ref>{{Cite web|和書|url= http://www.hkd.mlit.go.jp/topics/press/press_h2608/08_jidousyado.pdf|title=北海道縦貫自動車道（士別市多寄町〜名寄市）等の 事業の再開について |accessdate= 2015-05-16|date= 2014-08-08|format= PDF|publisher= 国土交通省北海道開発局}}</ref>。
+
+== 地理 ==
+=== 通過する自治体 ===
+* [[北海道]]
+** [[渡島総合振興局]]管内
+*** [[茅部郡]][[森町 (北海道)|森町]] - [[二海郡]][[八雲町]] - [[山越郡]][[長万部町]] -
+** [[後志総合振興局]]管内
+*** [[寿都郡]][[黒松内町]] -
+** [[胆振総合振興局]]管内
+*** [[虻田郡]][[豊浦町]] - 虻田郡[[洞爺湖町]] - [[伊達市 (北海道)|伊達市]] - [[室蘭市]] - [[登別市]] - [[白老郡]][[白老町]] - [[苫小牧市]] -
+** [[石狩振興局]]管内
+*** [[千歳市]] - [[恵庭市]] - [[北広島市]] - [[札幌市]][[清田区]] - 札幌市[[厚別区]] - 札幌市[[白石区]] - [[江別市]]
+** [[空知総合振興局]]管内
+*** [[岩見沢市]] - [[三笠市]] - [[美唄市]] - [[空知郡]][[奈井江町]] - [[砂川市]] - [[滝川市]] - [[深川市]] -
+** [[上川総合振興局]] 管内
+*** [[上川郡 (石狩国)|上川郡]][[鷹栖町]] - [[旭川市]] - [[上川郡 (石狩国)|上川郡]][[比布町]] - [[上川郡 (天塩国)|上川郡]][[和寒町]] - [[上川郡 (天塩国)|上川郡]][[剣淵町]] - [[士別市]]
+
+=== 接続する高速道路 ===
+* {{Ja Exp Route Sign|E5A}} [[黒松内新道]]（[[黒松内ジャンクション|黒松内JCT]]で接続）
+* {{Ja Exp Route Sign|E63}} [[日高自動車道]]（[[苫小牧東インターチェンジ|苫小牧東IC]]で接続）
+* {{Ja Exp Route Sign|E38}} [[道東自動車道]]（[[千歳恵庭ジャンクション|千歳恵庭JCT]]で接続）
+* {{Ja Exp Route Sign|E5A}} [[札樽自動車道]]（[[札幌ジャンクション|札幌JCT]]で接続）
+* {{Ja Exp Route Sign|E62}} [[深川留萌自動車道]]（[[深川ジャンクション|深川JCT]]で接続）
+* {{Ja Exp Route Sign|E39}} [[旭川紋別自動車道]]（[[比布ジャンクション|比布JCT]]で接続）
+
+== 参考 ==
+道央自動車道のうち、[[千歳インターチェンジ (北海道)|千歳IC]] - [[虻田洞爺湖インターチェンジ|虻田洞爺湖IC]]間に設置の、日本語で表記されている対面通行や車間距離等の注意喚起標識の下部に英文の補助標識が追加されている物があるが、これは[[2008年]]（平成20年）[[7月7日]]から[[7月9日]]まで行われた[[第34回主要国首脳会議|北海道洞爺湖サミット]]に合わせ、[[新千歳空港]] - [[洞爺湖町]]間を移動する各国首脳陣関係車両等、海外からのドライバーへの利便性を考え、開催直前に追加された物である。
+<gallery>
+ファイル:下部に英文の補助標識が取り付けられた「対面通行」標識.jpg|下部に英文の補助標識が取り付けられた「対面通行」標識。北海道洞爺湖サミットの直前に取り付けられた。
+ファイル:下部に英文の補助標識が取り付けられた「追突注意 車間距離を十分に」標識.jpg|下部に英文の補助標識が取り付けられた「追突注意 車間距離を十分に」標識、洞爺湖サミットの直前に取り付けられた。
+</gallery>
+
+[[2012年]]（平成24年）[[11月10日]]に[[森インターチェンジ|森IC]] - [[大沼公園インターチェンジ|大沼公園IC]]間が開通した際、道央自動車道の暫定2車線区間として初めて中央線にワイヤロープ式の防護柵が導入された。これはかねてより[[土木研究所|国立研究開発法人土木研究所]]寒地土木研究所において、[[スウェーデン]]で採用されている同様の防護柵を参考に研究が積み重ねられ、全国の高速道路で試験的に導入された物の一つであるが<ref name="Center Median strip Cable-01">{{PDFlink|[https://www.mlit.go.jp/chosahokoku/giken/program/kadai/pdf/jusyo/H25/innova1_02.pdf ２車線道路におけるワイヤーロープ式防護柵の開発と実用化 平澤 匡介・高田 哲哉・石田 樹 （独）土木研究所 寒地土木研究所 寒地交通チーム]}}2018年6月20日閲覧</ref><ref name="Center Median strip Cable-02">[https://trafficnews.jp/post/65653 2車線高速の中央分離帯にワイヤーロープ　試行設置23区間が決定 2017.03.01 乗りものニュース編集部]2018年6月20日閲覧</ref><ref name="Center Median strip Cable-03">[https://travel.watch.impress.co.jp/docs/news/1048949.html NEXCO 3社と寒地土木研究所、ワイヤロープ式防護柵に大型車を衝突させる実験を公開 事故車が車線を塞いでいる想定の対応訓練も実施 トラベルWatch 政木 桂 2017年3月10日 18:09]2018年6月20日閲覧</ref>、[[2016年]]（平成28年）[[10月5日]]に[[八雲インターチェンジ|八雲IC]] - [[国縫インターチェンジ|国縫IC]]間で大型車同士の正面衝突死亡事故が発生した<ref name="Hokkaido Express Way Traffic Accident-01">[https://mainichi.jp/articles/20161005/k00/00e/040/225000c 道央自動車道 トラックが正面衝突、運転手２人死亡 毎日新聞2016年10月5日]2018年6月20日閲覧</ref>事なども受けて、設置区間が[[落部インターチェンジ|落部IC]] - [[国縫インターチェンジ|国縫IC]]（14.4 km）・[[黒松内ジャンクション|黒松内JCT]] - [[豊浦インターチェンジ|豊浦IC]]（6.6 km）に、技術的に設置困難な[[橋梁]]・[[トンネル]]部分を除いて増設された。その後、全国的に中央線ワイヤロープ防護柵の車両逸脱事故防止効果の高さが実証された事から、[[2018年]]（平成30年）[[6月15日]]に[[国土交通省]]が、全国の暫定対面2車線区間の高速道路全路線部分について中央線ワイヤロープ防護柵の設置を発表し、そのうち道央自動車道部分については[[登別室蘭インターチェンジ|登別室蘭IC]] - [[大沼公園インターチェンジ|大沼公園IC]]・[[旭川鷹栖インターチェンジ|旭川鷹栖IC]] - [[士別剣淵インターチェンジ|士別剣淵IC]]での設置が予定されている<ref name="Center Median strip Cable-04">“高速道の暫定2車線区間 防護ワイヤ 全国で設置 22年度までに”. [[北海道新聞]] （北海道新聞社）（2018年（平成30年）6月15日）2018年6月20日閲覧</ref>。
+<gallery>
+中央線ワイヤロープ式防護柵・末端（森IC - 大沼公園IC間、2枚合成）.jpg|中央線ワイヤロープ式防護柵・末端（[[森インターチェンジ|森IC]] - [[大沼公園インターチェンジ|大沼公園IC]]間に初めて設置されたもの、森IC側から、2枚合成）
+中央線ワイヤロープ式防護柵の接合部（森IC - 大沼公園IC間）.jpg|中央線ワイヤロープ式防護柵の接合部（[[森インターチェンジ|森IC]] - [[大沼公園インターチェンジ|大沼公園IC]]間に初めて設置されたもの、森IC側から）
+中央線ワイヤロープ式防護柵・末端と中央分離帯ガードレールの接合部（森IC - 大沼公園IC間）.jpg|中央線ワイヤロープ式防護柵・末端と[[中央分離帯]][[防護柵 (道路)|ガードレール]]の接合部（[[森インターチェンジ|森IC]] - [[大沼公園インターチェンジ|大沼公園IC]]間に初めて設置されたもの、森IC側から）
+</gallery>
+
+== 脚注 ==
+{{脚注ヘルプ}}
+=== 注 ===
+{{Notelist2}}
+=== 出典 ===
+{{Reflist|2}}
+
+== 参考文献 ==
+* {{Cite book |和書 |author= 東日本高速道路株式会社・中日本高速道路株式会社・西日本高速道路株式会社 |title=設計要領　第五集　交通管理施設 |year = 2017|date=2017-07 |publisher= 株式会社高速道路総合技術研究所|ref=harv}}
+* {{Cite book| 和書| author=札幌建設局| date=1978-01| chapter=北海道の高速道路の現況| title=道路総覧 1978| location=東京| publisher=道路総覧刊行会| pages=356–362| doi=10.11501/12101531| id={{国立国会図書館デジタルコレクション|12101531/190|format=NDLJP}}| ref=harv}}
+* {{Cite journal| 和書| author1=小野正二| author2=三戸博| date=1990-07| title=北海道縦貫自動車道（虻田～登別室蘭）の概要 ——あなたのまちへ笑顔を伝える高速道路——| journal=道路建設| location=東京| publisher=日本道路建設業協会| issue=510| pages=46–48| issn=0287-2595| doi=10.11501/3309856| id={{国立国会図書館デジタルコレクション|3309856/26|format=NDLJP}}| ref=harv}}
+* {{Cite journal| 和書| author=鎌田哲| date=1972-02| title=道央自動車道と札樽自動車道 ——開通に寄せて——| journal=道路建設| location=東京| publisher=日本道路建設業協会| issue=289| pages=2–14| issn=0287-2595| doi=10.11501/3309635| id={{国立国会図書館デジタルコレクション|3309635/27|format=NDLJP}}| ref=harv}}
+* {{Cite journal| 和書| author=栗原則夫| date=1978-07| title=道央自動車道岩見沢試験盛土工事について| journal=月刊建設| location=東京| publisher=全日本建設技術協会| volume=22| issue=7| pages=49–58| doi=10.11501/3240430| id={{国立国会図書館デジタルコレクション|3240430/32|format=NDLJP}}| ref=harv}}
+* {{Cite journal| 和書| author=内藤寛| date=1971-12| title=冬期の維持管理を行なうにあたって ——北海道縦貫自動車道——| journal=道路| location=東京| publisher=日本道路協会| issue=370| pages=82–87| issn=0012-5571| doi=10.11501/3309048| id={{国立国会図書館デジタルコレクション|3309048/45|format=NDLJP}}| ref=harv}}
+* {{Cite journal| 和書| author=中村直衛| date=1975-02| title=北海道の高速自動車道の現況| journal=道路| location=東京| publisher=日本道路協会| issue=408| pages=2–14| issn=0012-5571| doi=10.11501/3309086| id={{国立国会図書館デジタルコレクション|3309086/5|format=NDLJP}}| ref=harv}}
+* {{Cite journal| 和書| author=三和久勝| date=1984-04| title=伸びゆく道央道| journal=道路交通経済| editor=道路経済調査研究会| publisher=経済調査会| volume=8| issue=2| pages=65–69| doi=10.11501/2840867| id={{国立国会図書館デジタルコレクション|2840867/37|format=NDLJP}}| ref=harv}}
+* {{Cite journal| 和書| author1=三和久勝| author2=酒井康雄| date=1984-05| title=日本道路公団札幌建設局登別工事事務所：北海道貫自動車道函館－名寄線（登別–苫小牧）| journal=道路建設| location=東京| publisher=日本道路建設業協会| issue=436| pages=72–76| doi=10.11501/3309782| id={{国立国会図書館デジタルコレクション|3309782/39|format=NDLJP}}| ref=harv}}
+* {{Cite journal| 和書| date=1979-03| title=北海道高速道の先兵道央自動車道| journal=開発往来| location=東京| publisher=開発行政懇話会| volume=23| issue=3| pages=36–45| issn=0285-6336| doi=10.11501/2642583| id={{国立国会図書館デジタルコレクション|2642583/19|format=NDLJP}}| ref={{SfnRef|開発行政懇話会|1979}} }}
+* {{Cite journal| 和書| date=1981-04| title=北海道縦貫道（札幌南～岩見沢）の施工| journal=開発往来| location=東京| publisher=開発行政懇話会| volume=25| issue=4| pages=38–45| issn=0285-6336| doi=10.11501/2642609| id={{国立国会図書館デジタルコレクション|2642609/20|format=NDLJP}}| ref={{SfnRef|開発行政懇話会|1981}} }}
+* {{Cite journal| 和書| date=1986-10| title=北海道縦貫自動車道〈奈井江町～滝川市間〉（日本道路公団札幌建設局滝川工事事務所）| journal=開発往来| location=東京| publisher=開発行政懇話会| volume=30| issue=11| pages=44–52| issn=0285-6336| doi=10.11501/2642677| id={{国立国会図書館デジタルコレクション|2642677/23|format=NDLJP}}| ref={{SfnRef|開発行政懇話会|1986}} }}
+* {{Cite journal| 和書| date=1997-07| title=北海道縦貫自動車道・鷹栖～和寒間29.9km（日本道路公団北海道支社旭川工事事務所）| journal=開発往来| location=東京| publisher=開発行政懇話会| volume=41| issue=7| pages=76–89| issn=0285-6336| doi=10.11501/2642813| id={{国立国会図書館デジタルコレクション|2642813/39|format=NDLJP}}| ref={{SfnRef|開発行政懇話会|1997}} }}
+
+== 関連文献 ==
+* {{Cite journal| 和書| date=1983-04| title=道央自動車道の施工技術と現況を語る| journal=開発往来| location=東京| publisher=開発行政懇話会| volume=27| issue=4| pages=10–16| issn=0285-6336| doi=10.11501/2642634| id={{国立国会図書館デジタルコレクション|2642634/6|format=NDLJP}}| ref={{SfnRef|開発行政懇話会|1983}} }}
+
+== 関連項目 ==
+* [[高速道路]]
+* [[日本の高速道路]]
+* [[日本の高速道路一覧]]
+* [[北海道地方の道路一覧]]
+* [[北海道#人口|北海道]]
+* [[ミッシングリンク (日本の高速道路)]]
+
+== 外部リンク ==
+{{Commons category|Hokkaido Expressway}}
+* [https://www.e-nexco.co.jp/ 東日本高速道路株式会社]
+** [https://www.driveplaza.com/dp/RouteSearch e-NEXCOドライブプラザ 高速料金検索]
+* [https://www.hkd.mlit.go.jp/ 国土交通省北海道開発局]
+
+{{道央自動車道}}
+{{東日本高速道路}}
+
+{{日本の高速道路}}
+{{土木学会デザイン賞}}
+{{DEFAULTSORT:とうおうしとうしやとう}}
+
+[[Category:日本の高速道路]]
+[[Category:東日本高速道路]]
+[[Category:北海道縦貫自動車道|*とうおうしとうしやとう]]
+[[Category:道央自動車道|*とうおうしとうしやとう]]
+[[Category:北海道の道路]]

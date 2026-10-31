@@ -2290,3 +2290,390 @@ body.dark-theme .guide-disclaimer-banner {
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
 }
 
+/* ==========================================================================
+   テーブル表示スタイル & 多層ツリー構造 (仮サイト仕様の移植・スマホ/PC両対応)
+   ========================================================================== */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: var(--bg-surface);
+}
+
+.data-table th {
+  background: var(--bg-surface-alt);
+  color: var(--text-secondary);
+  font-weight: 700;
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--border-color);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+  color: var(--text-primary);
+}
+
+.data-table tbody tr:hover td {
+  background-color: var(--bg-surface-alt);
+}
+
+.data-table tr.clickable-row {
+  cursor: pointer;
+}
+
+.data-table tr.japan-row td {
+  background-color: var(--primary-light);
+}
+
+.data-table tr.japan-row:hover td {
+  filter: brightness(0.96);
+}
+
+body.dark-theme .data-table tr.japan-row td {
+  background-color: rgba(59, 130, 246, 0.15);
+}
+
+body.dark-theme .data-table tr.japan-row:hover td {
+  background-color: rgba(59, 130, 246, 0.25);
+}
+
+/* 多層ツリー構造 (地方 ➔ 都道府県 ➔ 市区町村 ➔ 自治体表) */
+.tree-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tree-branch {
+  border-left: 2px solid var(--border-color);
+  margin-left: 10px;
+  padding-left: 8px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+.tree-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.12s ease;
+  margin-bottom: 3px;
+}
+
+.tree-row:hover {
+  border-color: var(--primary-color);
+  background: var(--bg-surface-alt);
+}
+
+/* 第1階層: 地方 */
+.tree-row-l1 {
+  background: var(--bg-surface-alt);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* 第2階層: 都道府県 */
+.tree-row-l2 {
+  background: var(--bg-surface);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+/* 第3階層: 政令指定都市 */
+.tree-row-l3-desig {
+  background: var(--primary-light);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text-primary);
+  border-color: var(--primary-color);
+}
+
+body.dark-theme .tree-row-l3-desig {
+  background: rgba(59, 130, 246, 0.15);
+}
+
+/* 第3/4階層: 市区町村・行政区 */
+.tree-row-l3 {
+  background: var(--bg-surface);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.tree-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tree-arrow {
+  display: inline-block;
+  width: 14px;
+  font-size: 10px;
+  color: var(--text-muted);
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+
+.tree-arrow.open {
+  transform: rotate(90deg);
+}
+
+.tree-count {
+  font-size: 11px;
+  font-weight: normal;
+  color: var(--text-secondary);
+  background: var(--bg-surface-alt);
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.tree-table-box {
+  margin: 6px 0 10px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+
+.table-action-btn {
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface-alt);
+  color: var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: all 0.15s ease;
+}
+
+.table-action-btn:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+  border-color: var(--primary-color);
+}
+
+.table-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.table-badge-pref {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+body.dark-theme .table-badge-pref {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+.table-badge-city {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+body.dark-theme .table-badge-city {
+  background: #312e81;
+  color: #c7d2fe;
+}
+
+.table-badge-town {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+body.dark-theme .table-badge-town {
+  background: #064e3b;
+  color: #a7f3d0;
+}
+
+/* ==========================================================================
+   マーカークラスタ表示スタイル (件数表記の円形バッジ・高速化)
+   ========================================================================== */
+.marker-cluster-small {
+  background-color: rgba(59, 130, 246, 0.4);
+}
+.marker-cluster-small div {
+  background-color: rgba(37, 99, 235, 0.85);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.marker-cluster-medium {
+  background-color: rgba(14, 165, 233, 0.4);
+}
+.marker-cluster-medium div {
+  background-color: rgba(2, 132, 199, 0.85);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.marker-cluster-large {
+  background-color: rgba(99, 102, 241, 0.4);
+}
+.marker-cluster-large div {
+  background-color: rgba(79, 70, 229, 0.85);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.marker-cluster {
+  background-clip: padding-box;
+  border-radius: 20px;
+}
+.marker-cluster div {
+  width: 32px;
+  height: 32px;
+  margin-left: 4px;
+  margin-top: 4px;
+  text-align: center;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .marker-cluster div {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* アメダス用クラスタスタイル（紫色円形バッジ・自治体と明確に区別） */
+.marker-cluster-amedas {
+  background-color: rgba(147, 51, 234, 0.4);
+}
+.marker-cluster-amedas div {
+  background-color: rgba(126, 34, 206, 0.9);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+body.dark-theme .marker-cluster-amedas {
+  background-color: rgba(168, 85, 247, 0.35);
+}
+body.dark-theme .marker-cluster-amedas div {
+  background-color: rgba(147, 51, 234, 0.9);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   地図ポップアップ内リンク & 階層ビュー復帰ボタン
+   ========================================================================== */
+.popup-url-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 7px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface-alt);
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.popup-url-btn:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+  border-color: var(--primary-color);
+}
+
+.popup-weather-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.popup-weather-btn:hover {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-color: #bae6fd;
+}
+
+.popup-return-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 4px;
+  border: 1px solid var(--primary-color);
+  background: var(--primary-color);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.popup-return-btn:hover {
+  filter: brightness(0.9);
+}
+
+/* 国概要・制度解説エリアの折りたたみトグル */
+.country-overview-toggle-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.country-overview-toggle-bar:hover {
+  background: var(--bg-surface-alt);
+  border-color: var(--primary-color);
+}
+

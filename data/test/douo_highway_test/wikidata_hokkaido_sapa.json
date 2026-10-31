@@ -1,0 +1,16 @@
+﻿{
+    "head":  {
+                 "vars":  [
+                              "item",
+                              "itemLabel",
+                              "coord",
+                              "typeLabel",
+                              "routeLabel"
+                          ]
+             },
+    "results":  {
+                    "bindings":  [
+
+                                 ]
+                }
+}

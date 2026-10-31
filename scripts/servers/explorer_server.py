@@ -25,6 +25,7 @@ STATIC_DIR = os.path.join(PROJECT_ROOT, 'web', 'explorer')
 PUBLIC_DIR = os.path.join(PROJECT_ROOT, 'web', 'public')
 MASTER_DIR = os.path.join(PROJECT_ROOT, 'data', 'master')
 STAGING_DIR = os.path.join(PROJECT_ROOT, 'data', 'staging')
+TEST_DOUO_DIR = os.path.join(PROJECT_ROOT, 'data', 'test', 'douo_highway_test')
 LOG_CSV_PATH = os.path.join(MASTER_DIR, 'exploration_logs.csv')
 THEME_SPOT_CSV_PATH = os.path.join(MASTER_DIR, 'theme_spots.csv')
 
@@ -125,26 +126,31 @@ def haversine_km(lat1, lon1, lat2, lon2):
 
 
 def read_enriched_areas(country_code=None):
-    """areas.csv と area_types.csv を結合し、大分類・階層レベル・旧互換プロパティを付与"""
+    """新スキーマ (municipalities, weather_zones, statistical_areas) と area_types.csv を結合し、大分類・階層レベル・互換プロパティを付与"""
     types_list = read_table('area_types.csv')
     area_types = {t['type_id']: t for t in types_list}
-    raw_areas = read_table('areas.csv', country_code)
+    
+    raw_muni = read_table('municipalities.csv', country_code)
+    raw_weather = read_table('weather_zones.csv', country_code)
+    raw_stat = read_table('statistical_areas.csv', country_code)
 
     enriched = []
-    for a in raw_areas:
+    
+    # 1. 自治体・行政区画 (municipalities.csv)
+    for a in raw_muni:
         t = area_types.get(a.get('type_id'), {})
         item = dict(a)
-        # area_types の属性を結合
-        item['大分類'] = t.get('大分類', '')
+        aid = a.get('municipality_id', '')
+        item['area_id'] = aid
+        item['municipality_id'] = aid
+        item['大分類'] = t.get('大分類', '行政')
         item['階層レベル'] = t.get('階層レベル', '')
         item['種別名_日本語'] = t.get('種別名_日本語', '')
         item['種別名_公用語'] = t.get('種別名_公用語', '')
-        # 旧 municipalities.csv / records.js 互換プロパティ
-        item['municipality_id'] = a.get('area_id', '')
         item['日本語名'] = a.get('名称', '')
         item['公用語名'] = a.get('名称_公用語', '')
         item['種別'] = t.get('種別名_日本語', '')
-        item['親自治体_id'] = a.get('親区域ID', '')
+        item['親自治体_id'] = a.get('親自治体ID', '')
         item['政庁_緯度'] = a.get('代表緯度', '')
         item['政庁_経度'] = a.get('代表経度', '')
         item['代表点_緯度'] = a.get('代表緯度', '')
@@ -156,6 +162,53 @@ def read_enriched_areas(country_code=None):
         except ValueError:
             item['lat'], item['lon'] = None, None
         enriched.append(item)
+
+    # 2. 気象予報区 (weather_zones.csv)
+    for a in raw_weather:
+        t = area_types.get(a.get('type_id'), {})
+        item = dict(a)
+        zid = a.get('zone_id', '')
+        item['area_id'] = zid
+        item['zone_id'] = zid
+        item['大分類'] = t.get('大分類', '気象')
+        item['階層レベル'] = t.get('階層レベル', '')
+        item['種別名_日本語'] = t.get('種別名_日本語', '')
+        item['種別名_公用語'] = t.get('種別名_公用語', '')
+        item['日本語名'] = a.get('名称', '')
+        item['公用語名'] = a.get('名称_公用語', '')
+        item['種別'] = t.get('種別名_日本語', '気象予報区')
+        item['親区域_id'] = a.get('親予報区ID', '')
+        item['代表点_緯度'] = a.get('代表緯度', '')
+        item['代表点_経度'] = a.get('代表経度', '')
+        try:
+            item['lat'] = float(a.get('代表緯度', '')) if a.get('代表緯度') else None
+            item['lon'] = float(a.get('代表経度', '')) if a.get('代表経度') else None
+        except ValueError:
+            item['lat'], item['lon'] = None, None
+        enriched.append(item)
+
+    # 3. 統計調査区 (statistical_areas.csv)
+    for a in raw_stat:
+        t = area_types.get(a.get('type_id'), {})
+        item = dict(a)
+        sid = a.get('statistical_area_id', '')
+        item['area_id'] = sid
+        item['statistical_area_id'] = sid
+        item['大分類'] = t.get('大分類', '統計')
+        item['階層レベル'] = t.get('階層レベル', '')
+        item['種別名_日本語'] = t.get('種別名_日本語', '')
+        item['種別名_公用語'] = t.get('種別名_公用語', '')
+        item['日本語名'] = a.get('名称', '')
+        item['公用語名'] = a.get('名称_公用語', '')
+        item['代表点_緯度'] = a.get('代表緯度', '')
+        item['代表点_経度'] = a.get('代表経度', '')
+        try:
+            item['lat'] = float(a.get('代表緯度', '')) if a.get('代表緯度') else None
+            item['lon'] = float(a.get('代表経度', '')) if a.get('代表経度') else None
+        except ValueError:
+            item['lat'], item['lon'] = None, None
+        enriched.append(item)
+
     return enriched
 
 
@@ -163,6 +216,11 @@ def read_enriched_nodes(country_code=None):
     """nodes.csv を読み込み、日本語名・公用語名等の互換キーを補完"""
     nodes_file = 'nodes.csv' if os.path.exists(os.path.join(MASTER_DIR, 'nodes.csv')) or os.path.exists(os.path.join(STAGING_DIR, 'JP', 'nodes.csv')) else 'transport_nodes.csv'
     raw_nodes = read_table(nodes_file, country_code)
+    # テストノードが存在する場合は先頭に追加（検証用）
+    test_nodes_path = os.path.join(TEST_DOUO_DIR, 'test_all_highway_nodes.csv')
+    if os.path.exists(test_nodes_path):
+        test_nodes = read_csv_file(test_nodes_path)
+        raw_nodes = test_nodes + raw_nodes
     enriched = []
     for n in raw_nodes:
         item = dict(n)
@@ -175,6 +233,15 @@ def read_enriched_nodes(country_code=None):
 def read_enriched_routes(country_code=None):
     """transport_routes.csv を読み込み、日本語名・公用語名等の互換キーを補完"""
     raw_routes = read_table('transport_routes.csv', country_code)
+    # テスト路線が存在する場合は先頭に追加（検証用）
+    test_routes_path = os.path.join(TEST_DOUO_DIR, 'test_all_transport_routes.csv')
+    if os.path.exists(test_routes_path):
+        test_routes = read_csv_file(test_routes_path)
+        for r in test_routes:
+            item = dict(r)
+            item.setdefault('日本語名', r.get('路線名', ''))
+            item.setdefault('公用語名', r.get('路線名_公用語', ''))
+            raw_routes.insert(0, item)
     enriched = []
     for r in raw_routes:
         item = dict(r)
@@ -186,9 +253,17 @@ def read_enriched_routes(country_code=None):
 
 def read_enriched_edges(country_code=None, route_id=None):
     """edges.csv を読み込み、ノード座標・名称・直線GeoJSONライン・距離を補完"""
-    raw_edges = read_table('edges.csv', country_code)
-    if route_id:
-        raw_edges = [e for e in raw_edges if e.get('route_id') == route_id]
+    if route_id == 'TEST-RT-DOUO-EXP-ALL':
+        test_edges_path = os.path.join(TEST_DOUO_DIR, 'test_all_highway_edges.csv')
+        raw_edges = read_csv_file(test_edges_path)
+    else:
+        raw_edges = read_table('edges.csv', country_code)
+        if route_id:
+            raw_edges = [e for e in raw_edges if e.get('route_id') == route_id]
+        elif os.path.exists(TEST_DOUO_DIR):
+            test_edges_path = os.path.join(TEST_DOUO_DIR, 'test_all_highway_edges.csv')
+            if os.path.exists(test_edges_path):
+                raw_edges = raw_edges + read_csv_file(test_edges_path)
 
     nodes = {n['node_id']: n for n in read_enriched_nodes(country_code)}
 

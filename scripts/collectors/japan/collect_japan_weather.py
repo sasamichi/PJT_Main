@@ -256,10 +256,11 @@ def main():
             "終了日_精度": "",
             "状態": "現用",
             "時代区分": "現代",
-            "Wikipedia_ja": f"https://ja.wikipedia.org/wiki/{urllib.parse.quote(name_ja + '気象観測所')}" if st_type == 'A' else "https://ja.wikipedia.org/wiki/アメダス",
-            "Wikipedia_en": "https://en.wikipedia.org/wiki/AMeDAS",
+            # 気象観測地点にはWikipediaURLを追加しない仕様（関係が薄いページへの誤遷移防止）
+            "Wikipedia_ja": "",
+            "Wikipedia_en": "",
             "Wikipedia_local": "",
-            "Wikidata": "https://www.wikidata.org/wiki/Q296238",
+            "Wikidata": "",
             "OpenStreetMap": "",
             "GoogleMap": gmap_url,
             "観測データ_URL": obs_url
