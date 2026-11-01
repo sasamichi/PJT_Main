@@ -98,32 +98,94 @@ def parse_int(val):
         return None
 
 
-def generate_weather_links(muni_name, muni_code):
-    """自治体名・自治体コードから天気予報4社リンクを生成"""
-    name_encoded = urllib.parse.quote(muni_name)
+PREF_CODE_MAP = {
+    "01": "北海道", "02": "青森県", "03": "岩手県", "04": "宮城県", "05": "秋田県",
+    "06": "山形県", "07": "福島県", "08": "茨城県", "09": "栃木県", "10": "群馬県",
+    "11": "埼玉県", "12": "千葉県", "13": "東京都", "14": "神奈川県", "15": "新潟県",
+    "16": "富山県", "17": "石川県", "18": "福井県", "19": "山梨県", "20": "長野県",
+    "21": "岐阜県", "22": "静岡県", "23": "愛知県", "24": "三重県", "25": "滋賀県",
+    "26": "京都府", "27": "大阪府", "28": "兵庫県", "29": "奈良県", "30": "和歌山県",
+    "31": "鳥取県", "32": "島根県", "33": "岡山県", "34": "広島県", "35": "山口県",
+    "36": "徳島県", "37": "香川県", "38": "愛媛県", "39": "高知県", "40": "福岡県",
+    "41": "佐賀県", "42": "長崎県", "43": "熊本県", "44": "大分県", "45": "宮崎県",
+    "46": "鹿児島県", "47": "沖縄県"
+}
 
-    # 1. 気象庁公式
-    jma_url = "https://www.jma.go.jp/bosai/forecast/"
-    if muni_code and len(muni_code) >= 5:
-        sub_code = muni_code[:5] + "00"
-        jma_url = f"https://www.jma.go.jp/bosai/forecast/#area_type=class20s&area_code={sub_code}"
+# 北海道14振興局の気象予報区コードマッピング (Yahoo!天気・tenki.jp完全直通)
+HOKKAIDO_SUBPREF_WEATHER = {
+    "JP-AR-000049": {"name": "石狩振興局", "yahoo_reg": "1b", "tenki_reg": "1/2", "c10": "1400", "cap_code": "01101"},
+    "JP-AR-000048": {"name": "空知総合振興局", "yahoo_reg": "1b", "tenki_reg": "1/2", "c10": "1500", "cap_code": "01210"},
+    "JP-AR-000050": {"name": "後志総合振興局", "yahoo_reg": "1b", "tenki_reg": "1/2", "c10": "1600", "cap_code": "01203"},
+    "JP-AR-000051": {"name": "胆振総合振興局", "yahoo_reg": "1b", "tenki_reg": "1/2", "c10": "2100", "cap_code": "01205"},
+    "JP-AR-000052": {"name": "日高振興局", "yahoo_reg": "1b", "tenki_reg": "1/2", "c10": "2200", "cap_code": "01607"},
+    "JP-AR-000053": {"name": "渡島総合振興局", "yahoo_reg": "1a", "tenki_reg": "1/1", "c10": "2300", "cap_code": "01202"},
+    "JP-AR-000054": {"name": "檜山振興局", "yahoo_reg": "1a", "tenki_reg": "1/1", "c10": "2400", "cap_code": "01361"},
+    "JP-AR-000055": {"name": "上川総合振興局", "yahoo_reg": "1c", "tenki_reg": "1/3", "c10": "1200", "cap_code": "01204"},
+    "JP-AR-000056": {"name": "留萌振興局", "yahoo_reg": "1c", "tenki_reg": "1/3", "c10": "1300", "cap_code": "01212"},
+    "JP-AR-000057": {"name": "宗谷総合振興局", "yahoo_reg": "1c", "tenki_reg": "1/3", "c10": "1100", "cap_code": "01214"},
+    "JP-AR-000058": {"name": "オホーツク総合振興局", "yahoo_reg": "1d", "tenki_reg": "1/4", "c10": "1710", "cap_code": "01211"},
+    "JP-AR-000059": {"name": "十勝総合振興局", "yahoo_reg": "1d", "tenki_reg": "1/4", "c10": "2000", "cap_code": "01207"},
+    "JP-AR-000060": {"name": "釧路総合振興局", "yahoo_reg": "1d", "tenki_reg": "1/4", "c10": "1900", "cap_code": "01206"},
+    "JP-AR-000061": {"name": "根室振興局", "yahoo_reg": "1d", "tenki_reg": "1/4", "c10": "1800", "cap_code": "01223"}
+}
 
-    # 2. 日本気象協会 (tenki.jp)
-    tenki_url = f"https://tenki.jp/search/?keyword={name_encoded}"
+# オホーツク総合振興局内の一次細分区
+OKHOTSK_SUB = {
+    "北見市": "1720", "訓子府町": "1720", "置戸町": "1720", "佐呂間町": "1720",
+    "紋別市": "1730", "遠軽町": "1730", "湧別町": "1730", "滝上町": "1730",
+    "興部町": "1730", "西興部村": "1730", "雄武町": "1730",
+    "網走市": "1710", "大空町": "1710", "斜里町": "1710", "清里町": "1710", "小清水町": "1710"
+}
 
-    # 3. ウェザーニュース
-    wni_url = f"https://weathernews.jp/onebox/{name_encoded}/"
+# 全国主要府県の代表一次細分マッピング
+MAJOR_PREF_WEATHER = {
+    "13": {"name": "東京都", "yahoo_reg": "13", "tenki_reg": "3/16", "c10": "4410"},
+    "14": {"name": "神奈川県", "yahoo_reg": "14", "tenki_reg": "3/17", "c10": "4610"},
+    "27": {"name": "大阪府", "yahoo_reg": "27", "tenki_reg": "6/30", "c10": "6200"},
+    "26": {"name": "京都府", "yahoo_reg": "26", "tenki_reg": "6/29", "c10": "6100"},
+    "23": {"name": "愛知県", "yahoo_reg": "23", "tenki_reg": "5/26", "c10": "5110"},
+    "40": {"name": "福岡県", "yahoo_reg": "40", "tenki_reg": "9/43", "c10": "8210"},
+    "04": {"name": "宮城県", "yahoo_reg": "04", "tenki_reg": "2/9", "c10": "3410"},
+    "34": {"name": "広島県", "yahoo_reg": "34", "tenki_reg": "7/37", "c10": "6710"},
+    "28": {"name": "兵庫県", "yahoo_reg": "28", "tenki_reg": "6/31", "c10": "6310"},
+    "11": {"name": "埼玉県", "yahoo_reg": "11", "tenki_reg": "3/14", "c10": "4310"},
+    "12": {"name": "千葉県", "yahoo_reg": "12", "tenki_reg": "3/15", "c10": "4510"},
+    "22": {"name": "静岡県", "yahoo_reg": "22", "tenki_reg": "5/25", "c10": "5010"},
+    "15": {"name": "新潟県", "yahoo_reg": "15", "tenki_reg": "4/18", "c10": "5410"},
+}
 
-    # 4. Yahoo!天気
-    yahoo_url = f"https://weather.yahoo.co.jp/weather/search/?p={name_encoded}"
+def find_subpref_id(mid, area_lookup):
+    """自治体IDから親を再帰的に辿って北海道の振興局IDを探索"""
+    if not area_lookup or not mid:
+        return None
+    curr = mid
+    visited = set()
+    while curr and curr not in visited and curr in area_lookup:
+        visited.add(curr)
+        if curr in HOKKAIDO_SUBPREF_WEATHER:
+            return curr
+        curr = area_lookup[curr].get("parent_id", "")
+    return None
+
+def generate_weather_links(muni_id, muni_name, muni_code, parent_name="", category="", area_lookup=None):
+    """自治体名・自治体コードから気象庁公式ピンポイント天気予報リンクを生成（民間気象会社は中断）"""
+    code5 = muni_code[:5] if muni_code and len(muni_code) >= 5 else ""
+    is_num_code = code5.isdigit()
+
+    subpref_id = find_subpref_id(muni_id, area_lookup) if (area_lookup and muni_code.startswith("01")) else None
+
+    # 気象庁公式 (class20s市町村コード直結)
+    if is_num_code:
+        jma_url = f"https://www.jma.go.jp/bosai/forecast/#area_type=class20s&area_code={code5}00"
+    elif subpref_id and subpref_id in HOKKAIDO_SUBPREF_WEATHER:
+        cap = HOKKAIDO_SUBPREF_WEATHER[subpref_id]["cap_code"]
+        jma_url = f"https://www.jma.go.jp/bosai/forecast/#area_type=class20s&area_code={cap}00"
+    else:
+        jma_url = "https://www.jma.go.jp/bosai/forecast/"
 
     return {
         "jma": jma_url,
-        "tenki": tenki_url,
-        "weathernews": wni_url,
-        "yahoo": yahoo_url,
     }
-
 
 def generate_streetview_url(lat, lon):
     """ストリートビュー直接起動URLを生成"""
@@ -677,8 +739,10 @@ def export_public_data():
             mid = a_obj["id"]
             m_name = a_obj["name"]
             m_code = a_obj["code"]
+            parent_id = a_obj.get("parent_id", "")
+            parent_name = area_lookup.get(parent_id, {}).get("name", "")
 
-            weather_urls = generate_weather_links(m_name, m_code) if cc == "JP" else {}
+            weather_urls = generate_weather_links(mid, m_name, m_code, parent_name=parent_name, category=a_obj.get("category", ""), area_lookup=area_lookup) if cc == "JP" else {}
 
             pass_rids = muni_routes_map.get(mid, set())
             pass_routes = []
@@ -691,9 +755,6 @@ def export_public_data():
                         "mode": pr_info["mode"],
                         "color": pr_info["color"],
                     })
-
-            parent_id = a_obj.get("parent_id", "")
-            parent_name = area_lookup.get(parent_id, {}).get("name", "")
 
             lat = a_obj.get("lat")
             lon = a_obj.get("lon")

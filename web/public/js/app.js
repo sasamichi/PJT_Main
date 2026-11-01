@@ -390,23 +390,13 @@ const App = {
       if (item.lat != null && item.lon != null) rows.push(["政庁座標", `緯度: ${item.lat}, 経度: ${item.lon}`]);
       if (item.status) rows.push(["状態", item.status]);
 
-      // 🌤️ 外部天気予報リンク4社
-      if (item.weather_urls && Object.keys(item.weather_urls).length > 0) {
-        const wu = item.weather_urls;
+      // 🌤️ 気象庁公式ピンポイント天気予報
+      if (item.weather_urls && item.weather_urls.jma) {
         customSections += `
-          <div class="kp-section-title">🌤️ 外部天気予報リンク（公式・大手4社）</div>
-          <div class="weather-forecast-grid">
-            <a href="${wu.jma}" target="_blank" rel="noopener" class="weather-card-link">
-              <span>🌦️ 気象庁公式</span>
-            </a>
-            <a href="${wu.tenki}" target="_blank" rel="noopener" class="weather-card-link">
-              <span>☀️ tenki.jp</span>
-            </a>
-            <a href="${wu.weathernews}" target="_blank" rel="noopener" class="weather-card-link">
-              <span>☔ ウェザーニュース</span>
-            </a>
-            <a href="${wu.yahoo}" target="_blank" rel="noopener" class="weather-card-link">
-              <span>⛅ Yahoo!天気</span>
+          <div class="kp-section-title">🌤️ 天気予報（公式）</div>
+          <div style="margin-top: 6px;">
+            <a href="${item.weather_urls.jma}" target="_blank" rel="noopener" class="weather-card-link" style="display:inline-flex; align-items:center; gap:8px; padding:8px 14px; background:var(--bg-tertiary); border:1px solid var(--border-color); border-radius:6px; color:var(--primary-color); font-weight:600; text-decoration:none;">
+              <span>🌦️ 気象庁公式ピンポイント天気予報 &raquo;</span>
             </a>
           </div>
         `;
@@ -1231,7 +1221,7 @@ const App = {
               <span class="tree-arrow region-arrow open" id="${regArrowId}">▶</span>
               <span>📁 <b>${reg.name}</b></span>
             </div>
-            <span class="tree-count">${reg.prefs.length} 都道県</span>
+            <span class="tree-count">${reg.prefs.length} 都道府県</span>
           </div>
           <div class="tree-branch region-branch" id="${regId}" style="display:block;">
             ${prefItemsHtml}

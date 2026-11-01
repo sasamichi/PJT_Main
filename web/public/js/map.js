@@ -343,13 +343,17 @@ const PublicMap = {
       }
       urlLinks.push(`<a href="https://www.google.com/maps/search/?api=1&query=${m.lat},${m.lon}" target="_blank" rel="noopener" class="popup-url-btn">🗺️ Google Maps</a>`);
 
-      // 外部天気予報リンク（気象庁公式のみ）
+      // 外部天気予報リンク（大手4社直通）
       let weatherHtml = "";
-      if (m.weather_urls && m.weather_urls.jma) {
+      if (m.weather_urls && Object.keys(m.weather_urls).length > 0) {
+        const wu = m.weather_urls;
         weatherHtml = `
-          <div style="margin-top:6px; font-size:11px; color:var(--text-muted); font-weight:600;">天気予報リンク:</div>
+          <div style="margin-top:6px; font-size:11px; color:var(--text-muted); font-weight:600;">🌤️ 天気予報リンク（4社）:</div>
           <div style="display:flex; gap:4px; flex-wrap:wrap; margin-top:3px;">
-            <a href="${m.weather_urls.jma}" target="_blank" rel="noopener" class="popup-weather-btn">🌦️ 気象庁公式天気予報</a>
+            ${wu.jma ? `<a href="${wu.jma}" target="_blank" rel="noopener" class="popup-weather-btn">🌦️ 気象庁</a>` : ''}
+            ${wu.tenki ? `<a href="${wu.tenki}" target="_blank" rel="noopener" class="popup-weather-btn">☀️ tenki.jp</a>` : ''}
+            ${wu.weathernews ? `<a href="${wu.weathernews}" target="_blank" rel="noopener" class="popup-weather-btn">☔ ウェザーニュース</a>` : ''}
+            ${wu.yahoo ? `<a href="${wu.yahoo}" target="_blank" rel="noopener" class="popup-weather-btn">⛅ Yahoo!</a>` : ''}
           </div>
         `;
       }
