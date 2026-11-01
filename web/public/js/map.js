@@ -321,8 +321,8 @@ const PublicMap = {
 
     munis.forEach((m) => {
       if (m.lat == null || m.lon == null) return;
-      // 郡・支庁・振興局は非公開
-      if (m.category === "郡" || m.category === "支庁・総合振興局・振興局") return;
+      // 役所のない郡は座標なしのため自然にスキップ、支庁・振興局庁舎はプロット
+      if (m.category === "郡") return;
 
       const isPref = m.level === 1;
       const iconFile = isPref ? "gov-pref.svg" : "gov-muni.svg";

@@ -849,10 +849,8 @@ const App = {
 
     const isJapan = d.country_code === "JP";
     const rawMunis = d.municipalities || [];
-    // 郡・支庁・振興局は今回の公開時点では非公開
-    const munis = isJapan
-      ? rawMunis.filter((m) => m.category !== "郡" && m.category !== "支庁・総合振興局・振興局")
-      : rawMunis;
+    // 全自治体（振興局・支庁・郡を含む）を多層ツリーに完全公開
+    const munis = rawMunis;
 
     let html = `
       <div class="tree-view-container" style="max-width:1200px; margin:0 auto;">
@@ -952,54 +950,145 @@ const App = {
     this.renderJapanMultiLevelTree(munis);
   },
 
-  // 日本の多層ツリーレンダリング (地方 ➔ 都道府県 ➔ 市区町村テーブル)
+  // 日本の多層ツリーレンダリング (地方 ➔ 都道府県 ➔ [振興局/支庁] ➔ [政令市/郡] ➔ 市区町村テーブル)
   renderJapanMultiLevelTree: function (munis) {
     const container = document.getElementById("muni-tree-container");
     if (!container) return;
 
-    // 1. レベル別に分類 (郡・支庁・振興局は今回の公開時点では非公開)
+    // 要素分類
     const prefs = munis.filter((m) => m.level === 1);
+    const subprefs = munis.filter((m) => m.category === "支庁・総合振興局・振興局");
+    const guns = munis.filter((m) => m.category === "郡");
     const dCities = munis.filter((m) => m.category === "政令指定都市");
     const wards = munis.filter((m) => m.level === 4);
-    const localMunis = munis.filter(
-      (m) => m.level === 3 && m.category !== "政令指定都市" && m.category !== "郡" && m.category !== "支庁・総合振興局・振興局"
+    const ordinaryCities = munis.filter(
+      (m) => (m.category === "市" || m.category === "中核市" || m.category === "施行時特例市" || m.category === "特別区")
     );
+    const townsVillages = munis.filter((m) => m.category === "町" || m.category === "村");
 
-    // 都道府県名からオブジェクトへのマップ
-    const prefMap = {};
+    // 1. 各郡配下の町村マップ: gun_id -> [towns]
+    const gunTownsMap = {};
+    guns.forEach((g) => { gunTownsMap[g.id] = []; });
+
+    // 2. 各政令市配下の区マップ: dcity_id -> [wards]
+    const dCityWardsMap = {};
+    dCities.forEach((dc) => { dCityWardsMap[dc.id] = []; });
+
+    // 3. 各振興局・支庁配下の市・郡・町村マップ
+    const subprefContentMap = {};
+    subprefs.forEach((sp) => {
+      subprefContentMap[sp.id] = { sp: sp, cities: [], guns: [], directTowns: [] };
+    });
+
+    // 町村の振り分け (親が郡なら郡へ、親が支庁なら支庁直接へ)
+    townsVillages.forEach((tv) => {
+      if (gunTownsMap[tv.parent_id]) {
+        gunTownsMap[tv.parent_id].push(tv);
+      } else if (subprefContentMap[tv.parent_id]) {
+        subprefContentMap[tv.parent_id].directTowns.push(tv);
+      }
+    });
+
+    // 区の振り分け
+    wards.forEach((w) => {
+      if (dCityWardsMap[w.parent_id]) {
+        dCityWardsMap[w.parent_id].push(w);
+      }
+    });
+
+    // 都道府県ごとの構造マップ: pref_name -> { pref, subprefs: [], dCities: [], cities: [], guns: [] }
+    const prefTreeMap = {};
     prefs.forEach((p) => {
-      prefMap[p.name] = {
+      prefTreeMap[p.name] = {
         pref: p,
+        subprefs: [],
         dCities: [],
         cities: [],
+        guns: [],
       };
     });
 
-    // 政令指定都市と区の紐付け
-    const dCityWardsMap = {};
-    dCities.forEach((dc) => {
-      dCityWardsMap[dc.name] = [];
-    });
-    wards.forEach((w) => {
-      if (dCityWardsMap[w.parent_name]) {
-        dCityWardsMap[w.parent_name].push(w);
+    // 振興局・支庁の振り分け
+    subprefs.forEach((sp) => {
+      const pName = sp.parent_name || (sp.code.startsWith("01") ? "北海道" : (sp.code.startsWith("13") ? "東京都" : ""));
+      if (prefTreeMap[pName]) {
+        prefTreeMap[pName].subprefs.push(sp);
       }
     });
 
-    // 各都道府県へ政令市と一般自治体を振り分け
+    // 政令指定都市の振り分け
     dCities.forEach((dc) => {
-      if (prefMap[dc.parent_name]) {
-        prefMap[dc.parent_name].dCities.push({
-          dCity: dc,
-          wards: dCityWardsMap[dc.name] || [],
-        });
+      if (subprefContentMap[dc.parent_id]) {
+        subprefContentMap[dc.parent_id].cities.push(dc);
+      } else if (prefTreeMap[dc.parent_name]) {
+        prefTreeMap[dc.parent_name].dCities.push(dc);
       }
     });
-    localMunis.forEach((m) => {
-      if (prefMap[m.parent_name]) {
-        prefMap[m.parent_name].cities.push(m);
+
+    // 一般市の振り分け
+    ordinaryCities.forEach((c) => {
+      if (subprefContentMap[c.parent_id]) {
+        subprefContentMap[c.parent_id].cities.push(c);
+      } else if (prefTreeMap[c.parent_name]) {
+        prefTreeMap[c.parent_name].cities.push(c);
       }
     });
+
+    // 郡の振り分け
+    guns.forEach((g) => {
+      if (subprefContentMap[g.parent_id]) {
+        subprefContentMap[g.parent_id].guns.push(g);
+      } else if (prefTreeMap[g.parent_name]) {
+        prefTreeMap[g.parent_name].guns.push(g);
+      }
+    });
+
+    // ヘルパー：郡ツリー行HTMLの生成
+    const buildGunRowHTML = (g, branchId, arrowId) => {
+      const tvList = gunTownsMap[g.id] || [];
+      if (tvList.length === 0) return "";
+      return `
+        <div style="margin-bottom:4px;">
+          <div class="tree-row tree-row-l3-desig" style="background:rgba(241,245,249,0.7); border-left:3px solid #64748b;" onclick="App.toggleTreeNode('${branchId}', '${arrowId}')">
+            <div class="tree-label">
+              <span class="tree-arrow" id="${arrowId}">▶</span>
+              <span>🏡 <b>${g.name}</b> <small style="font-weight:normal; color:var(--text-muted);">(郡)</small></span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="tree-count">${tvList.length} 町村</span>
+            </div>
+          </div>
+          <div class="tree-branch" id="${branchId}" style="display:none;">
+            <div class="tree-table-box">
+              ${App.buildMuniTableHTML(tvList)}
+            </div>
+          </div>
+        </div>
+      `;
+    };
+
+    // ヘルパー：政令市ツリー行HTMLの生成
+    const buildDCityRowHTML = (dc, branchId, arrowId) => {
+      const dcWards = dCityWardsMap[dc.id] || [];
+      return `
+        <div style="margin-bottom:6px;">
+          <div class="tree-row tree-row-l3-desig" onclick="App.toggleTreeNode('${branchId}', '${arrowId}')">
+            <div class="tree-label">
+              <span class="tree-arrow" id="${arrowId}">▶</span>
+              <span>🏙️ <b>${dc.name}</b> <small style="font-weight:normal;">(政令指定都市)</small></span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="tree-count">${dcWards.length} 区</span>
+            </div>
+          </div>
+          <div class="tree-branch" id="${branchId}" style="display:none;">
+            <div class="tree-table-box">
+              ${App.buildMuniTableHTML(dcWards)}
+            </div>
+          </div>
+        </div>
+      `;
+    };
 
     let treeHtml = "";
 
@@ -1009,53 +1098,111 @@ const App = {
 
       let prefItemsHtml = "";
       reg.prefs.forEach((pName, pIdx) => {
-        const pObj = prefMap[pName];
+        const pObj = prefTreeMap[pName];
         if (!pObj) return;
 
         const p = pObj.pref;
         const pBranchId = `pref-branch-${rIdx}-${pIdx}`;
         const pArrowId = `pref-arrow-${rIdx}-${pIdx}`;
 
-        // 都道府県配下のコンテンツ
         let prefContentHtml = "";
+        let totalMunisInPref = 0;
 
-        // 政令指定都市がある場合
-        pObj.dCities.forEach((dcItem, dcIdx) => {
-          const dc = dcItem.dCity;
-          const dcWards = dcItem.wards;
-          const dcBranchId = `dc-branch-${rIdx}-${pIdx}-${dcIdx}`;
-          const dcArrowId = `dc-arrow-${rIdx}-${pIdx}-${dcIdx}`;
+        // A. 振興局・支庁が存在する場合（北海道、東京都島嶼部、山形・島根・鹿児島の一部）
+        if (pObj.subprefs.length > 0) {
+          pObj.subprefs.forEach((sp, spIdx) => {
+            const spData = subprefContentMap[sp.id] || { cities: [], guns: [], directTowns: [] };
+            const spBranchId = `sp-branch-${rIdx}-${pIdx}-${spIdx}`;
+            const spArrowId = `sp-arrow-${rIdx}-${pIdx}-${spIdx}`;
 
-          prefContentHtml += `
-            <div style="margin-bottom:6px;">
-              <div class="tree-row tree-row-l3-desig" onclick="App.toggleTreeNode('${dcBranchId}', '${dcArrowId}')">
-                <div class="tree-label">
-                  <span class="tree-arrow" id="${dcArrowId}">▶</span>
-                  <span>🏙️ <b>${dc.name}</b> <small style="font-weight:normal;">(政令指定都市)</small></span>
+            let spContentHtml = "";
+            let spMuniCount = 0;
+
+            // 振興局管内の市（政令市は区を展開）
+            spData.cities.forEach((c, cIdx) => {
+              if (c.category === "政令指定都市") {
+                const dcBranchId = `sp-dc-${rIdx}-${pIdx}-${spIdx}-${cIdx}`;
+                const dcArrowId = `sp-dca-${rIdx}-${pIdx}-${spIdx}-${cIdx}`;
+                spContentHtml += buildDCityRowHTML(c, dcBranchId, dcArrowId);
+                const wCount = (dCityWardsMap[c.id] || []).length;
+                spMuniCount += (wCount > 0 ? wCount : 1);
+              } else {
+                spContentHtml += `
+                  <div class="tree-table-box" style="margin-bottom:4px;">
+                    ${App.buildMuniTableHTML([c])}
+                  </div>
+                `;
+                spMuniCount += 1;
+              }
+            });
+
+            // 振興局管内の郡
+            spData.guns.forEach((g, gIdx) => {
+              const gBranchId = `sp-gun-${rIdx}-${pIdx}-${spIdx}-${gIdx}`;
+              const gArrowId = `sp-guna-${rIdx}-${pIdx}-${spIdx}-${gIdx}`;
+              spContentHtml += buildGunRowHTML(g, gBranchId, gArrowId);
+              spMuniCount += (gunTownsMap[g.id] || []).length;
+            });
+
+            // 支庁管轄の直接島嶼町村（東京都支庁等）
+            if (spData.directTowns.length > 0) {
+              spContentHtml += `
+                <div class="tree-table-box" style="margin-bottom:4px;">
+                  ${App.buildMuniTableHTML(spData.directTowns)}
                 </div>
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <span class="tree-count">${dcWards.length} 区</span>
+              `;
+              spMuniCount += spData.directTowns.length;
+            }
+
+            totalMunisInPref += spMuniCount;
+
+            prefContentHtml += `
+              <div style="margin-bottom:6px;">
+                <div class="tree-row tree-row-l3-desig" style="background:rgba(30,58,138,0.04); border-left:3px solid var(--primary-color);" onclick="App.toggleTreeNode('${spBranchId}', '${spArrowId}')">
+                  <div class="tree-label">
+                    <span class="tree-arrow" id="${spArrowId}">▶</span>
+                    <span>🏢 <b>${sp.name}</b> <small style="font-weight:normal; color:var(--text-muted);">(振興局・支庁)</small></span>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <span class="tree-count">${spMuniCount} 自治体</span>
+                  </div>
+                </div>
+                <div class="tree-branch" id="${spBranchId}" style="display:none; padding-left:14px;">
+                  ${spContentHtml}
                 </div>
               </div>
-              <div class="tree-branch" id="${dcBranchId}" style="display:none;">
-                <div class="tree-table-box">
-                  ${App.buildMuniTableHTML(dcWards)}
-                </div>
-              </div>
-            </div>
-          `;
+            `;
+          });
+        }
+
+        // B. 都道府県直下の政令指定都市
+        pObj.dCities.forEach((dc, dcIdx) => {
+          const dcBranchId = `pref-dc-${rIdx}-${pIdx}-${dcIdx}`;
+          const dcArrowId = `pref-dca-${rIdx}-${pIdx}-${dcIdx}`;
+          prefContentHtml += buildDCityRowHTML(dc, dcBranchId, dcArrowId);
+          const wCount = (dCityWardsMap[dc.id] || []).length;
+          totalMunisInPref += (wCount > 0 ? wCount : 1);
         });
 
-        // 一般市区町村（特別区・市・町・村）のテーブル
+        // C. 都道府県直下の一般市（中核市・一般市・特別区）
         if (pObj.cities.length > 0) {
           prefContentHtml += `
-            <div class="tree-table-box">
+            <div class="tree-table-box" style="margin-bottom:6px;">
               ${App.buildMuniTableHTML(pObj.cities)}
             </div>
           `;
+          totalMunisInPref += pObj.cities.length;
         }
 
-        const totalMunisInPref = pObj.dCities.length + pObj.cities.length;
+        // D. 都道府県直下の郡（各郡配下に町村）
+        if (pObj.guns.length > 0) {
+          pObj.guns.forEach((g, gIdx) => {
+            const gBranchId = `pref-gun-${rIdx}-${pIdx}-${gIdx}`;
+            const gArrowId = `pref-guna-${rIdx}-${pIdx}-${gIdx}`;
+            prefContentHtml += buildGunRowHTML(g, gBranchId, gArrowId);
+            totalMunisInPref += (gunTownsMap[g.id] || []).length;
+          });
+        }
 
         prefItemsHtml += `
           <div style="margin-bottom:4px;">
