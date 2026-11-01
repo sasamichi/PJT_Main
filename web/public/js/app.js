@@ -1045,7 +1045,8 @@ const App = {
               <span class="tree-arrow" id="${arrowId}">▶</span>
               <span>🏡 <b>${g.name}</b> <small style="font-weight:normal; color:var(--text-muted);">(郡)</small></span>
             </div>
-            <div style="display:flex; align-items:center; gap:8px;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <button class="badge" style="background:#e2e8f0; color:#334155; border:none; cursor:pointer; font-size:10.5px; padding:2px 6px; border-radius:3px;" onclick="event.stopPropagation(); App.selectMunicipality('${g.id}')" title="郡の詳細情報を表示">詳細</button>
               <span class="tree-count">${tvList.length} 町村</span>
             </div>
           </div>
@@ -1068,7 +1069,8 @@ const App = {
               <span class="tree-arrow" id="${arrowId}">▶</span>
               <span>🏙️ <b>${dc.name}</b> <small style="font-weight:normal;">(政令指定都市)</small></span>
             </div>
-            <div style="display:flex; align-items:center; gap:8px;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <button class="badge" style="background:#e2e8f0; color:#334155; border:none; cursor:pointer; font-size:10.5px; padding:2px 6px; border-radius:3px;" onclick="event.stopPropagation(); App.selectMunicipality('${dc.id}')" title="政令指定都市の詳細を表示">詳細</button>
               <span class="tree-count">${dcWards.length} 区</span>
             </div>
           </div>
@@ -1155,7 +1157,8 @@ const App = {
                     <span class="tree-arrow" id="${spArrowId}">▶</span>
                     <span>🏢 <b>${sp.name}</b> <small style="font-weight:normal; color:var(--text-muted);">(振興局・支庁)</small></span>
                   </div>
-                  <div style="display:flex; align-items:center; gap:8px;">
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <button class="badge" style="background:#e2e8f0; color:#334155; border:none; cursor:pointer; font-size:10.5px; padding:2px 6px; border-radius:3px;" onclick="event.stopPropagation(); App.selectMunicipality('${sp.id}')" title="振興局・支庁の詳細を表示">詳細</button>
                     <span class="tree-count">${spMuniCount} 自治体</span>
                   </div>
                 </div>
@@ -1203,7 +1206,8 @@ const App = {
                 <span class="tree-arrow" id="${pArrowId}">▶</span>
                 <span>🏛️ <b>${p.name}</b></span>
               </div>
-              <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <button class="badge" style="background:#e2e8f0; color:#334155; border:none; cursor:pointer; font-size:10.5px; padding:2px 6px; border-radius:3px;" onclick="event.stopPropagation(); App.selectMunicipality('${p.id}')" title="都道府県の詳細を表示">詳細</button>
                 <span class="tree-count">${totalMunisInPref} 自治体</span>
               </div>
             </div>

@@ -8,11 +8,13 @@ Python標準ライブラリのみで動作し、Web GISフロントエンドの�
 
 import io
 import os
+import sys
 import re
 import csv
 import json
 import time
 import math
+import shutil
 import tempfile
 import threading
 import urllib.request
@@ -21,13 +23,26 @@ from datetime import datetime
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+from tools.gate_audit import audit_route_data, EXPECTED_NODE_COLUMNS, EXPECTED_EDGE_COLUMNS, EXPECTED_ROUTE_COLUMNS
+
 STATIC_DIR = os.path.join(PROJECT_ROOT, 'web', 'explorer')
 PUBLIC_DIR = os.path.join(PROJECT_ROOT, 'web', 'public')
 MASTER_DIR = os.path.join(PROJECT_ROOT, 'data', 'master')
 STAGING_DIR = os.path.join(PROJECT_ROOT, 'data', 'staging')
+STAGING_JP_DIR = os.path.join(STAGING_DIR, 'JP')
+BACKUP_DIR = os.path.join(PROJECT_ROOT, 'data', 'backup')
 TEST_DOUO_DIR = os.path.join(PROJECT_ROOT, 'data', 'test', 'douo_highway_test')
 LOG_CSV_PATH = os.path.join(MASTER_DIR, 'exploration_logs.csv')
 THEME_SPOT_CSV_PATH = os.path.join(MASTER_DIR, 'theme_spots.csv')
+PILOT_CSV_PATH = os.path.join(MASTER_DIR, 'pilot_progress.csv')
+
+try:
+    sys.stdout.reconfigure(encoding='utf-8')
+except Exception:
+    pass
 
 PORT = 8080
 USER_AGENT = "AntigravityWorldTransport/3.0 (contact: user@project.local)"
@@ -577,6 +592,316 @@ def geoguessr_export_body(theme, fmt):
 
 
 # ---------------------------------------------------------------
+# 路線検査・エディタ用バックエンド処理（道央道方式汎用化）
+# ---------------------------------------------------------------
+_editor_lock = threading.Lock()
+
+
+def backup_file(src_path):
+    """指定されたファイルを data/backup/ へ安全に退避"""
+    if not os.path.exists(src_path) or os.path.getsize(src_path) == 0:
+        return None
+    os.makedirs(BACKUP_DIR, exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    base = os.path.basename(src_path)
+    name, ext = os.path.splitext(base)
+    bak_path = os.path.join(BACKUP_DIR, f"{name}_{ts}{ext}.bak")
+    shutil.copy2(src_path, bak_path)
+    return bak_path
+
+
+def get_editor_routes():
+    """パイロット台帳（pilot_progress.csv）から登録路線・拠点一覧を取得"""
+    if not os.path.exists(PILOT_CSV_PATH):
+        return []
+    with open(PILOT_CSV_PATH, mode='r', encoding='utf-8', newline='') as f:
+        reader = csv.DictReader(f)
+        return list(reader)
+
+
+def get_route_editor_data(target_id='', route_id=''):
+    """指定路線のノード・エッジ・メタデータと最新Gate監査結果を取得"""
+    staging_routes_dir = os.path.join(STAGING_JP_DIR, 'routes')
+    s_nodes_path = os.path.join(staging_routes_dir, f"{target_id}_nodes.csv") if target_id else ""
+    s_edges_path = os.path.join(staging_routes_dir, f"{target_id}_edges.csv") if target_id else ""
+
+    nodes = []
+    edges = []
+    route = {}
+    source_type = "unknown"
+
+    # 1. ステージング個別ファイルの確認
+    if s_nodes_path and os.path.exists(s_nodes_path):
+        nodes = read_csv_file(s_nodes_path)
+        if os.path.exists(s_edges_path):
+            edges = read_csv_file(s_edges_path)
+        if target_id == 'PLT-HW-01':
+            route_id = 'JP-RT-000473'
+        source_type = "staging"
+    # 2. 道央道テストデータのフォールバック（初期状態）
+    elif target_id in ('PLT-HW-01', 'JP-PILOT-01') or route_id == 'TEST-RT-DOUO-EXP-ALL':
+        t_nodes_path = os.path.join(TEST_DOUO_DIR, 'test_all_highway_nodes.csv')
+        t_edges_path = os.path.join(TEST_DOUO_DIR, 'test_all_highway_edges.csv')
+        t_route_path = os.path.join(TEST_DOUO_DIR, 'test_all_transport_routes.csv')
+        if os.path.exists(t_nodes_path):
+            nodes = read_csv_file(t_nodes_path)
+            raw_edges = read_csv_file(t_edges_path) if os.path.exists(t_edges_path) else []
+            # スキーマ補正（マスター12列に合わせて欠損カラムをデフォルト補完）
+            edges = []
+            for e in raw_edges:
+                edge_item = dict(e)
+                edge_item.pop('複線電化', None)
+                edge_item.setdefault('路線内番号', '')
+                edge_item.setdefault('開始日', '')
+                edge_item.setdefault('終了日', '')
+                edge_item.setdefault('確定ステータス', '検証中')
+                edges.append(edge_item)
+            if os.path.exists(t_route_path):
+                r_rows = read_csv_file(t_route_path)
+                if r_rows: route = r_rows[0]
+            source_type = "test_douo"
+    # 3. マスターからの抽出フォールバック
+    else:
+        all_nodes = read_table('nodes.csv', 'JP')
+        all_edges = read_table('edges.csv', 'JP')
+        all_routes = read_table('transport_routes.csv', 'JP')
+        if route_id:
+            edges = [e for e in all_edges if e.get('route_id') == route_id]
+            matched_routes = [r for r in all_routes if r.get('route_id') == route_id]
+            if matched_routes: route = matched_routes[0]
+            edge_nids = set([e.get('from_node_id') for e in edges] + [e.get('to_node_id') for e in edges])
+            nodes = [n for n in all_nodes if n.get('node_id') in edge_nids]
+            source_type = "master"
+
+    if not route and route_id:
+        all_routes = read_table('transport_routes.csv', 'JP')
+        for r in all_routes:
+            if r.get('route_id') == route_id:
+                route = r
+                break
+
+    # 自治体マスタ
+    munis = read_table('municipalities.csv', 'JP')
+
+    # Gate 1〜4 監査の実行
+    audit_res = audit_route_data(nodes, edges, route, munis)
+
+    return {
+        "target_id": target_id,
+        "route_id": route_id,
+        "source_type": source_type,
+        "nodes": nodes,
+        "edges": edges,
+        "route": route,
+        "audit": audit_res
+    }
+
+
+def save_route_editor_data(data):
+    """エディタ編集後のノード・エッジを staging/JP/routes/ に安全保存し、進捗台帳を更新"""
+    target_id = data.get('target_id', '').strip()
+    route_id = data.get('route_id', '').strip()
+    nodes = data.get('nodes', [])
+    edges = data.get('edges', [])
+    route = data.get('route', {})
+
+    if not target_id:
+        raise ValueError("target_id が指定されていません")
+
+    staging_routes_dir = os.path.join(STAGING_JP_DIR, 'routes')
+    os.makedirs(staging_routes_dir, exist_ok=True)
+    nodes_path = os.path.join(staging_routes_dir, f"{target_id}_nodes.csv")
+    edges_path = os.path.join(staging_routes_dir, f"{target_id}_edges.csv")
+
+    with _editor_lock:
+        # バックアップ作成
+        backup_file(nodes_path)
+        backup_file(edges_path)
+
+        # ノードCSV書き込み（マスター確定21列）
+        with open(nodes_path, mode='w', encoding='utf-8', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=EXPECTED_NODE_COLUMNS, extrasaction='ignore')
+            writer.writeheader()
+            for n in nodes:
+                row = {c: n.get(c, '') for c in EXPECTED_NODE_COLUMNS}
+                writer.writerow(row)
+
+        # エッジCSV書き込み（マスター確定12列）
+        with open(edges_path, mode='w', encoding='utf-8', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=EXPECTED_EDGE_COLUMNS, extrasaction='ignore')
+            writer.writeheader()
+            for e in edges:
+                row = {c: e.get(c, '') for c in EXPECTED_EDGE_COLUMNS}
+                writer.writerow(row)
+
+        # キャッシュ無効化
+        _csv_cache.pop(nodes_path, None)
+        _csv_cache.pop(edges_path, None)
+
+        # 監査再計算
+        munis = read_table('municipalities.csv', 'JP')
+        audit_res = audit_route_data(nodes, edges, route, munis)
+
+        # pilot_progress.csv の自動同期更新
+        if os.path.exists(PILOT_CSV_PATH):
+            pilot_rows = []
+            with open(PILOT_CSV_PATH, mode='r', encoding='utf-8', newline='') as f:
+                reader = csv.DictReader(f)
+                fieldnames = reader.fieldnames
+                for r in reader:
+                    if r.get('target_id') == target_id:
+                        r['node_count'] = str(len(nodes))
+                        r['edge_count'] = str(len(edges))
+                        r['gate1_schema'] = audit_res['gates']['gate1']['status']
+                        r['gate2_coords'] = audit_res['gates']['gate2']['status']
+                        r['gate3_topology'] = audit_res['gates']['gate3']['status']
+                        r['gate4_distance'] = audit_res['gates']['gate4']['status']
+                        r['updated_at'] = datetime.now().strftime("%Y-%m-%d")
+                    pilot_rows.append(r)
+            backup_file(PILOT_CSV_PATH)
+            with open(PILOT_CSV_PATH, mode='w', encoding='utf-8', newline='') as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(pilot_rows)
+            _csv_cache.pop(PILOT_CSV_PATH, None)
+
+    return {
+        "success": True,
+        "target_id": target_id,
+        "nodes_count": len(nodes),
+        "edges_count": len(edges),
+        "audit": audit_res
+    }
+
+
+def promote_route_to_master(target_id, route_id):
+    """Gate 1〜4 ALL PASS を確認後、ステージングデータを master/ に安全マージ・昇格"""
+    staging_routes_dir = os.path.join(STAGING_JP_DIR, 'routes')
+    nodes_path = os.path.join(staging_routes_dir, f"{target_id}_nodes.csv")
+    edges_path = os.path.join(staging_routes_dir, f"{target_id}_edges.csv")
+
+    if not os.path.exists(nodes_path):
+        raise ValueError(f"ステージングデータが存在しません: {nodes_path}")
+
+    nodes = read_csv_file(nodes_path)
+    edges = read_csv_file(edges_path) if os.path.exists(edges_path) else []
+    munis = read_table('municipalities.csv', 'JP')
+
+    # 厳格監査
+    audit_res = audit_route_data(nodes, edges, None, munis)
+    if not audit_res["is_valid"]:
+        all_errs = []
+        for g in audit_res["gates"].values():
+            all_errs.extend(g["errors"])
+        raise ValueError(f"Gate 検査が未通過のため昇格できません。エラー: {' / '.join(all_errs[:3])}")
+
+    with _editor_lock:
+        master_nodes_path = os.path.join(MASTER_DIR, 'nodes.csv')
+        master_edges_path = os.path.join(MASTER_DIR, 'edges.csv')
+        master_routes_path = os.path.join(MASTER_DIR, 'transport_routes.csv')
+
+        # マスターの退避バックアップ
+        backup_file(master_nodes_path)
+        backup_file(master_edges_path)
+        backup_file(master_routes_path)
+
+        # 1. nodes.csv マージ（同一node_idは上書き、新規は追記）
+        existing_nodes = read_csv_file(master_nodes_path)
+        node_dict = {n.get('node_id'): n for n in existing_nodes if n.get('node_id')}
+        for n in nodes:
+            nid = n.get('node_id')
+            if nid:
+                node_dict[nid] = n
+        merged_nodes = list(node_dict.values())
+
+        with open(master_nodes_path, mode='w', encoding='utf-8', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=EXPECTED_NODE_COLUMNS, extrasaction='ignore')
+            writer.writeheader()
+            for n in merged_nodes:
+                writer.writerow({c: n.get(c, '') for c in EXPECTED_NODE_COLUMNS})
+
+        # 2. edges.csv マージ（該当route_idの既存エッジを差替え）
+        existing_edges = read_csv_file(master_edges_path)
+        remaining_edges = [e for e in existing_edges if e.get('route_id') != route_id]
+        merged_edges = remaining_edges + edges
+
+        with open(master_edges_path, mode='w', encoding='utf-8', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=EXPECTED_EDGE_COLUMNS, extrasaction='ignore')
+            writer.writeheader()
+            for e in merged_edges:
+                writer.writerow({c: e.get(c, '') for c in EXPECTED_EDGE_COLUMNS})
+
+        # 3. transport_routes.csv 更新（もし道央道等のルートがあれば）
+        existing_routes = read_csv_file(master_routes_path)
+        route_found = False
+        for r in existing_routes:
+            if r.get('route_id') == route_id:
+                r['確定ステータス'] = 'マスタ反映済'
+                if edges:
+                    r['起点ノード_id'] = edges[0].get('from_node_id', '')
+                    r['終点ノード_id'] = edges[-1].get('to_node_id', '')
+                    r['総距離_km'] = str(audit_res['summary']['total_distance_km'])
+                route_found = True
+        if not route_found and route_id:
+            first_from = edges[0].get('from_node_id', '') if edges else ''
+            last_to = edges[-1].get('to_node_id', '') if edges else ''
+            existing_routes.append({
+                'route_id': route_id,
+                'country_code': 'JP',
+                'operator_id': 'OP-JP-NEXCO-EAST',
+                '路線名': '道央自動車道' if 'DOUO' in route_id else route_id,
+                '路線名_公用語': 'Do-O Expressway' if 'DOUO' in route_id else '',
+                '路線名_通称': '道央道' if 'DOUO' in route_id else '',
+                '種別': '高速道路',
+                '起点ノード_id': first_from,
+                '終点ノード_id': last_to,
+                '全線開通日': '',
+                '廃止日': '',
+                '総距離_km': str(audit_res['summary']['total_distance_km']),
+                '確定ステータス': 'マスタ反映済',
+                '公式サイトURL': 'https://www.e-nexco.co.jp/',
+                '備考': '北海道回廊パイロット第1号'
+            })
+
+        with open(master_routes_path, mode='w', encoding='utf-8', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=EXPECTED_ROUTE_COLUMNS, extrasaction='ignore')
+            writer.writeheader()
+            for r in existing_routes:
+                writer.writerow({c: r.get(c, '') for c in EXPECTED_ROUTE_COLUMNS})
+
+        # 4. pilot_progress.csv のステータスを更新
+        if os.path.exists(PILOT_CSV_PATH):
+            pilot_rows = []
+            with open(PILOT_CSV_PATH, mode='r', encoding='utf-8', newline='') as f:
+                reader = csv.DictReader(f)
+                fieldnames = reader.fieldnames
+                for r in reader:
+                    if r.get('target_id') == target_id:
+                        r['status'] = '検証合格・マスタ反映済'
+                        r['gate1_schema'] = 'PASS'
+                        r['gate2_coords'] = 'PASS'
+                        r['gate3_topology'] = 'PASS'
+                        r['gate4_distance'] = 'PASS'
+                        r['updated_at'] = datetime.now().strftime("%Y-%m-%d")
+                    pilot_rows.append(r)
+            with open(PILOT_CSV_PATH, mode='w', encoding='utf-8', newline='') as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(pilot_rows)
+
+        # キャッシュクリア
+        _csv_cache.clear()
+
+    return {
+        "success": True,
+        "message": f"路線 '{route_id}' (ノード {len(nodes)}件, エッジ {len(edges)}件) がマスターへ安全に昇格反映されました",
+        "target_id": target_id,
+        "route_id": route_id
+    }
+
+
+
+# ---------------------------------------------------------------
 # HTTPハンドラ
 # ---------------------------------------------------------------
 class ExplorerAPIHandler(SimpleHTTPRequestHandler):
@@ -680,6 +1005,14 @@ class ExplorerAPIHandler(SimpleHTTPRequestHandler):
                 radius = float(qs.get('radius_km', [10])[0])
                 items = fetch_wikidata(lat, lon, radius)
                 self.send_json({"items": items, "total": len(items)})
+            elif path == '/api/editor/routes':
+                routes_list = get_editor_routes()
+                self.send_json({"routes": routes_list, "total": len(routes_list)})
+            elif path == '/api/editor/route_data':
+                tid = qs.get('target_id', [''])[0]
+                rid = qs.get('route_id', [''])[0]
+                data = get_route_editor_data(target_id=tid, route_id=rid)
+                self.send_json(data)
             else:
                 self.send_json({"error": "not found"}, 404)
         except Exception as e:
@@ -711,7 +1044,7 @@ class ExplorerAPIHandler(SimpleHTTPRequestHandler):
             res = nodes[:int(qs.get('limit', [500])[0])]  # 範囲指定なしは安全のため上限あり
         return {"nodes": res, "total": len(res)}
 
-    # --- POST / PUT / DELETE（探索ログ・テーマ別スポット） ---
+    # --- POST / PUT / DELETE（探索ログ・テーマ別スポット・エディタ操作） ---
     def do_POST(self):
         if self.path == '/api/logs':
             try:
@@ -721,6 +1054,33 @@ class ExplorerAPIHandler(SimpleHTTPRequestHandler):
         elif self.path == '/api/theme_spots':
             try:
                 self.send_json({"success": True, "spot": create_theme_spot(self.read_json_body())})
+            except Exception as e:
+                self.send_json({"success": False, "error": str(e)}, 400)
+        elif self.path == '/api/editor/save':
+            try:
+                body = self.read_json_body()
+                res = save_route_editor_data(body)
+                self.send_json(res)
+            except Exception as e:
+                self.send_json({"success": False, "error": str(e)}, 400)
+        elif self.path == '/api/editor/run_gate':
+            try:
+                body = self.read_json_body()
+                nodes = body.get('nodes', [])
+                edges = body.get('edges', [])
+                route = body.get('route', {})
+                munis = read_table('municipalities.csv', 'JP')
+                audit_res = audit_route_data(nodes, edges, route, munis)
+                self.send_json(audit_res)
+            except Exception as e:
+                self.send_json({"success": False, "error": str(e)}, 400)
+        elif self.path == '/api/editor/promote':
+            try:
+                body = self.read_json_body()
+                tid = body.get('target_id', '')
+                rid = body.get('route_id', '')
+                res = promote_route_to_master(tid, rid)
+                self.send_json(res)
             except Exception as e:
                 self.send_json({"success": False, "error": str(e)}, 400)
         else:
@@ -752,16 +1112,21 @@ class ExplorerAPIHandler(SimpleHTTPRequestHandler):
 def run_server():
     # 外部API（Wikidata等）の待ち時間で他の操作が止まらないよう、スレッド版サーバーを使用
     ThreadingHTTPServer.allow_reuse_address = True
-    httpd = ThreadingHTTPServer(('', PORT), ExplorerAPIHandler)
+    httpd = ThreadingHTTPServer(('127.0.0.1', PORT), ExplorerAPIHandler)
     httpd.daemon_threads = True
-    print("=" * 54)
-    print(" 机上探索 Web GIS サーバーが起動しました")
-    print(f" URL: http://localhost:{PORT}")
-    print("=" * 54)
+    print("=" * 54, flush=True)
+    print(" 机上探索 Web GIS サーバーが起動しました", flush=True)
+    print(f" URL: http://localhost:{PORT}", flush=True)
+    print("=" * 54, flush=True)
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
-        print("\nサーバーを停止しました。")
+        print("\nサーバーを停止しました。", flush=True)
+        httpd.server_close()
+    except Exception as e:
+        import traceback
+        print(f"\n予期せぬエラーでサーバーが停止しました: {e}", flush=True)
+        traceback.print_exc()
         httpd.server_close()
 
 

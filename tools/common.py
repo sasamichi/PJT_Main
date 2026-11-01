@@ -15,10 +15,11 @@ STAGING_JP_DIR = os.path.join(BASE_DIR, "data", "staging", "JP")
 BACKUP_DIR = os.path.join(BASE_DIR, "data", "backup")
 EXPLORER_URL = "http://localhost:8080"
 
-# 確定マスターテーブル体系（全13テーブル）
+# 確定マスターテーブル体系（全14テーブル）
 MASTER_TABLES = [
     "countries.csv",
     "country_progress.csv",
+    "pilot_progress.csv",
     "area_types.csv",
     "municipalities.csv",
     "weather_zones.csv",
@@ -110,17 +111,19 @@ def render_header(subtitle):
     theme_css = DARK_CSS if theme == "dark" else LIGHT_CSS
     st.markdown(BASE_CSS + theme_css, unsafe_allow_html=True)
 
-    col_brand, col_theme, col_gis, col_pub = st.columns([4.3, 1.7, 2.0, 2.0])
+    col_brand, col_theme, col_edit, col_gis, col_pub = st.columns([3.5, 1.5, 1.8, 1.6, 1.6])
     with col_brand:
         st.markdown(
             f'<div class="brand-bar">🌐 机上探索 <span class="badge">MAP v2</span>'
             f'<span class="sub">{subtitle}</span></div>', unsafe_allow_html=True)
     with col_theme:
         is_dark = st.toggle("🌙 黒背景", value=(theme == "dark"), key="theme_toggle")
+    with col_edit:
+        st.link_button("🛠️ 路線エディタ", f"{EXPLORER_URL}/audit_editor.html")
     with col_gis:
-        st.link_button("🗺️ 探索 Web GIS", f"{EXPLORER_URL}/?theme={theme}")
+        st.link_button("🗺️ 探索 GIS", f"{EXPLORER_URL}/?theme={theme}")
     with col_pub:
-        st.link_button("🌐 公開 Web サイト", f"{EXPLORER_URL}/public/")
+        st.link_button("🌐 公開サイト", f"{EXPLORER_URL}/public/")
 
     st.markdown("<hr style='margin: 8px 0 16px 0; border: none; border-top: 1px solid rgba(128,128,128,0.2);'>", unsafe_allow_html=True)
 

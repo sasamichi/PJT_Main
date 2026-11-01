@@ -61,6 +61,7 @@ render_header("データ管理 & 品質保証 — 進捗ダッシュボード・
 tables = load_all_master_tables()
 df_countries = tables.get("countries.csv", pd.DataFrame())
 df_prog = tables.get("country_progress.csv", pd.DataFrame())
+df_pilot = tables.get("pilot_progress.csv", pd.DataFrame())
 df_muni = tables.get("municipalities.csv", pd.DataFrame())
 df_weather = tables.get("weather_zones.csv", pd.DataFrame())
 df_stats = tables.get("statistical_areas.csv", pd.DataFrame())
@@ -77,75 +78,63 @@ df_logs = tables.get("exploration_logs.csv", pd.DataFrame())
 tab1, tab2, tab3 = st.tabs([
     "📈 収集進捗ダッシュボード",
     "🗺️ 地図データエディタ（点・路線修正）",
-    "📚 正本台帳ビューア（全13テーブル）"
+    "📚 正本台帳ビューア（全14テーブル）"
 ])
 
 # ==========================================================
 # タブ1: 📈 収集進捗ダッシュボード
 # ==========================================================
 with tab1:
-    st.subheader("📈 世界交通網・地域データ 収集進捗ダッシュボード")
+    st.subheader("📈 データ収集・整備 進捗管理ダッシュボード")
 
     # ------------------------------------------------------
-    # 上段: 次期対象国ハイライト & 全体KPI（白背景最適化カード）
+    # 1. 5大ステップ体系（全体ロードマップ看板）
     # ------------------------------------------------------
-    c_total = len(df_countries)
-    c_surveyed = len(df_prog[df_prog["ステータス"].str.contains("事前調査完了|フェーズ2準備中|本番データ格納完了", na=False)])
-    c_master = len(df_prog[df_prog["ステータス"].str.contains("本番データ格納完了", na=False)])
+    st.write("##### 🗺️ 5大ステップ体系（全体ロードマップ看板）")
+    s_col1, s_col2, s_col3, s_col4, s_col5 = st.columns(5)
     
-    kpi1, kpi2, kpi3, kpi4 = st.columns(4)
-    kpi1.metric("総対象国・地域", f"{c_total} 件")
-    kpi2.metric("事前調査完了国", f"{c_surveyed} カ国", "JP, AT, TW, KR, CH, IT")
-    kpi3.metric("本番マスタ格納完了", f"{c_master} カ国", "JP (完全PASS)")
-    kpi4.metric("次期推奨着手国", "007 DE (ドイツ)", "欧州中央交通網の要衝")
-
-    # ハイライト案内カード（白背景下で見やすい配色）
-    st.markdown(
+    s_col1.markdown(
         """
-        <div style="background: #ffffff; border: 1px solid #cbd5e1; border-left: 5px solid #2563eb; padding: 14px 18px; border-radius: 8px; margin: 12px 0 18px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
-        <strong style="color: #0f172a; font-size: 14px;">💡 次期収集パイプライン推奨方針:</strong><br>
-        <span style="font-size: 13px; color: #334155; line-height: 1.6;">
-        ・<strong>事前調査完了済（6カ国）:</strong> 🇯🇵 日本 (JP) / 🇦🇹 オーストリア (AT) / 🇹🇼 台湾 (TW) / 🇰🇷 韓国 (KR) / 🇨🇭 スイス (CH) / 🇮🇹 イタリア (IT)<br>
-        ・<strong>次期着手推奨:</strong> 欧州中央の交通ハブである <strong>🇩🇪 ドイツ (DE - 作業順:007 / G7・OECD)</strong>、または西欧最大ネットワークの <strong>🇫🇷 フランス (FR - 作業順:008)</strong> への展開を推奨します。
-        </span>
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a; padding: 10px; border-radius: 6px;">
+        <span style="font-size: 11px; font-weight: bold; color: #16a34a;">✅ ステップ1 (完了)</span><br>
+        <strong style="font-size: 13px; color: #0f172a;">区域残余の完了</strong><br>
+        <span style="font-size: 11px; color: #4b5563;">郡・振興局・支庁階層確立<br>Web反映完了 (2026-11-01)</span>
         </div>
         """, unsafe_allow_html=True
     )
-
-    # ------------------------------------------------------
-    # 中段: 4段階パイプライン概要
-    # ------------------------------------------------------
-    st.write("##### 🔄 4段階収集パイプライン概要")
-    pipe_col1, pipe_col2, pipe_col3, pipe_col4 = st.columns(4)
-    pipe_col1.markdown(
+    s_col2.markdown(
         """
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb; padding: 12px; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
-        <strong style="color: #0f172a; font-size: 13px;">Step 1: 事前調査</strong><br>
-        <span style="font-size: 12px; color: #475569; line-height: 1.5;">行政・気象・交通体系定義<br>area_types策定・調達条件定義</span>
+        <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-left: 4px solid #2563eb; padding: 10px; border-radius: 6px; box-shadow: 0 1px 3px rgba(37,99,235,0.12);">
+        <span style="font-size: 11px; font-weight: bold; color: #2563eb;">🔄 ステップ2 (現在着手)</span><br>
+        <strong style="font-size: 13px; color: #0f172a;">北海道回廊パイロット</strong><br>
+        <span style="font-size: 11px; color: #4b5563;">函館〜旭川 回廊総合検証<br>管理・検査ツール刷新</span>
         </div>
         """, unsafe_allow_html=True
     )
-    pipe_col2.markdown(
+    s_col3.markdown(
         """
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #10b981; padding: 12px; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
-        <strong style="color: #0f172a; font-size: 13px;">Step 2: マスタ登録</strong><br>
-        <span style="font-size: 12px; color: #475569; line-height: 1.5;">area_types, data_sources,<br>operators の確定台帳登録</span>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #94a3b8; padding: 10px; border-radius: 6px;">
+        <span style="font-size: 11px; font-weight: bold; color: #64748b;">⏳ ステップ3 (待機)</span><br>
+        <strong style="font-size: 13px; color: #0f172a;">空・海 全国展開</strong><br>
+        <span style="font-size: 11px; color: #4b5563;">国内全旅客空港（約100港）<br>主要旅客航路の一括整備</span>
         </div>
         """, unsafe_allow_html=True
     )
-    pipe_col3.markdown(
+    s_col4.markdown(
         """
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
-        <strong style="color: #0f172a; font-size: 13px;">Step 3: 実データ収集</strong><br>
-        <span style="font-size: 12px; color: #475569; line-height: 1.5;">areas, routes, nodes, edges<br>の座標・階層・繋がり格納</span>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #94a3b8; padding: 10px; border-radius: 6px;">
+        <span style="font-size: 11px; font-weight: bold; color: #64748b;">⏳ ステップ4 (待機)</span><br>
+        <strong style="font-size: 13px; color: #0f172a;">鉄軌道 全国展開</strong><br>
+        <span style="font-size: 11px; color: #4b5563;">JR各社ブロック順整備<br>私鉄・地下鉄・新交通網</span>
         </div>
         """, unsafe_allow_html=True
     )
-    pipe_col4.markdown(
+    s_col5.markdown(
         """
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #8b5cf6; padding: 12px; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
-        <strong style="color: #0f172a; font-size: 13px;">Step 4: 品質監査 & 公開</strong><br>
-        <span style="font-size: 12px; color: #475569; line-height: 1.5;">精度基準突合・トポロジ検査<br>独立実査合格・一般公開</span>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #94a3b8; padding: 10px; border-radius: 6px;">
+        <span style="font-size: 11px; font-weight: bold; color: #64748b;">⏳ ステップ5 (待機)</span><br>
+        <strong style="font-size: 13px; color: #0f172a;">道路 全国展開</strong><br>
+        <span style="font-size: 11px; color: #4b5563;">全国高速・直轄国道<br>都道府県別主要地方道</span>
         </div>
         """, unsafe_allow_html=True
     )
@@ -153,121 +142,199 @@ with tab1:
     st.markdown("---")
 
     # ------------------------------------------------------
-    # 下段: 主要分野別データ件数一覧 ＆ 連動一括更新セクション
+    # 2. 北海道回廊パイロット（函館―札幌―旭川）進捗台帳
     # ------------------------------------------------------
-    st.write("##### 📊 主要分野別データ件数一覧（確定13テーブル集計）")
+    st.write("##### 🚅 ステップ2: 北海道回廊パイロット対象スコープ台帳")
     
-    cnt_muni = df_muni["country_code"].value_counts().to_dict() if len(df_muni) > 0 and "country_code" in df_muni.columns else {}
-    cnt_weather = df_weather["country_code"].value_counts().to_dict() if len(df_weather) > 0 and "country_code" in df_weather.columns else {}
-    cnt_types = df_area_types["country_code"].value_counts().to_dict() if len(df_area_types) > 0 and "country_code" in df_area_types.columns else {}
-    cnt_ops = df_operators["country_code"].value_counts().to_dict() if len(df_operators) > 0 and "country_code" in df_operators.columns else {}
-    cnt_routes = df_routes["country_code"].value_counts().to_dict() if len(df_routes) > 0 and "country_code" in df_routes.columns else {}
-    cnt_nodes = df_nodes["country_code"].value_counts().to_dict() if len(df_nodes) > 0 and "country_code" in df_nodes.columns else {}
-    cnt_edges = df_edges["route_id"].map(lambda r: r.split("-")[0] if isinstance(r, str) and "-" in r else "").value_counts().to_dict() if len(df_edges) > 0 else {}
-    
-    summary_rows = []
-    for _, r in df_prog.iterrows():
-        cc = r.get("country_code", "")
-        summary_rows.append({
-            "国コード": cc,
-            "国名": r.get("国名", ""),
-            "段階区分": r.get("段階区分", ""),
-            "ステータス": r.get("ステータス", ""),
-            "自治体(muni)": cnt_muni.get(cc, 0),
-            "気象区(weather)": cnt_weather.get(cc, 0),
-            "種別(types)": cnt_types.get(cc, 0),
-            "事業者(ops)": cnt_ops.get(cc, 0),
-            "路線(routes)": cnt_routes.get(cc, 0),
-            "拠点(nodes)": cnt_nodes.get(cc, 0),
-            "更新日": r.get("更新日", ""),
-            "備考・作業順": r.get("備考", "")
-        })
-    df_summary = pd.DataFrame(summary_rows)
+    p_total = len(df_pilot)
+    p_done = len(df_pilot[df_pilot["status"].isin(["監査PASS", "マスター反映済"])])
+    p_running = len(df_pilot[df_pilot["status"].isin(["収集中", "検査中"])])
+    p_waiting = len(df_pilot[df_pilot["status"] == "未着手"])
 
-    f_col_filter, _ = st.columns([2, 2])
-    with f_col_filter:
-        view_filter = st.selectbox(
-            "一覧絞り込み条件",
-            ["すべて表示", "事前調査完了・着手済み国のみ", "作業順設定済みの国のみ", "データ格納済みの国のみ (件数 > 0)"]
-        )
+    k1, k2, k3, k4 = st.columns(4)
+    k1.metric("パイロット対象", f"{p_total} 件", "全10路線・拠点")
+    k2.metric("完了（監査PASS/反映済）", f"{p_done} 件", f"達成率: {int(p_done/p_total*100) if p_total else 0}%")
+    k3.metric("進行中（収集中/検査中）", f"{p_running} 件", "道央道 4段階論理検査済")
+    k4.metric("未着手", f"{p_waiting} 件", "札樽・後志・函館本線等")
 
-    if view_filter == "事前調査完了・着手済み国のみ":
-        df_summary_show = df_summary[df_summary["ステータス"].str.contains("事前調査|フェーズ2|本番データ", na=False)]
-    elif view_filter == "作業順設定済みの国のみ":
-        df_summary_show = df_summary[df_summary["備考・作業順"].str.contains("作業順", na=False)]
-    elif view_filter == "データ格納済みの国のみ (件数 > 0)":
-        df_summary_show = df_summary[(df_summary["自治体(muni)"] > 0) | (df_summary["拠点(nodes)"] > 0)]
-    else:
-        df_summary_show = df_summary
-
-    st.dataframe(df_summary_show, hide_index=True, use_container_width=True)
+    # 台帳テーブル表示
+    disp_cols = ["target_id", "category", "target_name", "section_scope", "operator_name", "length_km", "status", "node_count", "edge_count", "gate1_schema", "gate2_coords", "gate3_topology", "gate4_distance", "remarks"]
+    col_rename = {
+        "target_id": "対象ID",
+        "category": "分類",
+        "target_name": "名称",
+        "section_scope": "対象区間・範囲",
+        "operator_name": "管理者・事業者",
+        "length_km": "延長(km)",
+        "status": "ステータス",
+        "node_count": "ノード数",
+        "edge_count": "エッジ数",
+        "gate1_schema": "G1(スキーマ)",
+        "gate2_coords": "G2(座標)",
+        "gate3_topology": "G3(トポロジ)",
+        "gate4_distance": "G4(実キロ突合)",
+        "remarks": "備考・検証状況"
+    }
+    avail_cols = [c for c in disp_cols if c in df_pilot.columns]
+    df_pilot_show = df_pilot[avail_cols].rename(columns=col_rename)
+    st.dataframe(df_pilot_show, hide_index=True, use_container_width=True)
 
     # ------------------------------------------------------
-    # 一覧表直下: 選択国の進捗・方針・メモ一括更新カード
+    # 3. パイロット対象アイテムの進捗・検査更新フォーム
     # ------------------------------------------------------
-    st.write("")
-    st.write("##### 📝 選択国の進捗ステータス・収集方針・作業メモの一括更新")
+    st.write("##### 📝 パイロット対象アイテムの進捗・検査状態の更新")
     
-    country_options = [
-        f"{r.get('国名', '')} ({r.get('country_code', '')})"
-        for _, r in df_prog.iterrows()
-    ]
-    
-    sel_target_c_str = st.selectbox("更新対象の国を選択", country_options, key="dash_update_c_sel")
-    sel_cc = sel_target_c_str.split("(")[-1].replace(")", "").strip()
-    
-    c_prog_row = df_prog[df_prog["country_code"] == sel_cc].iloc[0] if len(df_prog[df_prog["country_code"] == sel_cc]) > 0 else {}
-    
-    # 選択国の現在の実データ件数サマリー
-    m1, m2, m3, m4, m5, m6 = st.columns(6)
-    m1.metric("自治体 (muni)", f"{cnt_muni.get(sel_cc, 0):,} 件")
-    m2.metric("気象区 (weather)", f"{cnt_weather.get(sel_cc, 0):,} 件")
-    m3.metric("種別 (types)", f"{cnt_types.get(sel_cc, 0):,} 件")
-    m4.metric("事業者 (operators)", f"{cnt_ops.get(sel_cc, 0):,} 件")
-    m5.metric("交通路線 (routes)", f"{cnt_routes.get(sel_cc, 0):,} 件")
-    m6.metric("交通拠点 (nodes)", f"{cnt_nodes.get(sel_cc, 0):,} 件")
+    if len(df_pilot) > 0:
+        target_options = [
+            f"{r['target_id']}: {r['target_name']} ({r['category']})"
+            for _, r in df_pilot.iterrows()
+        ]
+        sel_target_str = st.selectbox("更新する対象アイテムを選択", target_options, key="pilot_target_sel")
+        sel_tid = sel_target_str.split(":")[0].strip()
+        target_row = df_pilot[df_pilot["target_id"] == sel_tid].iloc[0]
 
-    with st.form("form_integrated_country_update"):
-        u_row1_col1, u_row1_col2 = st.columns([1.5, 2.5])
-        with u_row1_col1:
-            status_list = [
-                "未着手",
-                "枠組み完了",
-                "事前調査中",
-                "事前調査完了・フェーズ2準備中",
-                "マスタ登録完了",
-                "実データ収集中",
-                "本番データ格納完了",
-                "保留"
-            ]
-            cur_st = c_prog_row.get("ステータス", "未着手")
-            st_idx = status_list.index(cur_st) if cur_st in status_list else 0
-            new_st = st.selectbox("進捗ステータス", status_list, index=st_idx)
+        with st.form("form_pilot_item_update"):
+            f_c1, f_c2, f_c3 = st.columns([1.5, 1.5, 1.5])
+            with f_c1:
+                st_list = ["未着手", "収集中", "検査中", "監査PASS", "マスター反映済", "保留"]
+                cur_s = target_row.get("status", "未着手")
+                s_idx = st_list.index(cur_s) if cur_s in st_list else 0
+                new_status = st.selectbox("進捗ステータス", st_list, index=s_idx)
+                new_nodes = st.number_input("登録ノード数", value=int(target_row.get("node_count", 0)), min_value=0)
+                new_edges = st.number_input("登録エッジ数", value=int(target_row.get("edge_count", 0)), min_value=0)
 
-        with u_row1_col2:
-            new_policy_m = st.text_input("行政・気象データソース方針", value=c_prog_row.get("収集方針_自治体", ""))
+            with f_c2:
+                gate_options = ["未", "PASS", "FAIL", "対象外"]
+                cur_g1 = target_row.get("gate1_schema", "未")
+                cur_g2 = target_row.get("gate2_coords", "未")
+                cur_g3 = target_row.get("gate3_topology", "未")
+                cur_g4 = target_row.get("gate4_distance", "未")
+                g1_val = st.selectbox("Gate 1 (スキーマ整合性)", gate_options, index=gate_options.index(cur_g1) if cur_g1 in gate_options else 0)
+                g2_val = st.selectbox("Gate 2 (座標・範囲整合性)", gate_options, index=gate_options.index(cur_g2) if cur_g2 in gate_options else 0)
+                g3_val = st.selectbox("Gate 3 (トポロジ連続性)", gate_options, index=gate_options.index(cur_g3) if cur_g3 in gate_options else 0)
+                g4_val = st.selectbox("Gate 4 (実キロ程突合)", gate_options, index=gate_options.index(cur_g4) if cur_g4 in gate_options else 0)
 
-        u_row2_col1, u_row2_col2 = st.columns([1.5, 2.5])
-        with u_row2_col1:
-            new_policy_t = st.text_input("交通網データソース方針", value=c_prog_row.get("収集方針_交通網", ""))
-        with u_row2_col2:
-            new_memo = st.text_input("作業メモ・作業順・優先度備考", value=c_prog_row.get("備考", ""))
+            with f_c3:
+                new_scope = st.text_input("対象区間・範囲", value=str(target_row.get("section_scope", "")))
+                new_length = st.number_input("延長(km)", value=float(target_row.get("length_km", 0.0) or 0.0), min_value=0.0, step=0.1)
+                new_remarks = st.text_area("備考・検証メモ", value=str(target_row.get("remarks", "")), height=100)
 
-        submit_status = st.form_submit_button(f"💾 {sel_target_c_str} の進捗・方針・メモを一括更新（自動バックアップ付き）", type="primary")
-        if submit_status:
-            idx_list = df_prog[df_prog["country_code"] == sel_cc].index
-            if len(idx_list) > 0:
-                target_idx = idx_list[0]
-                df_prog.at[target_idx, "ステータス"] = new_st
-                df_prog.at[target_idx, "収集方針_自治体"] = new_policy_m
-                df_prog.at[target_idx, "収集方針_交通網"] = new_policy_t
-                df_prog.at[target_idx, "備考"] = new_memo
-                df_prog.at[target_idx, "更新日"] = datetime.now().strftime("%Y-%m-%d")
-                
-                bak = save_master_table_with_backup(df_prog, "country_progress.csv")
-                st.success(f"✅ {sel_target_c_str} の進捗情報を一括更新しました（自動バックアップ: `{os.path.basename(bak) if bak else '新規'}`）")
+            submitted = st.form_submit_button("💾 進捗・検査ステータスを保存（自動バックアップ）", use_container_width=True)
+            if submitted:
+                idx = df_pilot[df_pilot["target_id"] == sel_tid].index[0]
+                df_pilot.loc[idx, "status"] = new_status
+                df_pilot.loc[idx, "node_count"] = new_nodes
+                df_pilot.loc[idx, "edge_count"] = new_edges
+                df_pilot.loc[idx, "gate1_schema"] = g1_val
+                df_pilot.loc[idx, "gate2_coords"] = g2_val
+                df_pilot.loc[idx, "gate3_topology"] = g3_val
+                df_pilot.loc[idx, "gate4_distance"] = g4_val
+                df_pilot.loc[idx, "section_scope"] = new_scope
+                df_pilot.loc[idx, "length_km"] = new_length
+                df_pilot.loc[idx, "remarks"] = new_remarks
+                df_pilot.loc[idx, "updated_at"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+                save_master_table_with_backup("pilot_progress.csv", df_pilot)
+                st.success(f"✅ {sel_tid} ({target_row['target_name']}) の進捗情報を正常に保存しました！")
                 st.rerun()
 
+    st.markdown("---")
+
+    # ------------------------------------------------------
+    # 4. 全世界250カ国 進捗管理（折りたたみ）
+    # ------------------------------------------------------
+    with st.expander("🌍 全世界250カ国・地域 収集進捗サマリー ＆ 更新（クリックで展開）", expanded=False):
+        c_total = len(df_countries)
+        c_surveyed = len(df_prog[df_prog["ステータス"].str.contains("事前調査完了|フェーズ2準備中|本番データ格納完了", na=False)]) if len(df_prog) > 0 else 0
+        c_master = len(df_prog[df_prog["ステータス"].str.contains("本番データ格納完了", na=False)]) if len(df_prog) > 0 else 0
+        
+        gk1, gk2, gk3 = st.columns(3)
+        gk1.metric("総対象国・地域", f"{c_total} 件")
+        gk2.metric("事前調査完了国", f"{c_surveyed} カ国", "JP, AT, TW, KR, CH, IT, DE")
+        gk3.metric("本番マスタ格納完了", f"{c_master} カ国", "JP (ステップ1完了)")
+
+        st.write("##### 📊 主要分野別データ件数一覧（確定テーブル集計）")
+        cnt_muni = df_muni["country_code"].value_counts().to_dict() if len(df_muni) > 0 and "country_code" in df_muni.columns else {}
+        cnt_weather = df_weather["country_code"].value_counts().to_dict() if len(df_weather) > 0 and "country_code" in df_weather.columns else {}
+        cnt_types = df_area_types["country_code"].value_counts().to_dict() if len(df_area_types) > 0 and "country_code" in df_area_types.columns else {}
+        cnt_ops = df_operators["country_code"].value_counts().to_dict() if len(df_operators) > 0 and "country_code" in df_operators.columns else {}
+        cnt_routes = df_routes["country_code"].value_counts().to_dict() if len(df_routes) > 0 and "country_code" in df_routes.columns else {}
+        cnt_nodes = df_nodes["country_code"].value_counts().to_dict() if len(df_nodes) > 0 and "country_code" in df_nodes.columns else {}
+
+        summary_rows = []
+        for _, r in df_prog.iterrows():
+            cc = r.get("country_code", "")
+            summary_rows.append({
+                "国コード": cc,
+                "国名": r.get("国名", ""),
+                "段階区分": r.get("段階区分", ""),
+                "ステータス": r.get("ステータス", ""),
+                "自治体(muni)": cnt_muni.get(cc, 0),
+                "気象区(weather)": cnt_weather.get(cc, 0),
+                "種別(types)": cnt_types.get(cc, 0),
+                "事業者(ops)": cnt_ops.get(cc, 0),
+                "路線(routes)": cnt_routes.get(cc, 0),
+                "拠点(nodes)": cnt_nodes.get(cc, 0),
+                "更新日": r.get("更新日", ""),
+                "備考・作業順": r.get("備考", "")
+            })
+        df_summary = pd.DataFrame(summary_rows)
+
+        view_filter = st.selectbox(
+            "一覧絞り込み条件",
+            ["すべて表示", "事前調査完了・着手済み国のみ", "作業順設定済みの国のみ", "データ格納済みの国のみ (件数 > 0)"],
+            key="global_view_filter"
+        )
+        if view_filter == "事前調査完了・着手済み国のみ":
+            df_summary_show = df_summary[df_summary["ステータス"].str.contains("事前調査|フェーズ2|本番データ|ステップ", na=False)]
+        elif view_filter == "作業順設定済みの国のみ":
+            df_summary_show = df_summary[df_summary["備考・作業順"].str.contains("作業順", na=False)]
+        elif view_filter == "データ格納済みの国のみ (件数 > 0)":
+            df_summary_show = df_summary[(df_summary["自治体(muni)"] > 0) | (df_summary["拠点(nodes)"] > 0)]
+        else:
+            df_summary_show = df_summary
+
+        st.dataframe(df_summary_show, hide_index=True, use_container_width=True)
+
+        st.write("##### 📝 国別ステータス・収集方針の更新")
+        country_options = [
+            f"{r.get('国名', '')} ({r.get('country_code', '')})"
+            for _, r in df_prog.iterrows()
+        ]
+        sel_target_c_str = st.selectbox("更新対象の国を選択", country_options, key="dash_update_c_sel")
+        sel_cc = sel_target_c_str.split("(")[-1].replace(")", "").strip()
+        c_prog_row = df_prog[df_prog["country_code"] == sel_cc].iloc[0] if len(df_prog[df_prog["country_code"] == sel_cc]) > 0 else {}
+
+        with st.form("form_integrated_country_update"):
+            u_c1, u_c2 = st.columns([1.5, 2.5])
+            with u_c1:
+                status_list = [
+                    "未着手", "枠組み完了", "事前調査中", "事前調査完了・フェーズ2準備中",
+                    "ステップ2進行中", "マスタ登録完了", "実データ収集中", "本番データ格納完了", "保留"
+                ]
+                cur_st = c_prog_row.get("ステータス", "未着手")
+                st_idx = status_list.index(cur_st) if cur_st in status_list else 0
+                new_st = st.selectbox("進捗ステータス", status_list, index=st_idx)
+            with u_c2:
+                new_policy_m = st.text_input("行政・気象データソース方針", value=str(c_prog_row.get("収集方針_自治体", "")))
+
+            u_c3, u_c4 = st.columns([1.5, 2.5])
+            with u_c3:
+                new_policy_t = st.text_input("交通データソース方針", value=str(c_prog_row.get("収集方針_交通", "")))
+            with u_c4:
+                new_remarks = st.text_input("備考・作業順・特記事項", value=str(c_prog_row.get("備考", "")))
+
+            sub_c = st.form_submit_button("💾 国別進捗情報を保存（自動バックアップ）", use_container_width=True)
+            if sub_c:
+                idx = df_prog[df_prog["country_code"] == sel_cc].index[0]
+                df_prog.loc[idx, "ステータス"] = new_st
+                df_prog.loc[idx, "収集方針_自治体"] = new_policy_m
+                df_prog.loc[idx, "収集方針_交通"] = new_policy_t
+                df_prog.loc[idx, "備考"] = new_remarks
+                df_prog.loc[idx, "更新日"] = datetime.now().strftime("%Y-%m-%d")
+                save_master_table_with_backup("country_progress.csv", df_prog)
+                st.success(f"✅ {sel_cc} ({c_prog_row.get('国名', '')}) の進捗情報を更新しました！")
+                st.rerun()
 
 # ==========================================================
 # タブ2: 🗺️ 地図データエディタ（点・路線修正）
