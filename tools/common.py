@@ -149,7 +149,7 @@ def read_csv_clean(filename):
         return pd.DataFrame()
 
     try:
-        df = pd.read_csv(target_path, encoding="utf-8", keep_default_na=False, dtype=str).fillna("")
+        df = pd.read_csv(target_path, encoding="utf-8-sig", keep_default_na=False, dtype=str).fillna("")
         for col in df.columns:
             df[col] = df[col].astype(str).str.strip()
         return df
@@ -233,7 +233,7 @@ def restore_master_table_from_backup(filename, backup_path=None):
 
 
 def load_all_master_tables():
-    """新方針「基盤の基盤」確定10テーブルの辞書を返す"""
+    """確定14テーブルの辞書を返す"""
     return {t: read_csv_clean(t) for t in MASTER_TABLES}
 
 

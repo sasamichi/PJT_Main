@@ -1,15 +1,15 @@
 {
   "title": "世界交通網・地域データ基盤 (Global Transit & Territory Archive)",
-  "updated_at": "2026-11-01",
+  "updated_at": "2026-11-02",
   "total_stats": {
     "registered_countries": 251,
     "active_countries": 1,
-    "municipalities": 2361,
+    "municipalities": 2356,
     "weather_zones": 2391,
     "operators": 225,
-    "routes": 1421,
-    "nodes": 14773,
-    "edges": 151
+    "routes": 1423,
+    "nodes": 14798,
+    "edges": 220
   },
   "countries": [
     {
@@ -3327,11 +3327,11 @@
       "currency": "",
       "drive_side": "左",
       "counts": {
-        "municipalities": 2361,
+        "municipalities": 2356,
         "operators": 225,
-        "routes": 1421,
-        "nodes": 14773,
-        "edges": 151,
+        "routes": 1423,
+        "nodes": 14798,
+        "edges": 220,
         "weather_zones": 2391,
         "has_data": true
       },

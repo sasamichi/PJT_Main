@@ -4,8 +4,8 @@ ID永続化共通マネージャー (id_manager.py)
 ----------------------------------------
 - 一度発行したID（国コード-種別-6桁連番）を永続化し、再収集時にも変更・再利用しない。
 - Wikidata ID、公的コード、または正規化名称キーにより既存レコードと突合。
-- 新規レコードのみ最大連番+1で採番。
-- ソースから消えたレコードは削除せず論理フラグ（廃止/要確認）を残す。
+- 新規レコードのみ最大連番+1で採番（municipalities と weather_zones は AR 連番空間を共有）。
+- 現行スキーマv3（全14テーブル体系）完全準拠。
 """
 
 import os
@@ -14,53 +14,91 @@ import pandas as pd
 
 
 class IdManager:
-    # テーブル種別ごとのIDプレフィックス定義（docs/02 確定仕様準拠）
+    # テーブル種別ごとのIDプレフィックス定義（docs/02 確定仕様 v3 準拠）
     PREFIX_MAP = {
-        'municipalities': 'MN',
-        'weather_zones': 'WZ',
+        'municipalities': 'AR',
+        'weather_zones': 'AR',
+        'statistical_areas': 'ST',
         'operators': 'OP',
         'transport_routes': 'RT',
         'nodes': 'ND',
         'edges': 'ED',
-        'historical_transitions': 'TR',
-        'city_partnerships': 'PRT',
-        'theme_spots': 'SP',
-        'exploration_logs': 'LOG'
+        'relations': 'RL',
+        'exploration_logs': 'LOG',
     }
 
     ID_COL_MAP = {
+        'countries': 'country_code',
+        'country_progress': 'country_code',
+        'pilot_progress': 'target_id',
+        'area_types': 'type_id',
+        'data_sources': 'source_id',
         'municipalities': 'municipality_id',
         'weather_zones': 'zone_id',
+        'statistical_areas': 'statistical_area_id',
         'operators': 'operator_id',
         'transport_routes': 'route_id',
         'nodes': 'node_id',
         'edges': 'edge_id',
-        'historical_transitions': 'transition_id',
-        'city_partnerships': 'partnership_id',
-        'theme_spots': 'spot_id',
-        'exploration_logs': 'log_id'
+        'relations': 'relation_id',
+        'exploration_logs': 'log_id',
     }
 
     def __init__(self, master_dir):
         self.master_dir = master_dir
         self.existing_records = {}  # {table_name: DataFrame}
-        self.max_seq = {}           # {(table_name, country_code): max_seq_int}
+        self.max_seq = {}           # {(prefix, country_code): max_seq_int}
         self.key_to_id = {}         # {(table_name, country_code, match_key): id_str}
+
+    def _extract_name_ja(self, row):
+        for col in ('名称', '路線名', '事業者名', '日本語名'):
+            v = str(row.get(col, '')).strip()
+            if v:
+                return v
+        return ''
+
+    def _extract_name_local(self, row):
+        for col in ('名称_公用語', '路線名_公用語', '公用語名'):
+            v = str(row.get(col, '')).strip()
+            if v:
+                return v
+        return ''
+
+    def _extract_code(self, row):
+        for col in ('公的コード', '気象庁コード', '自治体コード', '拠点コード', '路線番号_記号'):
+            v = str(row.get(col, '')).strip()
+            if v:
+                return v
+        return ''
+
+    def _extract_kind(self, row):
+        for col in ('種別', 'type_id', '大分類'):
+            v = str(row.get(col, '')).strip()
+            if v:
+                return v
+        return ''
 
     def load_table(self, table_name):
         """マスタテーブルを読み込み、既存IDと照合キーのマッピングを構築"""
+        # ARプレフィックス共有のため、municipalitiesとweather_zonesは両方読み込む
+        targets = ['municipalities', 'weather_zones'] if table_name in ('municipalities', 'weather_zones') else [table_name]
+        for tbl in targets:
+            if tbl in self.existing_records:
+                continue
+            self._load_single_table(tbl)
+
+    def _load_single_table(self, table_name):
         csv_file = os.path.join(self.master_dir, f"{table_name}.csv")
-        prefix = self.PREFIX_MAP.get(table_name)
         id_col = self.ID_COL_MAP.get(table_name)
 
         if not os.path.exists(csv_file):
             self.existing_records[table_name] = pd.DataFrame()
             return
 
-        df = pd.read_csv(csv_file, encoding='utf-8', keep_default_na=False, dtype=str)
+        df = pd.read_csv(csv_file, encoding='utf-8-sig', keep_default_na=False, dtype=str)
         self.existing_records[table_name] = df
 
-        if id_col not in df.columns:
+        if not id_col or id_col not in df.columns:
             return
 
         for _, row in df.iterrows():
@@ -68,63 +106,55 @@ class IdManager:
             if not current_id:
                 continue
 
-            # ID形式: [CC]-[PREFIX]-[SEQ] (例: JP-ND-000001)
-            # 旧形式 5桁 (例: JP-ND-00001) にも対応
             m = re.match(r"^([A-Z]+)-([A-Z]+)-(\d+)$", current_id)
             if m:
                 cc = m.group(1)
+                pfx = m.group(2)
                 seq = int(m.group(3))
-                key_cc = (table_name, cc)
-                if key_cc not in self.max_seq or seq > self.max_seq[key_cc]:
-                    self.max_seq[key_cc] = seq
+                key_seq = (pfx, cc)
+                if key_seq not in self.max_seq or seq > self.max_seq[key_seq]:
+                    self.max_seq[key_seq] = seq
 
-                # 照合キーを複数登録して頑健に照合（必ず種別を含める）
-                kind = str(row.get('種別', '')).strip()
+                kind = self._extract_kind(row)
 
-                # 1. Wikidata URL (QID)
-                wiki_url = str(row.get('Wikidata', '')).strip()
-                if wiki_url:
-                    qid_m = re.search(r"Q\d+", wiki_url)
+                # 1. Wikidata QID
+                wiki_val = str(row.get('Wikidata_id', row.get('Wikidata', ''))).strip()
+                if wiki_val:
+                    qid_m = re.search(r"Q\d+", wiki_val)
                     if qid_m:
                         self.key_to_id[(table_name, cc, f"wiki:{kind}:{qid_m.group(0)}")] = current_id
 
-                # 2. 公的コード (自治体コード、拠点コード、路線番号)
-                code = str(row.get('自治体コード', row.get('拠点コード', row.get('路線番号_記号', '')))).strip()
+                # 2. 公的コード
+                code = self._extract_code(row)
                 if code:
                     self.key_to_id[(table_name, cc, f"code:{kind}:{code}")] = current_id
 
-                # 3. 日本語名 / 公用語名
-                name_ja = str(row.get('日本語名', '')).strip()
-                name_local = str(row.get('公用語名', '')).strip()
+                # 3. 名称 / 公用語名
+                name_ja = self._extract_name_ja(row)
+                name_local = self._extract_name_local(row)
                 if name_ja:
                     self.key_to_id[(table_name, cc, f"name_ja:{kind}:{name_ja}")] = current_id
                 if name_local:
                     self.key_to_id[(table_name, cc, f"name_local:{kind}:{name_local}")] = current_id
-                # 4. edges / route_nodes 用照合キー
+
+                # 4. edges 用照合キー
                 if table_name == 'edges':
                     r_id = str(row.get('route_id', '')).strip()
                     fn_id = str(row.get('from_node_id', '')).strip()
                     tn_id = str(row.get('to_node_id', '')).strip()
                     if r_id and fn_id and tn_id:
                         self.key_to_id[(table_name, cc, f"edge:{r_id}:{fn_id}:{tn_id}")] = current_id
-                elif table_name == 'route_nodes':
-                    r_id = str(row.get('route_id', '')).strip()
-                    n_id = str(row.get('node_id', '')).strip()
-                    sub_sec = str(row.get('区間別称', '')).strip()
-                    if r_id and n_id:
-                        self.key_to_id[(table_name, cc, f"link:{r_id}:{n_id}:{sub_sec}")] = current_id
 
     def get_or_assign_id(self, table_name, country_code, record_dict):
         """
         レコードに対して既存IDを照合・返却。存在しなければ新規6桁IDを発行。
         """
-        if table_name not in self.existing_records:
-            self.load_table(table_name)
+        self.load_table(table_name)
 
         prefix = self.PREFIX_MAP.get(table_name, 'REC')
         cc = country_code.strip()
 
-        # 0. edges / route_nodes 特殊照合
+        # 0. edges 特殊照合
         if table_name == 'edges':
             r_id = str(record_dict.get('route_id', '')).strip()
             fn_id = str(record_dict.get('from_node_id', '')).strip()
@@ -132,36 +162,27 @@ class IdManager:
             edge_k = (table_name, cc, f"edge:{r_id}:{fn_id}:{tn_id}")
             if edge_k in self.key_to_id:
                 return self.key_to_id[edge_k], False
-        elif table_name == 'route_nodes':
-            r_id = str(record_dict.get('route_id', '')).strip()
-            n_id = str(record_dict.get('node_id', '')).strip()
-            sub_sec = str(record_dict.get('区間別称', '')).strip()
-            link_k = (table_name, cc, f"link:{r_id}:{n_id}:{sub_sec}")
-            if link_k in self.key_to_id:
-                return self.key_to_id[link_k], False
 
-        kind = str(record_dict.get('種別', '')).strip()
+        kind = self._extract_kind(record_dict)
 
-        # 1. 既存照合 (Wikidata QID優先、種別一致)
-        wiki_url = str(record_dict.get('Wikidata', '')).strip()
-        qid_m = None
-        if wiki_url:
-            qid_m = re.search(r"Q\d+", wiki_url)
-            if qid_m:
-                k = (table_name, cc, f"wiki:{kind}:{qid_m.group(0)}")
-                if k in self.key_to_id:
-                    return self.key_to_id[k], False
+        # 1. Wikidata QID優先
+        wiki_val = str(record_dict.get('Wikidata_id', record_dict.get('Wikidata', ''))).strip()
+        qid_m = re.search(r"Q\d+", wiki_val) if wiki_val else None
+        if qid_m:
+            k = (table_name, cc, f"wiki:{kind}:{qid_m.group(0)}")
+            if k in self.key_to_id:
+                return self.key_to_id[k], False
 
-        # 2. 公的コードで照合（種別一致）
-        code = str(record_dict.get('自治体コード', record_dict.get('拠点コード', record_dict.get('路線番号_記号', '')))).strip()
+        # 2. 公的コードで照合
+        code = self._extract_code(record_dict)
         if code:
             k = (table_name, cc, f"code:{kind}:{code}")
             if k in self.key_to_id:
                 return self.key_to_id[k], False
 
         # 3. 種別＋名称で照合
-        name_ja = str(record_dict.get('日本語名', '')).strip()
-        name_local = str(record_dict.get('公用語名', '')).strip()
+        name_ja = self._extract_name_ja(record_dict)
+        name_local = self._extract_name_local(record_dict)
         if name_ja:
             k = (table_name, cc, f"name_ja:{kind}:{name_ja}")
             if k in self.key_to_id:
@@ -172,18 +193,19 @@ class IdManager:
                 return self.key_to_id[k], False
 
         # 新規採番
-        key_cc = (table_name, cc)
-        next_seq = self.max_seq.get(key_cc, 0) + 1
-        self.max_seq[key_cc] = next_seq
+        key_seq = (prefix, cc)
+        next_seq = self.max_seq.get(key_seq, 0) + 1
+        self.max_seq[key_seq] = next_seq
         new_id = f"{cc}-{prefix}-{next_seq:06d}"
 
         # 辞書に登録
-        if table_name == 'route_nodes':
+        if table_name == 'edges':
             r_id = str(record_dict.get('route_id', '')).strip()
-            n_id = str(record_dict.get('node_id', '')).strip()
-            sub_sec = str(record_dict.get('区間別称', '')).strip()
-            self.key_to_id[(table_name, cc, f"link:{r_id}:{n_id}:{sub_sec}")] = new_id
-        if wiki_url and qid_m:
+            fn_id = str(record_dict.get('from_node_id', '')).strip()
+            tn_id = str(record_dict.get('to_node_id', '')).strip()
+            if r_id and fn_id and tn_id:
+                self.key_to_id[(table_name, cc, f"edge:{r_id}:{fn_id}:{tn_id}")] = new_id
+        if qid_m:
             self.key_to_id[(table_name, cc, f"wiki:{kind}:{qid_m.group(0)}")] = new_id
         if code:
             self.key_to_id[(table_name, cc, f"code:{kind}:{code}")] = new_id
@@ -194,45 +216,16 @@ class IdManager:
 
         return new_id, True
 
-    def fix_exploration_logs_ids(self):
-        """
-        過去の探索ログ (exploration_logs.csv) に残る5桁ID等を6桁IDに修復
-        """
-        log_file = os.path.join(self.master_dir, "exploration_logs.csv")
-        if not os.path.exists(log_file):
-            return
-
-        df = pd.read_csv(log_file, encoding='utf-8', keep_default_na=False, dtype=str)
-        if len(df) == 0:
-            return
-
-        def expand_id(val):
-            # 例: JP-RT-00001 -> JP-RT-000001, JP-ND-00001 -> JP-ND-000001
-            def repl(m):
-                cc = m.group(1)
-                kind = m.group(2)
-                num = int(m.group(3))
-                return f"{cc}-{kind}-{num:06d}"
-            return re.sub(r"([A-Z]+)-([A-Z]+)-(\d{1,5})\b", repl, str(val))
-
-        for col in ['log_id', '対象路線_ids', '対象ノード_ids', '対象自治体_ids']:
-            if col in df.columns:
-                df[col] = df[col].apply(expand_id)
-
-        df.to_csv(log_file, index=False, encoding='utf-8')
-        print(f"探索ログのIDを6桁に修復しました: {log_file}")
-
     def save_merged_master(self, table_name, df_new_records, country_code='JP', target_types=None, target_route_ids=None):
         """
-        他分野・他国・他路線のレコードを完全に保持したまま、今回の収集対象レコードのみを安全に差し替えて保存する。
+        他分野・他国・他路線のレコードを保持したまま、対象レコードのみを安全に差し替えて保存する。
         """
         csv_file = os.path.join(self.master_dir, f"{table_name}.csv")
         id_col = self.ID_COL_MAP.get(table_name)
 
         if os.path.exists(csv_file):
-            df_old = pd.read_csv(csv_file, encoding='utf-8', keep_default_na=False, dtype=str)
-            if table_name == 'route_nodes' and target_route_ids:
-                # 対象路線以外のリンクデータを保持
+            df_old = pd.read_csv(csv_file, encoding='utf-8-sig', keep_default_na=False, dtype=str)
+            if table_name == 'edges' and target_route_ids:
                 df_keep = df_old[~df_old['route_id'].isin(target_route_ids)].copy()
             elif 'country_code' in df_old.columns and '種別' in df_old.columns and target_types:
                 mask_keep = (df_old['country_code'] != country_code) | (~df_old['種別'].isin(target_types))
@@ -245,8 +238,7 @@ class IdManager:
             df_keep = pd.DataFrame()
 
         df_final = pd.concat([df_keep, df_new_records], ignore_index=True)
-        # ID重複がないか安全確認（万が一重複があれば重複排除）
-        if id_col in df_final.columns:
+        if id_col and id_col in df_final.columns:
             dups = df_final[df_final.duplicated(id_col, keep=False)]
             if len(dups) > 0:
                 print(f"[警告] {table_name}.csv 保存時に {len(dups)} 件のID重複を検知。重複を排除します。")

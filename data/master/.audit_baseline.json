@@ -1,0 +1,56 @@
+{
+  "row_counts": {
+    "countries": 251,
+    "country_progress": 250,
+    "pilot_progress": 10,
+    "area_types": 145,
+    "data_sources": 127,
+    "municipalities": 2356,
+    "weather_zones": 2391,
+    "statistical_areas": 0,
+    "operators": 225,
+    "transport_routes": 1423,
+    "nodes": 14798,
+    "edges": 220,
+    "relations": 0,
+    "exploration_logs": 1
+  },
+  "non_empty_counts": {
+    "municipalities": {
+      "公的コード": 1983,
+      "親自治体ID": 2309,
+      "気象予報区ID": 1756,
+      "代表緯度": 1983,
+      "公式サイトURL": 1960,
+      "Wikipedia_url": 2356,
+      "よみ_かな": 0
+    },
+    "weather_zones": {
+      "気象庁コード": 2391,
+      "親予報区ID": 2380,
+      "公式サイトURL": 2391
+    },
+    "nodes": {
+      "municipality_id": 14798,
+      "operator_id": 14798,
+      "緯度": 14792,
+      "Wikipedia_url": 13510,
+      "Wikidata_id": 154,
+      "開始日": 58,
+      "よみ_かな": 0
+    },
+    "transport_routes": {
+      "operator_id": 1423,
+      "起点ノード_id": 1,
+      "終点ノード_id": 1,
+      "総距離_km": 3
+    },
+    "edges": {
+      "edge_id": 220,
+      "route_id": 220,
+      "from_node_id": 220,
+      "to_node_id": 220,
+      "距離_km": 62
+    }
+  }
+}

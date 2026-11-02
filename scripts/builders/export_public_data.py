@@ -74,7 +74,7 @@ def read_csv_clean(filename):
     if not os.path.exists(path):
         return pd.DataFrame()
     try:
-        df = pd.read_csv(path, encoding="utf-8", keep_default_na=False, dtype=str).fillna("")
+        df = pd.read_csv(path, encoding="utf-8-sig", keep_default_na=False, dtype=str).fillna("")
     except Exception as e:
         print(f"警告: {filename} の読み込みに失敗しました ({e})")
         return pd.DataFrame()
@@ -448,7 +448,7 @@ def export_public_data():
         op_id = row.get("operator_id", "")
         if op_id:
             op_lookup[op_id] = {
-                "name": row.get("日本語名", "") or row.get("公用語名", ""),
+                "name": row.get("事業者名", "") or row.get("日本語名", "") or row.get("公用語名", ""),
                 "name_official": row.get("公用語名", ""),
                 "short_name": row.get("略称", ""),
                 "type": row.get("種別", ""),
@@ -799,7 +799,7 @@ def export_public_data():
             op_routes = [r_info for r_info in route_lookup.values() if r_info.get("operator_id") == op_id]
             op_list.append({
                 "id": op_id,
-                "name": r.get("日本語名", "") or r.get("公用語名", ""),
+                "name": r.get("事業者名", "") or r.get("路線名", "") or r.get("日本語名", "") or r.get("公用語名", ""),
                 "name_official": r.get("公用語名", ""),
                 "short_name": r.get("略称", ""),
                 "type": r.get("種別", ""),
@@ -817,9 +817,9 @@ def export_public_data():
             r_seq = route_sequences.get(rid, [])
             route_list.append({
                 "id": rid,
-                "name": r.get("日本語名", "") or r.get("公用語名", ""),
+                "name": r.get("事業者名", "") or r.get("路線名", "") or r.get("日本語名", "") or r.get("公用語名", ""),
                 "name_official": r.get("公用語名", ""),
-                "alias": r.get("別称_愛称", ""),
+                "alias": r.get("路線名_通称", "") or r.get("別称_愛称", ""),
                 "number": r.get("路線番号_記号", ""),
                 "mode": r.get("種別", ""),
                 "operator_id": r.get("operator_id", ""),
@@ -827,7 +827,7 @@ def export_public_data():
                 "color": r.get("ラインカラー", "") or "#2563eb",
                 "start": r.get("起点ノード_id", ""),
                 "end": r.get("終点ノード_id", ""),
-                "km": parse_float(r.get("営業キロ", "")),
+                "km": parse_float(r.get("総距離_km", "") or r.get("営業キロ", "")),
                 "gauge": r.get("軌間", ""),
                 "electrified": r.get("電化方式", ""),
                 "has_sequence": len(r_seq) > 0,
@@ -951,7 +951,7 @@ def export_public_data():
 
         out_path = os.path.join(PUBLIC_DATA_DIR, f"{cc.lower()}.json")
         with open(out_path, "w", encoding="utf-8") as f:
-            json.dump(country_data, f, ensure_ascii=False)
+            json.dump(country_data, f, ensure_ascii=False, separators=(",", ":"))
 
         # サマリー集計用
         has_any_data = (len(muni_list) > 0 or len(op_list) > 0 or len(route_list) > 0 or len(node_list) > 0)
